@@ -191,12 +191,87 @@
       "failures": [],
       "module": "test_templates_and_integrity",
       "passed": 13
+    },
+    {
+      "checks": [
+        "pinned OpenAPI snapshot verifies byte-exact with sane surfaces",
+        "1. qualifying Secure single-B200 quote accepted",
+        "2. price above USD 5.89 refused",
+        "3. Community-only availability refused",
+        "4. interruptible offer surface = schema drift, fails closed",
+        "5. cluster/multi-GPU-minimum offer refused (secure maxCount<1)",
+        "6. B200 unavailable (availability NONE) refused",
+        "7. alternate GPU (H100/H200/B300) never substituted",
+        "8. quote expires after the 15-minute validity interval",
+        "9. catalog schema drift (missing pricing) fails closed",
+        "live schema identity check fails closed on enum/path drift",
+        "10. unknown lifecycle state fails closed",
+        "29. transient 429 with Retry-After is retried then succeeds",
+        "30. transient 5xx retried with backoff then succeeds",
+        "malformed JSON fails closed",
+        "28. delayed billing never extends the run; the monotonic watchdog is authoritative",
+        "31. API key never appears in logs or exception strings",
+        "budget arithmetic is decimal with boundary tests at/below/above USD 40 and USD 45"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_runpod_adapter",
+      "passed": 18
+    },
+    {
+      "checks": [
+        "37/38. read-only transport rejects POST/PATCH/PUT/DELETE BEFORE any socket (mutating call refused during this task)",
+        "adapter without authorization cannot mutate (no request sent)",
+        "32-35. every interlock condition is individually load-bearing",
+        "the shipped authorization template is unusable by construction",
+        "36. authorization nonce replay refused",
+        "40. mutable image tag refused; digest required",
+        "zero-touch launcher refuses without --authorization before any network call",
+        "39. injected fake secret never lands in the packaged tree"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_runpod_interlock",
+      "passed": 8
+    },
+    {
+      "checks": [
+        "provision -> RUNNING -> terminate -> confirmed, with atomic POD_ID record and machine-readable lifecycle report",
+        "11. duplicate Pod creation prevented (reconcile by canonical name before creating)",
+        "12. create response lost -> reconcile by nonce+name attaches to the unique remote pod; NO second create request",
+        "13. ambiguous reconciliation terminates all matches and halts",
+        "14. startup timeout terminates the pod and fails loudly",
+        "15. container failure -> logs collected automatically -> terminate",
+        "terminate while provisioning/starting/running/after-failure; repeated terminate; delayed termination all confirm",
+        "transient 429/5xx during termination still reaches confirmed termination via the redundant DELETE path",
+        "unknown Pod ID counts as already-terminated; permission failure is loud",
+        "25/26/27. primary termination failure -> watchdog succeeds; both-fail is a loud, recorded failure",
+        "watchdog process crash is detectable via the handle",
+        "16/24. artifact transfer: chunked retry, hash verification, atomic rename, partial cleanup; corrupt transfer refused"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_runpod_lifecycle",
+      "passed": 12
+    },
+    {
+      "checks": [
+        "session without the env flag refuses BEFORE any mutating request (no pod, zero non-GET traffic)",
+        "full mocked zero-touch session: quote -> create -> RUNNING -> completion marker -> results downloaded -> TERMINATED confirmed",
+        "failed preflight (B200 unavailable) refuses before create",
+        "17-23. any on-pod stage failure (ERROR before completion) -> logs collected, pod terminated, diagnostic package local",
+        "24. output-transfer failure -> pod still terminated, loud abort"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_runpod_zero_touch",
+      "passed": 5
     }
   ],
   "schema": "o1b200.test_report.v1",
   "scope_note": "Hardware-independent local validation only: synthetic runtime + non-O1 corpus + mocked provider/clock. No B200 hardware claim is made or implied.",
   "total_failed": 0,
-  "total_passed": 112,
-  "utc": "2026-08-01T09:17:28Z",
+  "total_passed": 155,
+  "utc": "2026-08-01T12:21:32Z",
   "verdict": "ALL O1 B200 RUNNER TESTS PASSED"
 }

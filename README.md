@@ -57,9 +57,15 @@ earlier stages, and nothing published there is duplicated here:
 - O1 v2.1 design is sealed and externally precommitted; the first real
   calibration attempt was operator-stopped at 403/4608 rows and formally
   **aborted for backend redesign** (ledgered; no rows reused).
-- The B200 runner is **software-complete and hardware-unvalidated**:
-  112/112 local checks pass; no B200 access, no cloud spend, no provider
-  selected; real calibration and confirmatory generation have **not** run.
+- The B200 runner is **software-complete and hardware-unvalidated**. v0.2.0
+  adds the complete RunPod pre-rental stack: the production RunPod REST API
+  v2 adapter (pinned OpenAPI snapshot, typed fail-closed models),
+  transport-level read-only enforcement, the eleven-condition live-mutation
+  interlock, redundant termination (adapter + independent watchdog process),
+  decimal budget engine (USD 45/40/5), mock-server contract matrix, and the
+  locally built production container (torch cu128 with sm_100, transformers
+  4.54.1 exact). 155/155 local checks pass; no pod created, no cloud spend;
+  real calibration and confirmatory generation have **not** run.
 - No scientific claim about oracle reachability is made in this repository:
   the calibration and confirmatory phases have not been executed.
 

@@ -1,0 +1,23 @@
+# O1 B200 production-container lock (torch is installed separately from the
+# locally frozen wheel torch-2.12.0.dev20260408+cu128-cp314; see
+# Dockerfile.b200 header for the documented 0407->0408 pin resolution).
+# transformers MUST remain exactly 4.54.1.
+transformers==4.54.1
+numpy==2.4.4
+tokenizers==0.21.4
+safetensors==0.7.0
+huggingface_hub==0.36.2
+hf-xet==1.5.0
+accelerate==1.13.0
+einops==0.8.2
+filelock==3.29.0
+fsspec==2026.2.0
+packaging==26.2
+PyYAML==6.0.3
+regex==2026.5.9
+requests==2.33.1
+tqdm==4.67.3
+Jinja2==3.1.6
+networkx==3.6.1
+sympy==1.14.0
+typing_extensions==4.15.0

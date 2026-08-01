@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "artifact_transfer_manifest": {
+      "detail": "12 artifacts",
+      "ok": true
+    },
+    "authorization_template_unusable": {
+      "detail": "",
+      "ok": true
+    },
+    "b200_runner_and_adapter_suites": {
+      "detail": "ALL O1 B200 RUNNER TESTS PASSED  (155 checks, 782.9s)",
+      "ok": true
+    },
+    "base_package_suite": {
+      "detail": "ALL O1 v2.1 CHECKS PASSED",
+      "ok": true
+    },
+    "container_image_built_and_asserted": {
+      "detail": "torch=2.12.0.dev20260408+cu128 sm_100=True",
+      "ok": true
+    },
+    "dry_run_pod_request_render": {
+      "detail": "1eca848cb9229802",
+      "ok": true
+    },
+    "openapi_schema_pin": {
+      "detail": "0bbdd828569233765e310e773e34586b33a6e38f55afde989ebd670152ed5c13",
+      "ok": true
+    },
+    "secret_scan_clean": {
+      "detail": "no secrets found",
+      "ok": true
+    }
+  },
+  "readonly_live_check": "SKIPPED_NO_CREDENTIAL",
+  "schema": "o1b200.runpod_pre_rental_readiness.v1",
+  "verdict": "PASS_PENDING_READONLY_CREDENTIAL_CHECK"
+}

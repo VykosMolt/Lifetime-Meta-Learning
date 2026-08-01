@@ -11,12 +11,15 @@ total, USD 40.00 compute ceiling, no extension, no override, no auto-reload,
 
 Steps requiring **explicit user authorization** are marked **[USER AUTH]**.
 
-1. **[USER AUTH] Choose provider and exact single-B200 product.** One GPU
-   only. Record product name, region, and quoted hourly rate.
-2. **Implement and test the selected provider adapter** against the
-   `runner/provider_adapter.py` contract, without starting an instance where
-   possible (quote/validate paths first). The production adapter is a
-   declared future dependency; nothing in this package implements it.
+1. **Provider chosen and frozen: RunPod / Pod / Secure Cloud / on-demand /
+   exactly one NVIDIA B200 / max USD 5.89/h GPU rate.** See
+   `provider/runpod/policy.py`.
+2. **DONE (2026-08-01): the production RunPod API v2 adapter is implemented
+   and mock-contract-tested** (`provider/runpod/`, pinned OpenAPI snapshot
+   `provider/runpod/openapi/`, full test suite in
+   `tests/test_runpod_*.py`). Remaining live validation is GET-only:
+   `scripts/runpod_pre_rental_readonly_check.sh` once `RUNPOD_API_KEY`
+   exists.
 3. **Verify the quoted hourly rate against the USD 45 policy.** Populate the
    budget policy's unresolved fields; compute
    `floor(40.00 / rate * 3600)` seconds as the hard runtime limit.

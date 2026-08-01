@@ -22,6 +22,10 @@ MODULES = [
     "test_budget_watchdog",
     "test_state_machine",
     "test_templates_and_integrity",
+    "test_runpod_adapter",
+    "test_runpod_interlock",
+    "test_runpod_lifecycle",
+    "test_runpod_zero_touch",
 ]
 
 

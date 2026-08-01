@@ -1,0 +1,28 @@
+{
+  "api_title": "Runpod REST API",
+  "api_version": "2.0.0",
+  "beta_notice": "RunPod API v2 is beta; schema drift is treated as a first-class failure mode. The adapter refuses to operate when the live schema identity diverges from this pinned snapshot on safety-relevant surfaces (see schema_check.py).",
+  "documentation_url": "https://docs.runpod.io/api-reference-v2/overview",
+  "n_paths": 29,
+  "notes": "No 'interruptible'/spot field exists anywhere in the v2 schema: v2 Pods are on-demand; the adapter additionally asserts the absence of any such field so future drift that introduces one fails closed rather than silently accepting interruptible capacity.",
+  "openapi_version": "3.1.0",
+  "pinned_surfaces": [
+    "GET /v2/catalog/gpus (+include=AVAILABILITY, product, count, cloud, minCudaVersion)",
+    "GET /v2/catalog/datacenters (+include=GPU_AVAILABILITY)",
+    "GET /v2/pods, POST /v2/pods (CreatePodRequest: allOf ContainerConfig + {name*, image*, cloud, gpu{id*,count}, dataCenterIds, mounts})",
+    "GET /v2/pods/{id}, DELETE /v2/pods/{id}, POST /v2/pods/{id}/action {action: start|stop|restart|terminate}",
+    "GET /v2/pods/{id}/logs (source=container|system, tail, since)",
+    "GET /v2/billing, GET /v2/billing/pods (podId, startTime, endTime, bucketSize, lastN)",
+    "PodStatus enum: PROVISIONING|STARTING|RUNNING|EXITED|ERROR|TERMINATED",
+    "Cloud enum: SECURE|COMMUNITY; AvailabilityLevel: NONE|LOW|MEDIUM|HIGH",
+    "GpuType {id*, name*, memory*, secure*, community*, price{secure*,community*}, maxCount{secure*,community*}, availability?, dataCenters?}",
+    "bearerAuth: Authorization: Bearer <RUNPOD_API_KEY>",
+    "ErrorResponse {title*, status*, detail*}"
+  ],
+  "retrieval_method": "unauthenticated HTTPS GET (read-only; no mutating request)",
+  "retrieved_utc": "2026-08-01T11:03:06Z",
+  "schema": "o1b200.runpod_schema_provenance.v1",
+  "server": "https://api.runpod.io",
+  "sha256": "0bbdd828569233765e310e773e34586b33a6e38f55afde989ebd670152ed5c13",
+  "source_url": "https://api.runpod.io/v2/openapi.json"
+}

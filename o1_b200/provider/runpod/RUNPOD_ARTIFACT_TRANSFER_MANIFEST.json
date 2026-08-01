@@ -1,0 +1,138 @@
+{
+  "artifacts": {
+    "axis_package": {
+      "byte_size": 357259,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/AXIS_PACKAGE_V2",
+      "hash_kind": "tree",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "8c3b34a3574fbca9e63de23a88831e076e317fec33236405fb3af72f0ff96fdd",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 4
+    },
+    "b200_runner_package_zip": {
+      "byte_size": 1821132,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/O1_B200_RUNNER_v0.1.0.zip",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_packages/O1_B200_RUNNER_v0.1.0.zip",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "884041e8a03cf8a0d9296a1e58859016ced99294c0939b68629e141cc0058d7a",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 12
+    },
+    "backend_selection_policy": {
+      "byte_size": 2244,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/policies/B200_BACKEND_SELECTION_POLICY.json",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/policies/B200_BACKEND_SELECTION_POLICY.json",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "0d97b357fa156d2fad07e597dc73d441b69f3b5ee08109559225ec7587e1da4c",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 9
+    },
+    "budget_policy": {
+      "byte_size": 1308,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/policies/B200_BUDGET_POLICY.template.json",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/policies/B200_BUDGET_POLICY.template.json",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "8ae82de9ff432f4fb8ad467eec967a661c2a14edf2eae6b70d19f7e42781cda7",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 10
+    },
+    "calibration_seed_matrix": {
+      "byte_size": 31149,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/calibration_seed_matrix.json",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/calibration_seed_matrix.json",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "693b788e2098e6975e2364b23832f18b8686e60abe32af1a02f5acbddc5d5e49",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 6
+    },
+    "calibration_task_manifest": {
+      "byte_size": 110597,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/COHORTS/calibration_tasks.jsonl",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/calibration_tasks.jsonl",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 5
+    },
+    "environment_lock": {
+      "byte_size": 579,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/requirements.b200.lock",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/deploy/requirements.b200.lock",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "266e566c8be49cb2fbc5fa0285877912976108add1fdf281036e026fdc1e480b",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 8
+    },
+    "o1_v210_package_zip": {
+      "byte_size": 150953,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/O1_oracle_reachability_v2.1.0_verified.zip",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_packages/O1_oracle_reachability_v2.1.0_verified.zip",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+      "transfer_mechanism": "baked into image + re-verified",
+      "transfer_order": 3
+    },
+    "ouro_rltt_checkpoint": {
+      "byte_size": 5340919827,
+      "confidentiality": "RESTRICTED (model weights; never Git, never a public image)",
+      "destination_path": "/artifacts/ouro_rltt_local",
+      "hash_kind": "tree",
+      "local_path": "/home/moloch/ouro_project/models/ouro_rltt_local",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+      "transfer_mechanism": "object-store adapter (LocalArtifactStore now; S3-compatible store chosen in the rental session) \u2014 resumable chunked fetch",
+      "transfer_order": 1
+    },
+    "precommit_template": {
+      "byte_size": 2863,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/policies/CALIBRATION_PRECOMMIT_B200.template.json",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/policies/CALIBRATION_PRECOMMIT_B200.template.json",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "4440d5bce4a7a4b67912c6b2051e68aed73275656640e3ab74a893cfc028bc36",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 11
+    },
+    "tokenizer_binding": {
+      "byte_size": 828,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/TOKENIZER_BINDING.json",
+      "hash_kind": "file",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/TOKENIZER_BINDING.json",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "b1a1d6fd755ce2536bf073eedc4e5badd7ff1c00c0927f1329baa98d058f6f57",
+      "transfer_mechanism": "with runner image",
+      "transfer_order": 2
+    },
+    "validation_corpus": {
+      "byte_size": 9611,
+      "confidentiality": "public",
+      "destination_path": "/artifacts/validation_corpus",
+      "hash_kind": "tree",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/corpus",
+      "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
+      "sha256": "1214a29e8b50a2b4c875c755ac65d71e9faabdd78b90d47576dfd50de93450a8",
+      "transfer_mechanism": "baked into image",
+      "transfer_order": 7
+    }
+  },
+  "note": "model loading on the Pod is REFUSED until every hash passes; large artifacts are staged before the GPU billing clock where the chosen store allows",
+  "schema": "o1b200.runpod_artifact_transfer_manifest.v1"
+}

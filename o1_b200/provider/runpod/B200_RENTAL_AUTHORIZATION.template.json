@@ -1,0 +1,15 @@
+{
+  "_reminder": "Also required at launch: RUNPOD_ALLOW_BILLABLE_MUTATIONS=YES_I_AUTHORIZE_THIS_RUN and the --execute-authorized-rental flag. Any absence raises LIVE_MUTATION_NOT_AUTHORIZED.",
+  "_status": "TEMPLATE \u2014 UNUSABLE AS AUTHORIZATION BY CONSTRUCTION. Every UNRESOLVED field fails validation; the real one-use file is created by the operator immediately before the separately approved rental.",
+  "allow_confirmation": false,
+  "allow_create_pod": "UNRESOLVED (must be literally true)",
+  "allow_real_calibration": "UNRESOLVED (must be literally true)",
+  "budget_policy_sha256": "UNRESOLVED (sha256 of the frozen USD 45/40/5 budget policy file)",
+  "deployment_spec_sha256": "UNRESOLVED (request_sha256 of the freshly rendered canonical Pod request)",
+  "expires_utc": "UNRESOLVED (short UTC expiry, e.g. now + 2h, format %Y-%m-%dT%H:%M:%SZ)",
+  "launch_nonce": "UNRESOLVED (unique >=16 chars; consumed on first create; replay refused)",
+  "package_zip_sha256": "UNRESOLVED (sha256 of the deployed O1_B200_RUNNER package zip)",
+  "project": "UNRESOLVED (must be 'O1_B200_CALIBRATION')",
+  "provider": "UNRESOLVED (must be 'runpod')",
+  "schema": "o1b200.rental_authorization.v1"
+}

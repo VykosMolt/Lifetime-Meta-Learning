@@ -1,0 +1,80 @@
+# O1 B200 production container — linux/amd64, everything baked at build.
+# No package installation, no source compilation, no git clone, and no
+# dependency resolution at Pod startup. Scientific execution is BF16
+# PyTorch/Transformers eager; FP8/FP4/quantization/speculative/vLLM/
+# TensorRT-LLM/SGLang are absent by construction.
+#
+# Base: official python:3.14 slim (Debian bookworm) pinned BY DIGEST at build
+# time (scripts/build_b200_image.sh resolves and records it). CUDA arrives
+# via the torch cu128 wheel's bundled runtime libraries (CUDA 12.8, cuDNN 9,
+# NCCL) — B200 (sm_100, compute capability 10.0) requires CUDA >= 12.8 and a
+# host driver R570+ per NVIDIA's Blackwell Compatibility Guide; the driver is
+# provided by the RunPod host, everything else ships in this image.
+#
+# torch pin resolution (documented, not silent): the sealed reference build
+# 2.12.0.dev20260407+cu128 is no longer downloadable upstream; the container
+# ships 2.12.0.dev20260408+cu128 (same CUDA/cuDNN line, sm_100 kernels
+# verified at build). The sealed freeze manifest pins the 0407 build, so the
+# sealed orchestrator FAILS CLOSED against the old manifest on this image —
+# by design: the B200 session's replacement precommit must carry the
+# deployed torch value before calibration can run.
+ARG BASE_IMAGE=python:3.14-slim-bookworm
+FROM ${BASE_IMAGE} AS base
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    HF_HUB_OFFLINE=1 \
+    CUBLAS_WORKSPACE_CONFIG=":4096:8"
+
+# torch wheel is provided locally (frozen; upstream nightly indexes expire)
+COPY build_ctx/wheels /wheels
+COPY o1_b200/deploy/requirements.b200.lock /opt/o1_b200/deploy/requirements.b200.lock
+
+RUN python -m venv /opt/venv \
+    && /opt/venv/bin/pip install --no-cache-dir /wheels/triton-*.whl \
+    && /opt/venv/bin/pip install --no-cache-dir /wheels/torch-*.whl \
+    && /opt/venv/bin/pip install --no-cache-dir \
+         -r /opt/o1_b200/deploy/requirements.b200.lock
+
+# Build asserts (single-line python -c: the legacy builder silently skips
+# heredoc RUN bodies, so heredocs are banned in this Dockerfile).
+# sm_100 presence cannot be read here (no GPU at build time; get_arch_list
+# is empty without CUDA): it is verified in the exact shipped wheel on a
+# CUDA host by scripts/build_b200_image.sh and re-verified ON THE B200 by
+# deploy/validate_environment.py before anything scientific runs.
+RUN /opt/venv/bin/python -c "import torch, transformers, numpy; \
+assert transformers.__version__ == '4.54.1', transformers.__version__; \
+assert numpy.__version__ == '2.4.4', numpy.__version__; \
+assert torch.__version__ == '2.12.0.dev20260408+cu128', torch.__version__; \
+assert torch.version.cuda == '12.8', torch.version.cuda; \
+print('BUILD ASSERTS OK', torch.__version__)"
+RUN rm -rf /wheels
+
+# runner + sealed package + policies + corpus + manifests (hash-verified at
+# runtime by sealed_import.py and deploy/verify_artifacts.py)
+WORKDIR /opt/o1_b200
+COPY o1_b200 /opt/o1_b200/o1_b200
+COPY o1_packages/O1_oracle_reachability_v2.1.0_source \
+     /opt/o1_b200/o1_packages/O1_oracle_reachability_v2.1.0_source
+COPY o1_packages/O1_oracle_reachability_v2.1.0_verified.zip \
+     o1_packages/O1_oracle_reachability_v2.1.0_verified.zip.sha256 \
+     /opt/o1_b200/o1_packages/
+COPY o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2 \
+     /opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2
+COPY o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS \
+     /opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS
+COPY o1_runs/O1_V2_AXIS_BANK_REDESIGN/calibration_seed_matrix.json \
+     o1_runs/O1_V2_AXIS_BANK_REDESIGN/TOKENIZER_BINDING.json \
+     o1_runs/O1_V2_AXIS_BANK_REDESIGN/CALIBRATION_PRECOMMIT.json \
+     o1_runs/O1_V2_AXIS_BANK_REDESIGN/FREEZE_MANIFEST.precalibration.json \
+     /opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/
+
+ENV PYTHONPATH=/opt/o1_b200 \
+    PATH=/opt/venv/bin:$PATH
+
+# The checkpoint mounts at /artifacts/ouro_rltt_local and is tree-hash
+# verified before any model load. No ports are exposed. The entrypoint is
+# the sealed zero-touch start script; it validates, then refuses anything
+# unauthorized.
+ENTRYPOINT ["/opt/o1_b200/o1_b200/deploy/start_b200.sh"]
