@@ -6,6 +6,13 @@ loop-state signals to *writing* them — asking whether the model's recurrent
 hidden states are a causally reachable substrate that training could
 eventually exploit across a model's lifetime.
 
+> The repository is named for the direction's goal, not its current
+> contents: what lives here today is the groundwork that goal depends on —
+> the O1 oracle-reachability program (is the substrate causally writable at
+> all?) plus the M+N backbone-training and branch-training reports.
+> Meta-learning experiments proper begin only if O1 returns a positive,
+> preregistered result.
+
 The flagship experiment is **O1 (oracle reachability)**: a preregistered,
 precommitted intervention study injecting frozen, hash-sealed axis directions
 into the L3 (physical layer 24) residual stream at the final prompt token and
