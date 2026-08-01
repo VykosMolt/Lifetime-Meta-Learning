@@ -1,0 +1,46 @@
+{
+  "BRANCH_TRAINING_LOGIC_EXPANSION_STATUS": "LOGIC_EXPANSION_READY_TRAINING_NOT_READY",
+  "BRANCH_TRAINING_POLICY_DECISION": "KEEP_EXTERNAL_DUALANCHOR_CORECONTENT_BASELINE",
+  "elapsed_seconds": 0.005,
+  "headline_findings": {
+    "failures_audited_genuine": "math/logic/reasoning/coding fails hand-verified after fixing math-LaTeX, coding-name, hendrycks-uid artifacts",
+    "math_reachability_fix": "0.31 -> 0.83 via brutal tool-free prompt + 1400 math budget + early-stop + LaTeX verifier",
+    "teacher_useful_except_logic": "J: DualAnchor pruning beats random +0.11 coding/reasoning, only +0.03 logic",
+    "terminal_bottleneck": "selection not survival (H: CoreContent_v2 0.658 vs DualAnchor forced-top1 0.379, survivor oracle retention 1.0)"
+  },
+  "locked_state": {
+    "branch_survival": "DualAnchor (MIX_CODE_REASONING + MIX_OBJECTIVE_ALL) \u2014 unchanged (teacher + external baseline)",
+    "branch_trained_model": "branching_sft LoRA adapter (bounded 300-step proof-of-capability); decision=KEEP_EXTERNAL_DUALANCHOR_CORECONTENT_BASELINE",
+    "content_final_selection": "CoreContent_v2_blockwise_pruned_24_36 \u2014 unchanged (validated terminal ranker; H confirmed it beats DualAnchor forced-top1 within survivors)",
+    "logic": "expanded: 33247 train groups across 10 families, verifier-backed",
+    "science": "diagnostic only",
+    "steering": "not run, not claimed",
+    "terminal": "top5/full survivor-set handoff (selection, not survival, is the bottleneck per H)"
+  },
+  "next": "scale + run M (teacher distillation) and N (verifier-reward RL) to convergence for a real internal-branching model",
+  "primary_deliverable": "branch-training DATA + EVALUATION HARNESS (logic-expanded, verifier-labeled, 5 training views) \u2014 READY",
+  "stage_verdicts": {
+    "BRANCHING_SFT": "SFT_TRAINED",
+    "BRANCH_POOLS": "LOGIC_BRANCH_POOLS_READY",
+    "DATA_PULL": "LOGIC_EXPANDED_READY",
+    "DEDUP": "LEAKAGE_FOUND_FIXED",
+    "INIT": "READY",
+    "INTEGRATED_TERMINAL": "CORECONTENT_IMPROVES_TERMINAL",
+    "LOGIC_CANON": "LOGIC_VERIFIER_READY",
+    "REACHABILITY": "LOGIC_REACHABILITY_READY",
+    "TEACHER_DISTILL": "NOT_RUN",
+    "TEACHER_TRACES": "TEACHER_MISMATCH_ON_LOGIC",
+    "TRAINED_EVAL": "MODEL_INTERNAL_BRANCHING_PARTIAL",
+    "TRAINING_DATASET": "TRAINING_DATA_READY",
+    "VERIFIER_LABELING": "LOGIC_LABELS_READY",
+    "VERIFIER_REWARD": "NOT_RUN"
+  },
+  "trained_eval": {
+    "diversity_lift": 0.45,
+    "macro_positive_oracle": {
+      "base": 0.708,
+      "sft": 0.688
+    },
+    "oracle_lift_sft_minus_base": -0.02
+  }
+}

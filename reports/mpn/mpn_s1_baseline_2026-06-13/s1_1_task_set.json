@@ -1,0 +1,351 @@
+{
+  "verdict": "S1_TASK_SET_READY",
+  "n_per_domain": 8,
+  "n_total": 32,
+  "verifier_smoke": {
+    "pass": 32,
+    "fail": 0,
+    "by_domain": {
+      "logic": {
+        "n": 8,
+        "verifier_pass": 8
+      },
+      "math": {
+        "n": 8,
+        "verifier_pass": 8
+      },
+      "reasoning": {
+        "n": 8,
+        "verifier_pass": 8
+      },
+      "coding": {
+        "n": 8,
+        "verifier_pass": 8
+      }
+    }
+  },
+  "tasks": [
+    {
+      "canary_id": "logic_00013d9d03",
+      "domain": "logic",
+      "label_type": "deterministic_rubric",
+      "category": "proofwriter_deduction",
+      "source": "logic_tasks",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_000f384418",
+      "domain": "logic",
+      "label_type": "mcq_answer_key",
+      "category": "mcq_logical_reading",
+      "source": "logic_tasks",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_00158d8d9c",
+      "domain": "logic",
+      "label_type": "mcq_answer_key",
+      "category": "lsat_logical_reasoning",
+      "source": "logic_tasks",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_0016af0d6f",
+      "domain": "logic",
+      "label_type": "mcq_answer_key",
+      "category": "lsat_analytical_reasoning",
+      "source": "logic_tasks",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_001c75ee98",
+      "domain": "logic",
+      "label_type": "deterministic_rubric",
+      "category": "proofwriter_deduction",
+      "source": "logic_tasks",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_001f7966f8",
+      "domain": "logic",
+      "label_type": "deterministic_rubric",
+      "category": "proofwriter_deduction",
+      "source": "logic_tasks",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_0022bb9e88",
+      "domain": "logic",
+      "label_type": "deterministic_rubric",
+      "category": "proofwriter_deduction",
+      "source": "logic_tasks",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "logic_00258466b5",
+      "domain": "logic",
+      "label_type": "deterministic_rubric",
+      "category": "ruletaker_deduction",
+      "source": "logic_tasks",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_0313a1abc4",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "ChilleD/SVAMP",
+      "source": "corecontent_v2",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_0490949b5c",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "openai/gsm8k",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_06d0ca6d3a",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "EleutherAI/hendrycks_math",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_075309bae2",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "openai/gsm8k",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_07b9798d94",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "EleutherAI/hendrycks_math",
+      "source": "corecontent_v2",
+      "K": 8,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_08fdac83c0",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "EleutherAI/hendrycks_math",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_0908262a32",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "EleutherAI/hendrycks_math",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "math_0c0dc717ec",
+      "domain": "math",
+      "label_type": "exact_answer",
+      "category": "EleutherAI/hendrycks_math",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "ChilleD/StrategyQA",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_00ddfcee6a",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "openbookqa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_012f9d1412",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "commonsense_qa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_025b686a87",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "openbookqa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_02d2dd68b7",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "openbookqa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_02ee42f828",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "commonsense_qa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_0340ee8924",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "commonsense_qa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "reasoning_04b9f3fd84",
+      "domain": "reasoning",
+      "label_type": "mcq_answer_key",
+      "category": "commonsense_qa",
+      "source": "corecontent_v2",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "final_answer"
+    },
+    {
+      "canary_id": "coding_00715d44da",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_007b833f21",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_06bd4a1597",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_08e8397e8f",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_0a2061a3e6",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_0ae575f754",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_0d7440be0d",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    },
+    {
+      "canary_id": "coding_0de17f2992",
+      "domain": "coding",
+      "label_type": "unit_tests",
+      "category": "mbpp",
+      "source": "mbpp",
+      "K": 4,
+      "verifier_smoke_pass": true,
+      "label_path": "unit_tests"
+    }
+  ],
+  "alignment_excluded": "no objective verifier for generated branches",
+  "elapsed_seconds": 0.3
+}

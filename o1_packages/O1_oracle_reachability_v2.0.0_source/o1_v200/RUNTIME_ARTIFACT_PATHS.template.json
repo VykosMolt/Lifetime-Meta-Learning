@@ -1,0 +1,10 @@
+{
+  "code.generation_module_sha256": "FREEZE_PATH",
+  "model.checkpoint_sha256": "FREEZE_PATH",
+  "artifact_hashes.tokenizer": "FREEZE_PATH",
+  "artifact_hashes.prompt_template": "FREEZE_PATH",
+  "artifact_hashes.parser": "FREEZE_PATH",
+  "artifact_hashes.verifier_implementation": "FREEZE_PATH",
+  "artifact_hashes.structured_axis_tensor": "FREEZE_PATH",
+  "artifact_hashes.random_axis_tensor": "FREEZE_PATH"
+}

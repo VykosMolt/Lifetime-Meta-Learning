@@ -1,0 +1,27 @@
+{
+  "verdict": "S1_2_INJECTION_LIVE",
+  "task": "reasoning_00bf397683",
+  "domain": "reasoning",
+  "hidden": 2048,
+  "alpha": 0.01,
+  "delta_rms_injected": 0.009999999776482582,
+  "finite": true,
+  "zero_delta_equals_base": true,
+  "injected_maxabs_logit_diff": 0.1455,
+  "injected_argmax_changed": false,
+  "hook_fired_loops": [
+    1
+  ],
+  "hook_loop1_only": true,
+  "hook_modifications": 1,
+  "hook_nan_inf": false,
+  "option_lean_base": {
+    "A": 0.0043,
+    "B": 0.06317
+  },
+  "option_lean_injected": {
+    "A": 0.00429,
+    "B": 0.0631
+  },
+  "elapsed_seconds": 4.7
+}

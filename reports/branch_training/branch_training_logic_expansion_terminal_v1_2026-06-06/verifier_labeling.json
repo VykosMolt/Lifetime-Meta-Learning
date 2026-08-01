@@ -1,0 +1,174 @@
+{
+  "EXTERNAL_VERIFIER_LABELING_VERDICT": "LOGIC_LABELS_READY",
+  "by_domain": {
+    "alignment": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0,
+      "groups": 3000,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 1.0
+    },
+    "coding": {
+      "all_correct_rate": 0.0067,
+      "all_wrong_rate": 0.019,
+      "ambiguous_rate": 0.0,
+      "groups": 1793,
+      "parse_ok_rate": 0.9957,
+      "positive_oracle_rate": 0.981,
+      "reward_diverse_rate": 0.9743
+    },
+    "logic": {
+      "all_correct_rate": 0.0008,
+      "all_wrong_rate": 0.0007,
+      "ambiguous_rate": 0.0,
+      "groups": 23077,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 0.9993,
+      "reward_diverse_rate": 0.9985
+    },
+    "math": {
+      "all_correct_rate": 0.0118,
+      "all_wrong_rate": 0.0033,
+      "ambiguous_rate": 0.0001,
+      "groups": 3060,
+      "parse_ok_rate": 0.9999,
+      "positive_oracle_rate": 0.9967,
+      "reward_diverse_rate": 0.985
+    },
+    "reasoning": {
+      "all_correct_rate": 0.0143,
+      "all_wrong_rate": 0.0011,
+      "ambiguous_rate": 0.0003,
+      "groups": 2660,
+      "parse_ok_rate": 0.9997,
+      "positive_oracle_rate": 0.9989,
+      "reward_diverse_rate": 0.9846
+    }
+  },
+  "by_logic_family": {
+    "fol_entailment": {
+      "all_correct_rate": 0.0075,
+      "all_wrong_rate": 0.0025,
+      "ambiguous_rate": 0.0,
+      "groups": 398,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 0.9975,
+      "reward_diverse_rate": 0.9899
+    },
+    "logical_entailment": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.0031,
+      "ambiguous_rate": 0.0,
+      "groups": 1954,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 0.9969,
+      "reward_diverse_rate": 0.9969
+    },
+    "lsat_analytical_reasoning": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0,
+      "groups": 230,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 1.0
+    },
+    "lsat_logical_reasoning": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0,
+      "groups": 510,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 1.0
+    },
+    "mcq_logical_reading": {
+      "all_correct_rate": 0.0002,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0001,
+      "groups": 4895,
+      "parse_ok_rate": 0.9999,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 0.9998
+    },
+    "proofwriter_deduction": {
+      "all_correct_rate": 0.0003,
+      "all_wrong_rate": 0.0003,
+      "ambiguous_rate": 0.0,
+      "groups": 6702,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 0.9997,
+      "reward_diverse_rate": 0.9994
+    },
+    "ruletaker_deduction": {
+      "all_correct_rate": 0.0014,
+      "all_wrong_rate": 0.0029,
+      "ambiguous_rate": 0.0,
+      "groups": 1384,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 0.9971,
+      "reward_diverse_rate": 0.9957
+    },
+    "synthetic_constraint_game": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.0026,
+      "ambiguous_rate": 0.0,
+      "groups": 1159,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 0.9974,
+      "reward_diverse_rate": 0.9974
+    },
+    "synthetic_fol": {
+      "all_correct_rate": 0.003,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0,
+      "groups": 1984,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 0.997
+    },
+    "synthetic_propositional": {
+      "all_correct_rate": 0.001,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0,
+      "groups": 3861,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 0.999
+    }
+  },
+  "by_source": {
+    "cheap": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.0,
+      "ambiguous_rate": 0.0,
+      "groups": 33350,
+      "parse_ok_rate": 1.0,
+      "positive_oracle_rate": 1.0,
+      "reward_diverse_rate": 1.0
+    },
+    "model_generated": {
+      "all_correct_rate": 0.4333,
+      "all_wrong_rate": 0.2625,
+      "ambiguous_rate": 0.0073,
+      "groups": 240,
+      "parse_ok_rate": 0.9552,
+      "positive_oracle_rate": 0.7375,
+      "reward_diverse_rate": 0.3042
+    }
+  },
+  "elapsed_seconds": 2.632,
+  "generated_groups": 240,
+  "overall": {
+    "all_correct_rate": 0.0031,
+    "all_wrong_rate": 0.0019,
+    "ambiguous_rate": 0.0001,
+    "groups": 33590,
+    "parse_ok_rate": 0.9996,
+    "positive_oracle_rate": 0.9981,
+    "reward_diverse_rate": 0.995
+  },
+  "total_groups": 33590
+}

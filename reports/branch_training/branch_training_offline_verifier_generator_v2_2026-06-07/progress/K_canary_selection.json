@@ -1,0 +1,130 @@
+{
+  "verdict": "NO_ADAPTER_IMPROVES_ON_CANARY",
+  "rows": [
+    {
+      "arm": "A_format_control",
+      "complete": true,
+      "macro_delta": 0.0,
+      "chars_vs_base": 1.097,
+      "degeneration_alarm": false,
+      "d_coding": -0.0333,
+      "d_reasoning": 0.0,
+      "d_math": 0.0333,
+      "d_logic": 0.0,
+      "d_alignment": 0.0
+    },
+    {
+      "arm": "B_direct_budget_sft",
+      "complete": true,
+      "macro_delta": -0.06,
+      "chars_vs_base": 0.127,
+      "degeneration_alarm": true,
+      "d_coding": 0.0,
+      "d_reasoning": 0.0,
+      "d_math": -0.3,
+      "d_logic": 0.0,
+      "d_alignment": 0.0
+    },
+    {
+      "arm": "C_offline_verifier_dpo",
+      "complete": true,
+      "macro_delta": -0.2436,
+      "chars_vs_base": 0.264,
+      "degeneration_alarm": true,
+      "d_coding": -0.5,
+      "d_reasoning": 0.0667,
+      "d_math": -0.5334,
+      "d_logic": -0.2333,
+      "d_alignment": -0.0182
+    },
+    {
+      "arm": "G_budget_plus_verifier",
+      "complete": true,
+      "macro_delta": -0.1352,
+      "chars_vs_base": 0.056,
+      "degeneration_alarm": true,
+      "d_coding": -0.0667,
+      "d_reasoning": 0.0,
+      "d_math": -0.4667,
+      "d_logic": -0.1333,
+      "d_alignment": -0.0091
+    },
+    {
+      "arm": "H_from_base_best_recipe",
+      "complete": true,
+      "macro_delta": -0.2188,
+      "chars_vs_base": 0.189,
+      "degeneration_alarm": true,
+      "d_coding": -0.2333,
+      "d_reasoning": 0.0334,
+      "d_math": -0.7,
+      "d_logic": -0.1666,
+      "d_alignment": -0.0273
+    },
+    {
+      "arm": "C_offline_verifier_dpo_r2",
+      "complete": true,
+      "macro_delta": -0.0521,
+      "chars_vs_base": 0.401,
+      "degeneration_alarm": true,
+      "d_coding": -0.0667,
+      "d_reasoning": 0.0334,
+      "d_math": -0.2,
+      "d_logic": 0.0,
+      "d_alignment": -0.0273
+    },
+    {
+      "arm": "C_offline_verifier_dpo_r3",
+      "complete": true,
+      "macro_delta": -0.1121,
+      "chars_vs_base": 0.337,
+      "degeneration_alarm": true,
+      "d_coding": -0.4667,
+      "d_reasoning": 0.0667,
+      "d_math": -0.1334,
+      "d_logic": 0.0,
+      "d_alignment": -0.0273
+    },
+    {
+      "arm": "C_offline_verifier_dpo_r4",
+      "complete": true,
+      "macro_delta": -0.0588,
+      "chars_vs_base": 0.697,
+      "degeneration_alarm": false,
+      "d_coding": -0.0667,
+      "d_reasoning": -0.0666,
+      "d_math": -0.0667,
+      "d_logic": -0.0666,
+      "d_alignment": -0.0273
+    },
+    {
+      "arm": "G_budget_plus_verifier_r2",
+      "complete": true,
+      "macro_delta": -0.2539,
+      "chars_vs_base": 0.159,
+      "degeneration_alarm": true,
+      "d_coding": -0.2,
+      "d_reasoning": -0.1333,
+      "d_math": -0.6,
+      "d_logic": -0.3,
+      "d_alignment": -0.0364
+    },
+    {
+      "arm": "H_from_base_best_recipe_r2",
+      "complete": true,
+      "macro_delta": -0.1691,
+      "chars_vs_base": 0.187,
+      "degeneration_alarm": true,
+      "d_coding": -0.1333,
+      "d_reasoning": -0.1,
+      "d_math": -0.4334,
+      "d_logic": -0.1333,
+      "d_alignment": -0.0455
+    }
+  ],
+  "selected": [
+    "A_format_control",
+    "C_offline_verifier_dpo_r2",
+    "C_offline_verifier_dpo_r4"
+  ]
+}

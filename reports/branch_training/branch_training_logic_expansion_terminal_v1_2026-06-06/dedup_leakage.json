@@ -1,0 +1,14 @@
+{
+  "DEDUP_LEAKAGE_VERDICT": "LEAKAGE_FOUND_FIXED",
+  "by_split": {
+    "heldout": 12438,
+    "train": 16874,
+    "val": 2148
+  },
+  "duplicates_removed": 1890,
+  "elapsed_seconds": 1.982,
+  "input_groups": 33350,
+  "kept_groups": 31460,
+  "leakage_reassigned": 616,
+  "residual_cross_split_prompts": 0
+}

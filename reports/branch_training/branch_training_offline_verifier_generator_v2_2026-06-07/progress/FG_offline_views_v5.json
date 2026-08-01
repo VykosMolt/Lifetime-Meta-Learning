@@ -1,0 +1,38 @@
+{
+  "verdict": "V5_EVAL_ALIGNED_READY",
+  "branch_set_rejection_sft": 21817,
+  "branch_set_dpo": 28172,
+  "one_branch_sft": 13137,
+  "rejection_sft_domains": {
+    "math": 8893,
+    "logic": 12000,
+    "coding": 924
+  },
+  "dpo_pair_types": {
+    "show_work": 4000,
+    "oracle": 12172,
+    "wrong_final": 6000,
+    "reasoning_error": 6000
+  },
+  "unique_coding_sft": 70,
+  "coding_dup": 12,
+  "token_gate_drops": {
+    "one_branch_sft": 229,
+    "branch_set_rejection_sft": 229,
+    "branch_set_dpo": 4
+  },
+  "skipped": {
+    "math_canary_overlap": 50
+  },
+  "format_contract": {
+    "prompts_chat_templated": true,
+    "prompts_have_gen_system": true,
+    "prompts_end_with_assistant": true,
+    "no_branch_prefix_completions": true,
+    "noncoding_end_with_final": true,
+    "coding_fenced_no_final": true
+  },
+  "reasoning_excluded": "gen shards did not persist MCQ options; prompt not re-renderable",
+  "v3_v4_not_carried": "old rows are the misaligned format round 4 removes",
+  "elapsed_seconds": 10.4
+}

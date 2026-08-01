@@ -1,0 +1,30 @@
+{
+  "capture_token_position": "final non-padding prompt position",
+  "created_at": "2026-07-29T10:48:07.324835+02:00",
+  "domain_counts": {
+    "reasoning": 4,
+    "science": 4
+  },
+  "reference_jsonl": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/D4_REFERENCE_SET.jsonl",
+  "reference_jsonl_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+  "schema_version": "o1.d4_reference_set.v1",
+  "selection_rule": "sorted intersection of the two adapters' frozen heldout task-ID sets",
+  "selection_uses_adapter_outcomes": false,
+  "selection_uses_o1_outcomes": false,
+  "source_hashes": {
+    "/home/moloch/ouro_project/artifacts/reports/probes/bg_causal_intervention_adapter_2026-05-18/adapter_dataset.json": "35fb682289794e3f8c93da28e508773587238ea2322719bb119f26150f1a5c05",
+    "/home/moloch/ouro_project/artifacts/reports/probes/bg_sequence_level_adapter_2026-05-18/sequence_adapter_dataset.json": "c0198a7f26df5935292e8ec44faebb782fb723387b680eac6c2d975db0b39d65"
+  },
+  "task_count": 8,
+  "task_ids": [
+    "ARC-Challenge/0",
+    "ARC-Challenge/1",
+    "ARC-Challenge/10",
+    "ARC-Challenge/11",
+    "mmlu/high_school_biology/0",
+    "mmlu/high_school_biology/1",
+    "mmlu/high_school_biology/10",
+    "mmlu/high_school_biology/11"
+  ],
+  "trajectory_phase": "prompt_only"
+}

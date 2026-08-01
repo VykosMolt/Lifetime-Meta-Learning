@@ -1,0 +1,45 @@
+{
+  "OFFLINE_REWARD_SPEC_VERDICT": "LOGIC_REWARD_READY",
+  "component_stdev": {
+    "ambiguity_penalty": 0.0,
+    "appropriate_branch_budget": 0.11,
+    "domain_validity": 0.142,
+    "duplicate_branch_penalty": 0.238,
+    "final_answer_correct": 0.227,
+    "invalid_final_format_penalty": 0.0,
+    "n_verifier_positive": 0.1,
+    "overbranching_penalty": 0.0,
+    "parse_ok": 0.0,
+    "positive_oracle_present": 0.227,
+    "superficial_diversity_penalty": 0.12,
+    "underbranching_penalty": 0.0,
+    "unsupported_premise_penalty": 0.106,
+    "verifier_positive_diversity": 0.076
+  },
+  "degenerate_components": 5,
+  "logic_validity_fired": 3435,
+  "n_audited": 8000,
+  "overall_reward_std": 1.137,
+  "reward_module": "utilities/branch_training/offline_reward_v2.py",
+  "separation_margin": 4.922,
+  "separation_mean_pos_vs_neg": [
+    4.523,
+    -0.399
+  ],
+  "weights": {
+    "ambiguity_penalty": -0.3,
+    "appropriate_branch_budget": 0.5,
+    "domain_validity": 1.0,
+    "duplicate_branch_penalty": -0.6,
+    "final_answer_correct": 1.5,
+    "invalid_final_format_penalty": -0.4,
+    "n_verifier_positive": 0.25,
+    "overbranching_penalty": -0.8,
+    "parse_ok": 0.5,
+    "positive_oracle_present": 2.0,
+    "superficial_diversity_penalty": -0.6,
+    "underbranching_penalty": -0.6,
+    "unsupported_premise_penalty": -0.5,
+    "verifier_positive_diversity": 0.4
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "axis_collector": {
+    "expected_name": "O1_axis_source_collector_v1.zip",
+    "search_root": "/home/moloch/Downloads",
+    "status": "NOT_FOUND"
+  },
+  "o1_archive": {
+    "absolute_path": "/home/moloch/Downloads/O1_oracle_reachability_v1.5.3_verified.zip",
+    "byte_size": 109503,
+    "computed_sha256": "8b7c17c419d058c5db035a3d7f69b474c830d5c855cceba78974565c7aaaa48a",
+    "modification_time": "2026-07-28T19:24:10.032488454+02:00",
+    "published_digest_match": true,
+    "published_sha256": "8b7c17c419d058c5db035a3d7f69b474c830d5c855cceba78974565c7aaaa48a"
+  },
+  "published_digest_file": {
+    "absolute_path": "/home/moloch/Downloads/O1_oracle_reachability_v1.5.3_verified.zip.sha256",
+    "byte_size": 109,
+    "computed_sha256": "23bad6e672962240caa5d6fe1220a96f862a78aefc74a7e0bcdddbbe848c8120",
+    "modification_time": "2026-07-28T19:24:14.083515354+02:00"
+  },
+  "run_directory": "/home/moloch/ouro_project/o1_runs/O1_REAL_001",
+  "selected_at": "2026-07-29T10:33:17+02:00",
+  "source_directory": "/home/moloch/ouro_project/o1_packages/O1_oracle_reachability_v1.5.3_source"
+}

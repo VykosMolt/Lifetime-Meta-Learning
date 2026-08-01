@@ -1,0 +1,43 @@
+{
+  "LOGIC_CANONICALIZATION_VERDICT": "LOGIC_VERIFIER_READY",
+  "by_category": {
+    "fol_entailment": 811,
+    "logical_entailment": 3162,
+    "lsat_analytical_reasoning": 230,
+    "lsat_logical_reasoning": 510,
+    "mcq_logical_reading": 9802,
+    "proofwriter_deduction": 13400,
+    "ruletaker_deduction": 2621,
+    "synthetic_constraint_game": 3000,
+    "synthetic_fol": 5000,
+    "synthetic_propositional": 10000
+  },
+  "by_label_type": {
+    "constraint_solver": 3000,
+    "deterministic_rubric": 34994,
+    "mcq_answer_key": 10542
+  },
+  "by_split": {
+    "heldout": 11017,
+    "train": 33247,
+    "val": 4272
+  },
+  "elapsed_seconds": 183.311,
+  "heldout_groups": 11017,
+  "n_categories": 10,
+  "real_counts": {
+    "datatune/LogiQA2.0": 0,
+    "hails/agieval-lsat-ar": 230,
+    "hails/agieval-lsat-lr": 510,
+    "lucasmccabe/logiqa": 5302,
+    "renma/PrOntoQA": 0,
+    "tasksource/bigbench": 0,
+    "tasksource/folio": 811,
+    "tasksource/logical-entailment": 3162,
+    "tasksource/proofwriter": 6400,
+    "tasksource/reclor": 4500,
+    "tasksource/ruletaker": 2621
+  },
+  "total_tasks": 48536,
+  "train_groups": 33247
+}

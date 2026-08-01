@@ -1,0 +1,70 @@
+{
+  "DUALANCHOR_TEACHER_TRACE_VERDICT": "TEACHER_MISMATCH_ON_LOGIC",
+  "by_domain": {
+    "alignment": {
+      "defer": 0.0716,
+      "false_prune": 0.0,
+      "keep": 1.0,
+      "keep_vs_correctness_divergence": 0.5,
+      "oracle_retention": 1.0,
+      "prune": 0.0,
+      "random_keep_retention": 1.0,
+      "rescue": 0.0
+    },
+    "coding": {
+      "defer": 0.2516,
+      "false_prune": 0.1203,
+      "keep": 0.771,
+      "keep_vs_correctness_divergence": 0.5964,
+      "oracle_retention": 0.8797,
+      "prune": 0.229,
+      "random_keep_retention": 0.771,
+      "rescue": 0.2088
+    },
+    "logic": {
+      "defer": 0.1903,
+      "false_prune": 0.2212,
+      "keep": 0.75,
+      "keep_vs_correctness_divergence": 0.6106,
+      "oracle_retention": 0.7788,
+      "prune": 0.25,
+      "random_keep_retention": 0.75,
+      "rescue": 0.25
+    },
+    "math": {
+      "defer": 0.283,
+      "false_prune": 0.1513,
+      "keep": 0.7995,
+      "keep_vs_correctness_divergence": 0.6598,
+      "oracle_retention": 0.8487,
+      "prune": 0.2005,
+      "random_keep_retention": 0.7995,
+      "rescue": 0.2005
+    },
+    "reasoning": {
+      "defer": 0.2053,
+      "false_prune": 0.0988,
+      "keep": 0.7911,
+      "keep_vs_correctness_divergence": 0.5857,
+      "oracle_retention": 0.9012,
+      "prune": 0.2089,
+      "random_keep_retention": 0.7911,
+      "rescue": 0.2092
+    }
+  },
+  "elapsed_seconds": 18.087,
+  "n_traces": 13667,
+  "note": "DualAnchor keep/prune/rescue/defer are POLICY labels; external-reward agreement is diagnostic only.",
+  "overall": {
+    "defer": 0.1755,
+    "false_prune": 0.0936,
+    "keep": 0.861,
+    "keep_vs_correctness_divergence": 0.5744,
+    "oracle_retention": 0.9064,
+    "oracle_retention_lift_over_random": 0.0454,
+    "prune": 0.139,
+    "random_keep_retention": 0.861,
+    "rescue": 0.1367
+  },
+  "teacher_is_ground_truth": false
+}

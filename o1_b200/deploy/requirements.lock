@@ -1,0 +1,32 @@
+# O1 B200 runner — pinned generation-stack lock.
+# Reference environment: the canonical Ouro venv verified on 2026-08-01
+# (Python 3.14.6). transformers MUST remain exactly 4.54.1 — the sealed
+# generator and deploy/validate_environment.py both assert it.
+#
+# torch: the reference environment runs a cu128 nightly (Blackwell laptop
+# support). For the B200 the SAME version is pinned below; if that exact
+# nightly wheel is unavailable at deploy time, the replacement torch build is
+# a HARDWARE-SESSION fact that must be recorded in the environment report and
+# the final B200 precommit — it is NOT resolvable locally and MUST NOT be
+# silently substituted.
+--extra-index-url https://download.pytorch.org/whl/nightly/cu128
+torch==2.12.0.dev20260407+cu128
+transformers==4.54.1
+numpy==2.4.4
+tokenizers==0.21.4
+safetensors==0.7.0
+huggingface_hub==0.36.2
+hf-xet==1.5.0
+accelerate==1.13.0
+einops==0.8.2
+filelock==3.29.0
+fsspec==2026.2.0
+packaging==26.2
+PyYAML==6.0.3
+regex==2026.5.9
+requests==2.33.1
+tqdm==4.67.3
+Jinja2==3.1.6
+networkx==3.6.1
+sympy==1.14.0
+typing_extensions==4.15.0

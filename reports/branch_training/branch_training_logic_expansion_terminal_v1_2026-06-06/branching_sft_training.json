@@ -1,0 +1,13 @@
+{
+  "BRANCHING_SFT_VERDICT": "SFT_TRAINED",
+  "adapter_dir": "artifacts/models/branch_training_logic_expansion_v1/branching_sft",
+  "completed_target": true,
+  "elapsed_seconds": 5712.253,
+  "global_step": 300,
+  "n_examples": 594,
+  "paused": false,
+  "resumed_from": null,
+  "steps_this_run_to": 300,
+  "target_steps": 300,
+  "train_loss": 0.3444545237223307
+}

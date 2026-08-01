@@ -1,0 +1,39 @@
+{
+  "CANARY_SUITE_VERDICT": "CANARY_READY",
+  "by_domain": {
+    "alignment": 110,
+    "coding": 100,
+    "logic": 180,
+    "math": 110,
+    "reasoning": 110
+  },
+  "dropped_leak": 1458,
+  "k8_hard_subset": 108,
+  "logic_by_family": {
+    "fol_entailment": 20,
+    "lsat_analytical_reasoning": 20,
+    "lsat_logical_reasoning": 20,
+    "mcq_logical_reading": 20,
+    "proofwriter_deduction": 20,
+    "ruletaker_deduction": 20,
+    "synthetic_constraint_game": 20,
+    "synthetic_fol": 20,
+    "synthetic_propositional": 20
+  },
+  "small_domains_lt100": [],
+  "target": {
+    "alignment": 110,
+    "coding": 100,
+    "logic": 200,
+    "math": 110,
+    "reasoning": 110
+  },
+  "total": 610,
+  "wilson_halfwidth_at_p0.7": {
+    "alignment": 0.084,
+    "coding": 0.089,
+    "logic": 0.067,
+    "math": 0.084,
+    "reasoning": 0.084
+  }
+}

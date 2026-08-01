@@ -1,0 +1,29 @@
+{
+  "verdict": "S1_2_CURATED_BASELINE",
+  "K": 8,
+  "n_tasks": 16,
+  "n_dirs": 8,
+  "families_used": [
+    "high_yield_recipe_direction"
+  ],
+  "base_accuracy": 0.312,
+  "max_distinct": 9,
+  "results": [
+    {
+      "alpha": 0.02,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.1,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    }
+  ],
+  "random_baseline_distinct": 1.0,
+  "elapsed_seconds": 36.1
+}

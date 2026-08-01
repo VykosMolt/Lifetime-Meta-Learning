@@ -1,0 +1,57 @@
+{
+  "verdict": "CANARY_ARM_COMPLETE",
+  "agg": {
+    "logic": {
+      "n": 30,
+      "metric": 0.8333,
+      "ci": [
+        0.6644,
+        0.9266
+      ],
+      "parse_ok": 0.7958,
+      "branch_diversity": 3.567,
+      "all_wrong_rate": 0.1667
+    },
+    "math": {
+      "n": 30,
+      "metric": 0.9,
+      "ci": [
+        0.7438,
+        0.9654
+      ],
+      "parse_ok": 1.0,
+      "branch_diversity": 2.567,
+      "all_wrong_rate": 0.1
+    },
+    "reasoning": {
+      "n": 30,
+      "metric": 0.8333,
+      "ci": [
+        0.6644,
+        0.9266
+      ],
+      "parse_ok": 0.625,
+      "branch_diversity": 2.1,
+      "all_wrong_rate": 0.1667
+    },
+    "coding": {
+      "n": 30,
+      "metric": 0.4667,
+      "ci": [
+        0.3023,
+        0.6386
+      ],
+      "parse_ok": 0.9,
+      "branch_diversity": 2.767,
+      "all_wrong_rate": 0.5333
+    },
+    "alignment": {
+      "n": 110,
+      "metric": 0.5364,
+      "ci": [
+        0.4435,
+        0.6268
+      ]
+    }
+  }
+}

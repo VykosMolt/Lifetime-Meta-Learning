@@ -1,0 +1,12 @@
+{
+  "artifact_hashes.parser": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_packages/O1_oracle_reachability_v2.1.0_source/o1_v210/o1_answer_parser_v2.py",
+  "artifact_hashes.prompt_template": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_packages/O1_oracle_reachability_v2.1.0_source/o1_v210/o1_prompt_template_v2.py",
+  "artifact_hashes.random_axis_tensor": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2/random_axes_l3_24.npy",
+  "artifact_hashes.structured_axis_tensor": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2/axes_l3_24.npy",
+  "artifact_hashes.tokenizer": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_runs/O1_V2_AXIS_BANK_REDESIGN/TOKENIZER_BINDING.json",
+  "artifact_hashes.verifier_implementation": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_packages/O1_oracle_reachability_v2.1.0_source/o1_v210/o1_truth_table_verifier_v2.py",
+  "code.generation_module_sha256": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_packages/O1_oracle_reachability_v2.1.0_source/o1_v210/run_o1_v2_generation.py",
+  "code.orchestrator_module_sha256": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_packages/O1_oracle_reachability_v2.1.0_source/o1_v210/run_o1_v2_orchestrator.py",
+  "code.transport_module_sha256": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_packages/O1_oracle_reachability_v2.1.0_source/o1_v210/o1_transport_v2.py",
+  "model.checkpoint_sha256": "/home/moloch/ouro_project/models/ouro_rltt_local"
+}

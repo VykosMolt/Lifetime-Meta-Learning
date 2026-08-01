@@ -1,0 +1,58 @@
+{
+  "A1_READABLE": {
+    "construction": "accepted real leakage-clean L3_24 process-quality tap covector, carried byte-for-byte; unit RMS",
+    "provenance": {
+      "coefficient_mapping": "identity; AntisymLinearNoNorm raw 2048-d residual covector; no PCA or standardization inversion",
+      "source_layer": 24,
+      "source_loop": "paper L3",
+      "source_phase": "completed_candidate_state",
+      "source_pooling_rule": "attention-mask-valid mean; fp32 compute",
+      "source_token_position": "all attention-mask-valid tokens",
+      "target_injection_layer": 24,
+      "target_injection_loop": "paper L3 / zero-based loop 2",
+      "target_token_position": "final_nonpadding_prompt_position"
+    }
+  },
+  "A2_WRITABLE": {
+    "construction": "accepted leading direction of centered exact-protocol S1/S3 L3_24 injection deltas; reconstructed because historical tensor was absent; unit RMS",
+    "provenance": {
+      "coefficient_mapping": "leading right singular vector of centered exact L3_24 delta matrix; sign aligned to mean delta",
+      "source_layer": 24,
+      "source_loop": "paper L3",
+      "source_phase": "exact-protocol one-shot injection delta",
+      "source_pooling_rule": "none beyond one-token range mean",
+      "source_token_position": "fixed last-token suffix",
+      "target_injection_layer": 24,
+      "target_injection_loop": "paper L3 / zero-based loop 2",
+      "target_token_position": "final_nonpadding_prompt_position"
+    }
+  },
+  "A3_CAUSAL_MEAN": {
+    "construction": "unit RMS raw uncentered mean of eight causal-adapter-induced L3_24 updates in frozen reference order; no PC",
+    "provenance": {
+      "coefficient_mapping": "float64 arithmetic mean of exact stored float32 rows, then unit RMS; no centering, PCA, SVD, or cross-adapter averaging",
+      "source_layer": 24,
+      "source_loop": "paper L3 / zero-based loop 2",
+      "source_phase": "prompt_only",
+      "source_pooling_rule": "none; one position per task then raw task mean",
+      "source_token_position": "final non-padding prompt position",
+      "target_injection_layer": 24,
+      "target_injection_loop": "paper L3 / zero-based loop 2",
+      "target_token_position": "final_nonpadding_prompt_position"
+    }
+  },
+  "A4_SEQUENCE_MEAN": {
+    "construction": "unit RMS raw uncentered mean of eight sequence-adapter-induced L3_24 updates in frozen reference order; no PC",
+    "provenance": {
+      "coefficient_mapping": "float64 arithmetic mean of exact stored float32 rows, then unit RMS; no centering, PCA, SVD, or cross-adapter averaging",
+      "source_layer": 24,
+      "source_loop": "paper L3 / zero-based loop 2",
+      "source_phase": "prompt_only",
+      "source_pooling_rule": "none; one position per task then raw task mean",
+      "source_token_position": "final non-padding prompt position",
+      "target_injection_layer": 24,
+      "target_injection_loop": "paper L3 / zero-based loop 2",
+      "target_token_position": "final_nonpadding_prompt_position"
+    }
+  }
+}

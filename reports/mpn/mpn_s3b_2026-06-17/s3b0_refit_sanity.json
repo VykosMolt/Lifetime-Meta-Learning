@@ -1,0 +1,649 @@
+{
+  "verdict": "S3B0_REFIT_SANE",
+  "scope": "ZERO-GPU in-distribution sanity ONLY; NOT a Wall-B result; does not claim Wall B solved",
+  "core_metric": "selected_correct_when_oracle_present",
+  "trained_pairwise_minus_frozen_corecontent": -0.0267,
+  "config": {
+    "tset": "all_core_balanced",
+    "lr_grid": [
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "configs": [
+      "24_L4",
+      "36_L4",
+      "47_L4"
+    ],
+    "n_train_pools": {
+      "coding": 1355,
+      "reasoning": 2102,
+      "math": 2580,
+      "logic": 1752,
+      "alignment": 20658
+    },
+    "n_heldout_pools": {
+      "coding": 199,
+      "reasoning": 226,
+      "math": 309,
+      "logic": 224,
+      "alignment": 2954
+    }
+  },
+  "pairwise_detail": {
+    "24_L4": {
+      "lr": 0.03,
+      "seed": 1,
+      "val_core_macro": 0.5989,
+      "pairs": 25325
+    },
+    "36_L4": {
+      "lr": 0.3,
+      "seed": 1,
+      "val_core_macro": 0.6347,
+      "pairs": 25325
+    },
+    "47_L4": {
+      "lr": 0.03,
+      "seed": 0,
+      "val_core_macro": 0.6088,
+      "pairs": 25325
+    }
+  },
+  "listwise_detail": {
+    "24_L4": {
+      "lr": 0.01,
+      "seed": 2,
+      "val_core_macro": 0.6035,
+      "pairs": null
+    },
+    "36_L4": {
+      "lr": 0.1,
+      "seed": 1,
+      "val_core_macro": 0.6497,
+      "pairs": null
+    },
+    "47_L4": {
+      "lr": 0.03,
+      "seed": 1,
+      "val_core_macro": 0.61,
+      "pairs": null
+    }
+  },
+  "results": {
+    "S3B0_pairwise_blockwise": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.6424,
+        "selected_correct_when_oracle_present": 0.6424,
+        "oracle_conversion_rate": 0.6424,
+        "top2_oracle_retention": 0.8691,
+        "top4_oracle_retention": 0.9969,
+        "selector_regret": 0.3576
+      },
+      "by_domain_core_metric": {
+        "coding": 0.9095,
+        "reasoning": 0.6195,
+        "math": 0.6278,
+        "logic": 0.442,
+        "alignment": 0.6131
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.9095,
+          "selected_correct_when_oracle_present": 0.9095,
+          "oracle_conversion_rate": 0.9095,
+          "top2_oracle_retention": 0.9899,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0905
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6195,
+          "selected_correct_when_oracle_present": 0.6195,
+          "oracle_conversion_rate": 0.6195,
+          "top2_oracle_retention": 0.854,
+          "top4_oracle_retention": 0.9912,
+          "selector_regret": 0.3805
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6278,
+          "selected_correct_when_oracle_present": 0.6278,
+          "oracle_conversion_rate": 0.6278,
+          "top2_oracle_retention": 0.8544,
+          "top4_oracle_retention": 0.9935,
+          "selector_regret": 0.3722
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.442,
+          "selected_correct_when_oracle_present": 0.442,
+          "oracle_conversion_rate": 0.442,
+          "top2_oracle_retention": 0.6473,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.558
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6131,
+          "selected_correct_when_oracle_present": 0.6131,
+          "oracle_conversion_rate": 0.6131,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.3869
+        }
+      }
+    },
+    "S3B0_listwise_blockwise": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.6599,
+        "selected_correct_when_oracle_present": 0.6599,
+        "oracle_conversion_rate": 0.6599,
+        "top2_oracle_retention": 0.8821,
+        "top4_oracle_retention": 0.9969,
+        "selector_regret": 0.3401
+      },
+      "by_domain_core_metric": {
+        "coding": 0.9196,
+        "reasoning": 0.6681,
+        "math": 0.6667,
+        "logic": 0.4464,
+        "alignment": 0.5985
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.9196,
+          "selected_correct_when_oracle_present": 0.9196,
+          "oracle_conversion_rate": 0.9196,
+          "top2_oracle_retention": 0.9899,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0804
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6681,
+          "selected_correct_when_oracle_present": 0.6681,
+          "oracle_conversion_rate": 0.6681,
+          "top2_oracle_retention": 0.8982,
+          "top4_oracle_retention": 0.9912,
+          "selector_regret": 0.3319
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6667,
+          "selected_correct_when_oracle_present": 0.6667,
+          "oracle_conversion_rate": 0.6667,
+          "top2_oracle_retention": 0.8706,
+          "top4_oracle_retention": 0.9935,
+          "selector_regret": 0.3333
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4464,
+          "selected_correct_when_oracle_present": 0.4464,
+          "oracle_conversion_rate": 0.4464,
+          "top2_oracle_retention": 0.6518,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5536
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5985,
+          "selected_correct_when_oracle_present": 0.5985,
+          "oracle_conversion_rate": 0.5985,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.4015
+        }
+      }
+    },
+    "CoreContent_v2_blockwise": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.6691,
+        "selected_correct_when_oracle_present": 0.6691,
+        "oracle_conversion_rate": 0.6691,
+        "top2_oracle_retention": 0.8771,
+        "top4_oracle_retention": 0.9969,
+        "selector_regret": 0.3309
+      },
+      "by_domain_core_metric": {
+        "coding": 0.9347,
+        "reasoning": 0.6814,
+        "math": 0.657,
+        "logic": 0.4598,
+        "alignment": 0.6124
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.9347,
+          "selected_correct_when_oracle_present": 0.9347,
+          "oracle_conversion_rate": 0.9347,
+          "top2_oracle_retention": 0.9849,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0653
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6814,
+          "selected_correct_when_oracle_present": 0.6814,
+          "oracle_conversion_rate": 0.6814,
+          "top2_oracle_retention": 0.8894,
+          "top4_oracle_retention": 0.9912,
+          "selector_regret": 0.3186
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.657,
+          "selected_correct_when_oracle_present": 0.657,
+          "oracle_conversion_rate": 0.657,
+          "top2_oracle_retention": 0.8641,
+          "top4_oracle_retention": 0.9935,
+          "selector_regret": 0.343
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4598,
+          "selected_correct_when_oracle_present": 0.4598,
+          "oracle_conversion_rate": 0.4598,
+          "top2_oracle_retention": 0.6473,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5402
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6124,
+          "selected_correct_when_oracle_present": 0.6124,
+          "oracle_conversion_rate": 0.6124,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.3876
+        }
+      }
+    },
+    "DualAnchor": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.3787,
+        "selected_correct_when_oracle_present": 0.3787,
+        "oracle_conversion_rate": 0.3787,
+        "top2_oracle_retention": 0.7144,
+        "top4_oracle_retention": 0.9724,
+        "selector_regret": 0.6213
+      },
+      "by_domain_core_metric": {
+        "coding": 0.4271,
+        "reasoning": 0.3894,
+        "math": 0.3074,
+        "logic": 0.2366,
+        "alignment": 0.5328
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4271,
+          "selected_correct_when_oracle_present": 0.4271,
+          "oracle_conversion_rate": 0.4271,
+          "top2_oracle_retention": 0.7839,
+          "top4_oracle_retention": 0.995,
+          "selector_regret": 0.5729
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.3894,
+          "selected_correct_when_oracle_present": 0.3894,
+          "oracle_conversion_rate": 0.3894,
+          "top2_oracle_retention": 0.6726,
+          "top4_oracle_retention": 0.9381,
+          "selector_regret": 0.6106
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.3074,
+          "selected_correct_when_oracle_present": 0.3074,
+          "oracle_conversion_rate": 0.3074,
+          "top2_oracle_retention": 0.5663,
+          "top4_oracle_retention": 0.9288,
+          "selector_regret": 0.6926
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.2366,
+          "selected_correct_when_oracle_present": 0.2366,
+          "oracle_conversion_rate": 0.2366,
+          "top2_oracle_retention": 0.5491,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.7634
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5328,
+          "selected_correct_when_oracle_present": 0.5328,
+          "oracle_conversion_rate": 0.5328,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.4672
+        }
+      }
+    },
+    "mixedhead_MIX_HH_OBJECTIVE": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.5526,
+        "selected_correct_when_oracle_present": 0.5526,
+        "oracle_conversion_rate": 0.5526,
+        "top2_oracle_retention": 0.842,
+        "top4_oracle_retention": 0.9935,
+        "selector_regret": 0.4474
+      },
+      "by_domain_core_metric": {
+        "coding": 0.6131,
+        "reasoning": 0.677,
+        "math": 0.5858,
+        "logic": 0.3527,
+        "alignment": 0.5342
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.6131,
+          "selected_correct_when_oracle_present": 0.6131,
+          "oracle_conversion_rate": 0.6131,
+          "top2_oracle_retention": 0.9347,
+          "top4_oracle_retention": 0.995,
+          "selector_regret": 0.3869
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.677,
+          "selected_correct_when_oracle_present": 0.677,
+          "oracle_conversion_rate": 0.677,
+          "top2_oracle_retention": 0.8496,
+          "top4_oracle_retention": 0.9823,
+          "selector_regret": 0.323
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5858,
+          "selected_correct_when_oracle_present": 0.5858,
+          "oracle_conversion_rate": 0.5858,
+          "top2_oracle_retention": 0.8188,
+          "top4_oracle_retention": 0.9903,
+          "selector_regret": 0.4142
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.3527,
+          "selected_correct_when_oracle_present": 0.3527,
+          "oracle_conversion_rate": 0.3527,
+          "top2_oracle_retention": 0.6071,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.6473
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5342,
+          "selected_correct_when_oracle_present": 0.5342,
+          "oracle_conversion_rate": 0.5342,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.4658
+        }
+      }
+    },
+    "MIX_OBJECTIVE_ALL_only": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.3833,
+        "selected_correct_when_oracle_present": 0.3833,
+        "oracle_conversion_rate": 0.3833,
+        "top2_oracle_retention": 0.7221,
+        "top4_oracle_retention": 0.9748,
+        "selector_regret": 0.6167
+      },
+      "by_domain_core_metric": {
+        "coding": 0.4472,
+        "reasoning": 0.4159,
+        "math": 0.3107,
+        "logic": 0.2455,
+        "alignment": 0.4973
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4472,
+          "selected_correct_when_oracle_present": 0.4472,
+          "oracle_conversion_rate": 0.4472,
+          "top2_oracle_retention": 0.7839,
+          "top4_oracle_retention": 0.995,
+          "selector_regret": 0.5528
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4159,
+          "selected_correct_when_oracle_present": 0.4159,
+          "oracle_conversion_rate": 0.4159,
+          "top2_oracle_retention": 0.7035,
+          "top4_oracle_retention": 0.9469,
+          "selector_regret": 0.5841
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.3107,
+          "selected_correct_when_oracle_present": 0.3107,
+          "oracle_conversion_rate": 0.3107,
+          "top2_oracle_retention": 0.5696,
+          "top4_oracle_retention": 0.932,
+          "selector_regret": 0.6893
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.2455,
+          "selected_correct_when_oracle_present": 0.2455,
+          "oracle_conversion_rate": 0.2455,
+          "top2_oracle_retention": 0.5536,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.7545
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4973,
+          "selected_correct_when_oracle_present": 0.4973,
+          "oracle_conversion_rate": 0.4973,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5027
+        }
+      }
+    },
+    "RANDOM": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 0.2709,
+        "selected_correct_when_oracle_present": 0.2709,
+        "oracle_conversion_rate": 0.2709,
+        "top2_oracle_retention": 0.5681,
+        "top4_oracle_retention": 0.9265,
+        "selector_regret": 0.7291
+      },
+      "by_domain_core_metric": {
+        "coding": 0.206,
+        "reasoning": 0.2389,
+        "math": 0.1877,
+        "logic": 0.2411,
+        "alignment": 0.4807
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.206,
+          "selected_correct_when_oracle_present": 0.206,
+          "oracle_conversion_rate": 0.206,
+          "top2_oracle_retention": 0.4221,
+          "top4_oracle_retention": 0.8543,
+          "selector_regret": 0.794
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.2389,
+          "selected_correct_when_oracle_present": 0.2389,
+          "oracle_conversion_rate": 0.2389,
+          "top2_oracle_retention": 0.5044,
+          "top4_oracle_retention": 0.9336,
+          "selector_regret": 0.7611
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.1877,
+          "selected_correct_when_oracle_present": 0.1877,
+          "oracle_conversion_rate": 0.1877,
+          "top2_oracle_retention": 0.4142,
+          "top4_oracle_retention": 0.8447,
+          "selector_regret": 0.8123
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.2411,
+          "selected_correct_when_oracle_present": 0.2411,
+          "oracle_conversion_rate": 0.2411,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.7589
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.4807,
+          "selected_correct_when_oracle_present": 0.4807,
+          "oracle_conversion_rate": 0.4807,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5193
+        }
+      }
+    },
+    "ORACLE": {
+      "macro": {
+        "oracle_over_pool": 1.0,
+        "selected_acc": 1.0,
+        "selected_correct_when_oracle_present": 1.0,
+        "oracle_conversion_rate": 1.0,
+        "top2_oracle_retention": 1.0,
+        "top4_oracle_retention": 1.0,
+        "selector_regret": 0.0
+      },
+      "by_domain_core_metric": {
+        "coding": 1.0,
+        "reasoning": 1.0,
+        "math": 1.0,
+        "logic": 1.0,
+        "alignment": 1.0
+      },
+      "per_domain": {
+        "coding": {
+          "n_pools": 199,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 1.0,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0
+        },
+        "reasoning": {
+          "n_pools": 226,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 1.0,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0
+        },
+        "math": {
+          "n_pools": 309,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 1.0,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0
+        },
+        "logic": {
+          "n_pools": 224,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 1.0,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0
+        },
+        "alignment": {
+          "n_pools": 2954,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 1.0,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0
+        }
+      }
+    }
+  },
+  "elapsed_seconds": 890.3,
+  "decision": {
+    "verdict": "S3B0_REFIT_SANE",
+    "rationale": "pairwise default training path works; best trained objective (listwise 0.6599) matches frozen CoreContent (0.6691, delta -0.0092) within noise, pairwise 0.6424 within 0.0267; both far above MIX_HH/DualAnchor/MIX_OBJECTIVE/random. residual gap to frozen is a recipe/data difference (frozen used the full original train+val recipe + best-per-config polish), NOT a broken path. SANITY ONLY \u2014 does NOT claim Wall B solved.",
+    "best_trained": 0.6599,
+    "frozen_corecontent": 0.6691,
+    "best_minus_frozen": -0.0092,
+    "pairwise": 0.6424,
+    "listwise": 0.6599,
+    "max_simpler_baseline": 0.5526,
+    "random": 0.2709
+  }
+}

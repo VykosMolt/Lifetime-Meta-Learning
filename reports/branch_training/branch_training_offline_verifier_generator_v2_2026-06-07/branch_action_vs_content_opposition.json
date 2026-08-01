@@ -1,0 +1,44 @@
+{
+  "BRANCH_ACTION_VS_CONTENT_VERDICT": "OPPOSING_SIGNAL_CONFIRMED",
+  "n_groups": 3404,
+  "domains": [
+    "reasoning",
+    "logic",
+    "alignment"
+  ],
+  "per_layer": [
+    {
+      "layer": 24,
+      "cos_DA_CC": 0.4404,
+      "DA_content_top1": 0.5444,
+      "CC_content_top1": 0.5705,
+      "actionResid_top1": 0.5053,
+      "random": 0.4669,
+      "resid_opposes": false
+    },
+    {
+      "layer": 36,
+      "cos_DA_CC": 0.4421,
+      "DA_content_top1": 0.5297,
+      "CC_content_top1": 0.6037,
+      "actionResid_top1": 0.4471,
+      "random": 0.4669,
+      "resid_opposes": true
+    },
+    {
+      "layer": 47,
+      "note": "no CoreContent channel at this layer (L47 pruned for content)",
+      "DA_content_top1": 0.4915,
+      "random": 0.4669
+    }
+  ],
+  "combined": {
+    "CoreContent_24_36": 0.5864,
+    "random": 0.4669,
+    "DualAnchor_24_36_47": 0.5238,
+    "DualAnchor_24_36_drop47": 0.5426,
+    "DualAnchor_47only_action": 0.4915,
+    "lift_dropping_47_from_DA": 0.0188,
+    "47action_opposes_content": false
+  }
+}

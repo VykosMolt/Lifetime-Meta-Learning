@@ -1,0 +1,1 @@
+{"verdict": "LOGIC_REACHABILITY_READY", "generated_overall": {"groups": 240, "positive_oracle@1": 0.5969, "positive_oracle@2": 0.6813, "positive_oracle@4": 0.7375, "reward_diverse_rate": 0.3042, "all_wrong_rate": 0.2625, "all_correct_rate": 0.4333, "parse_ok_rate": 0.9552, "avg_branches": 4.0, "strategy_diversity": 2.0}, "n": 240, "saved_at": 1780835910.3613267}

@@ -1,0 +1,1968 @@
+{
+  "causal_adapter": {
+    "adapter": "causal_teacher_forced",
+    "effective_rank": 7,
+    "explained_variance_requested": {
+      "pc_1": {
+        "cumulative_explained_variance_through_pc": 0.21485368736893462,
+        "individual_explained_variance": 0.21485368736893462,
+        "status": "ESTIMABLE"
+      },
+      "pc_16": {
+        "effective_rank": 7,
+        "maximum_centered_rank": 7,
+        "requested_pc": 16,
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      },
+      "pc_2": {
+        "cumulative_explained_variance_through_pc": 0.3832815927165195,
+        "individual_explained_variance": 0.16842790534758492,
+        "status": "ESTIMABLE"
+      },
+      "pc_4": {
+        "cumulative_explained_variance_through_pc": 0.6614182099394931,
+        "individual_explained_variance": 0.13140807152578385,
+        "status": "ESTIMABLE"
+      },
+      "pc_8": {
+        "effective_rank": 7,
+        "maximum_centered_rank": 7,
+        "requested_pc": 8,
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      }
+    },
+    "finite": true,
+    "leave_one_task_out": {
+      "mean_update_cosine_summary": {
+        "maximum": 0.9652120426325489,
+        "mean": 0.9549189822109412,
+        "median": 0.9555776491308856,
+        "minimum": 0.9414609452611218,
+        "n": 8,
+        "q05": 0.9450653558343035,
+        "q95": 0.9629379904962287
+      },
+      "pc1_absolute_cosine_summary": {
+        "maximum": 0.999916120194924,
+        "mean": 0.9159980140305586,
+        "median": 0.98328099855656,
+        "minimum": 0.5650380388886551,
+        "n": 8,
+        "q05": 0.6832745691269576,
+        "q95": 0.9997358541502815
+      },
+      "rows": [
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/0",
+          "mean_update_cosine_to_full": 0.9578066545885793,
+          "pc1_absolute_cosine_to_full": 0.9080198686919225,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.908019868691921
+              ],
+              "largest_principal_angle_degrees": 24.766869567011007,
+              "principal_angles_degrees": [
+                24.766869567011007
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8245000819392934,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.908019868691921,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9998313352396835,
+                0.91236627991089
+              ],
+              "largest_principal_angle_degrees": 24.165570171551202,
+              "principal_angles_degrees": [
+                1.0523395950555772,
+                24.165570171551202
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9160374638228024,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.91236627991089,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999977311856407,
+                0.9977841942996065,
+                0.8704228435600107
+              ],
+              "largest_principal_angle_degrees": 29.492186119219827,
+              "principal_angles_degrees": [
+                0.0,
+                0.12204983410074136,
+                3.814904698604582,
+                29.492186119219827
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9383011718404097,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.8704228435600107,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/1",
+          "mean_update_cosine_to_full": 0.9540151764283821,
+          "pc1_absolute_cosine_to_full": 0.9861903162903822,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9861903162903811
+              ],
+              "largest_principal_angle_degrees": 9.533021126103055,
+              "principal_angles_degrees": [
+                9.533021126103055
+              ],
+              "projection_overlap_mean_cosine_squared": 0.972571339944922,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9861903162903811,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9993572438505836,
+                0.8280902172466962
+              ],
+              "largest_principal_angle_degrees": 34.09694595690825,
+              "principal_angles_degrees": [
+                2.0543953116125895,
+                34.09694595690825
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8422241543681577,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.8280902172466962,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                0.999999999999999,
+                0.9999999872176268,
+                0.9997118392741372,
+                0.7447795705938884
+              ],
+              "largest_principal_angle_degrees": 41.85983079391503,
+              "principal_angles_degrees": [
+                2.561320938754782e-06,
+                0.009161010410108104,
+                1.3755153916693335,
+                41.85983079391503
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8885300861985368,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.7447795705938884,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/10",
+          "mean_update_cosine_to_full": 0.9532429049445186,
+          "pc1_absolute_cosine_to_full": 0.9028566967123766,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9028566967123768
+              ],
+              "largest_principal_angle_degrees": 25.463854416866674,
+              "principal_angles_degrees": [
+                25.463854416866674
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8151502147983847,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9028566967123768,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9976842839180409,
+                0.8264301188211646
+              ],
+              "largest_principal_angle_degrees": 34.2662476166642,
+              "principal_angles_degrees": [
+                3.8999957185764385,
+                34.2662476166642
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8391803358359091,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.8264301188211646,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999999349095633,
+                0.9995104313879521,
+                0.7132990402370871
+              ],
+              "largest_principal_angle_degrees": 44.49602778515521,
+              "principal_angles_degrees": [
+                0.0,
+                0.020672653495164353,
+                1.7929250409776907,
+                44.49602778515521
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8769541232689027,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.7132990402370871,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/11",
+          "mean_update_cosine_to_full": 0.9414609452611218,
+          "pc1_absolute_cosine_to_full": 0.5650380388886551,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.5650380388886544
+              ],
+              "largest_principal_angle_degrees": 55.5950671607628,
+              "principal_angles_degrees": [
+                55.5950671607628
+              ],
+              "projection_overlap_mean_cosine_squared": 0.3192679853911366,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.5650380388886544,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9964483983721317,
+                0.6456847947845397
+              ],
+              "largest_principal_angle_degrees": 49.78296153555036,
+              "principal_angles_degrees": [
+                4.830347483328085,
+                49.78296153555036
+              ],
+              "projection_overlap_mean_cosine_squared": 0.7049091324171698,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.6456847947845397,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                0.9999999999999998,
+                0.999990806976909,
+                0.9941261804869762,
+                0.5423854335403269
+              ],
+              "largest_principal_angle_degrees": 57.15382624392126,
+              "principal_angles_degrees": [
+                1.2074182697257333e-06,
+                0.24567849241750742,
+                6.213134268209013,
+                57.15382624392126
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8206126088211703,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.5423854335403269,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/0",
+          "mean_update_cosine_to_full": 0.9517592611844982,
+          "pc1_absolute_cosine_to_full": 0.9861060106528994,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9861060106528987
+              ],
+              "largest_principal_angle_degrees": 9.562143062510819,
+              "principal_angles_degrees": [
+                9.562143062510819
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9724050642457748,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9861060106528987,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9995587134252607,
+                0.8459530611832009
+              ],
+              "largest_principal_angle_degrees": 32.225807270642655,
+              "principal_angles_degrees": [
+                1.702213222748804,
+                32.225807270642655
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8573771016547955,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.8459530611832009,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                0.9999999999999994,
+                0.9999980646564197,
+                0.9981534266911533,
+                0.5673369399879059
+              ],
+              "largest_principal_angle_degrees": 55.435269525236755,
+              "principal_angles_degrees": [
+                1.9090959104164224e-06,
+                0.11272409009730805,
+                3.4824730121457965,
+                55.435269525236755
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8295443990016791,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.5673369399879059,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/1",
+          "mean_update_cosine_to_full": 0.9587147508144912,
+          "pc1_absolute_cosine_to_full": 0.999916120194924,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.999916120194923
+              ],
+              "largest_principal_angle_degrees": 0.7421118599921723,
+              "principal_angles_degrees": [
+                0.7421118599921723
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9998322474256678,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.999916120194923,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9999970314276628,
+                0.8271404540267627
+              ],
+              "largest_principal_angle_degrees": 34.193895699164386,
+              "principal_angles_degrees": [
+                0.13960840189983437,
+                34.193895699164386
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8420776967758686,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.8271404540267627,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                0.9999999999999992,
+                0.9999984283280701,
+                0.9957452966413918,
+                0.4377800658603881
+              ],
+              "largest_principal_angle_degrees": 64.03767383143077,
+              "principal_angles_degrees": [
+                2.2588727439225506e-06,
+                0.10158243886842842,
+                5.287207761505468,
+                64.03767383143077
+              ],
+              "projection_overlap_mean_cosine_squared": 0.7957892346266969,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.4377800658603881,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/10",
+          "mean_update_cosine_to_full": 0.9571401218333891,
+          "pc1_absolute_cosine_to_full": 0.9804559864602207,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9804559864602198
+              ],
+              "largest_principal_angle_degrees": 11.346303003013334,
+              "principal_angles_degrees": [
+                11.346303003013334
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9612939413856827,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9804559864602198,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9995572542355411,
+                0.9376737586846475
+              ],
+              "largest_principal_angle_degrees": 20.335506166517654,
+              "principal_angles_degrees": [
+                1.705025437370422,
+                20.335506166517654
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9391733911103444,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9376737586846475,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999903626214394,
+                0.9975632284444883,
+                0.3613277435408312
+              ],
+              "largest_principal_angle_degrees": 68.81824029202751,
+              "principal_angles_degrees": [
+                0.0,
+                0.251546013102089,
+                4.000674956486207,
+                68.81824029202751
+              ],
+              "projection_overlap_mean_cosine_squared": 0.7814177145831642,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.3613277435408312,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/11",
+          "mean_update_cosine_to_full": 0.9652120426325489,
+          "pc1_absolute_cosine_to_full": 0.9994010743530882,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9994010743530876
+              ],
+              "largest_principal_angle_degrees": 1.98310524776419,
+              "principal_angles_degrees": [
+                1.98310524776419
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9988025074181056,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9994010743530876,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9999776901225471,
+                0.9937704365009732
+              ],
+              "largest_principal_angle_degrees": 6.398705939862865,
+              "principal_angles_degrees": [
+                0.38272517475986745,
+                6.398705939862865
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9937675306030798,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9937704365009732,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                0.9999999999999994,
+                0.999999555985066,
+                0.9997204748930556,
+                0.9705117079591637
+              ],
+              "largest_principal_angle_degrees": 13.948755875748404,
+              "principal_angles_degrees": [
+                1.9090959104164224e-06,
+                0.05399287273041472,
+                1.3547468761406143,
+                13.948755875748404
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9853332787941345,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.9705117079591637,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        }
+      ]
+    },
+    "matrix_dtype_after_load": "float64",
+    "matrix_shape": [
+      8,
+      2048
+    ],
+    "mean_update_rms": 0.0009088061155487916,
+    "one_row_per_task": true,
+    "pc1_sign_dot_mean_after_alignment": 0.005685999959225122,
+    "pc1_sign_rule": "positive dot with the uncentered mean update",
+    "rank_tolerance": 3.5876304181541873e-06,
+    "singular_values": [
+      0.11755947354207641,
+      0.10408622325698318,
+      0.0971501629289674,
+      0.0919384648268675,
+      0.08807242094557788,
+      0.08631393202527388,
+      0.08106823852078697,
+      0.0
+    ],
+    "task_clustered_bootstrap": {
+      "bit_generator": "numpy.PCG64",
+      "draws": 2000,
+      "mean_update_cosine_to_full": {
+        "maximum": 1.0,
+        "mean": 0.802369344878314,
+        "median": 0.8083426804686749,
+        "minimum": 0.48128796268127544,
+        "n": 2000,
+        "q05": 0.668169906399348,
+        "q95": 0.922280923952528
+      },
+      "pc1_absolute_cosine_to_full": {
+        "maximum": 1.0000000000000002,
+        "mean": 0.5124909295197709,
+        "median": 0.513138605257,
+        "minimum": 0.0002248559116713666,
+        "n": 2000,
+        "q05": 0.04999786615467152,
+        "q95": 0.9275867382395757
+      },
+      "row_independence_assumed": false,
+      "seed": 20260730,
+      "top_k_subspace_projection_overlap_to_full": {
+        "1": {
+          "invalid_draws_insufficient_rank": 0,
+          "maximum": 1.0,
+          "mean": 0.33876960940492645,
+          "median": 0.26331124951496665,
+          "minimum": 5.0560181013561314e-08,
+          "n": 2000,
+          "q05": 0.002499843545767147,
+          "q95": 0.8604171569579336
+        },
+        "16": {
+          "invalid_draws_insufficient_rank": 2000,
+          "n": 0,
+          "status": "UNAVAILABLE"
+        },
+        "2": {
+          "invalid_draws_insufficient_rank": 2,
+          "maximum": 0.9999999999999997,
+          "mean": 0.4647994816007085,
+          "median": 0.454868129587369,
+          "minimum": 0.058877293247674524,
+          "n": 1998,
+          "q05": 0.23823840182980194,
+          "q95": 0.7130703895190126
+        },
+        "4": {
+          "invalid_draws_insufficient_rank": 380,
+          "maximum": 0.9999999999999998,
+          "mean": 0.6645375945550462,
+          "median": 0.6612178388609355,
+          "minimum": 0.4409836720495269,
+          "n": 1620,
+          "q05": 0.5029110426317512,
+          "q95": 0.8279648322726003
+        },
+        "8": {
+          "invalid_draws_insufficient_rank": 2000,
+          "n": 0,
+          "status": "UNAVAILABLE"
+        }
+      },
+      "unit": "task_id; one frozen reference example per task"
+    },
+    "task_count": 8,
+    "task_ids_in_frozen_order": [
+      "ARC-Challenge/0",
+      "ARC-Challenge/1",
+      "ARC-Challenge/10",
+      "ARC-Challenge/11",
+      "mmlu/high_school_biology/0",
+      "mmlu/high_school_biology/1",
+      "mmlu/high_school_biology/10",
+      "mmlu/high_school_biology/11"
+    ],
+    "update_rms_per_task": [
+      0.0020963132448466324,
+      0.002213649011773414,
+      0.0022035836496319605,
+      0.00247539852625409,
+      0.0022799662248701186,
+      0.0020708446049015226,
+      0.002113141997603513,
+      0.0019456172597852356
+    ]
+  },
+  "created_at": "2026-07-29T12:20:16.515270+02:00",
+  "cross_adapter": {
+    "cross_projection_energy": {
+      "1": {
+        "causal_energy_captured_by_sequence_subspace": 0.05196716161351006,
+        "sequence_energy_captured_by_causal_subspace": 0.0286714768419293,
+        "status": "ESTIMABLE"
+      },
+      "16": {
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      },
+      "2": {
+        "causal_energy_captured_by_sequence_subspace": 0.09847677274222211,
+        "sequence_energy_captured_by_causal_subspace": 0.08741926749062989,
+        "status": "ESTIMABLE"
+      },
+      "4": {
+        "causal_energy_captured_by_sequence_subspace": 0.15982206089031795,
+        "sequence_energy_captured_by_causal_subspace": 0.16597816396205464,
+        "status": "ESTIMABLE"
+      },
+      "8": {
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      }
+    },
+    "cross_validated_procrustes": {
+      "a_to_b_cosine_summary": {
+        "maximum": 0.3624348656302209,
+        "mean": 0.27119220980100434,
+        "median": 0.29001263430232593,
+        "minimum": 0.1672947966585748,
+        "n": 8,
+        "q05": 0.1813017150765283,
+        "q95": 0.34694236251054605
+      },
+      "b_to_a_cosine_summary": {
+        "maximum": 0.22727944400963335,
+        "mean": 0.12866525599037493,
+        "median": 0.11718397882181236,
+        "minimum": 0.0618140531899143,
+        "n": 8,
+        "q05": 0.06630290887637184,
+        "q95": 0.22171763665490068
+      },
+      "cross_validation": "leave-one-task-out",
+      "limitation": "seven train tasks identify at most a six-dimensional centered map; the 2048-dimensional orthogonal complement is not identified",
+      "row_independence_assumed": false,
+      "rows": [
+        {
+          "a_to_b_cosine": 0.29182812145091264,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.011938999376057215,
+              0.009941134294896233,
+              0.009316000743316222,
+              0.009053899626635678,
+              0.008541604071525011,
+              0.0071132375081062954
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 1.0104666881212958,
+          "b_to_a_cosine": 0.10407205178438177,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.01193899937605722,
+              0.00994113429489623,
+              0.009316000743316224,
+              0.009053899626635683,
+              0.008541604071525008,
+              0.007113237508106304
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0675245250782233,
+          "held_out_task_id": "ARC-Challenge/0"
+        },
+        {
+          "a_to_b_cosine": 0.28819714715373923,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.01205580667253024,
+              0.010621271598283587,
+              0.009163635193476176,
+              0.008672404651211397,
+              0.0077460513368746665,
+              0.0070667840266468085
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 0.9845371040967894,
+          "b_to_a_cosine": 0.13920723082347244,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.01205580667253025,
+              0.010621271598283584,
+              0.00916363519347619,
+              0.008672404651211395,
+              0.007746051336874669,
+              0.007066784026646812
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0321873466046125,
+          "held_out_task_id": "ARC-Challenge/1"
+        },
+        {
+          "a_to_b_cosine": 0.31817057100257845,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.012005612772288166,
+              0.010284643491987946,
+              0.009416921107776904,
+              0.008887807320867728,
+              0.008000478615828545,
+              0.007109990518647953
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 0.9846659183078857,
+          "b_to_a_cosine": 0.08062544125187862,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.012005612772288163,
+              0.01028464349198794,
+              0.009416921107776893,
+              0.008887807320867717,
+              0.008000478615828546,
+              0.007109990518647954
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0589207644007004,
+          "held_out_task_id": "ARC-Challenge/10"
+        },
+        {
+          "a_to_b_cosine": 0.1672947966585748,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.010881832399713912,
+              0.009583231975640661,
+              0.009329622952687891,
+              0.008730389423318727,
+              0.007857029202681432,
+              0.007136950049593284
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 1.0588606048820917,
+          "b_to_a_cosine": 0.13029590585924294,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.010881832399713909,
+              0.009583231975640665,
+              0.009329622952687895,
+              0.00873038942331873,
+              0.007857029202681429,
+              0.00713695004959328
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0307566423085057,
+          "held_out_task_id": "ARC-Challenge/11"
+        },
+        {
+          "a_to_b_cosine": 0.2073145635670134,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.011872760863631083,
+              0.010540175049769788,
+              0.009205502832194762,
+              0.008765509512910748,
+              0.007881884193119557,
+              0.007185842723737235
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 1.0481100621031878,
+          "b_to_a_cosine": 0.2113885658532543,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.011872760863631086,
+              0.010540175049769793,
+              0.00920550283219476,
+              0.008765509512910748,
+              0.007881884193119557,
+              0.007185842723737232
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0030617616709616,
+          "held_out_task_id": "mmlu/high_school_biology/0"
+        },
+        {
+          "a_to_b_cosine": 0.21649628185443653,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.011684607726224906,
+              0.010028744728561178,
+              0.009125230136492688,
+              0.008894332173152972,
+              0.007733515823684216,
+              0.007097064666337947
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 1.0256766204097667,
+          "b_to_a_cosine": 0.0618140531899143,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.011684607726224901,
+              0.010028744728561178,
+              0.0091252301364927,
+              0.008894332173152972,
+              0.007733515823684218,
+              0.007097064666337946
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0872049280130223,
+          "held_out_task_id": "mmlu/high_school_biology/1"
+        },
+        {
+          "a_to_b_cosine": 0.3624348656302209,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.011918816948184259,
+              0.010467212488182357,
+              0.009438176905586805,
+              0.00883901855013121,
+              0.007685601605534572,
+              0.007116394509780294
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 0.9411815629029032,
+          "b_to_a_cosine": 0.07463935515122158,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.01191881694818426,
+              0.010467212488182373,
+              0.009438176905586805,
+              0.008839018550131215,
+              0.007685601605534569,
+              0.00711639450978029
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.075990213604223,
+          "held_out_task_id": "mmlu/high_school_biology/10"
+        },
+        {
+          "a_to_b_cosine": 0.3178013310905589,
+          "a_to_b_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.012022048601328016,
+              0.01050406769814185,
+              0.009428975683936388,
+              0.008958021518352077,
+              0.008594631973184304,
+              0.00762938290758349
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "a_to_b_relative_l2_error": 0.976772951915543,
+          "b_to_a_cosine": 0.22727944400963335,
+          "b_to_a_fit": {
+            "mapping": "minimum-norm thin orthogonal Procrustes map in the train-task span",
+            "singular_values": [
+              0.012022048601328026,
+              0.010504067698141845,
+              0.009428975683936386,
+              0.00895802151835207,
+              0.0085946319731843,
+              0.007629382907583498
+            ],
+            "train_rank": 6,
+            "unidentified_orthogonal_complement": true
+          },
+          "b_to_a_relative_l2_error": 1.0194271350751873,
+          "held_out_task_id": "mmlu/high_school_biology/11"
+        }
+      ]
+    },
+    "heldout_task_canonical_correlations": {
+      "folds": [
+        {
+          "fit_rank": 4,
+          "held_out_task_ids": [
+            "ARC-Challenge/0",
+            "mmlu/high_school_biology/0"
+          ],
+          "train_canonical_correlations": [
+            1.0,
+            0.9999999999999994,
+            0.9999999999999993,
+            0.81582869548547
+          ],
+          "train_task_ids": [
+            "ARC-Challenge/1",
+            "ARC-Challenge/10",
+            "ARC-Challenge/11",
+            "mmlu/high_school_biology/1",
+            "mmlu/high_school_biology/10",
+            "mmlu/high_school_biology/11"
+          ]
+        },
+        {
+          "fit_rank": 4,
+          "held_out_task_ids": [
+            "ARC-Challenge/1",
+            "mmlu/high_school_biology/1"
+          ],
+          "train_canonical_correlations": [
+            1.0,
+            1.0,
+            0.9999999999999994,
+            0.6468773083292678
+          ],
+          "train_task_ids": [
+            "ARC-Challenge/0",
+            "ARC-Challenge/10",
+            "ARC-Challenge/11",
+            "mmlu/high_school_biology/0",
+            "mmlu/high_school_biology/10",
+            "mmlu/high_school_biology/11"
+          ]
+        },
+        {
+          "fit_rank": 4,
+          "held_out_task_ids": [
+            "ARC-Challenge/10",
+            "mmlu/high_school_biology/10"
+          ],
+          "train_canonical_correlations": [
+            1.0,
+            0.9999999999999992,
+            0.9999999999999992,
+            0.8227113065243821
+          ],
+          "train_task_ids": [
+            "ARC-Challenge/0",
+            "ARC-Challenge/1",
+            "ARC-Challenge/11",
+            "mmlu/high_school_biology/0",
+            "mmlu/high_school_biology/1",
+            "mmlu/high_school_biology/11"
+          ]
+        },
+        {
+          "fit_rank": 4,
+          "held_out_task_ids": [
+            "ARC-Challenge/11",
+            "mmlu/high_school_biology/11"
+          ],
+          "train_canonical_correlations": [
+            0.9999999999999997,
+            0.9999999999999996,
+            0.9999999999999994,
+            0.6636442136169008
+          ],
+          "train_task_ids": [
+            "ARC-Challenge/0",
+            "ARC-Challenge/1",
+            "ARC-Challenge/10",
+            "mmlu/high_school_biology/0",
+            "mmlu/high_school_biology/1",
+            "mmlu/high_school_biology/10"
+          ]
+        }
+      ],
+      "heldout_canonical_correlations": {
+        "1": {
+          "heldout_pearson_correlation": 0.669661052684215,
+          "heldout_tasks": 8,
+          "status": "ESTIMABLE_BUT_SMALL_N_EXPLORATORY"
+        },
+        "2": {
+          "heldout_pearson_correlation": -0.6827775929898918,
+          "heldout_tasks": 8,
+          "status": "ESTIMABLE_BUT_SMALL_N_EXPLORATORY"
+        },
+        "3": {
+          "heldout_pearson_correlation": 0.2911889092975192,
+          "heldout_tasks": 8,
+          "status": "ESTIMABLE_BUT_SMALL_N_EXPLORATORY"
+        },
+        "4": {
+          "heldout_pearson_correlation": -0.01534969195229654,
+          "heldout_tasks": 8,
+          "status": "ESTIMABLE_BUT_SMALL_N_EXPLORATORY"
+        }
+      },
+      "limitation": "only eight reference tasks exist; held-out canonical correlations are reconstruction diagnostics, not population estimates",
+      "method": "four domain-balanced two-task holdout folds; train-only PCA and ridge-whitened CCA; each task evaluated exactly once",
+      "requested_k_16": "UNAVAILABLE: six train tasks permit at most five centered components",
+      "requested_k_8": "UNAVAILABLE: six train tasks permit at most five centered components"
+    },
+    "mean_update_cosine": 0.5720586047705143,
+    "pc1_absolute_cosine": 0.13812127400617838,
+    "pc1_signed_cosine": -0.13812127400617838,
+    "per_example_update_cosine_summary": {
+      "maximum": 0.5350888497670613,
+      "mean": 0.47964909853025006,
+      "median": 0.5014178979757391,
+      "minimum": 0.2861431609184415,
+      "n": 8,
+      "q05": 0.35567241381482345,
+      "q95": 0.5327955780096307
+    },
+    "per_example_update_cosines": [
+      {
+        "cosine": 0.5014428318005091,
+        "task_id": "ARC-Challenge/0"
+      },
+      {
+        "cosine": 0.5350888497670613,
+        "task_id": "ARC-Challenge/1"
+      },
+      {
+        "cosine": 0.2861431609184415,
+        "task_id": "ARC-Challenge/10"
+      },
+      {
+        "cosine": 0.5118133451813301,
+        "task_id": "ARC-Challenge/11"
+      },
+      {
+        "cosine": 0.48797682248403956,
+        "task_id": "mmlu/high_school_biology/0"
+      },
+      {
+        "cosine": 0.5013929641509692,
+        "task_id": "mmlu/high_school_biology/1"
+      },
+      {
+        "cosine": 0.48479816919381846,
+        "task_id": "mmlu/high_school_biology/10"
+      },
+      {
+        "cosine": 0.5285366447458312,
+        "task_id": "mmlu/high_school_biology/11"
+      }
+    ],
+    "principal_angles_and_projection_overlap": {
+      "1": {
+        "canonical_cosines": [
+          0.1381212740061784
+        ],
+        "largest_principal_angle_degrees": 82.06085297609599,
+        "principal_angles_degrees": [
+          82.06085297609599
+        ],
+        "projection_overlap_mean_cosine_squared": 0.019077486333089814,
+        "requested_k": 1,
+        "smallest_canonical_cosine": 0.1381212740061784,
+        "status": "ESTIMABLE"
+      },
+      "16": {
+        "rank_a": 7,
+        "rank_b": 7,
+        "requested_k": 16,
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      },
+      "2": {
+        "canonical_cosines": [
+          0.5066562616201752,
+          0.3000473482938479
+        ],
+        "largest_principal_angle_degrees": 72.53955300679966,
+        "principal_angles_degrees": [
+          59.55863945324863,
+          72.53955300679966
+        ],
+        "projection_overlap_mean_cosine_squared": 0.17336448932855053,
+        "requested_k": 2,
+        "smallest_canonical_cosine": 0.3000473482938479,
+        "status": "ESTIMABLE"
+      },
+      "4": {
+        "canonical_cosines": [
+          0.6068962004201361,
+          0.5499817618396032,
+          0.3576138516401427,
+          0.1120730988850006
+        ],
+        "largest_principal_angle_degrees": 83.56516552542101,
+        "principal_angles_degrees": [
+          52.634585176029866,
+          56.63423823566232,
+          69.04627339478047,
+          83.56516552542101
+        ],
+        "projection_overlap_mean_cosine_squared": 0.20281274570479432,
+        "requested_k": 4,
+        "smallest_canonical_cosine": 0.1120730988850006,
+        "status": "ESTIMABLE"
+      },
+      "8": {
+        "rank_a": 7,
+        "rank_b": 7,
+        "requested_k": 8,
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      }
+    }
+  },
+  "reference_task_count": 8,
+  "reference_task_ids": [
+    "ARC-Challenge/0",
+    "ARC-Challenge/1",
+    "ARC-Challenge/10",
+    "ARC-Challenge/11",
+    "mmlu/high_school_biology/0",
+    "mmlu/high_school_biology/1",
+    "mmlu/high_school_biology/10",
+    "mmlu/high_school_biology/11"
+  ],
+  "schema_version": "o1.axis_diagnosis_v2.d4_geometry.v1",
+  "scientific_scope": "real captured pre-O1 updates; reconstruction diagnostics only",
+  "sequence_adapter": {
+    "adapter": "sequence_level",
+    "effective_rank": 7,
+    "explained_variance_requested": {
+      "pc_1": {
+        "cumulative_explained_variance_through_pc": 0.19077116317856815,
+        "individual_explained_variance": 0.19077116317856815,
+        "status": "ESTIMABLE"
+      },
+      "pc_16": {
+        "effective_rank": 7,
+        "maximum_centered_rank": 7,
+        "requested_pc": 16,
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      },
+      "pc_2": {
+        "cumulative_explained_variance_through_pc": 0.3633545405691382,
+        "individual_explained_variance": 0.17258337739057003,
+        "status": "ESTIMABLE"
+      },
+      "pc_4": {
+        "cumulative_explained_variance_through_pc": 0.6461589514563103,
+        "individual_explained_variance": 0.13133681448881898,
+        "status": "ESTIMABLE"
+      },
+      "pc_8": {
+        "effective_rank": 7,
+        "maximum_centered_rank": 7,
+        "requested_pc": 8,
+        "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+      }
+    },
+    "finite": true,
+    "leave_one_task_out": {
+      "mean_update_cosine_summary": {
+        "maximum": 0.9757197520111373,
+        "mean": 0.9711498241213649,
+        "median": 0.971627385296984,
+        "minimum": 0.966199319294551,
+        "n": 8,
+        "q05": 0.9662595348512114,
+        "q95": 0.9752470444990727
+      },
+      "pc1_absolute_cosine_summary": {
+        "maximum": 0.99986819324043,
+        "mean": 0.8835907574869086,
+        "median": 0.9758977923726334,
+        "minimum": 0.4066096406535416,
+        "n": 8,
+        "q05": 0.52883898094538,
+        "q95": 0.9987342066441427
+      },
+      "rows": [
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/0",
+          "mean_update_cosine_to_full": 0.9733652100425468,
+          "pc1_absolute_cosine_to_full": 0.996628231536752,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9966282315367522
+              ],
+              "largest_principal_angle_degrees": 4.706397517145126,
+              "principal_angles_degrees": [
+                4.706397517145126
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9932678318960741,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9966282315367522,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9999940301706263,
+                0.9274540401977768
+              ],
+              "largest_principal_angle_degrees": 21.958638368176214,
+              "principal_angles_degrees": [
+                0.19797885379933394,
+                21.958638368176214
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9300795285280353,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9274540401977768,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999999959835504,
+                0.9997969200756942,
+                0.8980994060695924
+              ],
+              "largest_principal_angle_degrees": 26.09064357097926,
+              "principal_angles_degrees": [
+                0.0,
+                0.005135216902357445,
+                1.1547247558719558,
+                26.09064357097926
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9515441041356248,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.8980994060695924,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/1",
+          "mean_update_cosine_to_full": 0.9692406921359515,
+          "pc1_absolute_cosine_to_full": 0.9932735594608535,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9932735594608546
+              ],
+              "largest_principal_angle_degrees": 6.64927083394725,
+              "principal_angles_degrees": [
+                6.64927083394725
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9865923639240358,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9932735594608546,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9999659337826652,
+                0.9339844366024743
+              ],
+              "largest_principal_angle_degrees": 20.935311819628986,
+              "principal_angles_degrees": [
+                0.47293430737632786,
+                20.935311819628986
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9361293982707395,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9339844366024743,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999998205050633,
+                0.9987083503148506,
+                0.514439820822235
+              ],
+              "largest_principal_angle_degrees": 59.039980821326274,
+              "principal_angles_degrees": [
+                0.0,
+                0.03432920434832567,
+                2.912438469556727,
+                59.039980821326274
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8155165848115956,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.514439820822235,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/10",
+          "mean_update_cosine_to_full": 0.9743691591195243,
+          "pc1_absolute_cosine_to_full": 0.99986819324043,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9998681932404311
+              ],
+              "largest_principal_angle_degrees": 0.9302747690861943,
+              "principal_angles_degrees": [
+                0.9302747690861943
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9997364038538841,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9998681932404311,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9999998170079075,
+                0.9995083008510982
+              ],
+              "largest_principal_angle_degrees": 1.7968224092959257,
+              "principal_angles_degrees": [
+                0.03466201441097368,
+                1.7968224092959257
+              ],
+              "projection_overlap_mean_cosine_squared": 0.999508238743049,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9995083008510982,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999998740877957,
+                0.9999017579010256,
+                0.4767265121475782
+              ],
+              "largest_principal_angle_degrees": 61.52817729322501,
+              "principal_angles_degrees": [
+                0.0,
+                0.028752230960092738,
+                0.8031376808031109,
+                61.52817729322501
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8067678602533908,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.4767265121475782,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "ARC-Challenge/11",
+          "mean_update_cosine_to_full": 0.966199319294551,
+          "pc1_absolute_cosine_to_full": 0.7558363272016512,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.7558363272016524
+              ],
+              "largest_principal_angle_degrees": 40.90150005535155,
+              "principal_angles_degrees": [
+                40.90150005535155
+              ],
+              "projection_overlap_mean_cosine_squared": 0.5712885535176834,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.7558363272016524,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9978541095951103,
+                0.03599186527643716
+              ],
+              "largest_principal_angle_degrees": 87.93737253308913,
+              "principal_angles_degrees": [
+                3.7542145809059355,
+                87.93737253308913
+              ],
+              "projection_overlap_mean_cosine_squared": 0.4985041192009638,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.03599186527643716,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.999999974926179,
+                0.9999978559805687,
+                0.5166348366601787
+              ],
+              "largest_principal_angle_degrees": 58.89320752105698,
+              "principal_angles_degrees": [
+                0.0,
+                0.01283062735845186,
+                0.11864571731662864,
+                58.89320752105698
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8167268040672456,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.5166348366601787,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/0",
+          "mean_update_cosine_to_full": 0.9740435360736348,
+          "pc1_absolute_cosine_to_full": 0.9736670603621889,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9736670603621898
+              ],
+              "largest_principal_angle_degrees": 13.177862068125295,
+              "principal_angles_degrees": [
+                13.177862068125295
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9480275444343481,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9736670603621898,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9996934434819017,
+                0.9084616071068714
+              ],
+              "largest_principal_angle_degrees": 24.706384722531695,
+              "principal_angles_degrees": [
+                1.4187438855887216,
+                24.706384722531695
+              ],
+              "projection_overlap_mean_cosine_squared": 0.912344736263951,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9084616071068714,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999788550316794,
+                0.9830982165341521,
+                0.12849939315152692
+              ],
+              "largest_principal_angle_degrees": 82.61711341210095,
+              "principal_angles_degrees": [
+                0.0,
+                0.3725991972728599,
+                10.549150718636895,
+                82.61711341210095
+              ],
+              "projection_overlap_mean_cosine_squared": 0.7457379769758524,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.12849939315152692,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/1",
+          "mean_update_cosine_to_full": 0.9663713637421522,
+          "pc1_absolute_cosine_to_full": 0.4066096406535416,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.406609640653542
+              ],
+              "largest_principal_angle_degrees": 66.00796509638266,
+              "principal_angles_degrees": [
+                66.00796509638266
+              ],
+              "projection_overlap_mean_cosine_squared": 0.16533139987240256,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.406609640653542,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9995890540330894,
+                0.5649039233690469
+              ],
+              "largest_principal_angle_degrees": 55.60438015666218,
+              "principal_angles_degrees": [
+                1.6426493466359646,
+                55.60438015666218
+              ],
+              "projection_overlap_mean_cosine_squared": 0.6591473597902543,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.5649039233690469,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999999640469935,
+                0.9999319700909727,
+                0.5122533594645294
+              ],
+              "largest_principal_angle_degrees": 59.18595821172346,
+              "principal_angles_degrees": [
+                0.0,
+                0.01536403323473212,
+                0.6683285862014436,
+                59.18595821172346
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8155668442966747,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.5122533594645294,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/10",
+          "mean_update_cosine_to_full": 0.9698895605514212,
+          "pc1_absolute_cosine_to_full": 0.9647145230567742,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9647145230567753
+              ],
+              "largest_principal_angle_degrees": 15.26585006515427,
+              "principal_angles_degrees": [
+                15.26585006515427
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9306741109966614,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9647145230567753,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9994783986437067,
+                0.8595548850954657
+              ],
+              "largest_principal_angle_degrees": 30.73335790610335,
+              "principal_angles_degrees": [
+                1.850656706722777,
+                30.73335790610335
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8688958349234338,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.8595548850954657,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999999867900122,
+                0.9993577445907252,
+                0.764141625514325
+              ],
+              "largest_principal_angle_degrees": 40.169312441538054,
+              "principal_angles_degrees": [
+                0.0,
+                0.009312983606930073,
+                2.053594830108013,
+                40.169312441538054
+              ],
+              "projection_overlap_mean_cosine_squared": 0.8956570747742902,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.764141625514325,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        },
+        {
+          "effective_rank": 6,
+          "left_out_task_id": "mmlu/high_school_biology/11",
+          "mean_update_cosine_to_full": 0.9757197520111373,
+          "pc1_absolute_cosine_to_full": 0.978128524383078,
+          "remaining_tasks": 7,
+          "top_k_subspaces": {
+            "1": {
+              "canonical_cosines": [
+                0.9781285243830788
+              ],
+              "largest_principal_angle_degrees": 12.005255878508567,
+              "principal_angles_degrees": [
+                12.005255878508567
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9567354102118193,
+              "requested_k": 1,
+              "smallest_canonical_cosine": 0.9781285243830788,
+              "status": "ESTIMABLE"
+            },
+            "16": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 16,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            },
+            "2": {
+              "canonical_cosines": [
+                0.9996941145088307,
+                0.9588368068683181
+              ],
+              "largest_principal_angle_degrees": 16.49655563391065,
+              "principal_angles_degrees": [
+                1.4171901990229778,
+                16.49655563391065
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9593781723945136,
+              "requested_k": 2,
+              "smallest_canonical_cosine": 0.9588368068683181,
+              "status": "ESTIMABLE"
+            },
+            "4": {
+              "canonical_cosines": [
+                1.0,
+                0.9999946859437627,
+                0.9986966359168861,
+                0.9274326340640939
+              ],
+              "largest_principal_angle_degrees": 21.961918047690876,
+              "principal_angles_degrees": [
+                0.0,
+                0.18678882734622565,
+                2.925618451025406,
+                21.961918047690876
+              ],
+              "projection_overlap_mean_cosine_squared": 0.9643789083086334,
+              "requested_k": 4,
+              "smallest_canonical_cosine": 0.9274326340640939,
+              "status": "ESTIMABLE"
+            },
+            "8": {
+              "rank_a": 6,
+              "rank_b": 7,
+              "requested_k": 8,
+              "status": "UNAVAILABLE_INSUFFICIENT_EFFECTIVE_RANK"
+            }
+          }
+        }
+      ]
+    },
+    "matrix_dtype_after_load": "float64",
+    "matrix_shape": [
+      8,
+      2048
+    ],
+    "mean_update_rms": 0.0011632124978558978,
+    "one_row_per_task": true,
+    "pc1_sign_dot_mean_after_alignment": 0.00231936999598848,
+    "pc1_sign_rule": "positive dot with the uncentered mean update",
+    "rank_tolerance": 3.421187999060803e-06,
+    "singular_values": [
+      0.1121054883532244,
+      0.10662768808707049,
+      0.09989192396252207,
+      0.09301730452292224,
+      0.09072602713387275,
+      0.08932265128842098,
+      0.0842652101175686,
+      0.0
+    ],
+    "task_clustered_bootstrap": {
+      "bit_generator": "numpy.PCG64",
+      "draws": 2000,
+      "mean_update_cosine_to_full": {
+        "maximum": 1.0,
+        "mean": 0.8595483090508249,
+        "median": 0.8641938661547205,
+        "minimum": 0.6355550190601843,
+        "n": 2000,
+        "q05": 0.7523764484043467,
+        "q95": 0.9480644026733439
+      },
+      "pc1_absolute_cosine_to_full": {
+        "maximum": 1.0,
+        "mean": 0.4290996627693827,
+        "median": 0.37582503163911374,
+        "minimum": 0.00033898305193783495,
+        "n": 2000,
+        "q05": 0.058292796125139684,
+        "q95": 0.8993132631886485
+      },
+      "row_independence_assumed": false,
+      "seed": 20260731,
+      "top_k_subspace_projection_overlap_to_full": {
+        "1": {
+          "invalid_draws_insufficient_rank": 0,
+          "maximum": 1.0,
+          "mean": 0.2541092776924742,
+          "median": 0.14124453309111992,
+          "minimum": 1.1490950950108913e-07,
+          "n": 2000,
+          "q05": 0.003398080507432464,
+          "q95": 0.8087644439747625
+        },
+        "16": {
+          "invalid_draws_insufficient_rank": 2000,
+          "n": 0,
+          "status": "UNAVAILABLE"
+        },
+        "2": {
+          "invalid_draws_insufficient_rank": 1,
+          "maximum": 1.0,
+          "mean": 0.42529092181225886,
+          "median": 0.41016150737807655,
+          "minimum": 0.019627373989410963,
+          "n": 1999,
+          "q05": 0.10587390580354665,
+          "q95": 0.7482251736960722
+        },
+        "4": {
+          "invalid_draws_insufficient_rank": 364,
+          "maximum": 0.9999999999999998,
+          "mean": 0.6476302327260501,
+          "median": 0.6355149032163894,
+          "minimum": 0.46555757270168435,
+          "n": 1636,
+          "q05": 0.48069781177779475,
+          "q95": 0.8249803482965344
+        },
+        "8": {
+          "invalid_draws_insufficient_rank": 2000,
+          "n": 0,
+          "status": "UNAVAILABLE"
+        }
+      },
+      "unit": "task_id; one frozen reference example per task"
+    },
+    "task_count": 8,
+    "task_ids_in_frozen_order": [
+      "ARC-Challenge/0",
+      "ARC-Challenge/1",
+      "ARC-Challenge/10",
+      "ARC-Challenge/11",
+      "mmlu/high_school_biology/0",
+      "mmlu/high_school_biology/1",
+      "mmlu/high_school_biology/10",
+      "mmlu/high_school_biology/11"
+    ],
+    "update_rms_per_task": [
+      0.002236865255876018,
+      0.002416682793862268,
+      0.0022252029420459923,
+      0.0024519526809489247,
+      0.002152766752191457,
+      0.002440056786450053,
+      0.002447030065890441,
+      0.0021465750422016688
+    ]
+  },
+  "support_limit": "eight independent task clusters imply centered rank at most seven; PC/subspace requests k=8 and k=16 are not mathematically estimable"
+}

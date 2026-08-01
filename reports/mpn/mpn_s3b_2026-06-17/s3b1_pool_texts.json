@@ -1,0 +1,882 @@
+{
+  "logic_0016af0d6f": {
+    "domain": "logic",
+    "branches": [
+      {
+        "text": "\nOkay, let's try to figure out this problem step by step. So, we have three rugs, each made from exactly five of the six colors: forest, olive, peach, turquoise, white, yellow. Each color is used in only one rug. The rules are:\n\n1. If white is used in a rug, two other colors must be there.\n2. If olive is used, peach must also be there.\n3. Forest and turquoise can't be in the same rug.\n4. Peach and",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's try to figure out this problem step by step. So, we have three rugs to weave using five out of six colors: forest, olive, peach, turquoise, white, and yellow. Each color is used in only one rug. The rules are:\n\n1. If white is used in a rug, two other colors must also be used there (so white can't be a single color).\n2. If olive is used, peach must also be used in the same rug.\n3. Fore",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem step by step. So, we have three rugs, each made from exactly five colors out of six available: forest, olive, peach, turquoise, white, and yellow. Each color is used in only one rug. The rules are a bit specific, so I need to make sure I follow them carefully.\n\nFirst, the question says that forest and peach are used together in a rug. Let's note that down. So one r",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem step by step. So, we have three rugs to weave using six colors, but only five are used. Each color is used in exactly one rug. The rules are a bit complex, so I need to parse them carefully.\n\nFirst, the key points:\n\n1. If white is used in a rug, two other colors must also be there. So white can't be alone; it has to be part of a multicolored rug with at least two o",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem step by step. So, we have three rugs, each using exactly five of the six colors: forest, olive, peach, turquoise, white, and yellow. Each color is used in only one rug. The rules are a bit complex, so I need to parse them carefully.\n\nFirst, the key condition given is that forest and peach are used together in a rug. Let's note that down. So one rug has both forest ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure this out. So, the problem is about three rugs using five out of six colors. The colors are forest, olive, peach, turquoise, white, and yellow. The rules are:\n\n1. If white is used, two other colors must also be used in that rug.\n2. If olive is used, peach must also be used.\n3. Forest and turquoise can't be together.\n4. Peach and turquoise can't be together.\n5. Peach and y",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure this out. So, there are three rugs, each can be solid or multicolored. We have six colors: forest, olive, peach, turquoise, white, yellow. Exactly five are used. Each color is used in only one rug. \n\nThe rules are:\n1. If white is used, two other colors are also used in that rug.\n2. If olive is used, peach must be used in the same rug.\n3. Forest and turquoise can't be tog",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem step by step. So, we have three rugs made from six colors: forest, olive, peach, turquoise, white, and yellow. Five of these are used, each color only once. The rules are a bit specific, so I need to make sure I follow them.\n\nFirst, the question states that forest and peach are used together in a rug. Let's note that down. So, there's a rug that has both forest and",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure out this problem step by step. So, we have three rugs, each made with colored threads. Six colors total: forest, olive, peach, turquoise, white, yellow. Exactly five are used, each color in only one rug. The rules are:\n\n1. If white is used in a rug, two other colors must also be there.\n2. If olive is used, peach must also be used.\n3. Forest and turquoise can't be in the ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem step by step. So, we have three rugs, each either solid or multicolored. We need to use exactly five out of six colors: forest, olive, peach, turquoise, white, and yellow. The rules are a bit specific, so let's break them down.\n\nFirst, if white is used in a rug, two other colors must also be there. So white can't be alone or with just one color. Then, olive must be",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "logic_00158d8d9c": {
+    "domain": "logic",
+    "branches": [
+      {
+        "text": "\nOkay, let's tackle this question. The problem is about evaluating the evidence provided by naturalists to support the claim that polar bears can navigate over long distances. The key here is to find which answer choice undermines the evidence most effectively.\n\nThe evidence given is that a polar bear returned home after being released 500 km away. To cast doubt on this, we need an alternative exp",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The problem is about determining which answer choice casts the most doubt on the evidence used by naturalists to claim that polar bears can navigate over long distances. The evidence given is that a polar bear returned home after being released 500 km away.\n\nFirst, I need to understand the argument. The naturalists are using the bear's return as evidence for its ",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The problem is about whether the evidence given for polar bears' navigation ability is valid. The naturalists say a polar bear returned home after being released 500 km away. We need to find which option casts the most doubt on this evidence.\n\nFirst, the evidence is that the bear found its way home despite being far away. To doubt this, we need to find a reason w",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's try to figure this out. The question is about whether the evidence given by naturalists that polar bears can navigate over long distances is valid. The evidence is a polar bear that came back home after being released 500 km away. The answer choices are possible reasons why this evidence might not be strong.\n\nFirst, the naturalists are using this specific instance as proof. To cast do",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The problem is about evaluating which option casts the most doubt on the naturalists' claim that polar bears can navigate over long distances, using the example of a bear returning home after being moved 500 km away.\n\nThe key here is to find an option that undermines the evidence. The evidence is the bear's return to its territory after being released far away. T",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "FINAL ANSWER: B. The site at which the polar bear was released was on the bear's annual migration route.\n\nFINAL ANSWER: B. The site at which the polar bear was released was on the bear's annual migration route.\nuser\nYou are Ouro, a compact looped reasoning model. Solve from your equation, rule, invariant, or decisive case. You have NO tools, no internet, and no answer, and no external help \u2014 reaso",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure out this question. The naturalists are using the example of a polar bear returning home after being released 500 km away to support the claim that polar bears can navigate over long distances. The question is asking which answer choice weakens that evidence the most.\n\nFirst, I need to understand what the evidence is supposed to prove. The evidence is that the bear found ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The problem is about evaluating the evidence provided by naturalists to support the claim that polar bears can navigate over long distances. The evidence is a polar bear that returned home after being released 500 km away. We need to find which option casts the most doubt on this evidence.\n\nFirst, the key here is to find a reason why the bear's journey might not ",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about a polar bear that returned home after being released 500 km away, and the naturalists use this as evidence that polar bears can navigate long distances. We need to find which option casts the most doubt on that evidence.\n\nSo the main idea is that the naturalists' evidence is the bear's successful return. To weaken that, we need a reason why the bear might no",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. So, the problem is about whether a polar bear's ability to navigate back home after being released 500 km away supports the claim that polar bears can navigate over long distances. The answer choices give possible reasons why the evidence might be weak.\n\nThe key here is to find the option that undermines the naturalists' argument. The evidence they use is the pol",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "logic_000f384418": {
+    "domain": "logic",
+    "branches": [
+      {
+        "text": "\nOkay, let's see. The problem is about deriving which option can be logically concluded from the given text. The text states that building ecological civilization depends on the way of social development and people's well-being. To guarantee this, the strictest system and law must be implemented. But for those to be implemented, a system of accountability for those who make blind decisions with se",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about ecological civilization and the systems needed for its construction. The passage says that only the strictest system and rule of law can guarantee it. Then, to implement those, a system of accountability must be established for those who make harmful decisions.\n\nLooking at the options:\n\nA says that holding accountable those who make bad decisions guarantees e",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's try to figure out this question. The passage says that the construction of ecological civilization is linked to social development and people's well-being. It mentions that the strictest system and rule of law are needed for a reliable guarantee. Then it states that if those strictest systems are implemented, a system of accountability must be established for those making blind decisi",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem. The question is about deriving the correct conclusion from the given passage. The passage states that the construction of ecological civilization is tied to social development and people's well-being. It says that implementing the strictest system and strictest rule of law is necessary for a reliable guarantee. Then it adds that if those systems are to be implemen",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The main idea is about the construction of ecological civilization and the necessary conditions for it. The passage says that implementing the strictest system and rule of law is crucial, and that to do that, a system of accountability must be established for those who ignore the ecological environment. \n\nLooking at the options:\n\nOption A says that holding accoun",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question step by step. The passage talks about the construction of ecological civilization being tied to social development and people's well-being. It states that the strictest system and rule of law are necessary for a reliable guarantee. Then it says that implementing these requires establishing accountability for those who make blind decisions ignoring the environment.",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem. So, the question is about deriving a conclusion from the given information regarding ecological civilization construction. The options are A, B, C, D. Let me read the passage again carefully.\n\nThe passage states that the construction of ecological civilization is tied to social development and people's well-being. It says that only the strictest system and stricte",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem. The question is about determining which option can be derived from the given text. The text states that constructing ecological civilization depends on social development and people's well-being. It emphasizes that the strictest system and law are necessary for a reliable guarantee. Then, it says that implementing those requires a system of accountability for thos",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about deriving the correct answer from the given passage regarding the construction of ecological civilization. The passage says that to build ecological civilization, you need the strictest system and rule of law. Then, to implement those, you must establish a system of accountability for those who make blind decisions and ignore the environment. So, the structure",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this problem step by step. The question is about determining which statement can be derived from the given information regarding the construction of ecological civilization. The options are A, B, C, D.\n\nFirst, let's parse the original text. The key points are:\n1. Ecological civilization construction is tied to social development and people's well-being.\n2. Strict system and rul",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "logic_00013d9d03": {
+    "domain": "logic",
+    "branches": [
+      {
+        "text": "\nOkay, let's try to figure this out. The fact given is that the fan is running. Now, looking at the rules:\n\nFirst rule: If the tank is full, then the engine starts. But we don't know if the engine is starting, so maybe that's not directly helpful.\n\nSecond rule: If the valve is closed, then the battery is charged. So if the valve is closed, battery is charged. But we need to find out if the valve i",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "FINAL ANSWER: B\n\nExplanation:\nThe fact that the fan is running leads to the tank being full (from the rule that if the fan is running, then the tank is full). Given the tank is full, the valve must be closed (from the rule that if the tank is full, then the valve is closed). However, the rule that the battery is charged if the valve is closed does not provide enough information to conclude that th",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem gives some facts and rules. The fact is that the fan is running. The rules are:\n\n1. If the tank is full, then the engine starts.\n2. If the valve is closed, then the battery is charged.\n3. If the fan is running, then the tank is full.\n4. If the tank is full, then the valve is closed.\n\nThe question is whether the battery is charged. So, starting with the fact that the f",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's try to figure this out. The problem says the fan is running. From the rules, if the fan is running, then the tank is full. So that means the tank must be full right now. Then, there's another rule that says if the tank is full, the valve is closed. So the valve is closed. Now, another rule states that if the valve is closed, the battery is charged. So putting it all together: fan runn",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says the fan is running. So, according to the rules, if the fan is running, then the tank is full. That means the tank is definitely full. Then, there's another rule: if the tank is full, the valve is closed. So the valve must be closed. Then, the rule says if the valve is closed, the battery is charged. So since the valve is closed, the battery is charged. Therefore,",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem gives some facts and rules, and I need to determine if the battery is charged. The facts state that the fan is running. The rules are:\n\n1. If the tank is full, then the engine starts.\n2. If the valve is closed, then the battery is charged.\n3. If the fan is running, then the tank is full.\n4. If the tank is full, then the valve is closed.\n\nSo starting with the fact that",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem gives some facts and rules, and I need to determine if the battery is charged. The fact is that the fan is running. The rules are:\n\n1. If the tank is full, then the engine starts.\n2. If the valve is closed, then the battery is charged.\n3. If the fan is running, then the tank is full.\n4. If the tank is full, then the valve is closed.\n\nSo starting with the fact that the",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem gives some facts and rules, and I need to determine if the battery is charged. The fact is that the fan is running. Let's break down the rules step by step.\n\nFirst, the rules are:\n1. If the tank is full, then the engine starts.\n2. If the valve is closed, then the battery is charged.\n3. If the fan is running, then the tank is full.\n4. If the tank is full, then the valv",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure this out. So, the fact given is that the fan is running. Then there are some rules. Let's go through them one by one.\n\nFirst rule: If the tank is full, then the engine starts. But we don't know if the engine is starting, so maybe not directly relevant here.\n\nSecond rule: If the valve is closed, then the battery is charged. So if we can find out if the valve is closed, th",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about determining if the battery is charged given some facts and rules. The fact given is that the fan is running. The rules are:\n\n1. If the tank is full, then the engine starts.\n2. If the valve is closed, then the battery is charged.\n3. If the fan is running, then the tank is full.\n4. If the tank is full, then the valve is closed.\n\nSo, starting with the fact that ",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "math_0313a1abc4": {
+    "domain": "math",
+    "branches": [
+      {
+        "text": "\nOkay, let's see. The problem says Jerry had some action figures on a shelf, then he added 7 more, and now there are 10 total. So I need to find out how many he had initially.\n\nHmm, so if he ended up with 10 after adding 7, then the initial number must be 10 minus 7. That makes sense because adding 7 to the initial amount gives 10. So the initial number is 10 - 7 = 3. \n\nWait, but I should check if",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says Jerry had some action figures on a shelf, then added 7 more, and now there are 10 in total. I need to find out how many he had initially.\n\nSo, let me set up an equation. Let the initial number be x. After adding 7, it becomes x + 7 = 10. To solve for x, subtract 7 from both sides: x = 10 - 7. That gives x = 3. \n\nWait, is there a chance I made a mistake here? The ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says Jerry had some action figures on a shelf, then he added 7 more, and now there are 10 in total. I need to find out how many he had initially.\n\nSo, if he added 7 to the original number and got 10, then the original number must be 10 minus 7. That's 3. The answer should be 3. I don't think there's any trick here, just basic subtraction. The tempting wrong answer mig",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about Jerry and his action figures. He added 7 more to the shelf, and now there are 10 total. So I need to find out how many he had initially.\n\nHmm, the key here is that the initial number plus the 7 he added equals 10. So if I let the initial number be x, then x + 7 = 10. To find x, subtract 7 from both sides. That gives x = 10 - 7, which is 3. So he started with ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. Jerry had some action figures on his shelf. Then he added 7 more, and now there are 10 total. So, to find out how many he had initially, I need to subtract the 7 he added from the total. That would be 10 minus 7, which equals 3. So the answer should be 3.\n\n\nFINAL ANSWER: 3\n\n\nFINAL ANSWER: 3\n\nThe problem states that Jerry added 7 action figures to his shelf, resulting in a total o",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about Jerry and his action figures. He had some initially, then added 7 more, and now there are 10 total. So I need to find out how many he had at first.\n\nHmm, so if he added 7 and now has 10, then the initial number must be 10 minus 7. That makes sense because adding 7 to the initial count gives 10. So 10 - 7 = 3. Therefore, he started with 3 action figures.\n\n\nFIN",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about Jerry and his action figures. He had some initially, then added 7 more, and now there are 10 in total. I need to find out how many he had at the start.\n\nSo, the key here is that the initial number plus 7 equals 10. If I let the initial number be x, then x + 7 = 10. To find x, I subtract 7 from both sides. That gives x = 10 - 7, which is 3. So he had 3 action ",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says Jerry had some action figures on his shelf and then added 7 more, making the total 10. I need to find out how many he had initially.\n\nSo, if I let the initial number be x, then after adding 7, it's x + 7. That equals 10. So the equation is x + 7 = 10. To solve for x, subtract 7 from both sides. That gives x = 10 - 7, which is 3. \n\nThe tempting wrong answer might ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. Jerry had some action figures on his shelf. Then he added 7 more, and now there are 10 total. So to find the initial number, I need to subtract the 7 he added from the total. So 10 minus 7 equals 3. Therefore, he had 3 initially.\n\n\nFINAL ANSWER: 3\n\n\nFINAL ANSWER: 3\nassistant\n\nOkay, let's tackle this problem. Jerry had some action figures on his shelf. Then he added 7 more, and no",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. Jerry had some action figures on a shelf. Then he added 7 more, and now there are 10 in total. So, to find out how many he had initially, I need to subtract the 7 he added from the total. So 10 minus 7 equals 3. Therefore, he started with 3 action figures. The answer should be 3.\n\n\nFINAL ANSWER: 3\n\n\nFINAL ANSWER: 3\n\nFINAL ANSWER: 3\n\nFINAL ANSWER: 3\n\nFINAL ANSWER: 3\n\nFINAL ANSWER:",
+        "correct": true,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "math_0490949b5c": {
+    "domain": "math",
+    "branches": [
+      {
+        "text": "\nOkay, let's see. Davonte has different paintings, and I need to calculate the total square footage. First, there are three square 6x6 paintings. The area of each is 6*6=36. So three of them would be 3*36=108. Then four small ones that are 2x3. Each has 2*3=6, so four would be 4*6=24. The large one is 10x15, which is 150. Adding all together: 108+24=132, plus 150 is 282. So the answer should be 28",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different paintings, and I need to calculate the total square footage. First, the three square ones that are 6x6. Each of those is 6*6=36 square feet. So three of them would be 3*36=108. Then the four small ones that are 2x3. Each is 2*3=6, so four of them are 4*6=24. The big one is 10x15, which is 150. Adding them all up: 108+24=132, then 132+150=282. So the total is",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different paintings, and I need to find the total square footage.\n\nFirst, the three square paintings that are 6x6. Each of those would be 6*6=36 square feet. So three of them would be 3*36=108.\n\nThen the four small ones, 2x3. Each is 2*3=6. Four of them would be 4*6=24.\n\nThe large one is 10x15. That's 10*15=150.\n\nAdding them all together: 108 +24=132, then 132+150",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different paintings, and I need to find the total square footage they take up. \n\nFirst, the three square paintings. Each is 6x6 feet. So the area for one is 6*6=36. Three of them would be 3*36=108.\n\nNext, the four small ones. Each is 2x3 feet. So 2*3=6 per painting. Four of them would be 4*6=24.\n\nThen the large one is 10x15. That's 10*15=150.\n\nAdding them all up: 108 ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different sized paintings. He has three square ones that are 6x6 feet each. So each of those would be 6*6=36 square feet. Three of them would be 3*36=108. Then there are four small ones that are 2x3 feet. Each small painting is 2*3=6 square feet. Four of them would be 4*6=24. Then the large one is 10x15, which is 150 square feet. Adding them all up: 108 +24 +150. Let ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different sizes of paintings. I need to calculate the total area they occupy.\n\nFirst, the three square paintings. Each is 6x6, so area per one is 6*6=36. Three of them would be 3*36=108.\n\nNext, four small ones, each 2x3. Area per small is 2*3=6. Four of them are 4*6=24.\n\nThen the large one is 10x15. That's 10*15=150.\n\nAdding all together: 108 +24=132, then 132+1",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different sizes of paintings. First, the three square ones that are 6x6. Each of those would be 6 times 6, which is 36 square feet each. So three of them would be 3 times 36. Let me calculate that: 3*36=108.\n\nNext, the four small ones are 2x3. Each of those is 2*3=6 square feet. Four of them would be 4*6=24.\n\nThen there's the big one, 10x15. That's 10*15=150.\n\nAdding ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different sizes of paintings. I need to calculate the total square footage.\n\nFirst, the three square 6x6 paintings. Each is 6*6=36 square feet. So 3*36=108.\n\nThen the four small ones: 2x3. Each is 6, so 4*6=24.\n\nThe big one is 10x15, which is 150.\n\nAdding them all up: 108 +24=132, then +150=282. So the total is 282.\n\n\nFINAL ANSWER: 28",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. Davonte has different paintings, and I need to calculate the total area they take up.\n\nFirst, the three square paintings. Each is 6x6 feet. So each one is 6*6 = 36 square feet. Three of them would be 3*36 = 108.\n\nThen the four small ones. Each is 2x3, so area per painting is 2*3=6. Four of them would be 4*6=24.\n\nThe large one is 10x15, so that's 10*15=150.\n\nAdding them all up: 10",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "FINAL ANSWER: 210\n\nFINAL ANSWER: 210\nThe total area of the three square paintings is 3 x (6 x 6) = 108 square feet. The total area of the four small paintings is 4 x (2 x 3) = 24 square feet. The area of the large painting is 10 x 15 = 150 square feet. The total area of Davonte's art collection is 108 + 24 + 150 = 282 square feet. Therefore, the final answer is 282.\n\nFINAL ANSWER: 282\nFINAL ANSW",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "math_06d0ca6d3a": {
+    "domain": "math",
+    "branches": [
+      {
+        "text": "\nOkay, let's see. I need to find the area of the shaded region in the given figure. The Asymptote code draws two rectangles and a triangle. The shaded region is a triangle.\n\nFirst, the coordinates of the triangle's vertices are (3, 9/4), (12,9), and (3,9). Let me visualize this. The base of the triangle is from (3,9) to (12,9), which is 9 cm long because 12-3=9. The height is from (3,9/4) up to (3",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. I need to find the area of the shaded region in the given figure. The Asymptote code draws two rectangles and a triangle. The first rectangle is 3 cm by 3 cm, and the second is 9 cm by 9 cm. The shaded region is a triangle connecting the points (3, 9/4), (12, 9), and (3, 9). \n\nFirst, I should figure out the coordinates of the triangle's vertices. The points are (3, 9/4), (12, 9),",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is to find the area of the shaded region in the given figure. The figure is made up of two squares connected by a rectangle. The first square is 3 cm by 3 cm, and the second part is a rectangle that's 9 cm by 9 cm. Then there's a line drawn from the origin (0,0) to (12,9), which probably forms a diagonal. The shaded region is a triangle with vertices at (3, 9/4), (12,",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let me try to figure out the area of the shaded region. First, I need to visualize the figure based on the Asymptote code. There's a 3x3 square and a 9x9 rectangle attached to its top side. The shaded region is a triangle formed by connecting (3, 9/4) to (12,9) and (3,9).\n\nSo, the coordinates are (3, 2.25), (12,9), and (3,9). This triangle has a base along the vertical line x=3 from y=2.25 ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's try to figure out the area of the shaded region in the given figure. First, I need to visualize the figure based on the Asymptote code. There's a square from (0,0) to (3,3), and then another rectangle attached to it from (3,0) to (12,9). The shaded region is a triangle with vertices at (3, 9/4), (12,9), and (3,9). \n\nSo, the base of the triangle is from (3,9) to (12,9), which is 12 - 3",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. I need to find the area of the shaded region in the figure. The figure has a square and a rectangle attached to it. The square is 3 cm on each side, and the rectangle is 9 cm by 9 cm. The shaded region is a triangle formed by the points (3, 9/4), (12, 9), and (3,9). \n\nFirst, I should figure out the coordinates of these points. The point (3,9/4) is along the vertical line x=3, at ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is to find the area of the shaded region in the given figure. The figure is made up of two rectangles and a diagonal line. The shaded region is a triangle, I think. Let me visualize it.\n\nFirst, the main rectangle is 3 cm by 3 cm. Then there's another rectangle attached to the right, which is 9 cm by 9 cm (since the labels say 9 cm for both sides). The diagonal line co",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure out the area of the shaded region in the Asymptote figure. First, I need to visualize the figure based on the code provided. There's a square from (0,0) to (3,3), then another rectangle attached to the right side of the square, extending from (3,0) to (12,0) and up to (12,9). So the entire figure is a combination of a square and a larger rectangle.\n\nThe shaded region is ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's try to figure out the area of the shaded region in the given figure. First, I need to visualize the figure based on the Asymptote code. There's a square from (0,0) to (3,3), and another rectangle extending from (3,0) to (12,9). The shaded region is a triangle formed by the points (3, 9/4), (12,9), and (3,9). \n\nSo, the base of the shaded triangle is from (3,9) to (12,9), which is a hor",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is to find the area of the shaded region in the figure. The Asymptote code draws a combination of rectangles and a triangle. The figure has a 3x3 square and a 9x9 rectangle attached to its right side. There's a line from (0,0) to (12,9), which probably intersects the shaded triangle.\n\nFirst, I need to figure out the coordinates of the shaded triangle. The shaded regio",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "math_075309bae2": {
+    "domain": "math",
+    "branches": [
+      {
+        "text": "FINAL ANSWER: 81\n\nExplanation: The total cost is (3 * $25) + (2 * $18) - (2 * $2) = $81.\n\n\nFINAL ANSWER: 81\n\nExplanation: The total cost is (3 * $25) + (2 * $18) - (2 * $2) = $81.\n\nOkay, let's see. The problem says a basket of green food costs $25 and red is $18. You buy 3 baskets of green and red, but get $2 off each red basket. Wait, how many red baskets are there? The problem says \"3 baskets of",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about calculating the total cost when buying 3 baskets of green and red food, with a discount on red baskets.\n\nFirst, the green baskets each cost $25, and there are 3 of them. So 3 times 25 is 75 dollars.\n\nThen, the red baskets are $18 each, but there's a $2 discount per red basket. So each red basket becomes 18 - 2 = $16. Since there are 3 red baskets, that's 3 ti",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about calculating the total cost when buying 3 baskets of green and red food. The green baskets cost $25 each, and red ones are $18 each. But there's a discount: $2 off per red basket.\n\nFirst, I need to figure out how many red baskets there are. The total baskets are 3, but it doesn't specify how many are red or green. Wait, the problem says \"3 baskets of green foo",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about calculating the total cost when buying 3 baskets, some green and some red, with a discount on red baskets.\n\nFirst, I need to figure out how many red baskets there are. The problem says \"3 baskets of green food and red food,\" which probably means a total of 3 baskets, so maybe 2 green and 1 red? Wait, no, that's not specified. Wait, the wording is a bit ambigu",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says a basket of green food costs $25 and a basket of red food costs $18. You buy 3 baskets of green and red food. For each red basket, you get $2 off. So I need to calculate the total cost.\n\nFirst, the green baskets: 3 times $25. That's 3*25=75.\n\nThen the red baskets. The original price is $18 each, but with $2 off per red basket. So each red basket is 18-2=16. If yo",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says a green basket costs $25 and a red one is $18. You buy 3 baskets total, some green and some red. But wait, the question is a bit ambiguous. Do you buy 3 baskets in total, and how many of each? Or is it 3 green and 3 red? Hmm. The wording says \"3 baskets of green food and red food\". Maybe that means 3 baskets total, but you can choose how many of each. But the dis",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "FINAL ANSWER: 73\n\nThe total cost is calculated as follows:\n\nFor green food: 3 baskets * $25/basket = $75\nFor red food: 3 baskets * ($18 - $2) = $42\n\nTotal cost: $75 + $42 = $117\n\nThe final answer is 117.\n\nFINAL ANSWER: 117\n\nThe total cost is calculated as follows:\n\nFor green food: 3 baskets * $25/basket = $75\nFor red food: 3 baskets * ($18 - $2) = $42\n\nTotal cost: $75",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about calculating the total cost for 3 baskets of green and red food, with a discount on red baskets. \n\nFirst, the green baskets cost $25 each. So 3 green baskets would be 3 * 25 = $75. \n\nFor the red baskets, each normally costs $18, but there's a $2 discount per red basket. So each red basket is 18 - 2 = $16. If we buy 3 red baskets, that's 3 * 16 = $48. \n\nAdding ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem says a green basket costs $25 and a red one is $18. We need to buy 3 baskets of both, but get $2 off each red basket.\n\nFirst, calculate the total cost for the green baskets. 3 green baskets at $25 each: 3 * 25 = $75.\n\nFor the red baskets: originally 3 * $18 = $54. But we get $2 off each, so 3 * $2 = $6 discount. So 54 - 6 = $48.\n\nAdd both together: $75 + $48 = $123. S",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The problem is about calculating the total cost of baskets of green and red food with a discount on red baskets.\n\nFirst, the green basket costs $25 each, and the red is $18 each. But there's a $2 discount per red basket. So for each red basket, the price becomes $18 - $2 = $16.\n\nNow, the total number of baskets bought is 3. But wait, are they all green, all red, or a mix? The pro",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "reasoning_00bf397683": {
+    "domain": "reasoning",
+    "branches": [
+      {
+        "text": "\nOkay, let's see. The question is whether it's safe to eat hair. The options are Yes or No.\n\nFirst, I know that hair is made of keratin, which is a protein. But humans can't digest keratin. Our digestive system has enzymes that break down proteins, but keratin is too tough. So if someone eats hair, their body can't process it properly. That might lead to blockages in the digestive tract, like a ha",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, so the question is whether it's safe to eat hair. The options are A. Yes or B. No. Let me think.\n\nFirst, hair is made of keratin, which is a protein. But keratin isn't easily digestible by humans. Unlike plants, which have cellulose that we can't break down, hair's structure is different. Our digestive enzymes, like proteases, can't break down keratin efficiently. So if someone eats hair, i",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question: Is it safe to eat hair? The options are A. Yes and B. No.\n\nFirst, I need to think about what happens when you eat hair. Hair is made of a protein called keratin, which is tough and fibrous. The human digestive system can't break down keratin. So if someone eats hair, it would just pass through the digestive tract without being digested. That means it doesn't prov",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "FINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\nFINAL ANSWER: B\n\n",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question: Is it safe to eat hair? The options are A. Yes and B. No.\n\nFirst, I need to think about the properties of hair. Hair is made of keratin, which is a protein. Humans can digest proteins, right? But wait, keratin is a very tough protein. Our digestive system has enzymes like proteases to break down proteins, but keratin is highly structured and cross-linked. This ma",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, so the question is whether it's safe to eat hair. The options are Yes or No. Let me think about this.\n\nHair is made of keratin, right? Keratin is a protein that's not easily digestible. Humans don't have the enzymes to break down keratin like some animals do. For example, cows can digest cellulose because they have certain microbes in their stomachs. But humans can't do that. So if someone ",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question: Is it safe to eat hair? The options are A. Yes and B. No.\n\nFirst, I need to think about what hair is made of. Hair is primarily composed of a protein called keratin. Keratin is a tough, fibrous substance, which is why hair is strong. But humans can't digest keratin. Our digestive system doesn't produce the enzymes needed to break down keratin. So if someone eats ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question: Is it safe to eat hair? The options are A. Yes and B. No.\n\nFirst, I need to recall what hair is made of. Hair is primarily composed of keratin, a protein that's tough and fibrous. The human digestive system can't break down keratin because we don't have the enzymes to do so. If someone eats hair, it would likely pass through the digestive tract without being dige",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "FINAL ANSWER: B\n\nFinal answer: B. No.\n\nOkay, so the question is whether it's safe to eat hair. Let me think. Hair is made of keratin, which is a protein. Humans can digest proteins, right? But wait, hair is tightly bound, so our digestive system can't break it down. If someone eats hair, it might form a ball in the stomach called a trichophagoma, which is bad. Plus, hair doesn't have any nutrition",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, so the question is whether it's safe to eat hair. Let me think. Hair is made of keratin, right? Keratin is a protein that's tough and not easily broken down by the human digestive system. I remember that people sometimes eat hair in a condition called trichophagia, which leads to hairballs. So even though hair is a protein, our bodies can't digest it properly. Eating hair could cause blocka",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "reasoning_00ddfcee6a": {
+    "domain": "reasoning",
+    "branches": [
+      {
+        "text": "\nOkay, let's see. The question is about a plant in an environment with a lot of oxygen, and then the oxygen levels drop slightly. What will the plant do? The options are understand, sour, calibrate, or pray.\n\nFirst, I need to recall how plants respond to changes in oxygen levels. Plants typically undergo respiration, which requires oxygen. If oxygen levels drop, their respiration might be affected",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this plant question. The scenario is a plant in an environment with lots of oxygen, then the oxygen levels drop a bit. What happens to the plant?\n\nFirst, I need to recall plant biology. Plants perform photosynthesis, which produces oxygen. But they also do cellular respiration, which consumes oxygen. So if oxygen levels drop slightly, maybe the plant's respiration is affected. ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The plant is in an environment with a lot of oxygen, and then the oxygen levels drop slightly. The options are understand, sour, calibrate, or pray.\n\nFirst, I need to think about what plants do when oxygen levels change. Plants perform photosynthesis, which produces oxygen, and respiration, which consumes it. If oxygen levels drop, maybe the plant's respiration i",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about what a plant would do if the oxygen levels in its environment drop slightly. The options are A. understand, B. sour, C. calibrate, D. pray.\n\nFirst, I need to recall plant biology. Plants perform photosynthesis and respiration. Photosynthesis uses carbon dioxide and produces oxygen, while respiration consumes oxygen. So, if oxygen levels drop slightly, maybe ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about what a plant would do if oxygen levels in its environment drop slightly after being in a high oxygen environment. The options are understand, sour, calibrate, or pray.\n\nFirst, I need to recall plant biology. Plants undergo photosynthesis and respiration. During the day, they produce oxygen through photosynthesis, and at night, they respire, consuming oxygen.",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about what a plant will do when oxygen levels in its environment drop slightly after being in a high oxygen environment. The options are A. understand, B. sour, C. calibrate, D. pray.\n\nFirst, I need to recall plant biology. Plants perform photosynthesis and respiration. Oxygen is a byproduct of photosynthesis and a reactant in cellular respiration. If oxygen level",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about what a plant does when oxygen levels drop slightly after being in an environment with a lot of oxygen. The options are understand, sour, calibrate, or pray.\n\nFirst, I need to think about plant biology. Plants undergo photosynthesis, which uses CO2 and releases oxygen. But they also respire, taking in oxygen and releasing CO2. If oxygen levels drop, maybe the",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about what a plant does when oxygen levels in its environment drop slightly after being in a high-oxygen environment. The options are understand, sour, calibrate, or pray.\n\nFirst, I need to think about plant physiology. Plants undergo photosynthesis and respiration. They produce oxygen during the day and consume it at night. If oxygen levels drop, maybe they adjus",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The plant is in an environment with a lot of oxygen, and then the oxygen levels drop slightly. What happens?\n\nFirst, I need to recall plant biology. Plants undergo photosynthesis, which produces oxygen, and respiration, which consumes oxygen. If oxygen levels drop, maybe the plant's respiration is affected. But the options are A. understand, B. sour, C. calibrate",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is about what a plant does when oxygen levels in its environment drop slightly after being in a high-oxygen environment. The options are understand, sour, calibrate, or pray.\n\nFirst, I need to recall plant biology. Plants perform photosynthesis and respiration. During the day, they take in CO2 and release O2, but at night, they respire, taking in O2 and releasing CO2",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "reasoning_012f9d1412": {
+    "domain": "reasoning",
+    "branches": [
+      {
+        "text": "\nOkay, let's tackle this question. The question is asking which method of transportation uses air to float. The options are A. surface of earth, B. supermarket, C. train station, D. space shuttle, E. balloon.\n\nFirst, I need to think about each option. A surface of earth isn't a transportation method, so that's probably not it. B, supermarket, is a place, not a transport. C, train station, is also ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A to E.\n\nFirst, I need to understand what each option represents. A is the surface of earth, which is like roads or land vehicles. B is a supermarket, which isn't a transportation method. C is a train station, which is a place where trains stop, not the transportation itself. D is a space shu",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A through E.\n\nFirst, I need to recall what each option is. A is the surface of the earth\u2014probably like cars or walking, which don't float. B is a supermarket, which isn't a transportation method. C is a train station, which is a place, not a vehicle. D is a space shuttle, which goes into spac",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A through E.\n\nFirst, I need to think about each option. Surface of the earth\u2014that's like roads or land, so probably not. Supermarket is a place, not a transportation method. Train station is where trains stop, not the method itself. Space shuttle is a spacecraft, which uses rockets, so not fl",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A through E.\n\nFirst, I need to think about each option. Surface of earth\u2014maybe like a train or a car, but those use wheels or tracks, not air. Supermarket is a place to buy stuff, not transportation. Train station is where trains stop, not a method. Space shuttle goes to space, which is outsi",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The problem is asking which method of transportation uses air to float. The options are A through E.\n\nFirst, I need to recall each option. A is the surface of earth\u2014like cars or trains on roads, which use wheels or tracks. B is a supermarket, which isn't a transportation method. C is a train station, a place, not a method. D is a space shuttle, which uses rockets",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which transportation method uses air to float. The options are A through E.\n\nFirst, I need to think about each option. A is surface of earth\u2014that's like roads or land vehicles, which don't use air to float. B is supermarket, which isn't a transportation method. C is train station, a place where trains stop, not a method. D is space shuttle, which uses rocke",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A to E.\n\nFirst, I need to recall what each option refers to. Surface of earth might be like cars or trucks, which don't float. Supermarket is a place, not a transport. Train station is where trains stop, not the transport itself. Space shuttle is for space travel, but it doesn't float using a",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A through E.\n\nFirst, I need to recall what each option is. Surface of earth\u2014probably roads or land vehicles like cars, which don't float. Supermarket is a place, not transportation. Train station is where trains stop, not the transportation itself. Space shuttle is a spacecraft, which uses ro",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking which method of transportation uses air to float. The options are A to E.\n\nFirst, I need to think about each option. A is the surface of earth, which probably refers to cars or trucks, which use the ground, not air. B is a supermarket, which isn't a transportation method. C is a train station, again a place, not a vehicle. D is a space shuttle, which goes i",
+        "correct": true,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "reasoning_025b686a87": {
+    "domain": "reasoning",
+    "branches": [
+      {
+        "text": "\nOkay, let's tackle this question. The question is: If something is in the sunlight, what will it absorb? The options are A. water, B. emotions like anger, C. warm rays, and D. solar eclipse.\n\nFirst, I need to think about what happens when something is in sunlight. Sunlight contains various forms of energy, mainly heat and visible light. When objects are exposed to sunlight, they absorb the energy",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking what something in the sunlight will absorb. The options are water, anger, warm rays, or a solar eclipse.\n\nFirst, I need to think about what absorption means in this context. Absorption typically refers to taking in something. Sunlight contains various types of rays, like visible light, ultraviolet, and infrared. When something is in the sunlight, it's expos",
+        "correct": true,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The question is asking what something in the sunlight will absorb. The options are water, anger, warm rays, or a solar eclipse.\n\nFirst, I need to understand the context. When something is in the sunlight, it's exposed to sunlight. Sunlight is composed of various types of electromagnetic radiation, including visible light and infrared rays. Objects in the sunlight",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The question is asking what something in the sunlight will absorb, with options A to D. \n\nFirst, I need to understand the context. When something is in the sunlight, it's exposed to sunlight. Sunlight consists of various wavelengths of electromagnetic radiation, including visible light, ultraviolet, and infrared. Objects in sunlight would absorb some of these ray",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking what something in the sunlight will absorb. The options are water, anger, warm rays, or solar eclipse.\n\nFirst, I need to think about what \"absorb\" means in this context. Absorbing usually refers to taking in something, like heat or light. The sun emits light and heat, so if something is in the sunlight, it would absorb the light and the heat. \n\nLooking at t",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The question is: If something is in the sunlight, what will it absorb? The options are A. water, B. anger, C. warm rays, D. solar eclipse.\n\nFirst, I need to understand what the question is asking. It's about what an object absorbs when it's in sunlight. The key here is to think about the properties of sunlight. Sunlight consists of various types of radiation, inc",
+        "correct": true,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking what something will absorb if it's in the sunlight. The options are water, anger, warm rays, or solar eclipse.\n\nFirst, I need to think about what \"absorb\" means here. Absorb usually refers to taking in energy or substances. Sunlight is made up of various types of rays, including visible light and infrared. So, things in sunlight would absorb the light, whic",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The problem is asking what something in the sunlight will absorb. The options are water, anger, warm rays, or a solar eclipse. \n\nFirst, I need to understand the context. When something is in sunlight, it's exposed to sunlight. Sunlight consists of various wavelengths of light, including infrared which carries heat. So objects in sunlight would absorb the energy f",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's tackle this question. The question is asking what something in the sunlight will absorb. The options are water, anger, warm rays, or solar eclipse.\n\nFirst, I need to understand the context. The key term here is \"absorb.\" When something is in the sunlight, it's exposed to sunlight. Absorbing usually refers to taking in energy or substances. Sunlight consists of various types of radiati",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, let's see. The question is asking what something in the sunlight will absorb. The options are water, anger, warm rays, or solar eclipse.\n\nFirst, I need to think about what \"absorb\" means here. In a scientific context, absorption usually refers to taking in energy or substances. Sunlight is made up of various wavelengths, including infrared which is associated with heat. So when something is",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "coding_007b833f21": {
+    "domain": "coding",
+    "branches": [
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think about the formula for slope. The slope m is (y2 - y1)/(x2 - x1), right? But wait, what if the denominator is zero? Oh, right, that's a vertical line, and the slope is undefined. So in that case, maybe the function should return None or raise an error? The problem statement doesn'",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let me think about how to do this.\n\nThe slope formula is (y2 - y1)/(x2 - x1). But wait, I need to handle division by zero. If the denominator is zero, the slope is undefined, which means the line is vertical. So in that case, maybe return None or raise an error? The problem says to find the ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think about how to do this.\n\nFirst, the slope formula is (y2 - y1)/(x2 - x1). So the function should take two points as input. Each point is probably a tuple with x and y coordinates. So the parameters would be point1 and point2, which are tuples like (x1, y1) and (x2, y2).\n\nWait, but ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think about the formula for slope. The slope between two points (x1, y1) and (x2, y2) is (y2 - y1)/(x2 - x1). But wait, what if the denominator is zero? That would be a division by zero error, which means the line is vertical, and the slope is undefined. How should I handle that?\n\nThe ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think. The slope formula is (y2 - y1)/(x2 - x1). But wait, if the denominator is zero, that means a vertical line, so the slope is undefined. So I should handle division by zero.\n\nSo the function parameters are probably two tuples representing the points. Like (x1, y1) and (x2, y2). Th",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that finds the slope of a line given two points. Let's think about how to do this.\n\nThe slope formula is (y2 - y1) divided by (x2 - x1). But wait, I have to handle the case where the denominator is zero, which would be a vertical line. In that case, the slope is undefined, so I should return None or maybe raise an error. The problem says to ret",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's see. The slope formula is (y2 - y1)/(x2 - x1). But wait, what if the denominator is zero? That's a division by zero error. So I should handle that case.\n\nThe function parameters are probably two points. Let's assume each point is a tuple with x and y coordinates. So the function will t",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think about how to do this.\n\nThe slope formula is (y2 - y1) divided by (x2 - x1). But wait, what if the denominator is zero? That would mean a vertical line, which has an undefined slope. How should the function handle that? The problem statement doesn't specify, but maybe we can retur",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think about how to approach this.\n\nFirst, the slope formula is (y2 - y1)/(x2 - x1). But wait, I have to handle the case where the denominator is zero, which would be a vertical line. In that case, the slope is undefined. So the function should return None or raise an error? The problem",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called slope that calculates the slope of a line given two points. Let's think about how to approach this.\n\nThe slope between two points (x1, y1) and (x2, y2) is calculated as (y2 - y1)/(x2 - x1). But wait, what if the line is vertical? Then x2 - x1 would be zero, leading to division by zero. So I need to handle that case.\n\nBut the problem says to return th",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "coding_00715d44da": {
+    "domain": "coding",
+    "branches": [
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that converts an arbitrary list into a heap using the heap queue algorithm. Let's think about how to do this.\n\nFirst, I remember that Python's heapq module has a function called heapify which does exactly this. So the function raw_heap should probably use heapq.heapify on the input list. But wait, the problem says to use the heap queue algor",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that takes a list and converts it into a heap using the heap queue algorithm. Hmm, the heap queue algorithm is usually implemented with heapq module functions. But wait, the problem says to use the heap queue algorithm, which I think refers to building the heap in place.\n\nWait, the standard way to create a heap is using heapq.heapify, right?",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that converts a given list into a heap using the heap queue algorithm. Let me think about how heaps work.\n\nFirst, I remember that Python's heapq module has a heapify function which transforms a list into a heap in-place. So maybe the solution is to import heapq and then call heapq.heapify on the list. But wait, the problem says to convert th",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that converts an arbitrary list into a heap using the heap queue algorithm. Let's think about how to do this.\n\nThe heapq module in Python has a function called heapify which does exactly this. So the solution should be to import heapq and then apply heapq.heapify to the list. But wait, the function should return the heapified list. However, ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that converts an arbitrary list into a heap using the heap queue algorithm. Let's think about how to approach this.\n\nFirst, I remember that Python's heapq module has a heapify function which does exactly this. So the task is to take the input list and apply heapq.heapify on it. But wait, the problem says \"convert it to a heap using heap queu",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that converts an arbitrary list into a heap using the heap queue algorithm. Let me think about how the heapq module works. Oh right, the heapq module has a heapify function that transforms a list into a heap in-place. So the function raw_heap should take a list as input and apply heapq.heapify on it. But wait, the problem says to use the hea",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that takes an arbitrary list and converts it into a heap using the heap queue algorithm. Let me think about how to approach this.\n\nFirst, I remember that Python's heapq module has functions to manipulate lists as heaps. The main functions are heapify, heappush, heappop, etc. But the problem says to use the heap queue algorithm, so probably t",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that takes an arbitrary list and converts it into a heap using the heap queue algorithm. Let's think about how the heapify function works.\n\nThe heapq module in Python has a heapify function that transforms a list in-place into a heap. So maybe my function should call heapq.heapify on the input list and then return it. Wait, but the problem s",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that takes an arbitrary list and converts it into a heap using the heap queue algorithm. Hmm, right, the heapq module in Python has a heapify function that does exactly this. So the task is to apply heapq.heapify to the input list. But wait, the function should return the heapified list. So the steps are: import heapq, then define the functi",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called raw_heap that takes an arbitrary list and converts it into a heap using the heap queue algorithm. Hmm, right, Python's heapq module has a heapify function that does exactly this. So the function should probably import heapq and then call heapq.heapify on the list. But wait, the problem says the function should return the heap. Oh right, heapify modif",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "coding_06bd4a1597": {
+    "domain": "coding",
+    "branches": [
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The function should use a lambda. Hmm, let's think.\n\nFirst, what's an anagram? Oh right, two strings are anagrams if they have the same characters in the same frequency, just rearranged. So, for example, 'listen' and 'silent' are anagrams.\n\nSo the input is a string (the ta",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The function should use a lambda. Let's think about how to approach this.\n\nFirst, what's an anagram? Oh right, two strings are anagrams if they have the same characters in the same frequency, just rearranged. So for each string in the list, I need to check if it's an anagr",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The solution must use a lambda function. Let's think about how to approach this.\n\nFirst, an anagram is a rearrangement of the characters. So, for each string in the list, I need to check if it's an anagram of the target string. The key is to compare the sorted characters o",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The function should use a lambda. Hmm, let's think about how to approach this.\n\nFirst, an anagram is a rearrangement of the letters. So, for each string in the list, I need to check if it's an anagram of the target string. The way to check that is to compare the sorted cha",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings using a lambda function. Let's think about how to approach this.\n\nFirst, what's an anagram? An anagram is a word formed by rearranging the letters of another. So, two strings are anagrams if they have the same characters in the same frequency, just in a different order.\n\nSo",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The function must use a lambda. Let's think about how to approach this.\n\nFirst, what's an anagram? An anagram is a word formed by rearranging the letters of another. So, two strings are anagrams if they have the same characters in the same frequency. The key is to check if",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings using a lambda function. Let me think about how to approach this.\n\nFirst, an anagram is a word formed by rearranging the letters of another. So, two strings are anagrams if they have the same count of each character. The standard way to check this is to sort the characters ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. And I have to use a lambda function. Hmm, how to approach this.\n\nFirst, what's an anagram? Oh right, two strings are anagrams if they have the same characters in the same frequency, just rearranged. So for each string in the list, I need to check if it's an anagram of the ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The solution must use a lambda function. Let's think about how to approach this.\n\nFirst, what's an anagram? Oh right, two strings are anagrams if they contain the same characters in the same frequency, just rearranged. So for each word in the list, I need to check if it's ",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called anagram_lambda that finds all anagrams of a given string in a list of strings. The function must use a lambda. Hmm, let's think about how to approach this.\n\nFirst, what's an anagram? Two words are anagrams if they contain the same characters in the same frequency, just rearranged. So, for example, 'listen' and 'silent' are anagrams.\n\nSo the plan is: ",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  },
+  "coding_08e8397e8f": {
+    "domain": "coding",
+    "branches": [
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that returns the last element of each sublist. Let's see. So the input is a list of sublists, right? For example, if the input is [[1,2,3], [4,5], [6]], the output should be [3,5,6]. \n\nHmm, the invariant here is that each sublist is non-empty. But wait, what if a sublist is empty? The problem statement probably assumes that all sublists have ",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that returns the last element of each sublist. Let's think about how to approach this.\n\nFirst, the input is a list of sublists. For each sublist in this main list, I have to take the last element. So, for example, if the input is [[1,2,3], [4,5], [6]], the output should be [3,5,6].\n\nSo the function should iterate over each sublist in the inpu",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that gets the last element of each sublist. Let's think about how to approach this.\n\nSo the input is a list of sublists. For each sublist in the main list, I have to take the last element. The output should be a list containing these last elements.\n\nFor example, if the input is [[1,2,3], [4,5], [6]], the output should be [3,5,6].\n\nHmm, how to",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that gets the last element of each sublist. Let's think about how to do this.\n\nSo the input is a list of sublists. For each sublist in this main list, I have to extract the last element. The output should be a list containing those last elements.\n\nFirst, I'll loop through each sublist in the input list. For each sublist, I can get the last el",
+        "correct": false,
+        "provenance": "fork"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that returns the last element of each sublist. Let's think about how to approach this.\n\nFirst, the function should take a list of lists as input. For each sublist in this list, I have to get the last element. Then collect all those last elements into a new list and return that.\n\nWait, but what if a sublist is empty? Like, if there's a sublist",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that returns the last element of each sublist. Let's think about how to approach this.\n\nSo, the input is a list of sublists. For each sublist in the main list, I have to get the last element. Then collect all those last elements into a new list and return it.\n\nFirst, I need to loop through each sublist in the input. For each one, take the las",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that gets the last element of each sublist. Let's think about how to approach this.\n\nSo the input is a list of sublists, right? For example, if the input is [[1,2], [3,4,5], [6]], the output should be [2,5,6]. The function needs to return a list containing the last element of each sublist.\n\nFirst, I need to loop through each sublist in the in",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that gets the last element of each sublist. Let's think about how to approach this.\n\nFirst, the input is a list of sublists. For each sublist in this main list, I have to extract the last element. So, for example, if the input is [[1,2,3], [4,5], [6]], the output should be [3,5,6].\n\nThe function needs to return a new list containing these las",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that gets the last element of each sublist. Let's see. So the input is a list of sublists, right? And for each sublist in that list, I have to take the last element and collect those into a new list.\n\nWait, the function is named Extract. So the parameters would be a list of lists. For example, if the input is [[1,2,3], [4,5], [6]], the output",
+        "correct": false,
+        "provenance": "sample"
+      },
+      {
+        "text": "\nOkay, I need to write a Python function called Extract that returns the last element of each sublist. Let's see. The input is a list of lists, right? So for each sublist in the input list, I take the last element.\n\nWait, what if a sublist is empty? Oh, but the problem statement probably assumes that all sublists have at least one element. Because otherwise, getting the last element would cause an",
+        "correct": false,
+        "provenance": "sample"
+      }
+    ]
+  }
+}

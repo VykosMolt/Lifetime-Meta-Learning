@@ -1,0 +1,192 @@
+{
+  "axes": {
+    "d1_readable_process_quality": {
+      "canonical_row_sha256": "ce9b8feacd654df8d38c5fa72d48e0fe31714b680d5c4d135f061592cc9d7370",
+      "coordinate_mapping": {
+        "coefficient_to_residual": "identity; AntisymLinearNoNorm weight is already a 2048-d raw-residual covector",
+        "pca_inverse": "not_applicable",
+        "pooling_inverse": "not_applicable; the linear tap was fit directly on pooled raw residual vectors",
+        "standardization_inverse": "not_applicable"
+      },
+      "dtype": "float64",
+      "file_sha256": "2ef03d84304f838bcf749132007b4481010f40e7ba3db5dd59e586abb84f3584",
+      "finite": true,
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d1_l3_24.npy",
+      "pooling_rule": "attention-mask-valid mean; fp32 compute",
+      "rms": 1.0,
+      "rms_before_normalization": 0.013299546570642173,
+      "selected_grid": {
+        "lr": 0.0003,
+        "seed": 0,
+        "tset": "code_reasoning"
+      },
+      "shape": [
+        2048
+      ],
+      "source_dtype": "torch.float32",
+      "source_key": "24_L3.weight",
+      "source_shape": [
+        1,
+        2048
+      ],
+      "token_position": "all attention-mask-valid tokens",
+      "trajectory_phase": "completed_candidate_state"
+    },
+    "d2_empirical_verifier_outcome": {
+      "bootstrap_bit_generator": "numpy.PCG64",
+      "bootstrap_draws": 10000,
+      "bootstrap_seed": 20260617,
+      "canonical_row_sha256": "e0a4ffc185af70804aac7d71707f2b3e04754c8fca9529c10989a735820927e7",
+      "class_task_weighting": "equal task weight within verifier class",
+      "construction": "first right singular vector of uncentered task-bootstrap mean-difference ensemble",
+      "dtype": "float64",
+      "file_sha256": "8494eb0dc852d12bb7929da346f726f8338903d443289870639980015236bdfb",
+      "finite": true,
+      "label_key": "branch_rows[].correct",
+      "leading_singular_values": [
+        197.3617101218781,
+        54.164408030755766,
+        49.78071214567131,
+        38.83301268552559,
+        2.2472045928621207e-06
+      ],
+      "loop": 3,
+      "negative_rows": 336,
+      "negative_tasks": [
+        "coding_00715d44da",
+        "logic_00013d9d03",
+        "math_0313a1abc4",
+        "reasoning_00bf397683"
+      ],
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d2_l3_24.npy",
+      "physical_layer": 24,
+      "pooling_rule": "BGTransformerFeatureExtractor attention-mask-valid mean; max_length=512",
+      "positive_rows": 8,
+      "positive_tasks": [
+        "math_0313a1abc4"
+      ],
+      "rms": 1.0,
+      "rms_before_normalization": 0.022097086912079626,
+      "shape": [
+        2048
+      ],
+      "sign_alignment": "positive dot with task-balanced mu_correct-minus-mu_incorrect",
+      "source_tensor_dtype": "torch.float16",
+      "source_tensor_key": "branch_features[:, layer_slot_24=0, loop_slot_L3=2, :]",
+      "source_tensor_shape": [
+        344,
+        3,
+        4,
+        2048
+      ],
+      "task_id_key": "branch_rows[].task_id",
+      "token_position": "all attention-mask-valid candidate-text tokens",
+      "trajectory_phase": "completed_generated_candidate_state"
+    },
+    "d3_writable_transport": {
+      "canonical_row_sha256": "0845b0926abecd83acb8239e4d7d15941cfb139ce1b816894dd19956ff92260e",
+      "centering": "column mean over exact L3_24 injection deltas",
+      "construction": "leading right singular vector of centered L3_24 delta matrix",
+      "dtype": "float64",
+      "file_sha256": "900d56f02b2f0a82060aad8519950cd0b07f70f1320b714890ab7cee6c06211d",
+      "finite": true,
+      "leading_explained_variance": 0.3276379255899777,
+      "leading_singular_values": [
+        0.020529118861852158,
+        0.017972001077700292,
+        0.011288001828344999,
+        0.010784245732292029,
+        0.01047688292213522
+      ],
+      "loop": 3,
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d3_l3_24.npy",
+      "physical_layer": 24,
+      "pooling_rule": "none beyond the one-token range mean",
+      "quantized_delta_max_abs_error": 7.62939453125e-06,
+      "rms": 0.9999999999999999,
+      "rms_before_normalization": 0.022097086912079626,
+      "selected_row_indices": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303
+      ],
+      "selected_rows": 32,
+      "shape": [
+        2048
+      ],
+      "sign_alignment": "positive dot with uncentered mean L3_24 delta",
+      "source_tensor_dtype": "torch.float16",
+      "source_tensor_key": "delta_locus[branch_rows loop_1indexed==3 and layer==24]",
+      "source_tensor_shape": [
+        344,
+        2048
+      ],
+      "token_position": "fixed last-token suffix (plen-1, plen)",
+      "trajectory_phase": "one-shot injection at frozen last-token boundary"
+    },
+    "d4_learned_actuator": {
+      "status": "PENDING_LIVE_CAPTURE",
+      "substitution_used": false
+    }
+  },
+  "coordinate_system": "raw 2048-dimensional Ouro-RLTT residual coordinates",
+  "created_at": "2026-07-29T10:47:27.477988+02:00",
+  "d1_d3_cosine_matrix": [
+    [
+      1.0000000000000002,
+      0.046667617184818155,
+      -0.03734621837859325
+    ],
+    [
+      0.046667617184818155,
+      0.9999999999999999,
+      -0.0060134525497419315
+    ],
+    [
+      -0.03734621837859325,
+      -0.0060134525497419315,
+      0.9999999999999999
+    ]
+  ],
+  "locus": "L3_24",
+  "schema_version": "o1.axis_source_reconstruction.v1",
+  "scientific_scope": "real pre-O1 artifact reconstruction only; no O1 calibration or confirmatory outcomes",
+  "source_hashes": {
+    "/home/moloch/ouro_project/artifacts/reports/cross_loop_early_layer_taps_20260720/features/feature_manifest.json": "7288502e90e62cddc26314fb1d03690adbfb8c34404644fa9a30b61a19e1fca6",
+    "/home/moloch/ouro_project/artifacts/reports/cross_loop_early_layer_taps_20260720/split_integrity.json": "74c146e78e68daa20e2e6d129e57635141c71f19660ffc02d85ffd3123742c7d",
+    "/home/moloch/ouro_project/artifacts/reports/cross_loop_early_layer_taps_20260720/xloop_taps.pt": "f50b5c0da8ead0a998d8a6b499a54fccd36d9fa05da17d0392d0fa2be7f5fd29",
+    "/home/moloch/ouro_project/artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_1_task_set.json": "1f91a814a16c8f9d65c56fbc514c2bce0f9da1180a72c3cd19a23090a0d0d2be",
+    "/home/moloch/ouro_project/artifacts/reports/proto_introspection/s1_s3_exact_injection_orthogonality_2026-06-17/s1_s3_exact_injection_delta_bundle_2026-06-17.pt": "ebb47f3975c5ea670b62678e7330c9a92e700a641b9f3ae6af51dc1320a92a38",
+    "/home/moloch/ouro_project/artifacts/reports/proto_introspection/s1_s3_exact_injection_orthogonality_2026-06-17/s1_s3_exact_injection_orthogonality_null_audit_2026-06-17.json": "5136b06326fe0fb6c0caed46c55b8d12e4de1506e5332fe535be3f87efd4a768",
+    "/home/moloch/ouro_project/utilities/tests/manual/bg_xloop_early_v1_train_eval.py": "214ab1bc5e00ff7afb0396f7abd7e0e097d9eaadd54452feac5f3e70800610dc"
+  }
+}

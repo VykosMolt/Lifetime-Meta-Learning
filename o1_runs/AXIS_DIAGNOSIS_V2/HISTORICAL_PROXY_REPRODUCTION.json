@@ -1,0 +1,51 @@
+{
+  "absolute_difference": 8.349041868971341e-08,
+  "captured_mean_update_cosine": 0.5720586047705143,
+  "captured_pc1_cosine": -0.13812127400617838,
+  "causal_checkpoint": "/home/moloch/ouro_project/artifacts/reports/probes/bg_causal_intervention_adapter_2026-05-18/adapter_checkpoints/best_adapter.pt",
+  "causal_checkpoint_sha256": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+  "comparisons_to_captured_geometry": {
+    "causal_proxy_vs_causal_induced_mean_update": 0.07925474798687962,
+    "causal_proxy_vs_causal_induced_pc1": 0.0013278263270894315,
+    "causal_proxy_vs_sequence_induced_pc1": 0.007986648171311131,
+    "sequence_proxy_vs_causal_induced_pc1": 0.0009575629115091731,
+    "sequence_proxy_vs_sequence_induced_mean_update": 0.10350690024937803,
+    "sequence_proxy_vs_sequence_induced_pc1": 0.011319877171211386
+  },
+  "construction": "instantiate and load sequence adapter, instantiate and load causal adapter, evaluate both directly on the same 64 seeded Gaussian vectors, normalize inside each adapter per example, then mean",
+  "created_at": "2026-07-29T12:20:16.911027+02:00",
+  "differences_from_real_induced_update_capture": [
+    "Gaussian hidden probes rather than frozen prompt residual states",
+    "direct adapter outputs rather than model-induced downstream residual updates",
+    "native layer-36 adapter output geometry rather than transported post-layer L3_24 geometry",
+    "no alpha, loop scaling, recurrent propagation, or residual subtraction",
+    "uncentered mean of 64 normalized adapter outputs rather than PC1 of eight centered task updates",
+    "no task identities, prompt ordering, or leave-task-out support"
+  ],
+  "historical_diagnostics_source": "/home/moloch/ouro_project/artifacts/reports/probes/bg_sequence_level_adapter_2026-05-18/diagnostics.json",
+  "historical_diagnostics_source_sha256": "4d9592a3bd024e936569be62d443474768a493bb8f4f7b96e93ff0d2da826104",
+  "probe": {
+    "device": "cuda:0",
+    "distribution": "torch.randn standard Gaussian",
+    "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "shape": [
+      64,
+      2048
+    ]
+  },
+  "proxy_vectors_dtype": "float32",
+  "proxy_vectors_path": "/tmp/o1_axis_diagnosis_v2/o1_runs/AXIS_DIAGNOSIS_V2/historical_adapter_proxy_vectors.npy",
+  "proxy_vectors_sha256": "b67430230e3e4e159f1717c5601a820931243a13417625a0414062e4a30635f6",
+  "proxy_vectors_shape": [
+    2,
+    2048
+  ],
+  "recomputed_cosine_from_checkpoint_binaries": 0.9510943054713733,
+  "reported_historical_cosine_for_comparison_only": 0.951094388961792,
+  "schema_version": "o1.axis_diagnosis_v2.historical_proxy.v1",
+  "seed": 20260518,
+  "sequence_checkpoint": "/home/moloch/ouro_project/artifacts/reports/probes/bg_sequence_level_adapter_2026-05-18/sequence_adapter_checkpoints/best_sequence_adapter.pt",
+  "sequence_checkpoint_sha256": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+  "status": "REPRODUCED_FROM_CHECKPOINT_BINARIES",
+  "tolerance": 1e-06
+}

@@ -1,0 +1,22 @@
+{
+  "policy": "o1b200.benchmark_order.v1",
+  "frozen_before_hardware_access": true,
+  "benchmark_input": "non-O1 validation corpus ONLY (o1_b200/corpus)",
+  "staged_candidates": [
+    {"stage": 1, "config_id": "REFERENCE_SERIAL_w1_b1", "backend": "REFERENCE_SERIAL", "workers": 1, "batch": 1},
+    {"stage": 2, "config_id": "B200_REPLICA_w2_b1", "backend": "B200_REPLICA", "workers": 2, "batch": 1},
+    {"stage": 3, "config_id": "B200_REPLICA_w4_b1", "backend": "B200_REPLICA", "workers": 4, "batch": 1},
+    {"stage": 4, "config_id": "B200_REPLICA_w8_b1", "backend": "B200_REPLICA", "workers": 8, "batch": 1},
+    {"stage": 5, "config_id": "B200_BATCHED_w1_b4", "backend": "B200_BATCHED", "workers": 1, "batch": 4},
+    {"stage": 6, "config_id": "B200_BATCHED_w1_b8", "backend": "B200_BATCHED", "workers": 1, "batch": 8},
+    {"stage": 7, "config_id": "B200_BATCHED_w1_b16", "backend": "B200_BATCHED", "workers": 1, "batch": 16}
+  ],
+  "extension_rule": "Additional worker counts (12, 16) or batch sizes (32, 64) may be tested ONLY if every prior stage completed without OOM or integrity failure AND the predeclared cost rule holds: projected additional benchmark time <= 25% of remaining authorized runtime after reserving the affordability-gate calibration budget. No open-ended search.",
+  "stop_rules": [
+    "stop immediately on any OOM (larger configurations are not attempted)",
+    "stop immediately on any integrity failure",
+    "stop launching new stages at 95% budget consumption (watchdog)",
+    "each stage runs the full validation corpus exactly once; no cherry-picking"
+  ],
+  "note": "This order was frozen during local software construction, before any provider or instance was chosen. It must not be reordered on the B200."
+}

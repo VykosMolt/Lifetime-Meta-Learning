@@ -1,0 +1,367 @@
+{
+  "A3_CAUSAL_MEAN": {
+    "adapter_checkpoint_sha256": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+    "raw_mean_l2_norm": 0.04112786989365476,
+    "raw_mean_rms": 0.0009088061155487916,
+    "source_matrix_dtype": "float32",
+    "source_matrix_file_sha256": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+    "source_matrix_path": "/tmp/o1_v2_axis_bank_redesign/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/d4_adapter1_induced_updates_l3_24.npy",
+    "source_matrix_shape": [
+      8,
+      2048
+    ],
+    "stability": {
+      "bootstrap": {
+        "bit_generator": "numpy.PCG64",
+        "cosine_to_full_mean": {
+          "maximum": 1.0,
+          "mean": 0.8022804798152725,
+          "median": 0.8070085885961052,
+          "minimum": 0.4541173520250003,
+          "n": 10000,
+          "q01": 0.6113318200587863,
+          "q05": 0.6751363203716227,
+          "q95": 0.9184307258255817
+        },
+        "draws": 10000,
+        "seed": 2026072903,
+        "unit": "task_id; one frozen reference example per task"
+      },
+      "leave_one_task_out": {
+        "cosine_to_full_mean": {
+          "maximum": 0.9652120426325489,
+          "mean": 0.9549189822109412,
+          "median": 0.9555776491308856,
+          "minimum": 0.9414609452611218,
+          "n": 8,
+          "q01": 0.9421818273757582,
+          "q05": 0.9450653558343035,
+          "q95": 0.9629379904962287
+        },
+        "rows": [
+          {
+            "cosine_to_full_mean": 0.9578066545885793,
+            "left_out_task_id": "ARC-Challenge/0"
+          },
+          {
+            "cosine_to_full_mean": 0.9540151764283821,
+            "left_out_task_id": "ARC-Challenge/1"
+          },
+          {
+            "cosine_to_full_mean": 0.9532429049445186,
+            "left_out_task_id": "ARC-Challenge/10"
+          },
+          {
+            "cosine_to_full_mean": 0.9414609452611218,
+            "left_out_task_id": "ARC-Challenge/11"
+          },
+          {
+            "cosine_to_full_mean": 0.9517592611844982,
+            "left_out_task_id": "mmlu/high_school_biology/0"
+          },
+          {
+            "cosine_to_full_mean": 0.9587147508144912,
+            "left_out_task_id": "mmlu/high_school_biology/1"
+          },
+          {
+            "cosine_to_full_mean": 0.9571401218333891,
+            "left_out_task_id": "mmlu/high_school_biology/10"
+          },
+          {
+            "cosine_to_full_mean": 0.9652120426325489,
+            "left_out_task_id": "mmlu/high_school_biology/11"
+          }
+        ]
+      }
+    },
+    "unit_rms_row_sha256": "284c4f43243295e4123e1e8885eda5ca9014e5cf374652b7032f1d2362d7fc74"
+  },
+  "A4_SEQUENCE_MEAN": {
+    "adapter_checkpoint_sha256": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+    "raw_mean_l2_norm": 0.05264098849247025,
+    "raw_mean_rms": 0.0011632124978558978,
+    "source_matrix_dtype": "float32",
+    "source_matrix_file_sha256": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775",
+    "source_matrix_path": "/tmp/o1_v2_axis_bank_redesign/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/d4_adapter2_induced_updates_l3_24.npy",
+    "source_matrix_shape": [
+      8,
+      2048
+    ],
+    "stability": {
+      "bootstrap": {
+        "bit_generator": "numpy.PCG64",
+        "cosine_to_full_mean": {
+          "maximum": 1.0,
+          "mean": 0.8588895411206757,
+          "median": 0.8644325268356808,
+          "minimum": 0.5614619082567056,
+          "n": 10000,
+          "q01": 0.7028369739642015,
+          "q05": 0.7546887488744646,
+          "q95": 0.9476695401669438
+        },
+        "draws": 10000,
+        "seed": 2026072904,
+        "unit": "task_id; one frozen reference example per task"
+      },
+      "leave_one_task_out": {
+        "cosine_to_full_mean": {
+          "maximum": 0.9757197520111373,
+          "mean": 0.9711498241213649,
+          "median": 0.971627385296984,
+          "minimum": 0.966199319294551,
+          "n": 8,
+          "q01": 0.9662113624058831,
+          "q05": 0.9662595348512114,
+          "q95": 0.9752470444990727
+        },
+        "rows": [
+          {
+            "cosine_to_full_mean": 0.9733652100425468,
+            "left_out_task_id": "ARC-Challenge/0"
+          },
+          {
+            "cosine_to_full_mean": 0.9692406921359515,
+            "left_out_task_id": "ARC-Challenge/1"
+          },
+          {
+            "cosine_to_full_mean": 0.9743691591195243,
+            "left_out_task_id": "ARC-Challenge/10"
+          },
+          {
+            "cosine_to_full_mean": 0.966199319294551,
+            "left_out_task_id": "ARC-Challenge/11"
+          },
+          {
+            "cosine_to_full_mean": 0.9740435360736348,
+            "left_out_task_id": "mmlu/high_school_biology/0"
+          },
+          {
+            "cosine_to_full_mean": 0.9663713637421522,
+            "left_out_task_id": "mmlu/high_school_biology/1"
+          },
+          {
+            "cosine_to_full_mean": 0.9698895605514212,
+            "left_out_task_id": "mmlu/high_school_biology/10"
+          },
+          {
+            "cosine_to_full_mean": 0.9757197520111373,
+            "left_out_task_id": "mmlu/high_school_biology/11"
+          }
+        ]
+      }
+    },
+    "unit_rms_row_sha256": "2926c83868d5827a7e19495401a7b7241d897044f7ee1fca94d787c02f6c1f9c"
+  },
+  "capture_parity": {
+    "application_and_scaling": {
+      "causal_effective_alpha_by_loop": [
+        0.0025,
+        0.005,
+        0.0075,
+        0.01
+      ],
+      "intervention_target": "physical layer 36 post-layer hook",
+      "mode": "multi_loop_decayed",
+      "passed": true,
+      "sequence_effective_alpha_by_loop": [
+        0.005,
+        0.01,
+        0.015,
+        0.02
+      ]
+    },
+    "causal_checkpoint": {
+      "expected": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+      "observed": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+      "passed": true
+    },
+    "dtype_and_normalization": {
+      "component_normalization": "unit RMS",
+      "model_dtype": "torch.bfloat16",
+      "passed": true,
+      "pc_compute_dtype": "float64",
+      "stored_update_dtype": "float32",
+      "transformers_capture_version": "4.54.1",
+      "transformers_current_version": "4.54.1"
+    },
+    "exact_checkpoint_and_adapter_hashes": {
+      "expected": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+      "note": "tree was hash-bound in O1_REAL_001; the 5 GB checkpoint is not copied",
+      "passed": true,
+      "recomputed_from_current_local_checkpoint": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+      "recorded": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802"
+    },
+    "failed_checks": [],
+    "final_prompt_position": {
+      "passed": true,
+      "positions": [
+        {
+          "capture_position": 89,
+          "prompt_tokens": 90,
+          "task_id": "ARC-Challenge/0"
+        },
+        {
+          "capture_position": 76,
+          "prompt_tokens": 77,
+          "task_id": "ARC-Challenge/1"
+        },
+        {
+          "capture_position": 109,
+          "prompt_tokens": 110,
+          "task_id": "ARC-Challenge/10"
+        },
+        {
+          "capture_position": 98,
+          "prompt_tokens": 99,
+          "task_id": "ARC-Challenge/11"
+        },
+        {
+          "capture_position": 86,
+          "prompt_tokens": 87,
+          "task_id": "mmlu/high_school_biology/0"
+        },
+        {
+          "capture_position": 90,
+          "prompt_tokens": 91,
+          "task_id": "mmlu/high_school_biology/1"
+        },
+        {
+          "capture_position": 81,
+          "prompt_tokens": 82,
+          "task_id": "mmlu/high_school_biology/10"
+        },
+        {
+          "capture_position": 163,
+          "prompt_tokens": 164,
+          "task_id": "mmlu/high_school_biology/11"
+        }
+      ]
+    },
+    "overall": "PASS",
+    "paper_l3_loop_mapping": {
+      "expected": "zero-indexed loop 2 / paper L3 / physical layer 24",
+      "paper_loop_label": "L3",
+      "passed": true,
+      "physical_layer": 24,
+      "zero_indexed_loop": 2
+    },
+    "post_layer_boundary": {
+      "observed": "post-block output of model.model.layers[23]",
+      "passed": true
+    },
+    "reference_identity_and_order": {
+      "expected_reference_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+      "passed": true,
+      "reference_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+      "task_ids": [
+        "ARC-Challenge/0",
+        "ARC-Challenge/1",
+        "ARC-Challenge/10",
+        "ARC-Challenge/11",
+        "mmlu/high_school_biology/0",
+        "mmlu/high_school_biology/1",
+        "mmlu/high_school_biology/10",
+        "mmlu/high_school_biology/11"
+      ]
+    },
+    "report_sha256": "d77f409738981ee134c482d0162417fecf5380f184b467f83fa64fb298f58d17",
+    "sequence_checkpoint": {
+      "expected": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+      "observed": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+      "passed": true
+    },
+    "sign_convention": {
+      "gate_uses_absolute_cosine": true,
+      "observed": "positive dot with that adapter's mean induced update",
+      "passed": true
+    },
+    "trajectory_phase": {
+      "generated_state_used": false,
+      "observed": "prompt_only",
+      "passed": true
+    }
+  },
+  "construction": {
+    "causal": "unitRMS(mean(float64(exact float32 causal matrix), axis=0))",
+    "centering": false,
+    "cross_adapter_averaging": false,
+    "pc_extraction": false,
+    "reference_conditioned": true,
+    "sequence": "unitRMS(mean(float64(exact float32 sequence matrix), axis=0))"
+  },
+  "created_at": "2026-07-29T12:44:14.189887+02:00",
+  "cross_adapter": {
+    "interpretation": "moderate alignment; axes remain separate",
+    "mean_direction_cosine": 0.5720586047705143,
+    "per_example_update_cosine_summary": {
+      "maximum": 0.5350888497670613,
+      "mean": 0.47964909853025006,
+      "median": 0.5014178979757391,
+      "minimum": 0.2861431609184415,
+      "n": 8,
+      "q01": 0.3000490114977179,
+      "q05": 0.35567241381482345,
+      "q95": 0.5327955780096307
+    },
+    "per_example_update_cosines": [
+      {
+        "cosine": 0.5014428318005091,
+        "reference_rank": 0,
+        "task_id": "ARC-Challenge/0"
+      },
+      {
+        "cosine": 0.5350888497670613,
+        "reference_rank": 1,
+        "task_id": "ARC-Challenge/1"
+      },
+      {
+        "cosine": 0.2861431609184415,
+        "reference_rank": 2,
+        "task_id": "ARC-Challenge/10"
+      },
+      {
+        "cosine": 0.5118133451813301,
+        "reference_rank": 3,
+        "task_id": "ARC-Challenge/11"
+      },
+      {
+        "cosine": 0.48797682248403956,
+        "reference_rank": 4,
+        "task_id": "mmlu/high_school_biology/0"
+      },
+      {
+        "cosine": 0.5013929641509692,
+        "reference_rank": 5,
+        "task_id": "mmlu/high_school_biology/1"
+      },
+      {
+        "cosine": 0.48479816919381846,
+        "reference_rank": 6,
+        "task_id": "mmlu/high_school_biology/10"
+      },
+      {
+        "cosine": 0.5285366447458312,
+        "reference_rank": 7,
+        "task_id": "mmlu/high_school_biology/11"
+      }
+    ]
+  },
+  "reference": {
+    "file_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "task_count": 8,
+    "task_ids_in_frozen_order": [
+      "ARC-Challenge/0",
+      "ARC-Challenge/1",
+      "ARC-Challenge/10",
+      "ARC-Challenge/11",
+      "mmlu/high_school_biology/0",
+      "mmlu/high_school_biology/1",
+      "mmlu/high_school_biology/10",
+      "mmlu/high_school_biology/11"
+    ],
+    "unchanged_from_failed_capture": true
+  },
+  "schema_version": "o1.v2.actuator_mean_diagnostics.v1",
+  "scientific_scope": "real pre-O1 induced-update reconstruction diagnostics; no O1 calibration or confirmatory outcomes"
+}

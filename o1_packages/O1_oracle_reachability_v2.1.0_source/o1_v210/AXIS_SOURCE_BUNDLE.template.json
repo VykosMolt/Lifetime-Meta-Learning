@@ -1,0 +1,46 @@
+{
+  "bundle_version": "2.0",
+  "project_commit": "FREEZE_SLOT",
+  "model": {
+    "checkpoint_path": "FREEZE_SLOT",
+    "checkpoint_sha256": "FREEZE_SLOT",
+    "tokenizer_path": "FREEZE_SLOT",
+    "tokenizer_sha256": "FREEZE_SLOT",
+    "transformers": "4.54.1"
+  },
+  "A1_READABLE": {
+    "feature_root": "FREEZE_SLOT",
+    "feature_manifest_sha256": "FREEZE_SLOT",
+    "split_manifest_sha256": "FREEZE_SLOT",
+    "fit_script_sha256": "FREEZE_SLOT",
+    "fit_seed": "FREEZE_SLOT"
+  },
+  "A2_WRITABLE": {
+    "delta_bundle": "FREEZE_SLOT",
+    "delta_bundle_sha256": "FREEZE_SLOT",
+    "reconstruction_log": "FREEZE_SLOT",
+    "reconstruction_log_sha256": "FREEZE_SLOT"
+  },
+  "A3_CAUSAL_MEAN": {
+    "adapter_checkpoint": "FREEZE_SLOT",
+    "adapter_sha256": "FREEZE_SLOT",
+    "induced_update_matrix": "FREEZE_SLOT",
+    "induced_update_matrix_sha256": "FREEZE_SLOT",
+    "reference_set": "FREEZE_SLOT",
+    "reference_set_sha256": "FREEZE_SLOT",
+    "capture_script": "FREEZE_SLOT",
+    "capture_script_sha256": "FREEZE_SLOT",
+    "construction": "raw uncentered arithmetic mean, then unit RMS; no PC"
+  },
+  "A4_SEQUENCE_MEAN": {
+    "adapter_checkpoint": "FREEZE_SLOT",
+    "adapter_sha256": "FREEZE_SLOT",
+    "induced_update_matrix": "FREEZE_SLOT",
+    "induced_update_matrix_sha256": "FREEZE_SLOT",
+    "reference_set": "FREEZE_SLOT",
+    "reference_set_sha256": "FREEZE_SLOT",
+    "capture_script": "FREEZE_SLOT",
+    "capture_script_sha256": "FREEZE_SLOT",
+    "construction": "raw uncentered arithmetic mean, then unit RMS; no PC"
+  }
+}

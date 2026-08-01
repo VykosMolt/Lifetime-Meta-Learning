@@ -1,0 +1,30 @@
+{
+  "schema": "o1b200.environment_report.v1",
+  "status": "TEMPLATE — every UNRESOLVED field genuinely requires the future B200 session; no value below is invented",
+  "gpu_name": "UNRESOLVED",
+  "gpu_uuid": "UNRESOLVED",
+  "gpu_count": "UNRESOLVED (must equal 1)",
+  "hbm_capacity_bytes": "UNRESOLVED",
+  "nvidia_driver": "UNRESOLVED",
+  "cuda_runtime": "UNRESOLVED",
+  "cuda_toolkit": "UNRESOLVED",
+  "cudnn": "UNRESOLVED",
+  "nccl": "UNRESOLVED",
+  "pytorch_version": "UNRESOLVED (reference environment: 2.12.0.dev20260407+cu128)",
+  "transformers_version": "UNRESOLVED (MUST equal 4.54.1 exactly; validation refuses otherwise)",
+  "numpy_version": "UNRESOLVED (reference environment: 2.4.4)",
+  "python_version": "UNRESOLVED (reference environment: 3.14.6)",
+  "linux_kernel": "UNRESOLVED",
+  "container_image_digest": "UNRESOLVED",
+  "attention_backend": "UNRESOLVED (must be 'eager' per sealed generator unless a separately committed validation authorizes otherwise)",
+  "deterministic_settings": {
+    "torch_use_deterministic_algorithms": "UNRESOLVED (must be true)",
+    "cudnn_deterministic": "UNRESOLVED (must be true)",
+    "cudnn_benchmark": "UNRESOLVED (must be false)"
+  },
+  "cublas_workspace_config": "UNRESOLVED (must be ':4096:8')",
+  "tf32_state": "UNRESOLVED (matmul/cudnn TF32 flags at runtime)",
+  "bf16_support": "UNRESOLVED (must be true)",
+  "compile_state": "UNRESOLVED (must be OFF unless separately equivalence-passed)",
+  "cuda_graph_state": "UNRESOLVED (must be OFF unless separately equivalence-passed)"
+}

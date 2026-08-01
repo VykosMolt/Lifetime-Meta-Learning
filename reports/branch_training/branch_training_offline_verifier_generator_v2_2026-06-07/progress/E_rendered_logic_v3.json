@@ -1,0 +1,7 @@
+{
+  "verdict": "EXECUTED_LOGIC_BRANCH_SETS_READY",
+  "counts": {
+    "ok": 13495,
+    "too_few_branches": 9041
+  }
+}

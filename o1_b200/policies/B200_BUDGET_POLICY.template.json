@@ -1,0 +1,28 @@
+{
+  "policy": "o1b200.budget.v1",
+  "status": "TEMPLATE — hourly rate and provider fields are unresolved; no spend is authorized by this file",
+  "total_authorized_usd": 45.00,
+  "maximum_compute_spend_usd": 40.00,
+  "reserved_noncompute_usd": 5.00,
+  "confirmation_authorized": false,
+  "automatic_extension_allowed": false,
+  "operator_override_allowed": false,
+  "auto_reload_allowed": false,
+  "runtime_limit_rule": "floor(maximum_compute_spend_usd / actual_hourly_rate * 3600) seconds",
+  "watchdog": {
+    "stop_launching_new_work_at_fraction": 0.95,
+    "immediate_termination_at_fraction": 1.00,
+    "clock": "monotonic in-process + independent external watchdog interface",
+    "no_automatic_extension": true,
+    "no_confirmation_launch": true
+  },
+  "affordability_gate": "projected_calibration_time * 1.30 + verification_transfer_reserve_seconds + termination_reserve_seconds <= remaining_authorized_runtime_seconds; refuse calibration otherwise",
+  "unresolved_fields_to_be_populated_in_the_future_b200_session": {
+    "provider": "UNRESOLVED",
+    "actual_quoted_hourly_rate_usd": "UNRESOLVED",
+    "single_gpu_instance_identity": "UNRESOLVED",
+    "computed_maximum_runtime_seconds": "UNRESOLVED",
+    "billing_start_reference": "UNRESOLVED",
+    "termination_mechanism": "UNRESOLVED"
+  }
+}

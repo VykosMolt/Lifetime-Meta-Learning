@@ -1,0 +1,134 @@
+{
+  "base_model_present": true,
+  "canary_dir": "data/branch_training_logic_expansion_v1/canary",
+  "data_root": "data/branch_training_logic_expansion_v1",
+  "do_not_overwrite": [
+    "models/ouro_rltt_local/",
+    "tokenizer files",
+    "constructed_taps/pure_content_taps.pt",
+    "constructed_taps/transplanted_taps.pt",
+    "CoreContent_v2 artifacts",
+    "branch_training_logic_expansion_v1 reports/adapters/checkpoints",
+    "tap registries"
+  ],
+  "gpu": {
+    "free_mib": 11453,
+    "orphans": [],
+    "total_mib": 12227,
+    "used_mib": 774,
+    "util_pct": 5
+  },
+  "inputs_present": {
+    "processed/branch_pools_deduped.parquet": true,
+    "processed/branch_pools_labeled.parquet": true,
+    "processed/gen_shards/gen_manifest.json": true,
+    "processed/logic_tasks.parquet": true,
+    "teacher/dualanchor_teacher_traces.parquet": true,
+    "terminal_survivor_sets.parquet": true,
+    "train/branch_diversity_sft.jsonl": true,
+    "train/branch_format_sft.jsonl": true,
+    "train/branch_policy_distillation.jsonl": true,
+    "train/branch_preference_dpo.jsonl": true,
+    "train/final_self_selection.jsonl": true,
+    "train/verifier_reward_rl.jsonl": true
+  },
+  "log_dir": "artifacts/logs/branch_training_v2",
+  "model_root": "artifacts/models/branch_training_offline_verifier_generator_v2",
+  "out_root": "artifacts/reports/probes/branch_training_offline_verifier_generator_v2_2026-06-07",
+  "parts": [
+    {
+      "desc": "run state + manifest",
+      "part": "A",
+      "stage": "init"
+    },
+    {
+      "desc": "verify v1 substrate",
+      "part": "B",
+      "stage": "input_audit"
+    },
+    {
+      "desc": "fixed >=100/domain canary",
+      "part": "C",
+      "stage": "canary_suite"
+    },
+    {
+      "desc": "base / prev-SFT / oracle / random baselines (GPU)",
+      "part": "D",
+      "stage": "canary_baselines"
+    },
+    {
+      "desc": "solver-rendered verified logic branch sets (offline)",
+      "part": "E",
+      "stage": "rendered_logic_branch_sets"
+    },
+    {
+      "desc": "direct-answer + branch-budget views (data-composition repair)",
+      "part": "F",
+      "stage": "branch_budget_data"
+    },
+    {
+      "desc": "rejection-SFT + branch-set DPO + reward groups",
+      "part": "G",
+      "stage": "offline_branch_set_preferences"
+    },
+    {
+      "desc": "deterministic verifier-backed reward function",
+      "part": "H",
+      "stage": "offline_reward_spec"
+    },
+    {
+      "desc": "controlled offline arms A..I",
+      "part": "I",
+      "stage": "training_matrix"
+    },
+    {
+      "desc": "bf16 LoRA offline training (resumable)",
+      "part": "J",
+      "stage": "offline_training"
+    },
+    {
+      "desc": "select <=3 adapters for heldout",
+      "part": "K",
+      "stage": "canary_checkpoint_eval"
+    },
+    {
+      "desc": "task-disjoint heldout, once",
+      "part": "L",
+      "stage": "final_heldout_eval"
+    },
+    {
+      "desc": "decide if online RL is justified (no GRPO here)",
+      "part": "M",
+      "stage": "online_rl_gate"
+    },
+    {
+      "desc": "hand-audit failures vs artifacts",
+      "part": "N",
+      "stage": "error_audit"
+    },
+    {
+      "desc": "next architecture state",
+      "part": "O",
+      "stage": "policy_decision"
+    },
+    {
+      "desc": "docs (append-only)",
+      "part": "P",
+      "stage": "doc_update"
+    }
+  ],
+  "prev_adapter_present": true,
+  "prev_sft_adapter": "artifacts/models/branch_training_logic_expansion_v1/branching_sft",
+  "run": "branch_training_offline_verifier_generator_v2",
+  "stack": {
+    "bitsandbytes": "0.49.2",
+    "datasets": "4.8.5",
+    "peft": "0.19.1",
+    "torch": "2.12.0.dev20260407+cu128",
+    "transformers": "4.54.1",
+    "trl": "0.20.0",
+    "z3": "4.16.0"
+  },
+  "stop_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/_control",
+  "train_v2": "data/branch_training_logic_expansion_v1/train_v2"
+}

@@ -1,0 +1,22 @@
+{
+  "BRANCH_POOL_GENERATION_VERDICT": "LOGIC_BRANCH_POOLS_READY",
+  "avg_branches_per_group": 3.44,
+  "branches": 114824,
+  "by_domain": {
+    "alignment": 3000,
+    "coding": 1733,
+    "logic": 23017,
+    "math": 3000,
+    "reasoning": 2600
+  },
+  "by_split": {
+    "heldout": 12082,
+    "train": 18888,
+    "val": 2380
+  },
+  "elapsed_seconds": 2.114,
+  "groups": 33350,
+  "logic_groups": 23017,
+  "note": "cheap candidate pools (dataset options/mutations/solver); model-generated pools added by 'gen'.",
+  "reward_diverse_groups": 33350
+}

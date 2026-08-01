@@ -1,0 +1,29 @@
+{
+  "verdict": "S1_4_GATE2_PASS",
+  "task": "logic_00013d9d03",
+  "n_steps": 48,
+  "alpha": 0.02,
+  "token_range": "last_token (plen-1, plen)",
+  "loci": {
+    "t1": "loop1_L24",
+    "t2": "loop1_L36"
+  },
+  "fork_primitive": "apply_boundary_perturbation / LayerOutputPerturbHook(token_range)",
+  "results": {
+    "gate2a_single_locus_L1_24": {
+      "first_logit_maxabs": 0.0,
+      "first_argmax_match": true,
+      "tokens_identical": true,
+      "matching_prefix": 48,
+      "n": 48
+    },
+    "gate2b_chain_L1_24_then_L1_36": {
+      "first_logit_maxabs": 0.0,
+      "first_argmax_match": true,
+      "tokens_identical": true,
+      "matching_prefix": 48,
+      "n": 48
+    }
+  },
+  "elapsed_seconds": 19.7
+}

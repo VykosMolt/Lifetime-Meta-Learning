@@ -1,0 +1,77 @@
+{
+  "attested_or_hash_bound_only": [
+    "upstream A1 tap fitting and leakage audit",
+    "upstream A2 exact-protocol delta reconstruction (historical tensor absent)",
+    "adapter capture execution and checkpoint/model parity"
+  ],
+  "axis_order": [
+    "A1_READABLE",
+    "A2_WRITABLE",
+    "A3_CAUSAL_MEAN",
+    "A4_SEQUENCE_MEAN"
+  ],
+  "axis_row_sha256": [
+    "ce9b8feacd654df8d38c5fa72d48e0fe31714b680d5c4d135f061592cc9d7370",
+    "0845b0926abecd83acb8239e4d7d15941cfb139ce1b816894dd19956ff92260e",
+    "284c4f43243295e4123e1e8885eda5ca9014e5cf374652b7032f1d2362d7fc74",
+    "2926c83868d5827a7e19495401a7b7241d897044f7ee1fca94d787c02f6c1f9c"
+  ],
+  "cosines": [
+    [
+      1.0,
+      -0.0373462184,
+      -0.0187793543,
+      0.0059418943
+    ],
+    [
+      -0.0373462184,
+      1.0,
+      -0.0430112533,
+      -0.0254762608
+    ],
+    [
+      -0.0187793543,
+      -0.0430112533,
+      1.0,
+      0.5720586048
+    ],
+    [
+      0.0059418943,
+      -0.0254762608,
+      0.5720586048,
+      1.0
+    ]
+  ],
+  "mean_actuator_cosine": 0.5720586047705144,
+  "random_max_abs_regeneration_deviation": 0.0,
+  "random_seed_int": 11556693987180526173,
+  "random_structured_gram_max_abs_per_dimension": 1.1102230246251565e-15,
+  "schema_version": "o1.axis_verification.v2.0",
+  "sha256sums_entries": 12,
+  "source_file_sha256": {
+    "a1_readable_source_l3_24.npy": "2ef03d84304f838bcf749132007b4481010f40e7ba3db5dd59e586abb84f3584",
+    "a2_writable_source_l3_24.npy": "900d56f02b2f0a82060aad8519950cd0b07f70f1320b714890ab7cee6c06211d",
+    "actuator_reference_tasks.jsonl": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "causal_induced_updates_l3_24.npy": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+    "sequence_induced_updates_l3_24.npy": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775"
+  },
+  "structurally_verified": [
+    "shape, dtype, finiteness, and unit RMS",
+    "v2 semantic order and canonical row hashes",
+    "A1/A2 identity to embedded frozen source-axis bytes",
+    "A3/A4 exact uncentered mean construction from embedded source matrices",
+    "source-matrix and eight-task reference-order identity",
+    "no centering, no PC extraction, and no A3/A4 averaging",
+    "pairwise |cosine| < 0.98",
+    "stored and recomputed structured Gram matrices",
+    "random bank exact non-discretionary regeneration and Gram match",
+    "complete SHA256SUMS coverage and no bytecode"
+  ],
+  "structured_random_canonical_correlations": [
+    0.077178,
+    0.054646,
+    0.038591,
+    0.001075
+  ],
+  "verdict": "SEALABLE"
+}

@@ -1,0 +1,54 @@
+{
+  "verdict": "S1_4_GATE3_PASS",
+  "feature_shapes": {
+    "solve_ok": [
+      3,
+      4,
+      2048
+    ],
+    "solve_wrong": [
+      3,
+      4,
+      2048
+    ],
+    "degenerate": [
+      3,
+      4,
+      2048
+    ],
+    "solve_ok2": [
+      3,
+      4,
+      2048
+    ]
+  },
+  "shape_ok": true,
+  "dualanchor_channels": 6,
+  "corecontent_channels": 3,
+  "dualanchor_finite_varying": true,
+  "corecontent_finite_varying": true,
+  "by_branch": [
+    {
+      "branch_id": "solve_ok",
+      "dualanchor": -0.168,
+      "corecontent": 0.3012
+    },
+    {
+      "branch_id": "solve_wrong",
+      "dualanchor": 0.726,
+      "corecontent": 0.386
+    },
+    {
+      "branch_id": "degenerate",
+      "dualanchor": -0.4044,
+      "corecontent": -0.8106
+    },
+    {
+      "branch_id": "solve_ok2",
+      "dualanchor": -0.1537,
+      "corecontent": 0.1234
+    }
+  ],
+  "note": "ranking informational; gate = integration fidelity (live encode->group->score)",
+  "elapsed_seconds": 3.0
+}

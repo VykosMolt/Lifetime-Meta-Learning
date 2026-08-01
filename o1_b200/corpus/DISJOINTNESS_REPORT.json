@@ -1,0 +1,20 @@
+{
+  "checked_manifests": [
+    {
+      "content_hash_overlap": [],
+      "n_tasks": 96,
+      "path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/calibration_tasks.jsonl",
+      "sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+      "task_id_overlap": []
+    },
+    {
+      "content_hash_overlap": [],
+      "n_tasks": 2400,
+      "path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/confirmatory_candidate_pool.jsonl",
+      "sha256": "35687e26ced13bdd60afa9a501b3e37a5a668e65956517c32ce7a03b98f700aa",
+      "task_id_overlap": []
+    }
+  ],
+  "corpus_tasks": 12,
+  "verdict": "DISJOINT"
+}

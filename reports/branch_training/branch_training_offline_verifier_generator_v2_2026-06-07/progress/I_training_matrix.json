@@ -1,0 +1,10 @@
+{
+  "verdict": "MATRIX_REDUCED",
+  "arms_on": [
+    "A_format_control",
+    "B_direct_budget_sft",
+    "C_offline_verifier_dpo",
+    "G_budget_plus_verifier",
+    "H_from_base_best_recipe"
+  ]
+}

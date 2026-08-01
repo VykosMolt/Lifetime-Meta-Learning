@@ -1,0 +1,16 @@
+O1 v1.5.3 full verification
+========================================================================
+PASS  SHA256SUMS integrity and coverage: 24 files
+PASS  Python syntax compilation: 9 modules
+PASS  JSON templates and fixed policy fields
+PASS  CLI parsers: 7 commands
+PASS  confirmatory fixtures: 53/53 passed
+PASS  calibration fixtures: 17/17 passed
+PASS  v1.5.3 integration fixtures: 13/13 passed
+PASS  CLI workflow fixtures: 7/7 passed
+PASS  axis verifier self-test: 15/15 axis-artifact checks behaved as specified
+PASS  Exact McNemar planning minima: 324 / 817 / 2238 / 337
+PASS  No stale package labels or obsolete test counts
+PASS  No packaged or test-generated Python bytecode
+========================================================================
+ALL O1 v1.5.3 CHECKS PASSED

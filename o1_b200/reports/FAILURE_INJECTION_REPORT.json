@@ -1,0 +1,245 @@
+{
+  "all_handled_without_human_interaction_except_termination_failures": true,
+  "entries": [
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at PRECHECK",
+      "later_states_never_started": [
+        "ARTIFACT_VERIFY",
+        "ENVIRONMENT_VERIFY",
+        "NON_O1_EQUIVALENCE",
+        "NON_O1_BENCHMARK",
+        "BACKEND_SELECT",
+        "PRECOMMIT_BUILD",
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_PRECHECK",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at ARTIFACT_VERIFY",
+      "later_states_never_started": [
+        "ENVIRONMENT_VERIFY",
+        "NON_O1_EQUIVALENCE",
+        "NON_O1_BENCHMARK",
+        "BACKEND_SELECT",
+        "PRECOMMIT_BUILD",
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_ARTIFACT_VERIFY",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at ENVIRONMENT_VERIFY",
+      "later_states_never_started": [
+        "NON_O1_EQUIVALENCE",
+        "NON_O1_BENCHMARK",
+        "BACKEND_SELECT",
+        "PRECOMMIT_BUILD",
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_ENVIRONMENT_VERIFY",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at NON_O1_EQUIVALENCE",
+      "later_states_never_started": [
+        "NON_O1_BENCHMARK",
+        "BACKEND_SELECT",
+        "PRECOMMIT_BUILD",
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_NON_O1_EQUIVALENCE",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at NON_O1_BENCHMARK",
+      "later_states_never_started": [
+        "BACKEND_SELECT",
+        "PRECOMMIT_BUILD",
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_NON_O1_BENCHMARK",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at BACKEND_SELECT",
+      "later_states_never_started": [
+        "PRECOMMIT_BUILD",
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_BACKEND_SELECT",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at PRECOMMIT_BUILD",
+      "later_states_never_started": [
+        "EXTERNAL_COMMIT_VERIFY",
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_PRECOMMIT_BUILD",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at EXTERNAL_COMMIT_VERIFY",
+      "later_states_never_started": [
+        "CALIBRATION_AFFORDABILITY_CHECK",
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_EXTERNAL_COMMIT_VERIFY",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at CALIBRATION_AFFORDABILITY_CHECK",
+      "later_states_never_started": [
+        "CALIBRATION",
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_CALIBRATION_AFFORDABILITY_CHECK",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at CALIBRATION",
+      "later_states_never_started": [
+        "RECORD_VERIFY",
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_CALIBRATION",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at RECORD_VERIFY",
+      "later_states_never_started": [
+        "RESULT_TRANSFER"
+      ],
+      "outcome": "ABORTED_AT_RECORD_VERIFY",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "handler exception at RESULT_TRANSFER",
+      "later_states_never_started": [],
+      "outcome": "ABORTED_AT_RESULT_TRANSFER",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at quote_instance",
+      "outcome": "ABORTED_AT_PRECHECK",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at validate_single_gpu",
+      "outcome": "ABORTED_AT_PRECHECK",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at start_instance",
+      "outcome": "ABORTED_AT_PRECHECK",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at get_billing_rate",
+      "outcome": "COMPLETE",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at upload_artifacts",
+      "outcome": "ABORTED_AT_ARTIFACT_VERIFY",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at launch_job",
+      "outcome": "COMPLETE",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": false,
+      "injection": "provider failure at download_results",
+      "outcome": "ABORTED_AT_RESULT_TRANSFER",
+      "termination_confirmed": true,
+      "termination_requested": true
+    },
+    {
+      "human_interaction_required": true,
+      "injection": "provider failure at terminate_instance",
+      "outcome": "COMPLETE",
+      "termination_confirmed": false,
+      "termination_requested": false
+    },
+    {
+      "human_interaction_required": true,
+      "injection": "provider failure at confirm_terminated",
+      "outcome": "COMPLETE",
+      "termination_confirmed": false,
+      "termination_requested": true
+    }
+  ],
+  "every_failure_reached_a_machine_readable_terminal_status": true,
+  "mode": "LOCAL_MOCKED",
+  "n_injections": 21,
+  "schema": "o1b200.failure_injection_report.v1"
+}

@@ -1,0 +1,89 @@
+{
+  "distinct_tasks_with_rows": 9,
+  "originals_untouched": true,
+  "package": "O1_oracle_reachability_v2.1.0",
+  "package_zip_sha256": "a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+  "precommit_sha256_bound_in_rows": [
+    "e819aeebc642fefde769f398b385f23f98dc3980412eeb67274d0f5891c5457d"
+  ],
+  "preserved_files": {
+    "calibration_boundaries/o1v2-1bce2a944d84e35254d18c6b74960ecf2eb62b0733497bf4f4f3ea5d70b2a181.npy": {
+      "sha256": "049e0ebf5574802013ccc8c91bbec0d3f40230c8227e7384f0dc8bf2a8e5cea6",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T21:48:52Z"
+    },
+    "calibration_boundaries/o1v2-272e55720e1c3e4358da26ffabf542542bc955865d29db900283b7c0a54a5574.npy": {
+      "sha256": "2f5505525bd2b397f6ca50aa274be428794c04c667491ca48c0d505b661bd658",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T20:01:52Z"
+    },
+    "calibration_boundaries/o1v2-51b28de1b269908b16adbc92b7b21be863bda38ec57fb39922891dacd5641b8d.npy": {
+      "sha256": "23a458fb853d6d2d4ac617ade0703016d6e47ec6a509a047e6fb289c8224f39c",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T20:43:42Z"
+    },
+    "calibration_boundaries/o1v2-87f3d3b6473ec80c1251d307d5f5b4aa01cf9e7aad563d568aa493ba61248ef5.npy": {
+      "sha256": "5f7ed179d129eb3b00ea2c87d388951bc667a532bf104f649ad03faa88458e54",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T19:25:09Z"
+    },
+    "calibration_boundaries/o1v2-8bd6f61c628c5421a8f4a86e3992342454190682cdd8cf834c52352058b6597d.npy": {
+      "sha256": "c1069f96bde65f585485582032785d219ff30940fef3f400486e1de81f6441f5",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T19:46:38Z"
+    },
+    "calibration_boundaries/o1v2-936832c1f8d922450fb9c024b28e0503e56215461d5c84bc0a18ce0b7494bfe4.npy": {
+      "sha256": "72c7480cf1b77cd149156b1aed91cc8859ab3d57baf575e422b95d27b69089eb",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T21:05:45Z"
+    },
+    "calibration_boundaries/o1v2-afe08a018941c2d74f8a8e78c1583c15e89889418ddfd09a87f46a6276721adf.npy": {
+      "sha256": "0dc50e7fa6cf0c337d23eccc0a91bb6ae24f8bc5ac683e7bcaadc103d706f2f3",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T22:12:44Z"
+    },
+    "calibration_boundaries/o1v2-b815b0e04e43cb0c007578ce2f98d427ae29b2c19a9c33fb5b476c5022472813.npy": {
+      "sha256": "5c4d08658095961d16d025e83c86cd68c73ac445e34a79a14dc4af7e130ab521",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T20:25:44Z"
+    },
+    "calibration_boundaries/o1v2-eb83975cde9fadb41463ce6234e79e11c28898fc7924d9e445fcb96ad8b336fd.npy": {
+      "sha256": "166f7ae50902d634248a1601d72dc72be26e1171ca2dd8f2acd066e07b194882",
+      "size_bytes": 8320,
+      "source_mtime_utc": "2026-07-31T21:25:37Z"
+    },
+    "calibration_progress.json": {
+      "sha256": "91b16b86a4647ec21e4e0808e1bd4dbaf05e62e2495dcd4638407d84a8d84a5c",
+      "size_bytes": 66,
+      "source_mtime_utc": "2026-07-31T22:16:54Z"
+    },
+    "calibration_records.jsonl": {
+      "sha256": "63990a18788f571475f067c10e466e0606027c26ca60e7a37e7b3c1bc8bf479c",
+      "size_bytes": 1356648,
+      "source_mtime_utc": "2026-07-31T22:19:40Z"
+    },
+    "calibration_run.log": {
+      "sha256": "059f41fd425728b71eacd791e52004094061017b71ad86ff882b14cbf483d4d4",
+      "size_bytes": 366,
+      "source_mtime_utc": "2026-07-31T22:20:49Z"
+    }
+  },
+  "progress": {
+    "elapsed_wall_seconds": 10485.889428677998,
+    "tasks_completed": 8
+  },
+  "reason": "OPERATOR_STOPPED_FOR_BACKEND_REDESIGN",
+  "records_match_pause_ledger": true,
+  "records_sha256": "63990a18788f571475f067c10e466e0606027c26ca60e7a37e7b3c1bc8bf479c",
+  "records_sha256_at_pause_per_ledger": "63990a18788f571475f067c10e466e0606027c26ca60e7a37e7b3c1bc8bf479c",
+  "reuse_policy": "NO ROWS REUSED",
+  "row_count_actually_present": 403,
+  "rows_target": 4608,
+  "scientific_status": "ABORTED_BEFORE_CALIBRATION_ANALYSIS",
+  "source_directory": "/home/moloch/ouro_worktrees/o1-v2-axis-bank-redesign/o1_runs/O1_V2_AXIS_BANK_REDESIGN",
+  "timeline_from_ledger": {
+    "elapsed_wall_seconds_at_pause": 10485.889428677998,
+    "paused_utc": "2026-07-31T22:23:53Z",
+    "started_utc": "2026-07-31T19:25:31Z"
+  }
+}

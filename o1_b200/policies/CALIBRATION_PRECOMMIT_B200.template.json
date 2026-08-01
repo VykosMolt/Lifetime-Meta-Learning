@@ -1,0 +1,35 @@
+{
+  "schema": "o1b200.calibration_precommit_template.v1",
+  "status": "TEMPLATE — NOT a calibration precommit. Finalization is refused while any field below is UNRESOLVED. No real calibration may run against this template.",
+  "frozen_scientific_identity": {
+    "note": "Everything scientific is already frozen and hashed; the B200 session may not touch any of it.",
+    "base_package": "O1_oracle_reachability_v2.1.0",
+    "package_zip_sha256": "a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+    "source_commit": "6db215fa52ee315ad1011e14cf7a12560107da56",
+    "sealed_calibration_precommit_sha256": "e819aeebc642fefde769f398b385f23f98dc3980412eeb67274d0f5891c5457d",
+    "sealed_precommit_external_commit": "5469cab762c52eb33219565c7ec49ba02c2f22c8",
+    "axis_package_tree_sha256": "8c3b34a3574fbca9e63de23a88831e076e317fec33236405fb3af72f0ff96fdd",
+    "structured_axis_tensor_sha256": "72107b8eec817930652016c768fa90529a5989d82129b3d4a44f8d0b593946db",
+    "random_axis_tensor_sha256": "1ff455edd3f2982ea45b6c11085887e46ece392e4e5eafab7916262f6fd7660b",
+    "checkpoint_tree_sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+    "calibration_task_manifest_sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+    "transformers_version": "4.54.1",
+    "design_constants": "A1-A4 axes, structured/random bytes, Gram-matched random bank, both signs, K=8, CRN mapping, Latin-square stream assignment, task populations, seed policy, alpha grid, largest-passing-alpha rule, coherence rules, malformed=0, transport diagnostic-only, delta_target=0.05, q_disc upper-bound power sizing, exact McNemar, difficulty bands, arm drop order, H_reach primary endpoint, D2 exclusion, interpretation addendum — ALL UNCHANGED from the sealed v2.1 precommit",
+    "attempt_ledger_policy": "the 403-row 2026-07-31 laptop attempt is ABORTED_BEFORE_CALIBRATION_ANALYSIS; NO ROWS REUSED"
+  },
+  "unresolved_hardware_facts": {
+    "provider": "UNRESOLVED",
+    "instance_id": "UNRESOLVED",
+    "gpu_uuid": "UNRESOLVED",
+    "driver_runtime_report_sha256": "UNRESOLVED",
+    "container_image_digest_as_deployed": "UNRESOLVED",
+    "selected_eligible_backend": "UNRESOLVED (from frozen B200_BACKEND_SELECTION_POLICY.json)",
+    "selected_worker_batch_configuration": "UNRESOLVED",
+    "measured_benchmark_throughput_rows_per_hour": "UNRESOLVED",
+    "actual_hourly_rate_usd": "UNRESOLVED",
+    "computed_hard_runtime_seconds": "UNRESOLVED",
+    "environment_digest_sha256": "UNRESOLVED",
+    "final_backend_benchmark_report_sha256": "UNRESOLVED"
+  },
+  "finalization_rule": "runner/precommit_template.py::finalize() raises while any unresolved_hardware_facts value equals 'UNRESOLVED'; the finalized precommit must then be externally committed and remote-verified BEFORE calibration (runbook steps 10-13)."
+}

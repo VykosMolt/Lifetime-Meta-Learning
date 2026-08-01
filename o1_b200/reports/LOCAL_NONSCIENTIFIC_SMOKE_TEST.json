@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "batched_intervention": {
+      "coresident_baseline_untouched": true,
+      "intervened_row_injected_rms_positive": true
+    },
+    "engine_b1_matches_sealed_boundary": true,
+    "engine_b1_matches_sealed_tokens": true,
+    "equal_length_batch_token_identity": [
+      false,
+      false
+    ],
+    "mixed_length_observations": {
+      "long_row_boundary_bitwise": false,
+      "long_row_tokens_match_solo": false,
+      "short_row_tokens_match_solo": false
+    }
+  },
+  "elapsed_seconds": 168.3281179540063,
+  "label": "LOCAL_NONSCIENTIFIC_SMOKE_TEST",
+  "scientific_result": null
+}

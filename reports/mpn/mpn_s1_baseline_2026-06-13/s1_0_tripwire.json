@@ -1,0 +1,49 @@
+{
+  "verdict": "S1_TRIPWIRE_REPRODUCED",
+  "tolerance": 0.01,
+  "checks": {
+    "CoreContent_v2_blockwise": {
+      "reference": 0.6691,
+      "reproduced": 0.6691,
+      "delta": 0.0,
+      "within_tol": true
+    },
+    "DualAnchor": {
+      "reference": 0.3787,
+      "reproduced": 0.3787,
+      "delta": 0.0,
+      "within_tol": true
+    },
+    "mixedhead_MIX_HH_OBJECTIVE": {
+      "reference": 0.5525,
+      "reproduced": 0.5525,
+      "delta": 0.0,
+      "within_tol": true
+    }
+  },
+  "per_domain": {
+    "CoreContent_v2_blockwise": {
+      "coding": 0.9347,
+      "reasoning": 0.6814,
+      "math": 0.657,
+      "logic": 0.4598,
+      "alignment": 0.6124
+    },
+    "DualAnchor": {
+      "coding": 0.4271,
+      "reasoning": 0.3894,
+      "math": 0.3074,
+      "logic": 0.2366,
+      "alignment": 0.5328
+    },
+    "mixedhead_MIX_HH_OBJECTIVE": {
+      "coding": 0.6131,
+      "reasoning": 0.677,
+      "math": 0.5858,
+      "logic": 0.3527,
+      "alignment": 0.5342
+    }
+  },
+  "missing_policies": [],
+  "elapsed_seconds": 4.1
+}

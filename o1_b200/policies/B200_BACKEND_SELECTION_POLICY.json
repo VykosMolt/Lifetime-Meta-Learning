@@ -1,0 +1,32 @@
+{
+  "policy": "o1b200.backend_selection.v1",
+  "frozen_before_hardware_access": true,
+  "selection_input": "non-O1 validation corpus results ONLY; no O1 outcome may influence selection",
+  "eligibility_requirements_all_must_pass": [
+    "every structural equivalence gate passes (row IDs, task hashes, prompt tokens, action mapping, axis/sign/alpha mapping, stream and seed mapping, record schema, canonical ordering)",
+    "parser/verifier recomputation passes on every record",
+    "action and seed mapping are exact",
+    "intervention semantics pass (per-row position, per-row delta, no padding writes, no repeated decode-time injection, realized delta measured)",
+    "transport semantics pass (per-row capture, no cross-row mixing, zero-alpha bitwise convention)",
+    "resume tests pass (interrupt + resume completes with no missing/duplicate rows)",
+    "no missing rows and no duplicate rows in the finalized merge",
+    "no OOM during the configuration's benchmark",
+    "steady-state free HBM >= 15% of capacity",
+    "no unvalidated optimization active (compaction, torch.compile, CUDA graphs, alternate attention all OFF unless separately equivalence-passed)",
+    "throughput stable (quartile rows/s spread <= 25%)",
+    "scientific configuration unchanged (axes, K=8, CRN, Latin square, alpha grid, parser, verifier, transport, task populations, seed policy)"
+  ],
+  "selection_rule": "among eligible configurations select highest verified completed rows/hour on the non-O1 validation corpus benchmark",
+  "tie_break_order": [
+    "1: lower peak HBM (reserved bytes)",
+    "2: lower semantic complexity: REFERENCE_SERIAL, then B200_REPLICA, then B200_BATCHED without compaction, then B200_BATCHED with compaction",
+    "3: smaller worker/batch count (workers+batch sum, then workers)",
+    "4: lexicographically smallest config_id"
+  ],
+  "fallback": "B200_REPLICA is the designated fallback if no B200_BATCHED configuration passes the equivalence gates; REFERENCE_SERIAL is always eligible as the terminal fallback",
+  "prohibitions": [
+    "no selection based on any O1 task outcome",
+    "no post-hoc re-benchmarking to flip a selection",
+    "an ineligible configuration can never be selected regardless of throughput"
+  ]
+}

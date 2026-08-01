@@ -1,0 +1,24 @@
+{
+  "verdict": "V4_MULTIDOMAIN_WORKED_READY",
+  "branch_set_rejection_sft": 26961,
+  "branch_set_dpo": 27947,
+  "one_branch_sft": 26980,
+  "carried_from_v3": {
+    "branch_set_rejection_sft": 13895,
+    "branch_set_dpo": 14979,
+    "one_branch_sft": 13986
+  },
+  "rejection_sft_domains": {
+    "logic": 13888,
+    "math": 9053,
+    "coding": 4026
+  },
+  "dpo_pair_types": {
+    "oracle": 14013,
+    "underbranch_defer": 943,
+    "overbranch": 45,
+    "show_work": 4000,
+    "wrong_final": 8951
+  },
+  "elapsed_seconds": 1.7
+}

@@ -1,0 +1,117 @@
+{
+  "verdict": "S1_2_GEN_LABEL_MEASURED",
+  "alpha": 0.02,
+  "K": 4,
+  "n_tasks": 6,
+  "mean_distinct_finals": 1.167,
+  "distinct_rate": 0.167,
+  "base_accuracy": 0.667,
+  "positive_oracle_rate": 0.667,
+  "by_domain": {
+    "reasoning": [
+      1,
+      2
+    ],
+    "math": [
+      1,
+      1
+    ],
+    "coding": [
+      1,
+      1
+    ]
+  },
+  "rows": [
+    {
+      "task": "math_0313a1abc4",
+      "domain": "math",
+      "base_correct": true,
+      "distinct_finals": 1,
+      "n_correct": 5,
+      "positive_oracle": true,
+      "finals": [
+        "3",
+        "3",
+        "3",
+        "3",
+        "3"
+      ]
+    },
+    {
+      "task": "math_0490949b5c",
+      "domain": "math",
+      "base_correct": true,
+      "distinct_finals": 1,
+      "n_correct": 5,
+      "positive_oracle": true,
+      "finals": [
+        "282",
+        "282",
+        "282",
+        "282",
+        "282"
+      ]
+    },
+    {
+      "task": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "base_correct": false,
+      "distinct_finals": 1,
+      "n_correct": 0,
+      "positive_oracle": false,
+      "finals": [
+        "B. No",
+        "B. No",
+        "B. No",
+        "B. No",
+        "B. No"
+      ]
+    },
+    {
+      "task": "reasoning_00ddfcee6a",
+      "domain": "reasoning",
+      "base_correct": true,
+      "distinct_finals": 2,
+      "n_correct": 5,
+      "positive_oracle": true,
+      "finals": [
+        "calibrate",
+        "C. calibrate",
+        "C. calibrate",
+        "C. calibrate",
+        "C. calibrate"
+      ]
+    },
+    {
+      "task": "coding_007b833f21",
+      "domain": "coding",
+      "base_correct": false,
+      "distinct_finals": 1,
+      "n_correct": 0,
+      "positive_oracle": false,
+      "finals": [
+        "def slope(p1, p2):\n    x1, y1 = p1\n    x2, y2 = ",
+        "def slope(p1, p2):\n    x1, y1 = p1\n    x2, y2 = ",
+        "def slope(p1, p2):\n    x1, y1 = p1\n    x2, y2 = ",
+        "def slope(p1, p2):\n    x1, y1 = p1\n    x2, y2 = ",
+        "def slope(p1, p2):\n    x1, y1 = p1\n    x2, y2 = "
+      ]
+    },
+    {
+      "task": "coding_00715d44da",
+      "domain": "coding",
+      "base_correct": true,
+      "distinct_finals": 1,
+      "n_correct": 5,
+      "positive_oracle": true,
+      "finals": [
+        "import heapq\n\ndef raw_heap(lst):\n    heapq.heapi",
+        "import heapq\n\ndef raw_heap(lst):\n    heapq.heapi",
+        "import heapq\n\ndef raw_heap(lst):\n    heapq.heapi",
+        "import heapq\n\ndef raw_heap(lst):\n    heapq.heapi",
+        "import heapq\n\ndef raw_heap(lst):\n    heapq.heapi"
+      ]
+    }
+  ],
+  "elapsed_seconds": 650.1
+}

@@ -1,0 +1,6 @@
+generator,domain,groups,positive_oracle@1,positive_oracle@2,positive_oracle@4,reward_diverse_rate,all_wrong_rate,all_correct_rate,parse_ok_rate,avg_branches,strategy_diversity
+model_generated,coding,60,0.3208,0.3861,0.4333,0.2333,0.5667,0.2,0.85,4.0,2.0
+model_generated,logic,60,0.5167,0.6417,0.7333,0.4333,0.2667,0.3,0.9917,4.0,2.0
+model_generated,math,60,0.7375,0.8,0.8333,0.2333,0.1667,0.6,0.9917,4.0,2.0
+model_generated,reasoning,60,0.8125,0.8972,0.95,0.3167,0.05,0.6333,0.9875,4.0,2.0
+cheap_dataset,all,33350,0.3162,0.6324,0.9629,1.0,0.0,0.0,1.0,3.44,1.0

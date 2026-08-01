@@ -1,0 +1,255 @@
+{
+  "verdict": "S1_2_MULTILOCUS",
+  "N_PER": 3,
+  "K": 4,
+  "alpha": 0.02,
+  "layers": [
+    24,
+    36,
+    47
+  ],
+  "n_tasks": 12,
+  "sampling": {
+    "mean_distinct": 2.833,
+    "oracle_at_K": 0.75
+  },
+  "single_locus": {
+    "mean_distinct": 1.5,
+    "oracle_at_K": 0.75
+  },
+  "multi_locus": {
+    "mean_distinct": 2.0,
+    "oracle_at_K": 0.75
+  },
+  "rows": [
+    {
+      "task": "logic_00158d8d9c",
+      "domain": "logic",
+      "samp": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "single": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 2
+      },
+      "multi": {
+        "distinct": 4,
+        "oracle": true,
+        "n_correct": 3
+      }
+    },
+    {
+      "task": "logic_000f384418",
+      "domain": "logic",
+      "samp": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 3
+      },
+      "single": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 1
+      },
+      "multi": {
+        "distinct": 4,
+        "oracle": true,
+        "n_correct": 1
+      }
+    },
+    {
+      "task": "logic_00013d9d03",
+      "domain": "logic",
+      "samp": {
+        "distinct": 2,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "math_0313a1abc4",
+      "domain": "math",
+      "samp": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "math_0490949b5c",
+      "domain": "math",
+      "samp": {
+        "distinct": 4,
+        "oracle": true,
+        "n_correct": 2
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "math_06d0ca6d3a",
+      "domain": "math",
+      "samp": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 3
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 2,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "samp": {
+        "distinct": 3,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": false,
+        "n_correct": 0
+      }
+    },
+    {
+      "task": "reasoning_00ddfcee6a",
+      "domain": "reasoning",
+      "samp": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 3
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "reasoning_012f9d1412",
+      "domain": "reasoning",
+      "samp": {
+        "distinct": 2,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "coding_007b833f21",
+      "domain": "coding",
+      "samp": {
+        "distinct": 4,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "single": {
+        "distinct": 2,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "multi": {
+        "distinct": 4,
+        "oracle": false,
+        "n_correct": 0
+      }
+    },
+    {
+      "task": "coding_00715d44da",
+      "domain": "coding",
+      "samp": {
+        "distinct": 2,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "single": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "multi": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "coding_06bd4a1597",
+      "domain": "coding",
+      "samp": {
+        "distinct": 4,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "single": {
+        "distinct": 2,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "multi": {
+        "distinct": 3,
+        "oracle": false,
+        "n_correct": 0
+      }
+    }
+  ],
+  "elapsed_seconds": 4262.5
+}

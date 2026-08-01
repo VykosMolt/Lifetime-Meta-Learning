@@ -1,0 +1,202 @@
+{
+  "modules": [
+    {
+      "checks": [
+        "every RowSpec seed equals the sealed CRN derivation",
+        "CRN pairing: same (task, stream) shares one seed across arms",
+        "per-step generator seed is a pure function of (seed, step)",
+        "RNG audit record binds full identity and is recomputable",
+        "sealed sampler: deterministic per (seed, step), varies over steps",
+        "HOSTILE global-RNG leakage: global state cannot move any stream",
+        "scheduling/enumeration order cannot remap seed or stream of a row"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_row_rng",
+      "passed": 7
+    },
+    {
+      "checks": [
+        "schema: every record carries the full canonical field set",
+        "a genuine record passes full recomputation",
+        "HOSTILE forged well_formed is caught",
+        "HOSTILE forged verifier_correct is caught",
+        "HOSTILE forged R is caught",
+        "HOSTILE changed text with stale hash is caught",
+        "HOSTILE changed tokens with stale hash is caught",
+        "HOSTILE record edited without rehash is caught",
+        "HOSTILE changed alpha is caught",
+        "HOSTILE changed sign is caught",
+        "HOSTILE changed direction/axis is caught",
+        "HOSTILE changed stream is caught",
+        "HOSTILE changed seed is caught",
+        "HOSTILE changed task-content hash is caught",
+        "HOSTILE changed package identity is caught",
+        "HOSTILE changed precommit/binding identity is caught",
+        "HOSTILE forged repetition flag is caught",
+        "HOSTILE baseline transport must be null",
+        "stored booleans can never override recomputed values"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_records",
+      "passed": 19
+    },
+    {
+      "checks": [
+        "reopening a completed store verifies every row",
+        "a partially written row can never appear valid (quarantined)",
+        "HOSTILE corrupt record is quarantined, not accepted",
+        "HOSTILE stale record (edited content) is rejected on resume",
+        "HOSTILE duplicate row with different content is refused",
+        "HOSTILE row from another sealed run is refused at commit",
+        "resume refuses changed backend_id",
+        "resume refuses changed batch_size",
+        "resume refuses changed worker_count",
+        "resume refuses changed runtime_environment_sha256",
+        "resume refuses changed binding_sha256",
+        "resume refuses changed seal_sha256",
+        "resume refuses changed task_manifest_sha256",
+        "resume refuses changed seed_matrix_sha256",
+        "resume refuses changed source_commit",
+        "resume refuses changed package_zip_sha256",
+        "resume refuses changed model_artifact_sha256",
+        "resume refuses changed tokenizer_sha256",
+        "resume refuses changed axis_package_sha256",
+        "resume refuses changed backend_config_sha256",
+        "resume refuses changed row_spec_manifest_sha256",
+        "missing-row detection: finalize refuses gaps",
+        "canonical merge is deterministic and exec_index-ordered",
+        "a completed, verified row is not regenerated after resume"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_persistence",
+      "passed": 24
+    },
+    {
+      "checks": [
+        "mixed batch: per-row intended and realized delta RMS recorded",
+        "HOSTILE cross-row bleed: baseline row inside an intervention batch is bitwise identical to a solo baseline run",
+        "intervention changes the intervened row's boundary",
+        "zero-alpha rows keep the bitwise identity path (rho exactly 0)",
+        "HOSTILE wrong final prompt position (right padding) is refused",
+        "HOSTILE repeated decode-time injection impossible (one-shot hook, removed after prefill)",
+        "null direction with nonzero alpha is refused",
+        "transport rho matches the analytic value on a known delta",
+        "transport enforces finite/nonnegative requirements",
+        "HOSTILE transport mixing: per-row rho identical solo vs mixed batch"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_intervention_transport",
+      "passed": 10
+    },
+    {
+      "checks": [
+        "token/stop/text/boundary identity at batch sizes 1,2,4,8 with mixed prompt lengths and completion lengths",
+        "shuffled scheduling order cannot change any row's trajectory",
+        "EOS, parser-stop, and max-token termination all exercised",
+        "catastrophic repetition is produced and mechanically flagged",
+        "HOSTILE prefix-parser attack: 'FINAL ANSWER: About...' does not stop or parse",
+        "optional compaction (default OFF) reproduces non-compacting results bitwise: identity moves with the row",
+        "HOSTILE batch-slot identity swap changes outputs (detectable)",
+        "HOSTILE stale KV cache after compaction diverges from honest run"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_engine_batched",
+      "passed": 8
+    },
+    {
+      "checks": [
+        "equivalence matrix: replica w2/w3 + batched b1..b32 + compaction are structurally exact and scientific-core identical to serial",
+        "worker crash mid-run: safe restart completes with no missing and no duplicate rows",
+        "interruption + resume reproduces the uninterrupted run exactly",
+        "batched resume re-establishes h_base via exact stream-0 replay",
+        "HOSTILE corrupted/substituted model artifact is refused at load",
+        "optional performance modes are locked OFF by validate()"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_backends",
+      "passed": 6
+    },
+    {
+      "checks": [
+        "mechanical zero-overlap with the 96-task calibration manifest and the 2400-task confirmatory candidate pool",
+        "HOSTILE O1 task inserted into the validation corpus is detected",
+        "HOSTILE out-of-population validation task is refused",
+        "HOSTILE tampered corpus file is refused by its sealed hash",
+        "benchmark policy: staged order is frozen and deterministic",
+        "benchmark harness refuses any mode but local-synthetic",
+        "HOSTILE ineligible-but-fastest backend can never win; selection is deterministic under input reordering",
+        "selection with no eligible configuration refuses",
+        "benchmark harness dress rehearsal (serial + replica w2/w4) collects metrics on the corpus"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_corpus_and_policies",
+      "passed": 9
+    },
+    {
+      "checks": [
+        "budget policy loads with the frozen USD 45/40/5 values",
+        "HOSTILE tampered budget ceiling is refused",
+        "HOSTILE operator-override enablement is refused",
+        "runtime limit = floor(40 USD / rate * 3600); zero rate refused",
+        "watchdog: 95% stop-launching and 100% immediate-termination thresholds fire on the mocked USD-40 timeout",
+        "no automatic extension / override method exists on the watchdog",
+        "watchdog failure: independent external watchdog terminates even when the in-process watchdog is dead",
+        "affordability gate: 1.30x + reserves rule passes and refuses exactly as frozen",
+        "HOSTILE affordability-gate bypass via forged inputs is refused"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_budget_watchdog",
+      "passed": 9
+    },
+    {
+      "checks": [
+        "full mocked end-to-end dress rehearsal reaches COMPLETE with confirmed termination and machine-readable status",
+        "failure injected at EVERY state: later states never begin, termination is requested, status is machine-readable",
+        "valid completed synthetic records survive a downstream failure",
+        "provider failure at every provider operation aborts cleanly",
+        "HOSTILE provider-termination failure is surfaced as human_interaction_required",
+        "HOSTILE attempted confirmation launch despite authorization=false is refused",
+        "HOSTILE real O1 calibration binding is refused by the local machine unconditionally"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_state_machine",
+      "passed": 7
+    },
+    {
+      "checks": [
+        "precommit template refuses finalization while unresolved",
+        "partially resolved precommit template still refuses",
+        "fully resolved MOCK precommit finalizes but remains marked mock",
+        "unknown hardware fact refused",
+        "precommit template freezes all scientific hashes; exactly the 12 hardware facts are unresolved",
+        "environment template: every hardware field is unresolved",
+        "HOSTILE stale/altered environment values are refused (transformers, GPU count, attention, CUBLAS, compile)",
+        "HOSTILE tampered sealed module is refused at import time",
+        "HOSTILE stale bytecode alongside sealed sources is refused",
+        "SHA256SUMS write/verify roundtrip; tampering detected",
+        "deterministic archive: byte-identical regardless of input order",
+        "HOSTILE secret material is refused by the transfer tooling",
+        "HOSTILE corrupted artifact (hash mismatch) refused by manifest builder"
+      ],
+      "failed": 0,
+      "failures": [],
+      "module": "test_templates_and_integrity",
+      "passed": 13
+    }
+  ],
+  "schema": "o1b200.test_report.v1",
+  "scope_note": "Hardware-independent local validation only: synthetic runtime + non-O1 corpus + mocked provider/clock. No B200 hardware claim is made or implied.",
+  "total_failed": 0,
+  "total_passed": 112,
+  "utc": "2026-08-01T09:17:28Z",
+  "verdict": "ALL O1 B200 RUNNER TESTS PASSED"
+}

@@ -1,0 +1,566 @@
+{
+  "BRANCH_TRAINING_DATA_PULL_VERDICT": "LOGIC_EXPANDED_READY",
+  "core_top_verdict": "LARGE_CORE_DATA_READY",
+  "elapsed_seconds": 106.853,
+  "ledger": [
+    {
+      "dataset_name": "openai/openai_humaneval",
+      "diagnostic_only": false,
+      "family": "coding",
+      "license": "MIT",
+      "noncommercial": false,
+      "task_type": "code_unit_test",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "google-research-datasets/mbpp",
+      "diagnostic_only": false,
+      "family": "coding",
+      "license": "cc-by-4.0",
+      "noncommercial": false,
+      "task_type": "code_unit_test",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "codeparrot/apps",
+      "diagnostic_only": false,
+      "family": "coding",
+      "license": "MIT",
+      "noncommercial": false,
+      "task_type": "code_unit_test",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "open-r1/verifiable-coding-problems-python",
+      "diagnostic_only": false,
+      "family": "coding",
+      "license": "apache-2.0",
+      "noncommercial": false,
+      "task_type": "code_unit_test",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "openai/gsm8k",
+      "diagnostic_only": false,
+      "family": "math",
+      "license": "MIT",
+      "noncommercial": false,
+      "task_type": "math_exact",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "EleutherAI/hendrycks_math",
+      "diagnostic_only": false,
+      "family": "math",
+      "license": "MIT",
+      "noncommercial": false,
+      "task_type": "math_exact",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "ChilleD/SVAMP",
+      "diagnostic_only": false,
+      "family": "math",
+      "license": "mit",
+      "noncommercial": false,
+      "task_type": "math_exact",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "lucasmccabe/logiqa",
+      "diagnostic_only": false,
+      "family": "logic",
+      "license": "cc-by-nc-4.0",
+      "noncommercial": true,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "allenai/ai2_arc",
+      "diagnostic_only": false,
+      "family": "reasoning",
+      "license": "cc-by-sa-4.0",
+      "noncommercial": false,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "allenai/ai2_arc::easy",
+      "diagnostic_only": false,
+      "family": "reasoning",
+      "license": "cc-by-sa-4.0",
+      "noncommercial": false,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "openbookqa",
+      "diagnostic_only": false,
+      "family": "reasoning",
+      "license": "apache-2.0",
+      "noncommercial": false,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "commonsense_qa",
+      "diagnostic_only": false,
+      "family": "reasoning",
+      "license": "mit",
+      "noncommercial": false,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "ChilleD/StrategyQA",
+      "diagnostic_only": false,
+      "family": "reasoning",
+      "license": "apache-2.0",
+      "noncommercial": false,
+      "task_type": "boolean",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "Anthropic/hh-rlhf",
+      "diagnostic_only": false,
+      "family": "alignment",
+      "license": "mit",
+      "noncommercial": false,
+      "task_type": "preference_pair",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "HuggingFaceH4/ultrafeedback_binarized",
+      "diagnostic_only": false,
+      "family": "alignment",
+      "license": "mit",
+      "noncommercial": false,
+      "task_type": "preference_pair",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "stanfordnlp/SHP",
+      "diagnostic_only": false,
+      "family": "alignment",
+      "license": "mit",
+      "noncommercial": false,
+      "task_type": "preference_pair",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "PKU-Alignment/PKU-SafeRLHF",
+      "diagnostic_only": false,
+      "family": "alignment",
+      "license": "cc-by-nc-4.0",
+      "noncommercial": true,
+      "task_type": "preference_pair",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "openlifescienceai/mmlu_anatomy",
+      "diagnostic_only": true,
+      "family": "anatomy",
+      "license": "mit",
+      "noncommercial": false,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "dataset_name": "allenai/sciq::science",
+      "diagnostic_only": true,
+      "family": "science",
+      "license": "cc-by-nc-3.0",
+      "noncommercial": true,
+      "task_type": "mcq",
+      "via": "corecontent_v2 cache"
+    },
+    {
+      "columns": [
+        "context",
+        "query",
+        "options",
+        "correct_option"
+      ],
+      "config": null,
+      "dataset_name": "lucasmccabe/logiqa",
+      "diagnostic_only": false,
+      "family": "mcq_logical_reading",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-nc-4.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 7376,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 7376
+    },
+    {
+      "columns": [
+        "text"
+      ],
+      "config": null,
+      "dataset_name": "datatune/LogiQA2.0",
+      "diagnostic_only": false,
+      "family": "mcq_logical_reading",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-nc-sa-4.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 63718,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 63718
+    },
+    {
+      "columns": [
+        "context",
+        "question",
+        "answers",
+        "label",
+        "id_string"
+      ],
+      "config": null,
+      "dataset_name": "tasksource/reclor",
+      "diagnostic_only": false,
+      "family": "mcq_logical_reading",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "non-commercial-research",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 4638,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 4638
+    },
+    {
+      "columns": [
+        "context",
+        "question",
+        "answers",
+        "label",
+        "id_string"
+      ],
+      "config": null,
+      "dataset_name": "metaeval/reclor",
+      "diagnostic_only": false,
+      "family": "mcq_logical_reading",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "non-commercial-research",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 4638,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 4638
+    },
+    {
+      "columns": [
+        "query",
+        "choices",
+        "gold"
+      ],
+      "config": null,
+      "dataset_name": "hails/agieval-lsat-ar",
+      "diagnostic_only": false,
+      "family": "lsat_analytical_reasoning",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "mit",
+      "original_split": "test",
+      "reason_if_excluded": null,
+      "row_count": 230,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 230
+    },
+    {
+      "columns": [
+        "query",
+        "choices",
+        "gold"
+      ],
+      "config": null,
+      "dataset_name": "hails/agieval-lsat-lr",
+      "diagnostic_only": false,
+      "family": "lsat_logical_reasoning",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "mit",
+      "original_split": "test",
+      "reason_if_excluded": null,
+      "row_count": 510,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 510
+    },
+    {
+      "columns": [
+        "query",
+        "choices",
+        "gold"
+      ],
+      "config": null,
+      "dataset_name": "hails/agieval-lsat-rc",
+      "diagnostic_only": false,
+      "family": "lsat_reading",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "mit",
+      "original_split": "test",
+      "reason_if_excluded": null,
+      "row_count": 269,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 269
+    },
+    {
+      "columns": null,
+      "config": null,
+      "dataset_name": "yale-nlp/FOLIO",
+      "diagnostic_only": false,
+      "family": "fol_entailment",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-sa-4.0",
+      "original_split": null,
+      "reason_if_excluded": "Dataset 'yale-nlp/FOLIO' is a gated dataset on the Hub. You must be authenticated to access it.",
+      "row_count": 0,
+      "success": false,
+      "task_type": "logic",
+      "usable_row_count": 0
+    },
+    {
+      "columns": [
+        "story_id",
+        "premises",
+        "premises-FOL",
+        "conclusion",
+        "conclusion-FOL",
+        "label",
+        "example_id"
+      ],
+      "config": null,
+      "dataset_name": "tasksource/folio",
+      "diagnostic_only": false,
+      "family": "fol_entailment",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-sa-4.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 1001,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 1001
+    },
+    {
+      "columns": [
+        "conclusion",
+        "premises",
+        "premises-FOL",
+        "label"
+      ],
+      "config": null,
+      "dataset_name": "minimario/FOLIO",
+      "diagnostic_only": false,
+      "family": "fol_entailment",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-sa-4.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 1004,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 1004
+    },
+    {
+      "columns": [
+        "id",
+        "maxD",
+        "NFact",
+        "NRule",
+        "theory",
+        "question",
+        "answer",
+        "QDep",
+        "QLen",
+        "allProofs",
+        "config"
+      ],
+      "config": null,
+      "dataset_name": "tasksource/proofwriter",
+      "diagnostic_only": false,
+      "family": "proofwriter_deduction",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-4.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 585552,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 585552
+    },
+    {
+      "columns": [
+        "options",
+        "id",
+        "question",
+        "context",
+        "raw_logic_programs",
+        "answer"
+      ],
+      "config": null,
+      "dataset_name": "renma/ProofWriter",
+      "diagnostic_only": false,
+      "family": "proofwriter_deduction",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-4.0",
+      "original_split": "validation",
+      "reason_if_excluded": null,
+      "row_count": 600,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 600
+    },
+    {
+      "columns": [
+        "context",
+        "question",
+        "label",
+        "config"
+      ],
+      "config": null,
+      "dataset_name": "tasksource/ruletaker",
+      "diagnostic_only": false,
+      "family": "ruletaker_deduction",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "cc-by-4.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 480152,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 480152
+    },
+    {
+      "columns": [
+        "id",
+        "context",
+        "question",
+        "answer",
+        "options",
+        "raw_logic_programs"
+      ],
+      "config": null,
+      "dataset_name": "renma/PrOntoQA",
+      "diagnostic_only": false,
+      "family": "prontoqa_reasoning",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "apache-2.0",
+      "original_split": "validation",
+      "reason_if_excluded": null,
+      "row_count": 500,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 500
+    },
+    {
+      "columns": null,
+      "config": null,
+      "dataset_name": "longface/prontoqa",
+      "diagnostic_only": false,
+      "family": "prontoqa_reasoning",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "apache-2.0",
+      "original_split": null,
+      "reason_if_excluded": "Dataset 'longface/prontoqa' doesn't exist on the Hub or cannot be accessed.",
+      "row_count": 0,
+      "success": false,
+      "task_type": "logic",
+      "usable_row_count": 0
+    },
+    {
+      "columns": null,
+      "config": null,
+      "dataset_name": "tasksource/logicbench",
+      "diagnostic_only": false,
+      "family": "logicbench_rule",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "mit",
+      "original_split": null,
+      "reason_if_excluded": "Dataset 'tasksource/logicbench' doesn't exist on the Hub or cannot be accessed.",
+      "row_count": 0,
+      "success": false,
+      "task_type": "logic",
+      "usable_row_count": 0
+    },
+    {
+      "columns": null,
+      "config": null,
+      "dataset_name": "Sumit/LogicBench",
+      "diagnostic_only": false,
+      "family": "logicbench_rule",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "mit",
+      "original_split": null,
+      "reason_if_excluded": "Dataset 'Sumit/LogicBench' doesn't exist on the Hub or cannot be accessed.",
+      "row_count": 0,
+      "success": false,
+      "task_type": "logic",
+      "usable_row_count": 0
+    },
+    {
+      "columns": [
+        "inputs",
+        "targets",
+        "multiple_choice_targets",
+        "multiple_choice_scores",
+        "idx"
+      ],
+      "config": "logical_deduction",
+      "dataset_name": "tasksource/bigbench",
+      "diagnostic_only": false,
+      "family": "logical_deduction_bbh",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "apache-2.0",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 1200,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 1200
+    },
+    {
+      "columns": [
+        "A",
+        "B",
+        "E",
+        "H1",
+        "H2",
+        "H3",
+        "label"
+      ],
+      "config": null,
+      "dataset_name": "tasksource/logical-entailment",
+      "diagnostic_only": false,
+      "family": "logical_entailment",
+      "label_type": "mcq_answer_key/entailment",
+      "license": "mit",
+      "original_split": "train",
+      "reason_if_excluded": null,
+      "row_count": 99876,
+      "success": true,
+      "task_type": "logic",
+      "usable_row_count": 99876
+    }
+  ],
+  "logic_families_found": [
+    "fol_entailment",
+    "logical_deduction_bbh",
+    "logical_entailment",
+    "lsat_analytical_reasoning",
+    "lsat_logical_reasoning",
+    "lsat_reading",
+    "mcq_logical_reading",
+    "prontoqa_reasoning",
+    "proofwriter_deduction",
+    "ruletaker_deduction"
+  ],
+  "n_logic_families_real": 10,
+  "note": "Core domains reuse corecontent_v2 cache; logic scale guaranteed by synthetic generation in Part C."
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "CANARY_READY",
+  "by_domain": {
+    "logic": 180,
+    "math": 110,
+    "reasoning": 110,
+    "coding": 100,
+    "alignment": 110
+  }
+}

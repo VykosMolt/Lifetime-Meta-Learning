@@ -1,0 +1,1203 @@
+{
+  "verdict": "S1_4_REFERENCE_LOOP",
+  "structural_gates": "GATE4+GATE5 asserted inline (no AssertionError)",
+  "policy": "full_stress_reference_fork_every_locus",
+  "prune_mode": "rank_only_content_plus_budget (validity diagnostic only)",
+  "scoring_note": "prune scores SHORT ROLLOUT TEXT re-encoded through the hidden-state taps (teacher/scaffold), NOT the carried branch cache in-place \u2014 not a fully internal no-rollout selector",
+  "score_input_mode": "candidate_text_only",
+  "score_format_caveat": "locked CoreContent taps were extracted from a MIX incl. PROMPT+ANSWER ('Problem: {q}\\n\\nSolution:{c}'); answer-only under-contextualizes \u2014 paper-grade cross-domain metrics need S1_SCORE_WITH_PROMPT=1",
+  "terminal_stance": "survivor-set handoff is the locked safe object; forced top1 (selected_acc) is DIAGNOSTIC. Headline = oracle_over_survivors.",
+  "question_answered": "can the chained branch-carry loop PRESERVE ORACLE REACHABILITY across 12 loci?",
+  "config": {
+    "N_PER": 1,
+    "K": 2,
+    "BUDGET": 4,
+    "alpha": 0.02,
+    "loci": 12,
+    "terminal": "loop4_L47",
+    "mnt_inter": 64,
+    "mnt_term": 160,
+    "token_range": "fixed last-token suffix (plen-1, plen), stored per lineage entry",
+    "validity_threshold": -1000000000.0,
+    "progressive": false,
+    "terminal_confidence": -1000000000.0,
+    "content_thresholds": {
+      "24": -1000000000.0,
+      "36": -1000000000.0,
+      "47": -1000000000.0
+    }
+  },
+  "n_tasks": 4,
+  "aggregate": {
+    "oracle_over_survivors": 0.25,
+    "base_acc": 0.25,
+    "selected_acc": 0.25,
+    "selected_acc_committed": 0.25,
+    "defer_rate": 0.0,
+    "mean_terminal_survivors": 4.0,
+    "mean_survivors_correct": 1.0
+  },
+  "rows": [
+    {
+      "task": "logic_00013d9d03",
+      "domain": "logic",
+      "is_code": false,
+      "base_correct": false,
+      "selected_correct": false,
+      "selected_final": "So starting with the fact that the fan is running. From rule 3, that means the t",
+      "deferred": false,
+      "selected_cc": 0.0,
+      "n_terminal_survivors": 4,
+      "oracle_over_survivors": false,
+      "n_survivors_correct": 0,
+      "selected_lineage_depth": 12,
+      "trace": [
+        {
+          "locus": "loop1_L24",
+          "is_terminal": false,
+          "n_children": 2,
+          "n_valid": 2,
+          "n_passing": 2,
+          "n_kept": 2,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop1_L36",
+          "is_terminal": false,
+          "n_children": 4,
+          "n_valid": 4,
+          "n_passing": 4,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop1_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop2_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop2_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop2_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop3_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop3_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop3_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop4_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop4_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop4_L47",
+          "is_terminal": true,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "task": "math_0313a1abc4",
+      "domain": "math",
+      "is_code": false,
+      "base_correct": true,
+      "selected_correct": true,
+      "selected_final": "3",
+      "deferred": false,
+      "selected_cc": 0.0,
+      "n_terminal_survivors": 4,
+      "oracle_over_survivors": true,
+      "n_survivors_correct": 4,
+      "selected_lineage_depth": 12,
+      "trace": [
+        {
+          "locus": "loop1_L24",
+          "is_terminal": false,
+          "n_children": 2,
+          "n_valid": 2,
+          "n_passing": 2,
+          "n_kept": 2,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop1_L36",
+          "is_terminal": false,
+          "n_children": 4,
+          "n_valid": 4,
+          "n_passing": 4,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            1.0,
+            -1.0,
+            -1.0
+          ]
+        },
+        {
+          "locus": "loop1_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "locus": "loop2_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "locus": "loop2_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.43,
+            0.258
+          ],
+          "cc_range": [
+            -0.775,
+            1.291
+          ],
+          "kept_cc": [
+            1.291,
+            1.291,
+            1.291,
+            -0.775
+          ]
+        },
+        {
+          "locus": "loop2_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "locus": "loop3_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.258,
+            0.43
+          ],
+          "cc_range": [
+            -1.291,
+            0.775
+          ],
+          "kept_cc": [
+            0.775,
+            0.775,
+            0.775,
+            0.775
+          ]
+        },
+        {
+          "locus": "loop3_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.258,
+            0.43
+          ],
+          "cc_range": [
+            -1.291,
+            0.775
+          ],
+          "kept_cc": [
+            0.775,
+            0.775,
+            0.775,
+            0.775
+          ]
+        },
+        {
+          "locus": "loop3_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.43,
+            0.258
+          ],
+          "cc_range": [
+            -0.775,
+            1.291
+          ],
+          "kept_cc": [
+            1.291,
+            1.291,
+            1.291,
+            -0.775
+          ]
+        },
+        {
+          "locus": "loop4_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.43,
+            0.258
+          ],
+          "cc_range": [
+            -0.775,
+            1.291
+          ],
+          "kept_cc": [
+            1.291,
+            1.291,
+            1.291,
+            -0.775
+          ]
+        },
+        {
+          "locus": "loop4_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.192,
+            0.577
+          ],
+          "cc_range": [
+            -1.732,
+            0.577
+          ],
+          "kept_cc": [
+            0.577,
+            0.577,
+            0.577,
+            0.577
+          ]
+        },
+        {
+          "locus": "loop4_L47",
+          "is_terminal": true,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "task": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "is_code": false,
+      "base_correct": false,
+      "selected_correct": false,
+      "selected_final": "B. No",
+      "deferred": false,
+      "selected_cc": 0.5774,
+      "n_terminal_survivors": 4,
+      "oracle_over_survivors": false,
+      "n_survivors_correct": 0,
+      "selected_lineage_depth": 12,
+      "trace": [
+        {
+          "locus": "loop1_L24",
+          "is_terminal": false,
+          "n_children": 2,
+          "n_valid": 2,
+          "n_passing": 2,
+          "n_kept": 2,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop1_L36",
+          "is_terminal": false,
+          "n_children": 4,
+          "n_valid": 4,
+          "n_passing": 4,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -0.333,
+            0.333
+          ],
+          "kept_cc": [
+            0.333,
+            0.333,
+            -0.333,
+            -0.333
+          ]
+        },
+        {
+          "locus": "loop1_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.882,
+            0.126
+          ],
+          "cc_range": [
+            -0.126,
+            0.882
+          ],
+          "kept_cc": [
+            0.882,
+            -0.126,
+            -0.126,
+            -0.126
+          ]
+        },
+        {
+          "locus": "loop2_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.43,
+            0.258
+          ],
+          "cc_range": [
+            -0.258,
+            0.43
+          ],
+          "kept_cc": [
+            0.43,
+            0.43,
+            0.43,
+            -0.258
+          ]
+        },
+        {
+          "locus": "loop2_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop2_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.882,
+            0.126
+          ],
+          "cc_range": [
+            -0.126,
+            0.882
+          ],
+          "kept_cc": [
+            0.882,
+            -0.126,
+            -0.126,
+            -0.126
+          ]
+        },
+        {
+          "locus": "loop3_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop3_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -0.333,
+            0.333
+          ],
+          "kept_cc": [
+            0.333,
+            0.333,
+            0.333,
+            0.333
+          ]
+        },
+        {
+          "locus": "loop3_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.43,
+            0.258
+          ],
+          "cc_range": [
+            -0.258,
+            0.43
+          ],
+          "kept_cc": [
+            0.43,
+            0.43,
+            0.43,
+            -0.258
+          ]
+        },
+        {
+          "locus": "loop4_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.333,
+            0.333
+          ],
+          "cc_range": [
+            -0.333,
+            0.333
+          ],
+          "kept_cc": [
+            0.333,
+            0.333,
+            0.333,
+            0.333
+          ]
+        },
+        {
+          "locus": "loop4_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.192,
+            0.577
+          ],
+          "cc_range": [
+            -0.577,
+            0.192
+          ],
+          "kept_cc": [
+            0.192,
+            0.192,
+            0.192,
+            0.192
+          ]
+        },
+        {
+          "locus": "loop4_L47",
+          "is_terminal": true,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.577,
+            0.192
+          ],
+          "cc_range": [
+            -1.732,
+            0.577
+          ],
+          "kept_cc": [
+            0.577,
+            0.577,
+            0.577,
+            0.577
+          ]
+        }
+      ]
+    },
+    {
+      "task": "coding_00715d44da",
+      "domain": "coding",
+      "is_code": true,
+      "base_correct": false,
+      "selected_correct": false,
+      "selected_final": "import heapq and then call heapq.heapify on the list. But since the function nee",
+      "deferred": false,
+      "selected_cc": 0.3028,
+      "n_terminal_survivors": 4,
+      "oracle_over_survivors": false,
+      "n_survivors_correct": 0,
+      "selected_lineage_depth": 12,
+      "trace": [
+        {
+          "locus": "loop1_L24",
+          "is_terminal": false,
+          "n_children": 2,
+          "n_valid": 2,
+          "n_passing": 2,
+          "n_kept": 2,
+          "content_threshold": null,
+          "da_range": [
+            -1.0,
+            1.0
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            -1.0
+          ]
+        },
+        {
+          "locus": "loop1_L36",
+          "is_terminal": false,
+          "n_children": 4,
+          "n_valid": 4,
+          "n_passing": 4,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            0.0,
+            0.0
+          ],
+          "cc_range": [
+            0.0,
+            0.0
+          ],
+          "kept_cc": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "locus": "loop1_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -1.0,
+            1.0
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "locus": "loop2_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.378,
+            2.646
+          ],
+          "cc_range": [
+            -0.378,
+            2.646
+          ],
+          "kept_cc": [
+            2.646,
+            -0.378,
+            -0.378,
+            -0.378
+          ]
+        },
+        {
+          "locus": "loop2_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.577,
+            1.732
+          ],
+          "cc_range": [
+            -0.577,
+            1.732
+          ],
+          "kept_cc": [
+            1.732,
+            1.732,
+            -0.577,
+            -0.577
+          ]
+        },
+        {
+          "locus": "loop2_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -1.0,
+            1.0
+          ],
+          "cc_range": [
+            -1.0,
+            1.0
+          ],
+          "kept_cc": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "locus": "loop3_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.775,
+            1.291
+          ],
+          "cc_range": [
+            -0.775,
+            1.291
+          ],
+          "kept_cc": [
+            1.291,
+            1.291,
+            1.291,
+            -0.775
+          ]
+        },
+        {
+          "locus": "loop3_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.378,
+            2.646
+          ],
+          "cc_range": [
+            -0.378,
+            2.646
+          ],
+          "kept_cc": [
+            2.646,
+            -0.378,
+            -0.378,
+            -0.378
+          ]
+        },
+        {
+          "locus": "loop3_L47",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -1.115,
+            1.145
+          ],
+          "cc_range": [
+            -0.956,
+            1.287
+          ],
+          "kept_cc": [
+            1.287,
+            1.287,
+            1.287,
+            -0.726
+          ]
+        },
+        {
+          "locus": "loop4_L24",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.775,
+            1.291
+          ],
+          "cc_range": [
+            -0.775,
+            1.291
+          ],
+          "kept_cc": [
+            1.291,
+            1.291,
+            1.291,
+            -0.775
+          ]
+        },
+        {
+          "locus": "loop4_L36",
+          "is_terminal": false,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -1.732,
+            0.577
+          ],
+          "cc_range": [
+            -1.732,
+            0.577
+          ],
+          "kept_cc": [
+            0.577,
+            0.577,
+            0.577,
+            0.577
+          ]
+        },
+        {
+          "locus": "loop4_L47",
+          "is_terminal": true,
+          "n_children": 8,
+          "n_valid": 8,
+          "n_passing": 8,
+          "n_kept": 4,
+          "content_threshold": null,
+          "da_range": [
+            -0.759,
+            1.0
+          ],
+          "cc_range": [
+            -0.508,
+            0.303
+          ],
+          "kept_cc": [
+            0.303,
+            0.303,
+            0.103,
+            0.103
+          ]
+        }
+      ]
+    }
+  ],
+  "elapsed_seconds": 2222.8
+}

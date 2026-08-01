@@ -1,0 +1,52 @@
+{
+  "D2_ADEQUACY_VERDICT": "INSUFFICIENT_POSITIVE_TASK_SUPPORT",
+  "D4_DECISION_DIAGNOSTICS": {
+    "causal_mean_update_stable": true,
+    "causal_pc1_stable": false,
+    "diagnostic_rule_not_a_change_to_frozen_d4_gate": true,
+    "sequence_mean_update_stable": true,
+    "sequence_pc1_stable": false,
+    "shared_higher_subspace": false,
+    "shared_higher_subspace_rule": "top-4 projection overlap>=0.50 and bidirectional held-out Procrustes median cosine>=0.50",
+    "shared_pc1": false,
+    "shared_pc1_rule": "both PC1s stable and cross-adapter |cosine|>=0.90",
+    "stable_mean_update_rule": "task-bootstrap q05>=0.60, median>=0.75, and LOTO minimum>=0.90",
+    "stable_pc1_rule": "task-bootstrap q05>=0.50, median>=0.80, and LOTO minimum>=0.50"
+  },
+  "D4_VERDICT": "STABLE_BUT_DISTINCT_ADAPTER_GEOMETRIES",
+  "base_commit": "e4776dd41a85cad699ac36f309b5986ab48bd171",
+  "calibration_started": false,
+  "confirmatory_generation_started": false,
+  "created_at": "2026-07-29T12:20:17.010609+02:00",
+  "exact_blockers": [
+    "d4 real induced-update PC1 absolute cosine remains below 0.90",
+    "d4 has only eight task clusters, so centered k=8 and k=16 geometry is unidentifiable",
+    "current d2 has one positive task and cannot support a task-general outcome axis"
+  ],
+  "frozen_d4_gate": {
+    "altered_retroactively": false,
+    "observed_absolute_cosine": 0.13812127400617838,
+    "passed": false,
+    "required_absolute_cosine": 0.9
+  },
+  "historical_proxy_recomputed_cosine": 0.9510943054713733,
+  "historical_proxy_reproduction": "REPRODUCED_FROM_CHECKPOINT_BINARIES",
+  "preserved_snapshot_commit_in_worktree": "31ef40b",
+  "real_measurements": [
+    "two real 8x2048 adapter-induced L3_24 update matrices",
+    "real checkpoint-binary proxy recomputation on the RTX 5070 Ti",
+    "frozen d2 source labels/task IDs and broader-source metadata"
+  ],
+  "recommended_redesign": "write a new preregistration that first expands the frozen d4 reference to enough independent tasks to estimate the requested subspaces, treats adapters as related because sequence training initialized from the causal checkpoint, and independently preregisters a d2 source using task-diverse verifier-labelled L3_24 states such as the found 16-task s3b2 artifact only after split/leakage and domain-support audits",
+  "reconstruction_diagnostics": [
+    "SVD/explained variance",
+    "task-clustered bootstrap",
+    "leave-one-task-out stability",
+    "principal angles and projection overlaps",
+    "held-out Procrustes and canonical-correlation diagnostics"
+  ],
+  "replacement_d2_emitted": false,
+  "replacement_d4_emitted": false,
+  "schema_version": "o1.axis_diagnosis_v2.final.v1",
+  "scientific_scope": "bounded axis diagnosis only; no replacement axes, bank changes, calibration precommit, calibration, or confirmation"
+}

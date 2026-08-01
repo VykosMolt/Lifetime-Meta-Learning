@@ -1,0 +1,24 @@
+{
+  "applies_to": "any later secondary outcome-axis experiment",
+  "does_not_modify_v2_primary_bank": true,
+  "schema_version": "o1.d2_source_task_exclusions.v1",
+  "source_sha256": "0bf994770ee6e14fa834680d5f621211a2758de92e55d0dc45e5db0926d3f34d",
+  "task_ids": [
+    "coding_00715d44da",
+    "coding_007b833f21",
+    "coding_06bd4a1597",
+    "coding_08e8397e8f",
+    "logic_00013d9d03",
+    "logic_000f384418",
+    "logic_00158d8d9c",
+    "logic_0016af0d6f",
+    "math_0313a1abc4",
+    "math_0490949b5c",
+    "math_06d0ca6d3a",
+    "math_075309bae2",
+    "reasoning_00bf397683",
+    "reasoning_00ddfcee6a",
+    "reasoning_012f9d1412",
+    "reasoning_025b686a87"
+  ]
+}

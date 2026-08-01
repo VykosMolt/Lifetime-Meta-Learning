@@ -1,0 +1,21 @@
+{
+  "calibration": {
+    "count": 96,
+    "count_per_setting": 32,
+    "path": "calibration_tasks.jsonl",
+    "sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c"
+  },
+  "confirmatory_candidate_pool": {
+    "count": 2400,
+    "count_per_setting": 800,
+    "final_selection": "After calibration only: retain settings assigned to the two frozen baseline-rate bands; take each setting in sealed rank order until the mechanically derived G_confirm allocation is met.",
+    "path": "confirmatory_candidate_pool.jsonl",
+    "sha256": "35687e26ced13bdd60afa9a501b3e37a5a668e65956517c32ce7a03b98f700aa",
+    "status": "CANDIDATE_POOL_ONLY"
+  },
+  "content_hash_disjoint": true,
+  "generator_revision": "O1_HORIZON_LOGIC_V2_PROPOSITIONAL_20260729",
+  "note": "The confirmatory cohort cannot truthfully carry final difficulty strata or ranks before calibration derives generator-level bands. This file freezes the larger outcome-blind candidate population.",
+  "schema_version": "2.0",
+  "selection_uses_model_outcomes": false
+}

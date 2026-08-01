@@ -1,0 +1,152 @@
+{
+  "D2_ADEQUACY_VERDICT": "INSUFFICIENT_POSITIVE_TASK_SUPPORT",
+  "blocker": "one positive task cannot identify between-task positive outcome variation; deleting that task makes the estimator undefined",
+  "broader_source_search": [
+    {
+      "caveat": "small-N exploratory source; coding has zero positives; requires a new split/leakage and task-balance preregistration before axis use",
+      "label": "items[*].correct; saved verifier correctness",
+      "negative_rows": 131,
+      "negative_task_counts": {
+        "coding_00715d44da": 10,
+        "coding_007b833f21": 10,
+        "coding_06bd4a1597": 10,
+        "coding_08e8397e8f": 10,
+        "logic_00013d9d03": 8,
+        "logic_000f384418": 10,
+        "logic_00158d8d9c": 2,
+        "logic_0016af0d6f": 10,
+        "math_0313a1abc4": 3,
+        "math_0490949b5c": 10,
+        "math_06d0ca6d3a": 10,
+        "math_075309bae2": 9,
+        "reasoning_00bf397683": 7,
+        "reasoning_00ddfcee6a": 8,
+        "reasoning_012f9d1412": 6,
+        "reasoning_025b686a87": 8
+      },
+      "negative_tasks": 16,
+      "path": "/home/moloch/ouro_project/artifacts/reports/cross_loop_early_layer_taps_20260720/s3b2_features.pt",
+      "positive_rows": 29,
+      "positive_task_counts": {
+        "logic_00013d9d03": 2,
+        "logic_00158d8d9c": 8,
+        "math_0313a1abc4": 7,
+        "math_075309bae2": 1,
+        "reasoning_00bf397683": 3,
+        "reasoning_00ddfcee6a": 2,
+        "reasoning_012f9d1412": 4,
+        "reasoning_025b686a87": 2
+      },
+      "positive_tasks": 8,
+      "rows": 160,
+      "sha256": "0bf994770ee6e14fa834680d5f621211a2758de92e55d0dc45e5db0926d3f34d",
+      "shape_per_item": [
+        5,
+        4,
+        2048
+      ],
+      "status": "FOUND_CANDIDATE_FOR_NEW_PREREGISTRATION",
+      "tasks": 16,
+      "tensor": "items[*].features[:, loop, :] with physical-layer index 2 and paper-L3 loop index 2",
+      "used_to_replace_current_d2": false
+    },
+    {
+      "candidates": 8592,
+      "groups": 2150,
+      "path": "/home/moloch/ouro_project/artifacts/reports/cross_loop_early_layer_taps_20260720/features/feature_manifest.json",
+      "reason": "contains heterogeneous canonical/mutant correctness, preference, and alignment rewards across domains; not one deterministic verifier-labelled outcome definition without a new audit",
+      "sha256": "7288502e90e62cddc26314fb1d03690adbfb8c34404644fa9a30b61a19e1fca6",
+      "status": "FOUND_BUT_NOT_UNIFORM_VERIFIER_OUTCOME_CORPUS",
+      "used_to_replace_current_d2": false
+    },
+    {
+      "path": "/home/moloch/ouro_project/artifacts/reports/probes/bg_empirical_steering_direction_2026-05-18/directions.pt",
+      "physical_layers": [
+        36
+      ],
+      "reason": "empirical outcome directions are at physical layer 36, not L3_24",
+      "sha256": "8b6a8b58a9e1069814380fd2d45f8cc3b339b26613ab339bb7126bbdb2ac6dce",
+      "status": "EXCLUDED_WRONG_LOCUS",
+      "used_to_replace_current_d2": false
+    }
+  ],
+  "created_at": "2026-07-29T12:20:17.002450+02:00",
+  "current_source": {
+    "direct_task_balanced_mean_difference_cosine_to_frozen_d2": 0.9993984467672357,
+    "feature_shape": [
+      344,
+      2048
+    ],
+    "feature_tensor": "branch_features[:,0,2,:]",
+    "frozen_d2_path": "/tmp/o1_axis_diagnosis_v2/o1_runs/O1_REAL_001/axis_source_bundle_v1/d2_l3_24.npy",
+    "frozen_d2_sha256": "8494eb0dc852d12bb7929da346f726f8338903d443289870639980015236bdfb",
+    "negative_rows": 336,
+    "negative_task_counts": {
+      "coding_00715d44da": 86,
+      "logic_00013d9d03": 86,
+      "math_0313a1abc4": 78,
+      "reasoning_00bf397683": 86
+    },
+    "negative_tasks": 4,
+    "path": "/home/moloch/ouro_project/artifacts/reports/proto_introspection/s1_s3_exact_injection_orthogonality_2026-06-17/s1_s3_exact_injection_delta_bundle_2026-06-17.pt",
+    "positive_rows": 8,
+    "positive_task_counts": {
+      "math_0313a1abc4": 8
+    },
+    "positive_tasks": 1,
+    "sha256": "ebb47f3975c5ea670b62678e7330c9a92e700a641b9f3ae6af51dc1320a92a38",
+    "sole_positive_task": "math_0313a1abc4"
+  },
+  "current_vector_certified_as_general_outcome_axis": false,
+  "leave_one_task_out": [
+    {
+      "direct_mean_difference_cosine_to_frozen_d2": 0.9407013042208987,
+      "direct_mean_difference_cosine_to_full_direct_difference": 0.9466833894137207,
+      "left_out_task_id": "coding_00715d44da",
+      "remaining_negative_tasks": 3,
+      "remaining_positive_tasks": 1,
+      "status": "ESTIMABLE_CONDITIONAL_ON_SOLE_POSITIVE_TASK"
+    },
+    {
+      "direct_mean_difference_cosine_to_frozen_d2": 0.9578889345467982,
+      "direct_mean_difference_cosine_to_full_direct_difference": 0.9583416064221617,
+      "left_out_task_id": "logic_00013d9d03",
+      "remaining_negative_tasks": 3,
+      "remaining_positive_tasks": 1,
+      "status": "ESTIMABLE_CONDITIONAL_ON_SOLE_POSITIVE_TASK"
+    },
+    {
+      "left_out_task_id": "math_0313a1abc4",
+      "remaining_negative_tasks": 3,
+      "remaining_positive_tasks": 0,
+      "status": "UNDEFINED_ONE_VERIFIER_CLASS_ABSENT"
+    },
+    {
+      "direct_mean_difference_cosine_to_frozen_d2": 0.9487594341079902,
+      "direct_mean_difference_cosine_to_full_direct_difference": 0.9523801997146835,
+      "left_out_task_id": "reasoning_00bf397683",
+      "remaining_negative_tasks": 3,
+      "remaining_positive_tasks": 1,
+      "status": "ESTIMABLE_CONDITIONAL_ON_SOLE_POSITIVE_TASK"
+    }
+  ],
+  "schema_version": "o1.axis_diagnosis_v2.d2_adequacy.v1",
+  "scientific_scope": "frozen pre-O1 artifacts only; no O1 outcomes",
+  "task_clustered_bootstrap": {
+    "certifies_task_general_axis": false,
+    "conditional_absolute_cosine_to_frozen_d2": {
+      "maximum": 0.9993984467672357,
+      "mean": 0.9169490101792829,
+      "median": 0.9310511427930181,
+      "minimum": 0.4967593535150378,
+      "n": 2000,
+      "q05": 0.7593747130684818,
+      "q95": 0.9993984467672355
+    },
+    "draws": 2000,
+    "general_positive-task_stability": "NOT_ESTIMABLE",
+    "negative_task_resampling": "four negative tasks sampled with replacement",
+    "positive_task_resampling": "degenerate: the only positive task is selected in every draw",
+    "unit": "task_id"
+  }
+}

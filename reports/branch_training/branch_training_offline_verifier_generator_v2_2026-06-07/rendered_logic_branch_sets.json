@@ -1,0 +1,21 @@
+{
+  "RENDERED_LOGIC_BRANCH_SET_VERDICT": "LOGIC_BRANCH_SETS_READY",
+  "all_negative_groups": 2371,
+  "attempts": 104372,
+  "by_category": {
+    "fol_entailment": 187,
+    "mcq_logical_reading": 2123,
+    "proofwriter_deduction": 6111,
+    "ruletaker_deduction": 524,
+    "synthetic_constraint_game": 2804,
+    "synthetic_fol": 5083,
+    "synthetic_propositional": 6340
+  },
+  "construct_ok_rate": 1.0,
+  "elapsed_seconds": 155.9,
+  "groups": 23172,
+  "positive_oracle_groups": 20801,
+  "renderer_wiring_bugs": 0,
+  "target_groups": 24000,
+  "v1_parser_agreement_rate": 0.9084
+}

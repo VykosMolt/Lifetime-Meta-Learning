@@ -1,0 +1,40 @@
+{
+  "TRAINING_MATRIX_VERDICT": "MATRIX_REDUCED",
+  "arms_off_resource_limited": [
+    "D_logic_rendered_verifier",
+    "E_teacher_coding_reasoning",
+    "F_teacher_plus_verifier",
+    "I_continue_previous_sft"
+  ],
+  "arms_on": [
+    "A_format_control",
+    "B_direct_budget_sft",
+    "C_offline_verifier_dpo",
+    "G_budget_plus_verifier",
+    "H_from_base_best_recipe"
+  ],
+  "arms_total": 9,
+  "common": {
+    "base_untouched": true,
+    "eval_canary_every": 200,
+    "grad_checkpointing": true,
+    "lora": true,
+    "lora_alpha": 32,
+    "lora_r": 16,
+    "lora_target": "all-linear",
+    "no_heldout_training": true,
+    "no_online_generation": true,
+    "precision": "bf16",
+    "save_steps": 100,
+    "stop_pausable": true,
+    "tokenizer_untouched": true
+  },
+  "rationale": "single 12GB GPU + ~150s/task Ouro generation: train the spec's preferred candidates (C/G/H) + controls (A format, B direct-budget); others configured but OFF (resource-limited).",
+  "teacher_weights_default": {
+    "alignment": 0.3,
+    "coding": 0.7,
+    "logic": 0.0,
+    "math": 0.25,
+    "reasoning": 0.5
+  }
+}

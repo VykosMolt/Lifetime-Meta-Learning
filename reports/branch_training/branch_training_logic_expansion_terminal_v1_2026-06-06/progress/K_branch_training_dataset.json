@@ -1,0 +1,1 @@
+{"verdict": "TRAINING_DATA_READY", "counts": {"branch_format_sft": 177, "branch_diversity_sft": 240, "branch_policy_distillation": 10209, "final_self_selection": 177, "verifier_reward_rl": 240, "branch_preference_dpo": 194}, "saved_at": 1780835964.660366}

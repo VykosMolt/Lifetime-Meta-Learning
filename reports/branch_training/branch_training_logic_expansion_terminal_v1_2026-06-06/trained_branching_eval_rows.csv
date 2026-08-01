@@ -1,0 +1,5 @@
+domain,base_oracle,sft_oracle,base_div,sft_div
+logic,0.833,0.75,2.42,2.58
+math,0.75,0.917,1.92,2.67
+reasoning,0.917,0.667,2.17,2.67
+coding,0.333,0.417,2.17,2.58

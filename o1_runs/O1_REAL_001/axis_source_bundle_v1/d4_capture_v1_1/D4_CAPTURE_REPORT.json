@@ -1,0 +1,1059 @@
+{
+  "absolute_component_cosine": 0.13812127400617796,
+  "adapter_checkpoint_metadata": {
+    "causal": {
+      "epoch": 2,
+      "intervention_mode": "multi_loop_decayed",
+      "saved_best_alpha": 0.01,
+      "target_layer": 36
+    },
+    "independence_caveat": "different objectives and optimization runs; sequence checkpoint records initialization from the causal checkpoint",
+    "sequence": {
+      "init_source": "causal_adapter_checkpoint missing=[] unexpected=[]",
+      "intervention_mode": "multi_loop_decayed",
+      "saved_best_alpha": 0.02,
+      "target_layer": 36,
+      "update": 50
+    }
+  },
+  "component1": {
+    "centering": "reference-set mean induced update subtracted",
+    "leading_explained_variance": 0.21485368736893462,
+    "leading_singular_values": [
+      0.11755947354207641,
+      0.10408622325698323,
+      0.0971501629289673,
+      0.09193846482686746,
+      0.08807242094557793
+    ],
+    "sign_rule": "positive dot with uncentered mean induced update",
+    "update_matrix_finite": true,
+    "update_matrix_shape": [
+      8,
+      2048
+    ],
+    "update_rms_max": 0.00247539852625409,
+    "update_rms_min": 0.0019456172597852356
+  },
+  "component2": {
+    "centering": "reference-set mean induced update subtracted",
+    "leading_explained_variance": 0.19077116317856824,
+    "leading_singular_values": [
+      0.11210548835322445,
+      0.10662768808707046,
+      0.09989192396252203,
+      0.09301730452292226,
+      0.0907260271338728
+    ],
+    "sign_rule": "positive dot with uncentered mean induced update",
+    "update_matrix_finite": true,
+    "update_matrix_shape": [
+      8,
+      2048
+    ],
+    "update_rms_max": 0.0024519526809489247,
+    "update_rms_min": 0.0021465750422016688
+  },
+  "created_at": "2026-07-29T11:03:54.777643+02:00",
+  "minimum_required_cosine": 0.9,
+  "precommit_path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/D4_CAPTURE_PRECOMMIT_v1.1.json",
+  "precommit_sha256": "5c26ac399403161800a1cba5e7ed83a2c224e7a71ea7d807f7ac90cbed5ae2b9",
+  "runtime": {
+    "attn_implementation": "eager",
+    "elapsed_seconds": 4.244,
+    "gpu_name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "gpu_total_memory": 12360744960,
+    "gpu_uuid": "e699fbbe-ecf6-4406-fc78-fb4977faa653",
+    "model_parameter_device": "cuda:0",
+    "model_parameter_dtype": "torch.bfloat16",
+    "torch": "2.12.0.dev20260407+cu128",
+    "transformers": "4.54.1"
+  },
+  "saved_artifacts": {
+    "baseline_states": {
+      "dtype": "float32",
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/baseline_l3_24.npy",
+      "sha256": "28d5a7822ae5777aa0dbc4274ddcc6f645b581eae023e359df44f9cfcbaf58de",
+      "shape": [
+        8,
+        2048
+      ]
+    },
+    "causal_induced_updates": {
+      "dtype": "float32",
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/d4_adapter1_induced_updates_l3_24.npy",
+      "sha256": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+      "shape": [
+        8,
+        2048
+      ]
+    },
+    "component1": {
+      "dtype": "float64",
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/d4_adapter1_l3_24.npy",
+      "sha256": "52441e5817da239e796f93e817b117abb16ae8e2a391094204451ba825d541bd",
+      "shape": [
+        2048
+      ]
+    },
+    "component2": {
+      "dtype": "float64",
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/d4_adapter2_l3_24.npy",
+      "sha256": "e83d5b37e60e6528402ce3ec9e3ea7aa8e1369f586678bd60ea1bd04fc4d5d1a",
+      "shape": [
+        2048
+      ]
+    },
+    "sequence_induced_updates": {
+      "dtype": "float32",
+      "path": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/d4_capture_v1_1/d4_adapter2_induced_updates_l3_24.npy",
+      "sha256": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775",
+      "shape": [
+        8,
+        2048
+      ]
+    }
+  },
+  "schema_version": "o1.d4_induced_update_capture.v1.1",
+  "scientific_scope": "real pre-O1 adapter capture; no O1 calibration or confirmatory outcomes",
+  "settings": {
+    "alpha_reason": "each checkpoint's saved best validation alpha; PC scale is normalized after capture",
+    "attn_implementation": "eager",
+    "capture_locus": "L3_24",
+    "capture_loop_1indexed": 3,
+    "capture_physical_layer": 24,
+    "capture_position": "final non-padding prompt token",
+    "capture_tensor": "post-block output of model.model.layers[23]",
+    "causal_adapter_alpha": 0.01,
+    "component_normalization": "unit RMS",
+    "device": "cuda:0",
+    "early_exit_threshold": 1.0,
+    "intervention_loop_scales": {
+      "1": 0.25,
+      "2": 0.5,
+      "3": 0.75,
+      "4": 1.0
+    },
+    "intervention_mode": "multi_loop_decayed",
+    "intervention_target_layer": 36,
+    "minimum_absolute_component_cosine": 0.9,
+    "model_dtype": "torch.bfloat16",
+    "model_path": "/home/moloch/ouro_project/models/ouro_rltt_local",
+    "model_tree_sha256": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+    "pc_centering": "subtract reference-set mean induced update per adapter",
+    "pc_sign_rule": "positive dot with that adapter's mean induced update",
+    "pooling": "none",
+    "random_seed": 20260518,
+    "reference_jsonl": "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/D4_REFERENCE_SET.jsonl",
+    "reference_jsonl_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "reference_selection_uses_o1_outcomes": false,
+    "required_gpu_name_fragment": "5070 Ti",
+    "schema_version": "o1.d4_capture_precommit.v1.1",
+    "sequence_adapter_alpha": 0.02,
+    "total_ut_steps": 4,
+    "trajectory_phase": "prompt_only",
+    "transformers_required": "4.54.1"
+  },
+  "signed_component_cosine": -0.13812127400617796,
+  "source_hashes": {
+    "/home/moloch/ouro_project/artifacts/reports/probes/bg_causal_intervention_adapter_2026-05-18/adapter_checkpoints/best_adapter.pt": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+    "/home/moloch/ouro_project/artifacts/reports/probes/bg_sequence_level_adapter_2026-05-18/sequence_adapter_checkpoints/best_sequence_adapter.pt": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+    "/home/moloch/ouro_project/models/ouro_rltt_local": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+    "/home/moloch/ouro_project/o1_runs/O1_REAL_001/axis_source_bundle_v1/D4_REFERENCE_SET.jsonl": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "/home/moloch/ouro_project/src/evaluator/bg_causal_adapter.py": "1c232c81290fec647153c6e98a77ab20980672a55039513af8ec8e7797d872c0",
+    "/home/moloch/ouro_project/src/evaluator/bg_sequence_adapter.py": "dfe73d69092cf02e2404358387239249a9e0bb0cce004cb1da8c9b80cbff4db1"
+  },
+  "status": "BLOCKED_COMPONENT_COSINE_BELOW_0.90",
+  "task_diagnostics": [
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 89,
+      "causal_capture": {
+        "activation_rms_change": 0.006252377410419285,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0024996232241392136,
+          "2": 0.00499920966103673,
+          "3": 0.007501700893044472,
+          "4": 0.010008975863456726
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 89,
+            "rms_fraction": 0.0024996232241392136
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 89,
+            "rms_fraction": 0.00499920966103673
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 89,
+            "rms_fraction": 0.007501700893044472
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 89,
+            "rms_fraction": 0.010008975863456726
+          }
+        ]
+      },
+      "prompt_tokens": 90,
+      "reference_rank": 0,
+      "sequence_capture": {
+        "activation_rms_change": 0.012483997386880219,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0049997675232589245,
+          "2": 0.009998083114624023,
+          "3": 0.015004836954176426,
+          "4": 0.019933301955461502
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 89,
+            "rms_fraction": 0.0049997675232589245
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 89,
+            "rms_fraction": 0.009998083114624023
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 89,
+            "rms_fraction": 0.015004836954176426
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 89,
+            "rms_fraction": 0.019933301955461502
+          }
+        ]
+      },
+      "task_id": "ARC-Challenge/0",
+      "zero_alpha_capture": {
+        "activation_rms_change": 0.0,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 0,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {},
+        "records": []
+      },
+      "zero_alpha_max_abs": 0.0
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 76,
+      "causal_capture": {
+        "activation_rms_change": 0.006241414463147521,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0024966727942228317,
+          "2": 0.00498709362000227,
+          "3": 0.007490296848118305,
+          "4": 0.009991594590246677
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 76,
+            "rms_fraction": 0.0024966727942228317
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 76,
+            "rms_fraction": 0.00498709362000227
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 76,
+            "rms_fraction": 0.007490296848118305
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 76,
+            "rms_fraction": 0.009991594590246677
+          }
+        ]
+      },
+      "prompt_tokens": 77,
+      "reference_rank": 1,
+      "sequence_capture": {
+        "activation_rms_change": 0.012476990348659456,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.004993320908397436,
+          "2": 0.009972927160561085,
+          "3": 0.0149870989844203,
+          "4": 0.019954614341259003
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 76,
+            "rms_fraction": 0.004993320908397436
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 76,
+            "rms_fraction": 0.009972927160561085
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 76,
+            "rms_fraction": 0.0149870989844203
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 76,
+            "rms_fraction": 0.019954614341259003
+          }
+        ]
+      },
+      "task_id": "ARC-Challenge/1",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 109,
+      "causal_capture": {
+        "activation_rms_change": 0.00625785969896242,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0024998157750815153,
+          "2": 0.005001792684197426,
+          "3": 0.007508119568228722,
+          "4": 0.010021710768342018
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 109,
+            "rms_fraction": 0.0024998157750815153
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 109,
+            "rms_fraction": 0.005001792684197426
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 109,
+            "rms_fraction": 0.007508119568228722
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 109,
+            "rms_fraction": 0.010021710768342018
+          }
+        ]
+      },
+      "prompt_tokens": 110,
+      "reference_rank": 2,
+      "sequence_capture": {
+        "activation_rms_change": 0.012488430831581354,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.004999364726245403,
+          "2": 0.010003241710364819,
+          "3": 0.015015017241239548,
+          "4": 0.019936099648475647
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 109,
+            "rms_fraction": 0.004999364726245403
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 109,
+            "rms_fraction": 0.010003241710364819
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 109,
+            "rms_fraction": 0.015015017241239548
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 109,
+            "rms_fraction": 0.019936099648475647
+          }
+        ]
+      },
+      "task_id": "ARC-Challenge/10",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 98,
+      "causal_capture": {
+        "activation_rms_change": 0.006247087032534182,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0025036921724677086,
+          "2": 0.004988044034689665,
+          "3": 0.007498043589293957,
+          "4": 0.009998568333685398
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 98,
+            "rms_fraction": 0.0025036921724677086
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 98,
+            "rms_fraction": 0.004988044034689665
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 98,
+            "rms_fraction": 0.007498043589293957
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 98,
+            "rms_fraction": 0.009998568333685398
+          }
+        ]
+      },
+      "prompt_tokens": 99,
+      "reference_rank": 3,
+      "sequence_capture": {
+        "activation_rms_change": 0.01249460771214217,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.005005932878702879,
+          "2": 0.009976740926504135,
+          "3": 0.014997463673353195,
+          "4": 0.01999829337000847
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 98,
+            "rms_fraction": 0.005005932878702879
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 98,
+            "rms_fraction": 0.009976740926504135
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 98,
+            "rms_fraction": 0.014997463673353195
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 98,
+            "rms_fraction": 0.01999829337000847
+          }
+        ]
+      },
+      "task_id": "ARC-Challenge/11",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 86,
+      "causal_capture": {
+        "activation_rms_change": 0.006245551514439285,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0024938471615314484,
+          "2": 0.004997389391064644,
+          "3": 0.007498511578887701,
+          "4": 0.009992457926273346
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 86,
+            "rms_fraction": 0.0024938471615314484
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 86,
+            "rms_fraction": 0.004997389391064644
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 86,
+            "rms_fraction": 0.007498511578887701
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 86,
+            "rms_fraction": 0.009992457926273346
+          }
+        ]
+      },
+      "prompt_tokens": 87,
+      "reference_rank": 4,
+      "sequence_capture": {
+        "activation_rms_change": 0.01249139616265893,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.004987414926290512,
+          "2": 0.009996279142796993,
+          "3": 0.015000750310719013,
+          "4": 0.0199811402708292
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 86,
+            "rms_fraction": 0.004987414926290512
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 86,
+            "rms_fraction": 0.009996279142796993
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 86,
+            "rms_fraction": 0.015000750310719013
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 86,
+            "rms_fraction": 0.0199811402708292
+          }
+        ]
+      },
+      "task_id": "mmlu/high_school_biology/0",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 90,
+      "causal_capture": {
+        "activation_rms_change": 0.006258293171413243,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.0025002388283610344,
+          "2": 0.0050107864663004875,
+          "3": 0.007507574278861284,
+          "4": 0.010014573112130165
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 90,
+            "rms_fraction": 0.0025002388283610344
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 90,
+            "rms_fraction": 0.0050107864663004875
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 90,
+            "rms_fraction": 0.007507574278861284
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 90,
+            "rms_fraction": 0.010014573112130165
+          }
+        ]
+      },
+      "prompt_tokens": 91,
+      "reference_rank": 5,
+      "sequence_capture": {
+        "activation_rms_change": 0.012508670566603541,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.005000045523047447,
+          "2": 0.01002010703086853,
+          "3": 0.015016946010291576,
+          "4": 0.01999758370220661
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 90,
+            "rms_fraction": 0.005000045523047447
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 90,
+            "rms_fraction": 0.01002010703086853
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 90,
+            "rms_fraction": 0.015016946010291576
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 90,
+            "rms_fraction": 0.01999758370220661
+          }
+        ]
+      },
+      "task_id": "mmlu/high_school_biology/1",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 81,
+      "causal_capture": {
+        "activation_rms_change": 0.006250080477911979,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.002497029723599553,
+          "2": 0.005006428342312574,
+          "3": 0.00750194163993001,
+          "4": 0.009994922205805779
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 81,
+            "rms_fraction": 0.002497029723599553
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 81,
+            "rms_fraction": 0.005006428342312574
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 81,
+            "rms_fraction": 0.00750194163993001
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 81,
+            "rms_fraction": 0.009994922205805779
+          }
+        ]
+      },
+      "prompt_tokens": 82,
+      "reference_rank": 6,
+      "sequence_capture": {
+        "activation_rms_change": 0.012498847325332463,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.004994539078325033,
+          "2": 0.010010849684476852,
+          "3": 0.01500325184315443,
+          "4": 0.019986748695373535
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 81,
+            "rms_fraction": 0.004994539078325033
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 81,
+            "rms_fraction": 0.010010849684476852
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 81,
+            "rms_fraction": 0.01500325184315443
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 81,
+            "rms_fraction": 0.019986748695373535
+          }
+        ]
+      },
+      "task_id": "mmlu/high_school_biology/10",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    },
+    {
+      "baseline_capture": {
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut"
+      },
+      "capture_position": 163,
+      "causal_capture": {
+        "activation_rms_change": 0.006252828286960721,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.002501719631254673,
+          "2": 0.004999976605176926,
+          "3": 0.007496869191527367,
+          "4": 0.010012747719883919
+        },
+        "records": [
+          {
+            "alpha_eff": 0.0025,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 163,
+            "rms_fraction": 0.002501719631254673
+          },
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 163,
+            "rms_fraction": 0.004999976605176926
+          },
+          {
+            "alpha_eff": 0.0075,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 163,
+            "rms_fraction": 0.007496869191527367
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 163,
+            "rms_fraction": 0.010012747719883919
+          }
+        ]
+      },
+      "prompt_tokens": 164,
+      "reference_rank": 7,
+      "sequence_capture": {
+        "activation_rms_change": 0.012478238204494119,
+        "capture_layer_calls": 4,
+        "capture_loop_index_source": "current_ut",
+        "hook_forward_call_count": 4,
+        "hook_loop_index_source": "current_ut",
+        "hook_modifications": 4,
+        "nan_or_inf_activations": false,
+        "per_loop_activation_rms_change": {
+          "1": 0.005004537291824818,
+          "2": 0.010000765323638916,
+          "3": 0.014997206628322601,
+          "4": 0.01991044357419014
+        },
+        "records": [
+          {
+            "alpha_eff": 0.005,
+            "forward_call_index": 1,
+            "layer": 36,
+            "loop": 1,
+            "position": 163,
+            "rms_fraction": 0.005004537291824818
+          },
+          {
+            "alpha_eff": 0.01,
+            "forward_call_index": 2,
+            "layer": 36,
+            "loop": 2,
+            "position": 163,
+            "rms_fraction": 0.010000765323638916
+          },
+          {
+            "alpha_eff": 0.015,
+            "forward_call_index": 3,
+            "layer": 36,
+            "loop": 3,
+            "position": 163,
+            "rms_fraction": 0.014997206628322601
+          },
+          {
+            "alpha_eff": 0.02,
+            "forward_call_index": 4,
+            "layer": 36,
+            "loop": 4,
+            "position": 163,
+            "rms_fraction": 0.01991044357419014
+          }
+        ]
+      },
+      "task_id": "mmlu/high_school_biology/11",
+      "zero_alpha_capture": {},
+      "zero_alpha_max_abs": null
+    }
+  ]
+}

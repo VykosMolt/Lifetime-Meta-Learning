@@ -1,0 +1,19 @@
+{
+  "verdict": "STOP_D4_COMPONENT_COSINE_BELOW_0.90",
+  "declared_gate": "absolute cosine between the two real induced-update L3_24 leading PCs must be at least 0.90",
+  "measured_absolute_cosine": 0.13812127400617796,
+  "required_minimum": 0.9,
+  "real_checkpoint_tree_sha256": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+  "reference_set_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+  "capture_precommit_sha256": "5c26ac399403161800a1cba5e7ed83a2c224e7a71ea7d807f7ac90cbed5ae2b9",
+  "capture_report_sha256": "56e525c99f98fb1ab5f6aff0e99d99f50b8b49643d96c4ea9a134e2d0e80e2e3",
+  "zero_alpha_max_abs": 0.0,
+  "task_count": 8,
+  "all_captures_finite": true,
+  "hook_locus_verified": true,
+  "published_proxy_cosine_substituted": false,
+  "d4_axis_constructed": false,
+  "axis_package_constructed": false,
+  "real_calibration_allowed": false,
+  "real_confirmatory_generation_allowed": false
+}

@@ -1,0 +1,258 @@
+{
+  "verdict": "S1_2_MCQ_DISTINCTNESS_MEASURED",
+  "K": 4,
+  "alpha": 0.01,
+  "n_tasks": 16,
+  "branch_distinct_rate": 0.0,
+  "mean_distinct_outcomes": 1.0,
+  "max_possible": 5,
+  "base_accuracy": 0.312,
+  "positive_oracle_rate": 0.312,
+  "by_domain": {
+    "reasoning": 8,
+    "logic": 8
+  },
+  "rows": [
+    {
+      "task": "logic_0016af0d6f",
+      "domain": "logic",
+      "gold": "B",
+      "base_pred": "A",
+      "branch_preds": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "logic_00158d8d9c",
+      "domain": "logic",
+      "gold": "B",
+      "base_pred": "B",
+      "branch_preds": [
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": true,
+      "positive_oracle": true
+    },
+    {
+      "task": "logic_000f384418",
+      "domain": "logic",
+      "gold": "C",
+      "base_pred": "A",
+      "branch_preds": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "logic_00013d9d03",
+      "domain": "logic",
+      "gold": "A",
+      "base_pred": "C",
+      "branch_preds": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "logic_001c75ee98",
+      "domain": "logic",
+      "gold": "C",
+      "base_pred": "C",
+      "branch_preds": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": true,
+      "positive_oracle": true
+    },
+    {
+      "task": "logic_001f7966f8",
+      "domain": "logic",
+      "gold": "C",
+      "base_pred": "C",
+      "branch_preds": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": true,
+      "positive_oracle": true
+    },
+    {
+      "task": "logic_0022bb9e88",
+      "domain": "logic",
+      "gold": "C",
+      "base_pred": "B",
+      "branch_preds": [
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "logic_00258466b5",
+      "domain": "logic",
+      "gold": "A",
+      "base_pred": "C",
+      "branch_preds": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "gold": "A",
+      "base_pred": "B",
+      "branch_preds": [
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "reasoning_00ddfcee6a",
+      "domain": "reasoning",
+      "gold": "C",
+      "base_pred": "A",
+      "branch_preds": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "reasoning_012f9d1412",
+      "domain": "reasoning",
+      "gold": "E",
+      "base_pred": "E",
+      "branch_preds": [
+        "E",
+        "E",
+        "E",
+        "E"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": true,
+      "positive_oracle": true
+    },
+    {
+      "task": "reasoning_025b686a87",
+      "domain": "reasoning",
+      "gold": "C",
+      "base_pred": "A",
+      "branch_preds": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "reasoning_02d2dd68b7",
+      "domain": "reasoning",
+      "gold": "D",
+      "base_pred": "A",
+      "branch_preds": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "reasoning_02ee42f828",
+      "domain": "reasoning",
+      "gold": "A",
+      "base_pred": "C",
+      "branch_preds": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    },
+    {
+      "task": "reasoning_0340ee8924",
+      "domain": "reasoning",
+      "gold": "C",
+      "base_pred": "C",
+      "branch_preds": [
+        "C",
+        "C",
+        "C",
+        "C"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": true,
+      "positive_oracle": true
+    },
+    {
+      "task": "reasoning_04b9f3fd84",
+      "domain": "reasoning",
+      "gold": "C",
+      "base_pred": "A",
+      "branch_preds": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ],
+      "distinct_outcomes": 1,
+      "base_correct": false,
+      "positive_oracle": false
+    }
+  ],
+  "elapsed_seconds": 12.2
+}

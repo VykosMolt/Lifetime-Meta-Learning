@@ -1,0 +1,161 @@
+{
+  "INPUT_AUDIT_VERDICT": "INPUTS_READY_WITH_WARNINGS",
+  "checks": {
+    "branch_pools_deduped": {
+      "group_ids_in_multiple_splits": 0,
+      "groups": 31460,
+      "splits": {
+        "heldout": 12438,
+        "train": 16874,
+        "val": 2148
+      }
+    },
+    "branch_pools_labeled": {
+      "branch_fields": [
+        "branch_format",
+        "branch_id",
+        "branch_text",
+        "external_label",
+        "failure_modes",
+        "final_answer",
+        "lineage",
+        "objective_reward",
+        "parse_ok",
+        "source",
+        "strategy_label",
+        "verifier_result"
+      ],
+      "by_domain": {
+        "alignment": 3000,
+        "coding": 1793,
+        "logic": 23077,
+        "math": 3060,
+        "reasoning": 2660
+      },
+      "external_label_present": true,
+      "groups": 33590,
+      "label_source_external_only": true,
+      "parse_or_final_present": true,
+      "positive_oracle_rate": 0.9981,
+      "reward_present": false
+    },
+    "gen_shards": {
+      "completed_task_uids": 240,
+      "shards": 7
+    },
+    "logic_tasks": {
+      "families": [
+        "fol_entailment",
+        "logical_entailment",
+        "lsat_analytical_reasoning",
+        "lsat_logical_reasoning",
+        "mcq_logical_reading",
+        "proofwriter_deduction",
+        "ruletaker_deduction",
+        "synthetic_constraint_game",
+        "synthetic_fol",
+        "synthetic_propositional"
+      ],
+      "gold_present": true,
+      "n_families": 10,
+      "prompt_hash_leakage": {
+        "heldout\u2229train": 81,
+        "heldout\u2229val": 12,
+        "train\u2229val": 54
+      },
+      "rows": 48536,
+      "splits": {
+        "heldout": 11017,
+        "train": 33247,
+        "val": 4272
+      },
+      "uid_unique": true,
+      "verifier_present": true
+    },
+    "teacher_traces": {
+      "has_correctness_cols": false,
+      "policy_cols": [
+        "group_id",
+        "domain",
+        "split",
+        "n_keep",
+        "defer",
+        "n_rescued"
+      ],
+      "rows": 13667,
+      "schema_teacher_is_ground_truth_false": true
+    },
+    "terminal_survivor_sets": {
+      "rows": 3912,
+      "survivor_oracle_retention": 1.0
+    },
+    "training_views": {
+      "branch_diversity_sft": {
+        "keys": [
+          "completion",
+          "domain",
+          "n_strategies",
+          "prompt",
+          "text"
+        ],
+        "rows": 240
+      },
+      "branch_format_sft": {
+        "keys": [
+          "completion",
+          "domain",
+          "prompt",
+          "text"
+        ],
+        "rows": 177
+      },
+      "branch_policy_distillation": {
+        "keys": [
+          "completion",
+          "defer",
+          "domain",
+          "prompt",
+          "teacher",
+          "teacher_is_ground_truth"
+        ],
+        "rows": 10209
+      },
+      "branch_preference_dpo": {
+        "keys": [
+          "chosen",
+          "domain",
+          "prompt",
+          "rejected"
+        ],
+        "rows": 194,
+        "valid_pairs_in_sample": "194/194"
+      },
+      "final_self_selection": {
+        "keys": [
+          "completion",
+          "domain",
+          "prompt",
+          "text"
+        ],
+        "rows": 177
+      },
+      "verifier_reward_rl": {
+        "keys": [
+          "branch_rewards",
+          "domain",
+          "group_reward",
+          "n_strategies",
+          "parse_ok_rate",
+          "positive_oracle_present",
+          "prompt"
+        ],
+        "rows": 240
+      }
+    }
+  },
+  "errors": [],
+  "logic_substrate_ready": false,
+  "warnings": [
+    "logic prompt-hash overlap across splits: {'heldout\u2229train': 81, 'heldout\u2229val': 12, 'train\u2229val': 54}"
+  ]
+}

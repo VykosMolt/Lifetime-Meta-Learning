@@ -1,0 +1,247 @@
+{
+  "artifact": "s3_closure_verdicts",
+  "title": "S3 Closure & Sokac/Sokac Validity-Confirmation Bundle - machine-readable verdicts",
+  "authored": "2026-06-22",
+  "work_dated": "2026-06-17",
+  "phase": "S3 closure / external-review readiness",
+  "model": "models/ouro_rltt_local (Ouro-2.6B-Thinking + RLTT, 48 layers x 4 UT loops, hidden 2048, total_ut_steps=4, early_exit_threshold=1.0)",
+  "hardware": "single local GPU ~12-16 GiB usable; backbone training is a cloud job",
+  "companion_report": "artifacts/reports/probes/mpn_s3_closure_2026-06-17/s3_closure_and_sokac_validity_bundle.md",
+
+  "scope_note": "S1/S2/S3 are internal engineering phases, NOT the Sokac proof framework. Sokac is a separate external-validity checklist (see sokac_checklist). No proto-introspection, no paper, no S3A execution, no capability (Jormungandr) claim.",
+
+  "final_verdict_constants": {
+    "S1_MECHANISM_VERDICT": "BRANCH_CARRY_LOOP_MECHANICALLY_VALIDATED",
+    "FROZEN_REACHABILITY_VERDICT": "FROZEN_BRANCHING_LOCALLY_REACHABILITY_NEUTRAL",
+    "SAMPLING_DECONFOUND_VERDICT": "APPARENT_FORK_SAMPLE_GAINS_EXPLAINED_BY_K_MATCHED_SAMPLING",
+    "S3B1_DIRECT_CORRECTNESS_TRANSFER_VERDICT": "EXISTING_TAPS_NEAR_CHANCE_ON_GENERATED_BRANCH_CORRECTNESS",
+    "S3B1_DUALANCHOR_INTERPRETATION": "NOT_EVALUATED_ON_PRIMARY_VALIDITY_ROLE",
+    "S3B1_CORECONTENT_INTERPRETATION": "CONTENT_TO_CORRECTNESS_TRANSFER_FAILS_ON_GENERATED_BRANCHES",
+    "S3A_TRAINING_DESIGN_VERDICT": "READY_AS_CLOUD_BACKBONE_TRAINING_PROTOCOL_NOT_LOCALLY_RUN",
+    "S3C_PROTOCOL_VERDICT": "INTEGRATED_EVALUATION_PROTOCOL_SPECIFIED_NOT_EXECUTED",
+    "SOKAC_VALIDITY_BUNDLE_VERDICT": "CURRENT_LOCAL_CLAIMS_AUDITED_WITH_REMAINING_LIMITATIONS_EXPLICIT",
+    "FINAL_LOCAL_CLOSURE_VERDICT": "MECHANISM_VALIDATED_FROZEN_CONTROL_CLOSED_TRAINING_TIME_INTEGRATION_REQUIRED",
+    "NEXT_PHASE_RECOMMENDATION": "RETURN_TO_PROTO_INTROSPECTION_EVIDENCE_AND_PAPER_WRITING"
+  },
+
+  "s3b1_pipeline_verdict": "FULL_DUALANCHOR_TO_CORECONTENT_PIPELINE_NOT_TESTED",
+  "s3b2_recommendation": "GENERATE_POWERED_BRANCH_POOL_DATASET_BEFORE_REFIT",
+
+  "closure_answers": {
+    "local_engineering_closure_complete": true,
+    "safe_to_return_to_proto_introspection": true,
+    "safe_to_return_to_paper_writing": true,
+    "optional_local_work_blocks_return": false,
+    "hard_validity_gap_found": false,
+    "capability_improvement_demonstrated": false,
+    "proto_introspection_claimed": false,
+    "paper_written_here": false,
+    "s3a_run_locally": false
+  },
+
+  "claim_table": [
+    {"id": 1, "claim": "hidden-state pairwise evaluator/taps read useful signals in-distribution", "status": "PROVEN", "evidence": "bg_corecontent_dataset_expansion_refit_v2_2026-06-04 heldout macro 0.6691 [0.6448-0.6902]; mpn_s3b_2026-06-17/s3b0_refit_sanity.json", "caveat": "realistic edge over broad baseline is single-digit pts on real negatives; coding tap partly a corruption detector", "strengthen_or_falsify": "powered relevance-negative eval; cross-seed refit CIs"},
+    {"id": 2, "claim": "mechanical branch loop works (inject->carry->prune->loop-back->terminal)", "status": "PROVEN", "evidence": "s1_4_reference_loop.json (12 loci x 4 tasks, zero-loss, defer 0); gates 1-5", "caveat": "N=4 shakedown; rank-only prune (no live thresholds); ~37 min/run", "strengthen_or_falsify": "scale N; run gated pipeline; phase-two carried-KV path"},
+    {"id": 3, "claim": "re-derive/fork/carry path is valid (identity + alpha>0 equivalence)", "status": "PROVEN", "evidence": "s1_4_gate1_rederive.json, s1_4_gate2_alpha_chain.json (maxabs 0.0, tokens 48/48)", "caveat": "bf16; last-token suffix range; exact at prefill", "strengthen_or_falsify": "wider token-range ablations; longer chains"},
+    {"id": 4, "claim": "lineage invariants prevent clean-root misuse", "status": "PROVEN", "evidence": "s1_4_reference_loop.json gates 4+5 asserted inline (no AssertionError) across 12 loci x 4 tasks", "caveat": "structural assertion, not a statistical test", "strengthen_or_falsify": "adversarial lineage fuzzing"},
+    {"id": 5, "claim": "live prune/tap path executes on branch candidates", "status": "PROVEN", "evidence": "s1_4_gate3_prune_integration.json (features [3,4,2048]; DualAnchor 6ch + CoreContent 3ch; gibberish bottomed -0.81)", "caveat": "scores re-encoded text (teacher/scaffold), not carried KV in-place", "strengthen_or_falsify": "no-rollout internal-state selector"},
+    {"id": 6, "claim": "frozen deterministic branching gives no reachability gain under tested regimes", "status": "NEGATIVE_RESULT", "evidence": "s1_4a_fork_param_screen.json (greedy new-correct 0.0/9 cells); s1_4_reference_loop.json", "caveat": "local; alpha in {.02,.05,.10} x {last,last-8,second-half} x loop-1 + loop-4 sentinel + chained alpha=0.02", "strengthen_or_falsify": "a regime where greedy fork > base"},
+    {"id": 7, "claim": "fork+sampling gains are explained by K-matched sampling", "status": "NEGATIVE_RESULT", "evidence": "s1_4b_kmatched_sampling.json (plain 0.75 >= sample-fork 0.611; diff -0.139; greedy-fork 0.0)", "caveat": "N=4; temp 0.7/top_p 0.95; budget N=12=3loci x K4", "strengthen_or_falsify": "fork arm beating matched-budget sampling at scale"},
+    {"id": 8, "claim": "existing taps fail direct generated-branch correctness transfer", "status": "NEGATIVE_RESULT_UNDERPOWERED", "evidence": "s3b1_corrected_addendum_2026-06-17.md; s3b1_loop_pool_transfer.json (separability 0.49-0.57; CoreContent 0.417 < random 0.583)", "caveat": "only 8 usable oracle-present pools (math 2, reasoning 4, logic 2; coding 0/4)", "strengthen_or_falsify": "powered S3B-2 task-heldout selector; trainable correctness signal?"},
+    {"id": 9, "claim": "DualAnchor is not evaluated on its primary validity role by direct correctness ranking", "status": "NOT_TESTED", "evidence": "s3b1_corrected_addendum_2026-06-17.md sec2,sec4", "caveat": "DualAnchor scored on correctness (not its job); 0.417/0.557 uninformative about validity", "strengthen_or_falsify": "survivor-retention / false-prune / oracle-retained-after-gate eval"},
+    {"id": 10, "claim": "CoreContent is not globally broken but content-to-correctness transfer fails on generated branches", "status": "PROVEN_IN_DIST_NEGATIVE_TRANSFER", "evidence": "s3b0_refit_sanity.json (0.6691 in-dist); s3b1_* (0.417 generated; math 1.0, reasoning 0.25, logic 0.0)", "caveat": "OOD drop is an alignment break, not loss of content signal", "strengthen_or_falsify": "generated-pool content-ranking eval among survivors (not correctness)"},
+    {"id": 11, "claim": "full ordered DualAnchor -> CoreContent pipeline is not yet fully evaluated", "status": "NOT_TESTED", "evidence": "s1_4_reference_loop.json prune_mode=rank_only_content_plus_budget (validity diagnostic only); thresholds=-1e9", "caveat": "gated validity->content->survivor-set pipeline never run", "strengthen_or_falsify": "run ordered gated pipeline; survivor-set headline, top-1 diagnostic"},
+    {"id": 12, "claim": "S3A requires training-time loop-dynamics integration (not inference-time steering)", "status": "CLOUD_REQUIRED_PROTOCOL_ONLY", "evidence": "this bundle sec9; mpn-run-design S0/S1 ledger; frozen-steering closed (prior runs)", "caveat": "world_size_4 FSDP => multi-GPU; local harness-only", "strengthen_or_falsify": "executed S3A on cloud with S3C eval gates"},
+    {"id": 13, "claim": "current local evidence does not prove Jormungandr capability improvement", "status": "NOT_TESTED", "evidence": "this bundle; s1_report_2026-06-17.md", "caveat": "only local capability test (frozen loop) was reachability-neutral; lever (S3A) is cloud-required", "strengthen_or_falsify": "a passing S3C comparison after S3A training"}
+  ],
+
+  "sokac_checklist": {
+    "provenance": "RECONSTRUCTED_FROM_CURRENT_PROJECT_STATE (no prior Sokac/Sokac-specific checklist artifact found in repo)",
+    "rollup": {"PASS": 8, "PARTIAL": 4, "FAIL": 0, "NOT_TESTED": 0, "NOT_APPLICABLE": 0},
+    "items": [
+      {"id": "A", "item": "Artifact integrity & reproducibility", "status": "PARTIAL", "explanation": "all key reports + JSONs saved; scripts + logs/mpn_s1 present; configs recorded. Gaps: RNG seeds not pinned in sampling artifacts; no dedicated artifacts/logs/mpn_s3b dir.", "remaining_action": "pin/record seeds for powered re-runs; add mpn_s3b log path"},
+      {"id": "B", "item": "No hidden training of Ouro during readout/tap tests", "status": "PASS", "explanation": "backbone frozen for all S1/S3B readout/tap work; only a tiny selector head trained (S3B-0), saved separately; no base/tokenizer overwrite; S0 reload-verified.", "remaining_action": "re-affirm before any S3A run"},
+      {"id": "C", "item": "Data split integrity", "status": "PARTIAL", "explanation": "in-distribution heldout preserved; S3B-1 one-shot (no training => no candidate leakage); mandated TASK-level heldout for a trained generated-branch selector not yet built (S3B-2).", "remaining_action": "build powered S3B-2 with task-level (not candidate-level) heldout"},
+      {"id": "D", "item": "Pair orientation / antisymmetry controls", "status": "PASS", "explanation": "taps exactly antisymmetric by construction (layernorm(i-j).w, sign-flip 0); ORACLE/RANDOM excluded from best-real-selector; flip behavior known (rho ~= -0.94).", "remaining_action": "none"},
+      {"id": "E", "item": "Feature-cache / provenance integrity", "status": "PASS", "explanation": "features [3,4,2048] correspond to correct prompt+answer inputs; layer/loop positions (24/36/47 x 4 loops, force_all_loops) recorded; pools + texts persisted; no stale cache reused.", "remaining_action": "standardize scoring format across sub-runs (see F)"},
+      {"id": "F", "item": "Text-shortcut controls", "status": "PARTIAL", "explanation": "heads train on hidden states (Ouro digests text; tap never reads raw text) - core shortcut controlled. Unresolved: prompt/length/domain-style shortcuts not fully ablated; scoring format varied (S1.4 answer-only vs S1.4a/b prompt+answer); coding tap is a corruption detector not a relevance ranker.", "remaining_action": "length/style/domain shortcut ablation; standardize on prompt+answer"},
+      {"id": "G", "item": "Baselines present", "status": "PASS", "explanation": "random, oracle, base greedy, K-matched sampling, frozen branch/carry, existing taps, mixed heads (MIX_HH/MIX_OBJECTIVE), DualAnchor (diagnostic only) all present.", "remaining_action": "none"},
+      {"id": "H", "item": "Sampling deconfound", "status": "PASS", "explanation": "fork+sampling vs K-matched plain sampling done; apparent fork gains attributed to sampling (diff -0.139, greedy-fork 0.0); budget reported (N=12=3loci x K4, ~9 min).", "remaining_action": "none"},
+      {"id": "I", "item": "Mechanism correctness", "status": "PASS", "explanation": "alpha=0 identity, alpha>0 fork equivalence, two-locus chaining, lineage invariants (gates 4+5), no clean-root misuse, full 12-locus loop - all pass/held.", "remaining_action": "none"},
+      {"id": "J", "item": "Role separation", "status": "PASS", "explanation": "DualAnchor=validity (not correctness), CoreContent=content (not correctness), verifier/gold=correctness, forced top-1=diagnostic - enforced and corrected in the addendum.", "remaining_action": "keep enforced in future write-ups"},
+      {"id": "K", "item": "Statistical power / underpowered areas", "status": "PARTIAL", "explanation": "N=4 shakedown caveats stated; 8-usable-pool S3B-1 caveat stated; coding underpowered (0 oracle-present) and EXCLUDED from oracle-present macros; zero-oracle domains never averaged in. Controls correct; underlying power low.", "remaining_action": "powered N for any capability claim"},
+      {"id": "L", "item": "Negative-result honesty", "status": "PASS", "explanation": "frozen branching reachability-neutral stated; S3A not run locally stated; no Jormungandr capability claim; proto-introspection not claimed proven by S3.", "remaining_action": "none"},
+      {"id": "M", "item": "External-review readiness", "status": "PASS", "explanation": "what can/can't be shown to a reviewer and the one decisive experiment are stated explicitly.", "remaining_action": "none"}
+    ]
+  },
+
+  "key_metrics": {
+    "s1_gates": {
+      "gate1_rederive_alpha0": {"first_logit_maxabs": 0.0, "tokens_identical": "48/48"},
+      "gate2a_single_locus_alpha02": {"first_logit_maxabs": 0.0, "tokens_identical": "48/48"},
+      "gate2b_two_locus_chain_alpha02": {"first_logit_maxabs": 0.0, "tokens_identical": "48/48"},
+      "gate3_live_prune": {"dualanchor_channels": 6, "corecontent_channels": 3, "gibberish_corecontent_score": -0.81, "pass": true},
+      "gate4_no_clean_root_reuse": "held 12 loci x 4 tasks",
+      "gate5_lineage_strictly_increasing": "held 12 loci x 4 tasks"
+    },
+    "s1_reference_loop": {
+      "oracle_over_survivors": 0.25,
+      "base_acc": 0.25,
+      "selected_acc": 0.25,
+      "mean_terminal_survivors": 4.0,
+      "defer_rate": 0.0,
+      "prune_mode": "rank_only_content_plus_budget (validity diagnostic only; thresholds=-1e9)",
+      "n_tasks": 4,
+      "note": "selected_acc==base trivial: only correct task was base-correct and reconverged"
+    },
+    "s1_4a_fork_screen": {
+      "cells": 18,
+      "greedy_new_correct_all_9_cells": 0.0,
+      "sample_new_correct_range": "0.5-0.75",
+      "loop4_sentinel_sample_new_correct": 0.5,
+      "selected_acc": "~0",
+      "confounds": ["MNT=96 truncated math base", "selector cannot convert"]
+    },
+    "s1_4b_kmatched_sampling": {
+      "base_acc_160": 0.25,
+      "base_acc_96": 0.0,
+      "plain_sampling_oracle_at12": 0.75,
+      "sample_fork_oracle": 0.611,
+      "greedy_fork_new_correct": 0.0,
+      "sample_fork_minus_plain_sampling": -0.139,
+      "selected_acc": 0.0,
+      "mean_unique_finals": 11.25,
+      "parse_invalid_rate": 0.0,
+      "per_task_correct_counts": {"logic": 2, "math": 1, "reasoning": 5, "coding": 0},
+      "verdict": "FROZEN_FORK_CLOSED__SAMPLING_EXPLAINS_SCREEN__S3_IS_LEVER"
+    },
+    "s3b0_refit_sanity": {
+      "verdict": "S3B0_REFIT_SANE",
+      "frozen_corecontent": 0.6691,
+      "listwise": 0.6599,
+      "pairwise": 0.6424,
+      "max_simpler_baseline_mix_hh": 0.5526,
+      "random": 0.2709,
+      "scope": "in-distribution corecontent_v2 heldout; training path sane; NOT Wall-B solved"
+    },
+    "s3b1_loop_pool_transfer_corrected": {
+      "usable_pools": 8,
+      "pools_by_domain": {"math": 2, "reasoning": 4, "logic": 2, "coding": 0},
+      "oracle_present_domains": ["math", "reasoning", "logic"],
+      "best_real_selector": {"name": "mixedhead_MIX_HH_OBJECTIVE", "sel_at_oracle": 0.667, "separability": 0.569},
+      "corecontent_v2_generated": {"sel_at_oracle": 0.417, "by_domain": {"math": 1.0, "reasoning": 0.25, "logic": 0.0}},
+      "separability_real_taps_range": "0.49-0.57",
+      "random_separability": 0.463,
+      "oracle_separability": 1.0,
+      "top2_retention_best_real": 0.75,
+      "top4_retention_best_real": 0.833,
+      "regret_best_real": 0.25
+    },
+    "in_distribution_tap_reference": {
+      "corecontent_v2_heldout_macro": 0.6691,
+      "corecontent_v2_ci": [0.6448, 0.6902],
+      "dualanchor_heldout_macro": 0.3787,
+      "dualanchor_survival_retention": 0.9848,
+      "dualanchor_terminal_retention": 1.0,
+      "random": 0.271
+    }
+  },
+
+  "s3a_design": {
+    "verdict": "READY_AS_CLOUD_BACKBONE_TRAINING_PROTOCOL_NOT_LOCALLY_RUN",
+    "objective": "train injected/internal branches to be outcome-distinct and verifier-useful (targets Wall A); not a text generator, not inference-time steering",
+    "data": ["branch_set_dpo (66.3k)", "math branch tournaments", "code branch tournaments (reasoned code)", "generated branch pools if powered (S3B-2)"],
+    "labels": "external verifier/gold correctness ONLY (label_branch/verify_final/verify_code_unit_tests/math_equal_robust/MCQ/z3); alignment via antisymmetrized pairwise tap margin, model-internal only, never external truth",
+    "update_mode": {"lora": "optional pilot/debug", "rltt_continuation": "MAINLINE (fixed T=4, trajectory credit, binary reward, no reward model, KL to backed-up policy)", "full_backbone": "high-capacity if compute allows; continue from pristine world_size_4 FSDP model+optim+extra_state"},
+    "safety": ["S0 backup COMPLETE_VERIFIED + reload-verified", "v2 root", "no base/tokenizer overwrite", "no destructive mutation", "regression-baseline tripwire re-run post-training"],
+    "not_steering": "frozen steering was inference-time perturbation (closed); S3A is training-time loop-dynamics integration; control action stays discrete keep/prune over materialized KV branches"
+  },
+
+  "s3c_protocol": {
+    "verdict": "INTEGRATED_EVALUATION_PROTOCOL_SPECIFIED_NOT_EXECUTED",
+    "arms": ["base greedy", "K-matched plain sampling", "frozen S1 branch/carry", "S3A-trained branch/carry", "S3A-trained branch/carry + branch-correctness selector", "S3A-trained branch/carry + ordered DualAnchor->CoreContent pipeline"],
+    "metrics": ["base_acc", "oracle_over_survivors", "selected_acc", "selected_correct_when_oracle_present", "new_correct_on_base_missed", "branch_diversity", "parse_invalid_rate", "carry_gain_over_sampling", "compute_budget", "domain_breakdown"],
+    "decision_rule": "capability claim requires S3A arm to beat BOTH base and K-matched sampling on new_correct_on_base_missed, with a selector converting oracle to selected, on task-heldout at powered N; else no claim",
+    "aggregation_rules": ["exclude zero-oracle domains from oracle-present macros", "exclude ORACLE/RANDOM from best-real-selector", "never use tap scores as correctness labels"]
+  },
+
+  "optional_local_work": {
+    "blocks_return_to_proto_introspection": false,
+    "items": [
+      "powered S3B-2 generated-branch dataset (task-heldout, verifier labels)",
+      "branch-correctness selector refit on generated pools (S3-N; distinct from DualAnchor/CoreContent)",
+      "ordered DualAnchor->CoreContent survivor-retention test (untested gated pipeline)",
+      "artifact/table cleanup: pin seeds, add artifacts/logs/mpn_s3b, standardize prompt+answer scoring"
+    ]
+  },
+
+  "artifact_index": {
+    "reports": [
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_report_2026-06-17.md",
+      "artifacts/reports/probes/mpn_s3b_2026-06-17/s3b1_corrected_addendum_2026-06-17.md",
+      "artifacts/reports/probes/mpn_s3_closure_2026-06-17/s3_closure_and_sokac_validity_bundle.md",
+      "/home/moloch/ouro_backups/mpn_s0_pre_run_2026-06-13/S0_REPORT.md"
+    ],
+    "result_jsons": [
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_4_gate1_rederive.json",
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_4_gate2_alpha_chain.json",
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_4_gate3_prune_integration.json",
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_4_reference_loop.json",
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_4a_fork_param_screen.json",
+      "artifacts/reports/probes/mpn_s1_baseline_2026-06-13/s1_4b_kmatched_sampling.json",
+      "artifacts/reports/probes/mpn_s3b_2026-06-17/s3b0_refit_sanity.json",
+      "artifacts/reports/probes/mpn_s3b_2026-06-17/s3b1_loop_pool_transfer.json",
+      "/home/moloch/ouro_backups/mpn_s0_pre_run_2026-06-13/S0_BACKUP_MANIFEST.json",
+      "/home/moloch/ouro_backups/mpn_s0_pre_run_2026-06-13/S0_RELOAD_VERIFY.json"
+    ],
+    "scripts": [
+      "utilities/tests/manual/mpn_s1_4_rederive_gate.py",
+      "utilities/tests/manual/mpn_s1_4_gate2_alpha_chain.py",
+      "utilities/tests/manual/mpn_s1_4_gate3_prune_integration.py",
+      "utilities/tests/manual/mpn_s1_4_reference_loop.py",
+      "utilities/tests/manual/mpn_s1_5_divergence_ablation.py",
+      "utilities/tests/manual/mpn_s1_4b_kmatched_sampling.py",
+      "utilities/tests/manual/mpn_s3b0_refit_sanity.py",
+      "utilities/tests/manual/mpn_s3b1_loop_pool_transfer.py",
+      "utilities/branch_training/offline_reward_v2.py",
+      "utilities/tools/mpn_s0_backup.py",
+      "utilities/tools/mpn_s0_verify_reload.py"
+    ],
+    "logs": ["artifacts/logs/mpn_s1/", "artifacts/logs/mpn_s0/"],
+    "generated_datasets_and_pools": [
+      "artifacts/reports/probes/mpn_s3b_2026-06-17/s3b1_loop_pools.pt",
+      "artifacts/reports/probes/mpn_s3b_2026-06-17/s3b1_pool_texts.json",
+      "data/corecontent_v2/features/ (65 shards ~4.87 GB)",
+      "data/branch_training_logic_expansion_v1/ + train_v2..train_v5/"
+    ],
+    "model_tap_checkpoints": [
+      "models/ouro_rltt_local/ (frozen operational backbone)",
+      "/home/moloch/Downloads/RLTT/Downloads_RLTT/RLTT/ (pristine world_size_4 FSDP model+optim+extra_state + consolidated_clean.pt)",
+      "/home/moloch/ouro_backups/mpn_s0_pre_run_2026-06-13/ (33 GB S0 backup; same-disk caveat)",
+      "artifacts/reports/probes/mpn_s3b_2026-06-17/s3b0_trained_selector.pt",
+      "artifacts/reports/probes/bg_corecontent_dataset_expansion_refit_v2_2026-06-04/corecontent_v2_policy.pt"
+    ],
+    "missing": [
+      "MISSING: artifacts/logs/mpn_s3b/ -- consequence: S3B-0/S3B-1 have no dedicated run log (JSONs are the record); low impact",
+      "MISSING: offsite/cloud copy of S0 backup -- consequence: single-disk failure would lose the only verified pre-S3A weight backup; weakens S3A safety precondition until offsite copy exists"
+    ]
+  },
+
+  "hard_rules_honored": [
+    "S1/S2/S3 not used as the Sokac proof framework",
+    "S3 not redefined as S3B dataset generation",
+    "proto-introspection not started",
+    "full paper not written",
+    "S3A cloud/backbone training not pretended-run locally",
+    "no Jormungandr capability claim",
+    "proto-introspection not claimed proven",
+    "validity/content/correctness not conflated",
+    "DualAnchor not called a correctness selector",
+    "CoreContent not called globally broken",
+    "zero-oracle domains (coding) excluded from oracle-present macros",
+    "ORACLE/RANDOM excluded from best-real-selector",
+    "tap/evaluator scores never used as correctness labels",
+    "no base checkpoint/tokenizer overwrite",
+    "every claim tagged with a status"
+  ]
+}

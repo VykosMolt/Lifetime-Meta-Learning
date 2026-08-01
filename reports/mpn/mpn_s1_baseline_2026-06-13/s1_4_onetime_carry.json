@@ -1,0 +1,132 @@
+{
+  "verdict": "S1_4_ONETIME_CARRY",
+  "N_PER": 2,
+  "K": 4,
+  "alpha": 0.02,
+  "boundary": "loop1_L24",
+  "n_tasks": 8,
+  "sampling": {
+    "mean_distinct": 2.5,
+    "oracle_at_K": 0.75
+  },
+  "one_time_carry": {
+    "mean_distinct": 1.625,
+    "oracle_at_K": 0.75
+  },
+  "oracle_gap_samp_minus_otc": 0.0,
+  "rows": [
+    {
+      "task": "logic_000f384418",
+      "domain": "logic",
+      "samp": {
+        "distinct": 4,
+        "oracle": true,
+        "n_correct": 2
+      },
+      "otc": {
+        "distinct": 4,
+        "oracle": true,
+        "n_correct": 1
+      }
+    },
+    {
+      "task": "logic_00013d9d03",
+      "domain": "logic",
+      "samp": {
+        "distinct": 2,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "otc": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "math_0313a1abc4",
+      "domain": "math",
+      "samp": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "otc": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "math_0490949b5c",
+      "domain": "math",
+      "samp": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "otc": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "samp": {
+        "distinct": 4,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "otc": {
+        "distinct": 1,
+        "oracle": false,
+        "n_correct": 0
+      }
+    },
+    {
+      "task": "reasoning_00ddfcee6a",
+      "domain": "reasoning",
+      "samp": {
+        "distinct": 3,
+        "oracle": true,
+        "n_correct": 3
+      },
+      "otc": {
+        "distinct": 2,
+        "oracle": true,
+        "n_correct": 4
+      }
+    },
+    {
+      "task": "coding_007b833f21",
+      "domain": "coding",
+      "samp": {
+        "distinct": 4,
+        "oracle": false,
+        "n_correct": 0
+      },
+      "otc": {
+        "distinct": 2,
+        "oracle": false,
+        "n_correct": 0
+      }
+    },
+    {
+      "task": "coding_00715d44da",
+      "domain": "coding",
+      "samp": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      },
+      "otc": {
+        "distinct": 1,
+        "oracle": true,
+        "n_correct": 4
+      }
+    }
+  ],
+  "elapsed_seconds": 3846.1
+}

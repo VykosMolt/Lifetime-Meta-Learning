@@ -1,0 +1,23 @@
+{
+  "alpha_grid": [
+    0.005,
+    0.01,
+    0.02,
+    0.04,
+    0.08
+  ],
+  "alpha_random": 0.04,
+  "alpha_structured": 0.04,
+  "arms": [
+    "baseline",
+    "zero_alpha",
+    "structured",
+    "random"
+  ],
+  "binding_sha256": "79bf3172c03dd8f3657d69d5c8f365b4268d4a71a48ff152d15fc08fc430e8dd",
+  "corpus_version": "b200_validation_corpus_v1",
+  "master_seed": 314159265358979,
+  "n_tasks": 12,
+  "purpose": "backend equivalence / benchmarking ONLY; outcomes may never inform any O1 scientific decision",
+  "tasks_sha256": "557cd92310382dac9466428837d61dc2af82bd6ffaf600e736247d4d39cb48bb"
+}

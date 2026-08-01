@@ -1,0 +1,22 @@
+{
+  "verdict": "S1_4_GATE1_PASS",
+  "task": "logic_00013d9d03",
+  "n_steps": 48,
+  "results": {
+    "rederive_empty_L1_24": {
+      "first_logit_maxabs": 0.0,
+      "first_argmax_match": true,
+      "tokens_identical": true,
+      "matching_prefix": 48,
+      "n": 48
+    },
+    "rederive_alpha0_lineage_L1_36": {
+      "first_logit_maxabs": 0.0,
+      "first_argmax_match": true,
+      "tokens_identical": true,
+      "matching_prefix": 48,
+      "n": 48
+    }
+  },
+  "elapsed_seconds": 17.6
+}

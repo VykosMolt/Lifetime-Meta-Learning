@@ -1,0 +1,192 @@
+{
+  "arms": {
+    "A_format_control": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/A_format_control",
+      "arm": "A_format_control",
+      "elapsed_seconds": 23.1,
+      "phases": {
+        "sft": {
+          "complete": true,
+          "loss": 0.0006279352735849767,
+          "records": 417,
+          "steps": 306
+        }
+      }
+    },
+    "B_direct_budget_sft": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/B_direct_budget_sft",
+      "arm": "B_direct_budget_sft",
+      "elapsed_seconds": 26.2,
+      "phases": {
+        "sft": {
+          "complete": true,
+          "loss": 0.000544070312292269,
+          "records": 30000,
+          "steps": 404
+        }
+      }
+    },
+    "C_offline_verifier_dpo": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/C_offline_verifier_dpo",
+      "arm": "C_offline_verifier_dpo",
+      "elapsed_seconds": 64.6,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.0005819588383235554,
+          "records": 30000,
+          "steps": 202
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.0010313217185045544,
+          "records": 29761,
+          "steps": 304
+        }
+      }
+    },
+    "C_offline_verifier_dpo_r2": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/C_offline_verifier_dpo_r2",
+      "arm": "C_offline_verifier_dpo_r2",
+      "elapsed_seconds": 6324.6,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.09967132106423378,
+          "records": 14979,
+          "steps": 200
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.09110828518867492,
+          "records": 13895,
+          "steps": 300
+        }
+      }
+    },
+    "C_offline_verifier_dpo_r3": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/C_offline_verifier_dpo_r3",
+      "arm": "C_offline_verifier_dpo_r3",
+      "elapsed_seconds": 7394.5,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.13356938675045968,
+          "records": 27947,
+          "steps": 200
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.4832475439707438,
+          "records": 26961,
+          "steps": 300
+        }
+      }
+    },
+    "C_offline_verifier_dpo_r4": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/C_offline_verifier_dpo_r4",
+      "arm": "C_offline_verifier_dpo_r4",
+      "elapsed_seconds": 8206.0,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.06740071687847377,
+          "records": 28172,
+          "steps": 200
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.3083215681711833,
+          "records": 21817,
+          "steps": 300
+        }
+      }
+    },
+    "G_budget_plus_verifier": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/G_budget_plus_verifier",
+      "arm": "G_budget_plus_verifier",
+      "elapsed_seconds": 5702.6,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.6537456195801497,
+          "records": 30000,
+          "steps": 200
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.497524197101593,
+          "records": 30000,
+          "steps": 300
+        }
+      }
+    },
+    "G_budget_plus_verifier_r2": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/G_budget_plus_verifier_r2",
+      "arm": "G_budget_plus_verifier_r2",
+      "elapsed_seconds": 7788.8,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.1039760759472847,
+          "records": 14979,
+          "steps": 200
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.5497366849581401,
+          "records": 30000,
+          "steps": 300
+        }
+      }
+    },
+    "H_from_base_best_recipe": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/H_from_base_best_recipe",
+      "arm": "H_from_base_best_recipe",
+      "elapsed_seconds": 7044.0,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.7343736164271831,
+          "records": 30000,
+          "steps": 240
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.54933450155788,
+          "records": 30000,
+          "steps": 360
+        }
+      }
+    },
+    "H_from_base_best_recipe_r2": {
+      "OFFLINE_TRAINING_VERDICT": "OFFLINE_TRAINING_COMPLETE",
+      "adapter_dir": "artifacts/models/branch_training_offline_verifier_generator_v2/H_from_base_best_recipe_r2",
+      "arm": "H_from_base_best_recipe_r2",
+      "elapsed_seconds": 9266.2,
+      "phases": {
+        "dpo": {
+          "complete": true,
+          "loss": 0.10557808633893728,
+          "records": 14979,
+          "steps": 240
+        },
+        "sft": {
+          "complete": true,
+          "loss": 0.4286681638823615,
+          "records": 30000,
+          "steps": 360
+        }
+      }
+    }
+  }
+}

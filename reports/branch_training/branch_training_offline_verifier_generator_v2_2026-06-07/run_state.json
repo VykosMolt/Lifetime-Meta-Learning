@@ -1,0 +1,476 @@
+{
+  "active_pid": null,
+  "init_verdict": "READY",
+  "run": "branch_training_offline_verifier_generator_v2",
+  "stages": {
+    "A_init": {
+      "verdict": "READY",
+      "at": "2026-06-08T08:41:46",
+      "missing_inputs": [],
+      "missing_stack": [],
+      "gpu_free_mib": 11453
+    },
+    "B_input_audit": {
+      "verdict": "INPUTS_READY_WITH_WARNINGS",
+      "at": "2026-06-08T08:45:02",
+      "logic_substrate_ready": false
+    },
+    "C_canary_suite": {
+      "verdict": "CANARY_READY",
+      "at": "2026-06-08T09:34:27",
+      "total": 610,
+      "by_domain": {
+        "logic": 180,
+        "math": 110,
+        "reasoning": 110,
+        "coding": 100,
+        "alignment": 110
+      }
+    },
+    "E_rendered_logic": {
+      "verdict": "LOGIC_BRANCH_SETS_READY",
+      "at": "2026-06-08T10:32:14",
+      "groups": 23172,
+      "attempts": 104372,
+      "construct_rate": 1.0,
+      "parser_agree": 0.9084
+    },
+    "F_branch_budget_data": {
+      "verdict": "BRANCH_BUDGET_READY",
+      "at": "2026-06-08T14:08:23",
+      "counts": {
+        "direct_answer_sft": 21501,
+        "one_branch_sft": 17878,
+        "multi_branch_sft": 17946,
+        "branch_budget_policy": 12065,
+        "overbranch_negative_pairs": 3585,
+        "underbranch_negative_pairs": 17932
+      },
+      "direct_frac": 0.687
+    },
+    "G_offline_prefs": {
+      "verdict": "OFFLINE_PREFS_READY",
+      "at": "2026-06-08T14:10:47",
+      "branch_set_rejection_sft": 37504,
+      "branch_set_dpo": 66255,
+      "generator_reward_groups": 32496,
+      "dpo_pair_types": {
+        "oracle": 39569,
+        "overbranch": 4405,
+        "underbranch_defer": 2379,
+        "overbranch_F": 3580,
+        "underbranch_F": 17932
+      },
+      "reward_mean": 4.402,
+      "reward_min": -0.733,
+      "reward_max": 6.088
+    },
+    "H_offline_reward_spec": {
+      "verdict": "LOGIC_REWARD_READY",
+      "at": "2026-06-08T14:11:37",
+      "margin": 4.922,
+      "degenerate": 5
+    },
+    "I_training_matrix": {
+      "verdict": "MATRIX_REDUCED",
+      "at": "2026-06-08T14:18:50",
+      "arms_on": [
+        "A_format_control",
+        "B_direct_budget_sft",
+        "C_offline_verifier_dpo",
+        "G_budget_plus_verifier",
+        "H_from_base_best_recipe"
+      ]
+    },
+    "D_canary_baselines": {
+      "verdict": "PREVIOUS_SFT_BEHAVIOR_CONFIRMED",
+      "at": "2026-06-10T08:29:37",
+      "base_done": true,
+      "prev_sft_done": true
+    },
+    "J_train_A_format_control": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-11T02:10:54",
+      "phases": {
+        "sft": {
+          "records": 417,
+          "steps": 306,
+          "complete": true,
+          "loss": 0.0006279352735849767
+        }
+      }
+    },
+    "J_train_B_direct_budget_sft": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-11T02:11:23",
+      "phases": {
+        "sft": {
+          "records": 30000,
+          "steps": 404,
+          "complete": true,
+          "loss": 0.000544070312292269
+        }
+      }
+    },
+    "J_train_C_offline_verifier_dpo": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-11T02:12:30",
+      "phases": {
+        "sft": {
+          "records": 29761,
+          "steps": 304,
+          "complete": true,
+          "loss": 0.0010313217185045544
+        },
+        "dpo": {
+          "records": 30000,
+          "steps": 202,
+          "complete": true,
+          "loss": 0.0005819588383235554
+        }
+      }
+    },
+    "J_train_G_budget_plus_verifier": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-11T03:47:35",
+      "phases": {
+        "sft": {
+          "records": 30000,
+          "steps": 300,
+          "complete": true,
+          "loss": 0.497524197101593
+        },
+        "dpo": {
+          "records": 30000,
+          "steps": 200,
+          "complete": true,
+          "loss": 0.6537456195801497
+        }
+      }
+    },
+    "J_train_H_from_base_best_recipe": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-11T05:45:02",
+      "phases": {
+        "sft": {
+          "records": 30000,
+          "steps": 360,
+          "complete": true,
+          "loss": 0.54933450155788
+        },
+        "dpo": {
+          "records": 30000,
+          "steps": 240,
+          "complete": true,
+          "loss": 0.7343736164271831
+        }
+      }
+    },
+    "K_canary_A_format_control": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-11T11:55:28",
+      "domains": {
+        "logic": 0.8333,
+        "math": 0.9,
+        "reasoning": 0.8333,
+        "coding": 0.4667,
+        "alignment": 0.5364
+      }
+    },
+    "K_canary_B_direct_budget_sft": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-11T12:53:17",
+      "domains": {
+        "logic": 0.8333,
+        "math": 0.5667,
+        "reasoning": 0.8333,
+        "coding": 0.5,
+        "alignment": 0.5364
+      }
+    },
+    "K_canary_C_offline_verifier_dpo": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-11T14:18:28",
+      "domains": {
+        "logic": 0.6,
+        "math": 0.3333,
+        "reasoning": 0.9,
+        "coding": 0.0,
+        "alignment": 0.5182
+      }
+    },
+    "K_canary_G_budget_plus_verifier": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-11T14:47:19",
+      "domains": {
+        "logic": 0.7,
+        "math": 0.4,
+        "reasoning": 0.8333,
+        "coding": 0.4333,
+        "alignment": 0.5273
+      }
+    },
+    "E_rendered_logic_v3": {
+      "verdict": "EXECUTED_LOGIC_BRANCH_SETS_READY",
+      "at": "2026-06-11T15:36:50",
+      "counts": {
+        "ok": 13495,
+        "too_few_branches": 9041
+      }
+    },
+    "FG_offline_views_v3": {
+      "verdict": "WORKED_VIEWS_READY",
+      "at": "2026-06-11T15:42:57",
+      "direct_answer_sft": 11346,
+      "one_branch_sft": 13986,
+      "multi_branch_sft": 13895,
+      "branch_budget_policy": 11742,
+      "branch_set_rejection_sft": 13895,
+      "branch_set_dpo": 14979,
+      "generator_reward_groups": 18885,
+      "dpo_pair_types": {
+        "oracle": 14151,
+        "underbranch_defer": 945,
+        "overbranch": 45
+      },
+      "skipped": {
+        "no_worked_positive": 9055,
+        "empty_prompt": 8253
+      },
+      "one_branch_mean_chars": 391.2,
+      "elapsed_seconds": 3.5
+    },
+    "K_canary_H_from_base_best_recipe": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-11T15:52:45",
+      "domains": {
+        "logic": 0.6667,
+        "math": 0.1667,
+        "reasoning": 0.8667,
+        "coding": 0.2667,
+        "alignment": 0.5091
+      }
+    },
+    "K_canary_selection": {
+      "verdict": "NO_ADAPTER_IMPROVES_ON_CANARY",
+      "at": "2026-06-13T16:57:34",
+      "selected": [
+        "A_format_control",
+        "C_offline_verifier_dpo_r2",
+        "C_offline_verifier_dpo_r4"
+      ]
+    },
+    "J_train_C_offline_verifier_dpo_r2": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-11T23:10:13",
+      "phases": {
+        "sft": {
+          "records": 13895,
+          "steps": 300,
+          "complete": true,
+          "loss": 0.09110828518867492
+        },
+        "dpo": {
+          "records": 14979,
+          "steps": 200,
+          "complete": true,
+          "loss": 0.09967132106423378
+        }
+      }
+    },
+    "J_train_G_budget_plus_verifier_r2": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-12T01:20:04",
+      "phases": {
+        "sft": {
+          "records": 30000,
+          "steps": 300,
+          "complete": true,
+          "loss": 0.5497366849581401
+        },
+        "dpo": {
+          "records": 14979,
+          "steps": 200,
+          "complete": true,
+          "loss": 0.1039760759472847
+        }
+      }
+    },
+    "J_train_H_from_base_best_recipe_r2": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-12T03:54:33",
+      "phases": {
+        "sft": {
+          "records": 30000,
+          "steps": 360,
+          "complete": true,
+          "loss": 0.4286681638823615
+        },
+        "dpo": {
+          "records": 14979,
+          "steps": 240,
+          "complete": true,
+          "loss": 0.10557808633893728
+        }
+      }
+    },
+    "K_canary_C_offline_verifier_dpo_r2": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-12T06:35:52",
+      "domains": {
+        "logic": 0.8333,
+        "math": 0.6667,
+        "reasoning": 0.8667,
+        "coding": 0.4333,
+        "alignment": 0.5091
+      }
+    },
+    "K_canary_G_budget_plus_verifier_r2": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-12T07:46:55",
+      "domains": {
+        "logic": 0.5333,
+        "math": 0.2667,
+        "reasoning": 0.7,
+        "coding": 0.3,
+        "alignment": 0.5
+      }
+    },
+    "K_canary_H_from_base_best_recipe_r2": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-12T09:05:12",
+      "domains": {
+        "logic": 0.7,
+        "math": 0.4333,
+        "reasoning": 0.7333,
+        "coding": 0.3667,
+        "alignment": 0.4909
+      }
+    },
+    "FG_offline_views_v4": {
+      "verdict": "V4_MULTIDOMAIN_WORKED_READY",
+      "at": "2026-06-12T09:45:10",
+      "branch_set_rejection_sft": 26961,
+      "branch_set_dpo": 27947,
+      "one_branch_sft": 26980,
+      "carried_from_v3": {
+        "branch_set_rejection_sft": 13895,
+        "branch_set_dpo": 14979,
+        "one_branch_sft": 13986
+      },
+      "rejection_sft_domains": {
+        "logic": 13888,
+        "math": 9053,
+        "coding": 4026
+      },
+      "dpo_pair_types": {
+        "oracle": 14013,
+        "underbranch_defer": 943,
+        "overbranch": 45,
+        "show_work": 4000,
+        "wrong_final": 8951
+      },
+      "elapsed_seconds": 1.7
+    },
+    "J_train_C_offline_verifier_dpo_r3": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-12T17:25:36",
+      "phases": {
+        "sft": {
+          "records": 26961,
+          "steps": 300,
+          "complete": true,
+          "loss": 0.4832475439707438
+        },
+        "dpo": {
+          "records": 27947,
+          "steps": 200,
+          "complete": true,
+          "loss": 0.13356938675045968
+        }
+      }
+    },
+    "K_canary_C_offline_verifier_dpo_r3": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-12T19:42:32",
+      "domains": {
+        "logic": 0.8333,
+        "math": 0.7333,
+        "reasoning": 0.9,
+        "coding": 0.0333,
+        "alignment": 0.5091
+      }
+    },
+    "FG_offline_views_v5": {
+      "verdict": "V5_EVAL_ALIGNED_READY",
+      "at": "2026-06-13T09:20:13",
+      "branch_set_rejection_sft": 21817,
+      "branch_set_dpo": 28172,
+      "one_branch_sft": 13137,
+      "rejection_sft_domains": {
+        "math": 8893,
+        "logic": 12000,
+        "coding": 924
+      },
+      "dpo_pair_types": {
+        "show_work": 4000,
+        "oracle": 12172,
+        "wrong_final": 6000,
+        "reasoning_error": 6000
+      },
+      "unique_coding_sft": 70,
+      "coding_dup": 12,
+      "token_gate_drops": {
+        "one_branch_sft": 229,
+        "branch_set_rejection_sft": 229,
+        "branch_set_dpo": 4
+      },
+      "skipped": {
+        "math_canary_overlap": 50
+      },
+      "format_contract": {
+        "prompts_chat_templated": true,
+        "prompts_have_gen_system": true,
+        "prompts_end_with_assistant": true,
+        "no_branch_prefix_completions": true,
+        "noncoding_end_with_final": true,
+        "coding_fenced_no_final": true
+      },
+      "reasoning_excluded": "gen shards did not persist MCQ options; prompt not re-renderable",
+      "v3_v4_not_carried": "old rows are the misaligned format round 4 removes",
+      "elapsed_seconds": 10.4
+    },
+    "J_train_C_offline_verifier_dpo_r4": {
+      "verdict": "OFFLINE_TRAINING_COMPLETE",
+      "at": "2026-06-13T12:54:53",
+      "phases": {
+        "sft": {
+          "records": 21817,
+          "steps": 300,
+          "complete": true,
+          "loss": 0.3083215681711833
+        },
+        "dpo": {
+          "records": 28172,
+          "steps": 200,
+          "complete": true,
+          "loss": 0.06740071687847377
+        }
+      }
+    },
+    "K_canary_C_offline_verifier_dpo_r4": {
+      "verdict": "CANARY_ARM_COMPLETE",
+      "at": "2026-06-13T16:48:05",
+      "domains": {
+        "logic": 0.7667,
+        "math": 0.8,
+        "reasoning": 0.7667,
+        "coding": 0.4333,
+        "alignment": 0.5091
+      }
+    }
+  },
+  "started": "2026-06-08T08:41:46",
+  "stop_dir": "/home/moloch/ouro_project/artifacts/models/branch_training_offline_verifier_generator_v2/_control",
+  "updated": "2026-06-13T16:57:34"
+}

@@ -1,0 +1,662 @@
+{
+  "verdict": "S3B1_LOOP_POOL_TRANSFER__CORRECTED",
+  "scope": "pure transfer eval (no training); the real Wall-B test",
+  "config": {
+    "N_PER": 4,
+    "K_FORK": 4,
+    "K_SAMP": 6,
+    "MNT": 160,
+    "alpha": 0.05,
+    "fork_locus": "loop1_L24",
+    "fork_token_range": "second-half",
+    "decode": "sampled",
+    "temp": 0.7,
+    "top_p": 0.95,
+    "score_input_mode": "prompt_plus_answer",
+    "heldout": "by TASK (eval tasks disjoint from selector training tasks)"
+  },
+  "n_tasks": 16,
+  "results": {
+    "S3B0_pairwise_blockwise": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.25,
+        "selected_correct_when_oracle_present": 0.375,
+        "oracle_conversion_rate": 0.375,
+        "top2_oracle_retention": 0.5625,
+        "top4_oracle_retention": 0.625,
+        "selector_regret": 0.25,
+        "pairwise_accuracy_separability": 0.5077
+      },
+      "by_domain_core_metric": {
+        "math": 1.0,
+        "reasoning": 0.5,
+        "logic": 0.0,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 0.6905
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.75,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5,
+          "pairwise_accuracy_separability": 0.6451
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.5,
+          "pairwise_accuracy_separability": 0.1875
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "S3B0_listwise_blockwise": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.1875,
+        "selected_correct_when_oracle_present": 0.3125,
+        "oracle_conversion_rate": 0.3125,
+        "top2_oracle_retention": 0.5625,
+        "top4_oracle_retention": 0.625,
+        "selector_regret": 0.3125,
+        "pairwise_accuracy_separability": 0.4998
+      },
+      "by_domain_core_metric": {
+        "math": 1.0,
+        "reasoning": 0.25,
+        "logic": 0.0,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 0.6667
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.25,
+          "oracle_conversion_rate": 0.25,
+          "top2_oracle_retention": 0.75,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.75,
+          "pairwise_accuracy_separability": 0.6451
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.5,
+          "pairwise_accuracy_separability": 0.1875
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "CoreContent_v2_blockwise": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.1875,
+        "selected_correct_when_oracle_present": 0.3125,
+        "oracle_conversion_rate": 0.3125,
+        "top2_oracle_retention": 0.4375,
+        "top4_oracle_retention": 0.625,
+        "selector_regret": 0.3125,
+        "pairwise_accuracy_separability": 0.4896
+      },
+      "by_domain_core_metric": {
+        "math": 1.0,
+        "reasoning": 0.25,
+        "logic": 0.0,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 0.6905
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.25,
+          "oracle_conversion_rate": 0.25,
+          "top2_oracle_retention": 0.25,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.75,
+          "pairwise_accuracy_separability": 0.5595
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.5,
+          "pairwise_accuracy_separability": 0.2188
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "DualAnchor": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.1875,
+        "selected_correct_when_oracle_present": 0.3125,
+        "oracle_conversion_rate": 0.3125,
+        "top2_oracle_retention": 0.375,
+        "top4_oracle_retention": 0.4375,
+        "selector_regret": 0.3125,
+        "pairwise_accuracy_separability": 0.5571
+      },
+      "by_domain_core_metric": {
+        "math": 0.5,
+        "reasoning": 0.25,
+        "logic": 0.5,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.6349
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.25,
+          "oracle_conversion_rate": 0.25,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.75,
+          "selector_regret": 0.75,
+          "pairwise_accuracy_separability": 0.5677
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.4688
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "mixedhead_MIX_HH_OBJECTIVE": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.3125,
+        "selected_correct_when_oracle_present": 0.5,
+        "oracle_conversion_rate": 0.5,
+        "top2_oracle_retention": 0.5625,
+        "top4_oracle_retention": 0.625,
+        "selector_regret": 0.1875,
+        "pairwise_accuracy_separability": 0.5687
+      },
+      "by_domain_core_metric": {
+        "math": 1.0,
+        "reasoning": 0.5,
+        "logic": 0.5,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 0.7857
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.75,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5,
+          "pairwise_accuracy_separability": 0.6704
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.25
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "MIX_OBJECTIVE_ALL_only": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.25,
+        "selected_correct_when_oracle_present": 0.375,
+        "oracle_conversion_rate": 0.375,
+        "top2_oracle_retention": 0.375,
+        "top4_oracle_retention": 0.5,
+        "selector_regret": 0.25,
+        "pairwise_accuracy_separability": 0.5442
+      },
+      "by_domain_core_metric": {
+        "math": 0.5,
+        "reasoning": 0.5,
+        "logic": 0.5,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.6111
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.5,
+          "pairwise_accuracy_separability": 0.6466
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.375
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "RANDOM": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.3125,
+        "selected_correct_when_oracle_present": 0.4375,
+        "oracle_conversion_rate": 0.4375,
+        "top2_oracle_retention": 0.4375,
+        "top4_oracle_retention": 0.5625,
+        "selector_regret": 0.1875,
+        "pairwise_accuracy_separability": 0.4625
+      },
+      "by_domain_core_metric": {
+        "math": 0.5,
+        "reasoning": 0.75,
+        "logic": 0.5,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 0.5,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.246
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 0.75,
+          "selected_correct_when_oracle_present": 0.75,
+          "oracle_conversion_rate": 0.75,
+          "top2_oracle_retention": 0.75,
+          "top4_oracle_retention": 0.75,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.4226
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.25,
+          "selected_correct_when_oracle_present": 0.5,
+          "oracle_conversion_rate": 0.5,
+          "top2_oracle_retention": 0.5,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.25,
+          "pairwise_accuracy_separability": 0.7188
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    },
+    "ORACLE": {
+      "macro": {
+        "oracle_over_pool": 0.5,
+        "selected_acc": 0.5,
+        "selected_correct_when_oracle_present": 0.75,
+        "oracle_conversion_rate": 0.75,
+        "top2_oracle_retention": 0.75,
+        "top4_oracle_retention": 0.75,
+        "selector_regret": 0.0,
+        "pairwise_accuracy_separability": 1.0
+      },
+      "by_domain_core_metric": {
+        "math": 1.0,
+        "reasoning": 1.0,
+        "logic": 1.0,
+        "coding": 0.0
+      },
+      "per_domain": {
+        "math": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 1.0
+        },
+        "reasoning": {
+          "n_pools": 4,
+          "n_oracle_present": 4,
+          "oracle_over_pool": 1.0,
+          "selected_acc": 1.0,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 1.0
+        },
+        "logic": {
+          "n_pools": 4,
+          "n_oracle_present": 2,
+          "oracle_over_pool": 0.5,
+          "selected_acc": 0.5,
+          "selected_correct_when_oracle_present": 1.0,
+          "oracle_conversion_rate": 1.0,
+          "top2_oracle_retention": 1.0,
+          "top4_oracle_retention": 1.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": 1.0
+        },
+        "coding": {
+          "n_pools": 4,
+          "n_oracle_present": 0,
+          "oracle_over_pool": 0.0,
+          "selected_acc": 0.0,
+          "selected_correct_when_oracle_present": 0.0,
+          "oracle_conversion_rate": 0.0,
+          "top2_oracle_retention": 0.0,
+          "top4_oracle_retention": 0.0,
+          "selector_regret": 0.0,
+          "pairwise_accuracy_separability": null
+        }
+      }
+    }
+  },
+  "decision": {
+    "SUPERSEDED_BY": "s3b1_corrected_addendum_2026-06-17.md (strict role separation + aggregation fix)",
+    "constants": {
+      "S3B1_DIRECT_CORRECTNESS_TRANSFER_VERDICT": "EXISTING_TAPS_NEAR_CHANCE_ON_GENERATED_BRANCH_CORRECTNESS",
+      "S3B1_DUALANCHOR_INTERPRETATION": "NOT_EVALUATED_ON_PRIMARY_VALIDITY_ROLE",
+      "S3B1_CORECONTENT_INTERPRETATION": "CONTENT_TO_CORRECTNESS_TRANSFER_FAILS_ON_GENERATED_BRANCHES",
+      "S3B1_PIPELINE_VERDICT": "FULL_DUALANCHOR_TO_CORECONTENT_PIPELINE_NOT_TESTED",
+      "S3B2_RECOMMENDATION": "GENERATE_POWERED_BRANCH_POOL_DATASET_BEFORE_REFIT"
+    },
+    "scope": "one-shot direct correctness-ranking diagnostic on GENERATED branch pools; NOT the ordered DualAnchor->CoreContent->survivor-set pipeline; forced top-1 is NOT the architecture success metric",
+    "aggregation_fix": "macros exclude domains with 0 oracle-present pools (coding); previously coding=0.0 deflated all selectors incl ORACLE (0.75->1.0). ORACLE/RANDOM excluded from best_real_selector.",
+    "pool_counts": {
+      "n_tasks": 16,
+      "oracle_present_pools": 8,
+      "reward_diverse_pools": 8,
+      "usable_pools": 8,
+      "oracle_present_domains": [
+        "math",
+        "reasoning",
+        "logic"
+      ],
+      "coding_oracle_present": 0
+    },
+    "corrected_macros_excluding_zero_oracle_domains": {
+      "S3B0_pairwise_blockwise": {
+        "sel_at_oracle": 0.5,
+        "separability": 0.5077,
+        "top2_ret": 0.75,
+        "top4_ret": 0.8333,
+        "regret": 0.3333
+      },
+      "S3B0_listwise_blockwise": {
+        "sel_at_oracle": 0.4167,
+        "separability": 0.4998,
+        "top2_ret": 0.75,
+        "top4_ret": 0.8333,
+        "regret": 0.4167
+      },
+      "CoreContent_v2_blockwise": {
+        "sel_at_oracle": 0.4167,
+        "separability": 0.4896,
+        "top2_ret": 0.5833,
+        "top4_ret": 0.8333,
+        "regret": 0.4167
+      },
+      "DualAnchor": {
+        "sel_at_oracle": 0.4167,
+        "separability": 0.5571,
+        "top2_ret": 0.5,
+        "top4_ret": 0.5833,
+        "regret": 0.4167
+      },
+      "mixedhead_MIX_HH_OBJECTIVE": {
+        "sel_at_oracle": 0.6667,
+        "separability": 0.5687,
+        "top2_ret": 0.75,
+        "top4_ret": 0.8333,
+        "regret": 0.25
+      },
+      "MIX_OBJECTIVE_ALL_only": {
+        "sel_at_oracle": 0.5,
+        "separability": 0.5442,
+        "top2_ret": 0.5,
+        "top4_ret": 0.6667,
+        "regret": 0.3333
+      },
+      "RANDOM": {
+        "sel_at_oracle": 0.5833,
+        "separability": 0.4625,
+        "top2_ret": 0.5833,
+        "top4_ret": 0.75,
+        "regret": 0.25
+      },
+      "ORACLE": {
+        "sel_at_oracle": 1.0,
+        "separability": 1.0,
+        "top2_ret": 1.0,
+        "top4_ret": 1.0,
+        "regret": 0.0
+      }
+    },
+    "best_real_selector_excl_oracle_random": {
+      "name": "mixedhead_MIX_HH_OBJECTIVE",
+      "sel_at_oracle": 0.6667
+    },
+    "best_real_separability_excl_oracle_random": {
+      "name": "mixedhead_MIX_HH_OBJECTIVE",
+      "separability": 0.5687
+    },
+    "random_sel_at_oracle": 0.5833,
+    "oracle_sel_at_oracle": 1.0,
+    "corecontent_in_distribution_S3B0": 0.6691,
+    "corecontent_generated": 0.4167,
+    "robust_signal": "pairwise separability near chance for ALL real taps (0.49-0.57; random 0.46; oracle 1.0); top-1 sel@oracle weakly discriminating (oracle-present pools are correctness-rich, random ~0.58)",
+    "conclusion": "Existing in-distribution content/preference taps do not directly transfer as correctness rankers on generated branch pools (generated-distribution transfer failure). Distinct from DualAnchor validity role and CoreContent in-distribution content role. Next: S3B-2 = train a branch-correctness selector on generated pools (verifier labels, TASK-heldout); requires a POWERED dataset (8 usable pools too few)."
+  },
+  "elapsed_seconds": 2161.1
+}

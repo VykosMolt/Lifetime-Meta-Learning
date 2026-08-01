@@ -1,0 +1,19 @@
+{
+  "BRANCH_TRAINING_DATASET_VERDICT": "TRAINING_DATA_READY",
+  "branch_format_by_domain": {
+    "coding": 26,
+    "logic": 44,
+    "math": 50,
+    "reasoning": 57
+  },
+  "counts": {
+    "branch_diversity_sft": 240,
+    "branch_format_sft": 177,
+    "branch_policy_distillation": 10209,
+    "branch_preference_dpo": 194,
+    "final_self_selection": 177,
+    "verifier_reward_rl": 240
+  },
+  "elapsed_seconds": 1.141,
+  "n_generated_train_groups": 240
+}

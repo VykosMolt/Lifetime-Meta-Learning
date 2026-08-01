@@ -1,0 +1,222 @@
+{
+  "calibration_task_manifest_sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+  "created_at_utc": "2026-07-29T11:09:58Z",
+  "resolved_calibration_config": {
+    "action_space.alpha_selection_rule": "largest_passing",
+    "action_space.alpha_swept_in_calibration": [
+      0.005,
+      0.01,
+      0.02,
+      0.04,
+      0.08
+    ],
+    "action_space.normalization": "per-position residual RMS at the writable boundary",
+    "action_space.structured_axes": {
+      "axes": {
+        "A1_READABLE": {
+          "construction": "existing accepted leakage-clean locus-native L3_24 readable process-quality direction, carried byte-for-byte and unit RMS",
+          "fit_code_sha256": "214ab1bc5e00ff7afb0396f7abd7e0e097d9eaadd54452feac5f3e70800610dc",
+          "sha256": "ce9b8feacd654df8d38c5fa72d48e0fe31714b680d5c4d135f061592cc9d7370",
+          "training_task_manifest_sha256": "NOT_SEPARATELY_MATERIALIZED; source split_integrity.json sha256 74c146e78e68daa20e2e6d129e57635141c71f19660ffc02d85ffd3123742c7d"
+        },
+        "A2_WRITABLE": {
+          "construction": "existing accepted leading direction of the centered exact-protocol S1/S3 L3_24 injection-delta bundle; reconstruction explicitly distinguished from the missing historical tensor",
+          "historical_tensor_status": "MISSING; reconstructed from hash-verified exact-protocol bundle",
+          "sha256": "0845b0926abecd83acb8239e4d7d15941cfb139ce1b816894dd19956ff92260e",
+          "source_run": "s1_s3_exact_injection_orthogonality_null_audit_2026-06-17; bundle sha256 ebb47fb80efacdf60e91f70a49d11e4229c15189bcfe74e199de6529cdad2a38"
+        },
+        "A3_CAUSAL_MEAN": {
+          "centered": false,
+          "construction": "unitRMS(raw arithmetic mean of the exact [8,2048] causal-adapter-induced L3_24 update matrix in the frozen reference order)",
+          "pc_extraction": false,
+          "reference_conditioned": true,
+          "reference_set_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+          "sha256": "284c4f43243295e4123e1e8885eda5ca9014e5cf374652b7032f1d2362d7fc74",
+          "source_matrix_sha256": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92"
+        },
+        "A4_SEQUENCE_MEAN": {
+          "centered": false,
+          "construction": "unitRMS(raw arithmetic mean of the exact [8,2048] sequence-adapter-induced L3_24 update matrix in the frozen reference order)",
+          "pc_extraction": false,
+          "reference_conditioned": true,
+          "reference_set_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+          "sha256": "2926c83868d5827a7e19495401a7b7241d897044f7ee1fca94d787c02f6c1f9c",
+          "source_matrix_sha256": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775"
+        }
+      },
+      "duplicate_rule": "|cos(A_i,A_j)| < 0.98. The Gram-matched random bank controls for the preregistered A3/A4 correlation.",
+      "explicit_exclusions": [
+        "the inadequate original d2 is not in the primary bank",
+        "the rejected shared-PC d4 is not in the primary bank",
+        "neither unstable centered adapter PC1 is used",
+        "A3 and A4 are not averaged into one shared direction",
+        "D2_OUTCOME_AXIS_V2 is diagnostic only and cannot modify this bank"
+      ],
+      "gram_matrix": [
+        [
+          2048.0000000000005,
+          -76.48505523935897,
+          -38.46011762841218,
+          12.168999456567901
+        ],
+        [
+          -76.48505523935897,
+          2047.9999999999998,
+          -88.08704683692255,
+          -52.17538214547308
+        ],
+        [
+          -38.46011762841218,
+          -88.08704683692255,
+          2047.9999999999993,
+          1171.5760225700133
+        ],
+        [
+          12.168999456567901,
+          -52.17538214547308,
+          1171.5760225700133,
+          2047.9999999999998
+        ]
+      ],
+      "mean_update_gate": "A3/A4 must exactly equal unitRMS(float64 mean over the embedded exact float32 source matrix); no centering or PC; source-matrix file identity and ordered eight-task reference identity must verify",
+      "no_cross_locus_transport": "every axis must exist or be reconstructed at exactly L3_24 in raw 2048-d residual coordinates. No L4 vector reused at L3, no layer-36 proxy, no unstable PC, no inadequate outcome axis, and no silent substitution.",
+      "norms_before_after": {
+        "A3_raw_mean_l2": 0.04112786989365476,
+        "A4_raw_mean_l2": 0.05264098849247025,
+        "unit_rms_after": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "pairwise_cosines": [
+        [
+          1.0000000000000002,
+          -0.03734621837859325,
+          -0.018779354310748134,
+          0.0059418942659022955
+        ],
+        [
+          -0.03734621837859325,
+          0.9999999999999999,
+          -0.04301125333834109,
+          -0.025476260813219277
+        ],
+        [
+          -0.018779354310748134,
+          -0.04301125333834109,
+          0.9999999999999997,
+          0.5720586047705143
+        ],
+        [
+          0.0059418942659022955,
+          -0.025476260813219277,
+          0.5720586047705143,
+          0.9999999999999999
+        ]
+      ],
+      "selection": "new v2 preregistered bank; four fixed source-derived geometries, not selected using O1 outcomes"
+    },
+    "action_space.writable_boundary": {
+      "application_frequency": "one_shot_during_prefill",
+      "boundary_semantics": "post-layer residual output",
+      "delta_broadcast_rule": "Per branch, add delta only at the final non-padding prompt position at the L3_24 post-layer residual boundary. d has unit RMS over the hidden dimension; r is the pre-intervention per-position residual RMS; delta = sign * alpha * r * d. All other positions receive zero. Not repeated on generated tokens or at later loop/layer visits.",
+      "first_affected_cache_slot": [
+        2,
+        24
+      ],
+      "loop_index_zero_based": 2,
+      "module_index_zero_based": 23,
+      "paper_loop_label": "L3",
+      "physical_layer_one_based": 24,
+      "position_scope": "final_nonpadding_prompt_position_only",
+      "status": "INSTRUMENT CHOICE, not a claim that L3_24 is the optimal control locus. A negative result is scoped to this boundary and action family."
+    },
+    "artifact_hashes.parser": "b55ce8a5be56990c12656fdafb5360cced94a4003c120780192a3122162d3733",
+    "artifact_hashes.prompt_template": "18132c41a0fd2d118f5f1913822ec60fdb8abad657072e77a347381d68cd0a90",
+    "artifact_hashes.random_axis_tensor": "1ff455edd3f2982ea45b6c11085887e46ece392e4e5eafab7916262f6fd7660b",
+    "artifact_hashes.structured_axis_tensor": "72107b8eec817930652016c768fa90529a5989d82129b3d4a44f8d0b593946db",
+    "artifact_hashes.tokenizer": "b1a1d6fd755ce2536bf073eedc4e5badd7ff1c00c0927f1329baa98d058f6f57",
+    "artifact_hashes.verifier_implementation": "d97497c64dd182e9b87b24dc47dcd9ec28b9d98d2ecd8ddf7bb48b2297cd2e68",
+    "bank.arms_conditional_on_budget": [
+      "random",
+      "structured_secondary"
+    ],
+    "bank.arms_required": [
+      "baseline",
+      "structured",
+      "zero_alpha"
+    ],
+    "bank.geometry": "4 axes x 2 signs",
+    "bank.size": 8,
+    "bank.stream_assignment": "cyclic_latin_square",
+    "bank.stream_assignment_rule": "stream(a,g) = (a + r_g) mod 8; a = 2*(direction_id-1) + (0 if sign=+1 else 1); r_g = task rank within its stratum in sealed manifest order, mod 8. Same schedule for the random bank. Enforced by gate G13.",
+    "budget.calibration_inside_budget": false,
+    "budget.max_wall_clock_days": 7,
+    "budget.rerun_reserve_fraction": 0.15,
+    "calibration.bootstrap_draws": 20000,
+    "calibration.bootstrap_seed": 20260728,
+    "code.commit": "47e7ed5b5d4d07235522e714c3970db6ec0887cb",
+    "code.generation_module_sha256": "8888921f08a71d3cd438d531128e12a33698b1ff56e6ed8382d4028bd511c6f2",
+    "code.repository_clean_required": true,
+    "code.repository_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cohorts.calibration_task_manifest_sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+    "cohorts.master_seed": 20260728,
+    "cohorts.seed_derivation_scheme": "sha256_domain_uint64_be_v1",
+    "cohorts.seed_hash_function": "sha256",
+    "cohorts.seed_matrix_sha256": "693b788e2098e6975e2364b23832f18b8686e60abe32af1a02f5acbddc5d5e49",
+    "decoding.answer_marker": "FINAL ANSWER:",
+    "decoding.max_new_tokens": 448,
+    "decoding.stopping_rule": "stop after the first parseable FINAL ANSWER commitment or at max_new_tokens; parser hash sealed",
+    "decoding.temperature": 0.7,
+    "decoding.top_p": 0.95,
+    "decoding.verifier": "deterministic truth-table",
+    "difficulty_strata.hard_medium": [
+      0.4,
+      0.55
+    ],
+    "difficulty_strata.medium": [
+      0.55,
+      0.7
+    ],
+    "difficulty_strata.min_well_formed_commitment_rate": 0.85,
+    "difficulty_strata.well_formed_noninferiority_margin": -0.05,
+    "generator.family": "Horizon Logic",
+    "generator.hash_ordered_pool_offsets_calibration": "namespace=calibration; settings rules_2/rules_3/rules_4; first 32 accepted tasks per setting in deterministic nonce order",
+    "generator.revision": "O1_HORIZON_LOGIC_V2_PROPOSITIONAL_20260729@sha256:7fbfbdf79309f79855e7631e4b9923a6eae607741a1aed0cd96904b6651dfb4d",
+    "generator.structural_knobs": [
+      "proof_depth",
+      "rule_count"
+    ],
+    "generator.task_id_hash_scheme": "sha256(canonical UTF-8 JSON task specification, sorted keys, no whitespace)",
+    "model.checkpoint_project_relative_tree_sha256": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+    "model.checkpoint_sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+    "model.deterministic_flags": {
+      "cublas_workspace_config": ":4096:8",
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "dropout_disabled": true,
+      "model_eval": true,
+      "torch_use_deterministic_algorithms": true
+    },
+    "model.dtype": "bfloat16",
+    "model.loops": 4,
+    "power.alpha_level": 0.05,
+    "power.delta_target": 0.05,
+    "power.target_power": 0.8,
+    "transport.dead_rms_threshold": 0.0001,
+    "transport.measurement_definition": "rho = RMS(h_int[L4,47 boundary after model.norm, final non-padding prompt position] - h_base[same]) / RMS(delta_in). The state is taken from OuroModel per_loop_hidden_states[3], not from a differently numbered decoder-module hook. Scale-free ratio: does not conflate residual magnitude with alpha. Measured before any stochastic decoding.",
+    "transport.measurement_layer": 47,
+    "transport.measurement_loop": "L4",
+    "transport.norm_convention": "RMS over the 2048 hidden coordinates at the frozen measurement locus",
+    "transport.normalized_by_injected_rms": true,
+    "transport.token_position": "final_nonpadding_prompt_position"
+  },
+  "runtime_attestation": {
+    "generation_module_sha256": "8888921f08a71d3cd438d531128e12a33698b1ff56e6ed8382d4028bd511c6f2",
+    "repository_clean": true,
+    "repository_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,11 @@
+arm,complete,macro_delta,chars_vs_base,degeneration_alarm,d_coding,d_reasoning,d_math,d_logic,d_alignment
+A_format_control,True,0.0,1.097,False,-0.0333,0.0,0.0333,0.0,0.0
+B_direct_budget_sft,True,-0.06,0.127,True,0.0,0.0,-0.3,0.0,0.0
+C_offline_verifier_dpo,True,-0.2436,0.264,True,-0.5,0.0667,-0.5334,-0.2333,-0.0182
+G_budget_plus_verifier,True,-0.1352,0.056,True,-0.0667,0.0,-0.4667,-0.1333,-0.0091
+H_from_base_best_recipe,True,-0.2188,0.189,True,-0.2333,0.0334,-0.7,-0.1666,-0.0273
+C_offline_verifier_dpo_r2,True,-0.0521,0.401,True,-0.0667,0.0334,-0.2,0.0,-0.0273
+C_offline_verifier_dpo_r3,True,-0.1121,0.337,True,-0.4667,0.0667,-0.1334,0.0,-0.0273
+C_offline_verifier_dpo_r4,True,-0.0588,0.697,False,-0.0667,-0.0666,-0.0667,-0.0666,-0.0273
+G_budget_plus_verifier_r2,True,-0.2539,0.159,True,-0.2,-0.1333,-0.6,-0.3,-0.0364
+H_from_base_best_recipe_r2,True,-0.1691,0.187,True,-0.1333,-0.1,-0.4334,-0.1333,-0.0455

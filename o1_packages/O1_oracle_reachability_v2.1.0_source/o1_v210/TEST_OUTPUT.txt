@@ -1,0 +1,29 @@
+O1 v2.1 full verification
+========================================================================
+PASS  SHA256SUMS integrity and coverage: 38 files
+PASS  Python syntax compilation: 20 modules
+PASS  JSON templates and fixed policy fields
+PASS  CLI parsers: 12 commands
+PASS  confirmatory fixtures: 53/53 passed
+PASS  calibration fixtures: 24/24 passed
+PASS  integration fixtures: 15/15 passed
+PASS  CLI workflow fixtures: 7/7 passed
+PASS  parser adversarial fixtures: 58/58 passed
+PASS  orchestrator fixtures: 15/15 passed
+PASS  cohort builder fixtures: 17/17 passed
+PASS  axis verifier self-test: 15/15 axis-artifact checks behaved as specified
+PASS  Exact McNemar planning minima: 324 / 817 / 2238 / 337
+PASS  No stale package labels or obsolete test counts
+PASS  No packaged or test-generated Python bytecode
+========================================================================
+ALL O1 v2.1 CHECKS PASSED
+
+Execution environment:
+  Python: 3.14.6
+  numpy: 2.4.4
+  torch: 2.12.0.dev20260407+cu128
+  transformers: 4.54.1 (unchanged)
+
+Scientific scope:
+  Synthetic fixtures and package-integrity validation only.
+  No real O1 calibration or confirmatory generation occurred.

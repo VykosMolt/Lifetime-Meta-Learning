@@ -1,0 +1,34 @@
+{
+  "assurance_boundary": {
+    "attested_or_hash_bound": [
+      "upstream A1 fitted-tap reconstruction",
+      "upstream A2 exact-protocol delta reconstruction",
+      "adapter capture parity and upstream checkpoint execution"
+    ],
+    "structurally_recomputed": [
+      "A1 and A2 identity to embedded frozen source-axis bytes",
+      "A3 and A4 as unit-RMS uncentered means of embedded matrices",
+      "reference task identity and order",
+      "axis rows, Gram matrix, and deterministic random bank"
+    ]
+  },
+  "embedded_source_files": {
+    "a1_readable_source_l3_24.npy": "2ef03d84304f838bcf749132007b4481010f40e7ba3db5dd59e586abb84f3584",
+    "a2_writable_source_l3_24.npy": "900d56f02b2f0a82060aad8519950cd0b07f70f1320b714890ab7cee6c06211d",
+    "actuator_reference_tasks.jsonl": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "causal_induced_updates_l3_24.npy": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+    "sequence_induced_updates_l3_24.npy": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775"
+  },
+  "input_artifacts": {
+    "a1_readable": "2ef03d84304f838bcf749132007b4481010f40e7ba3db5dd59e586abb84f3584",
+    "a2_writable": "900d56f02b2f0a82060aad8519950cd0b07f70f1320b714890ab7cee6c06211d",
+    "actuator_reference_tasks": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "causal_induced_updates": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+    "provenance": "d6edc03dc044597d361e44f2b443bc2a5d1dced913036673672ca2508913796d",
+    "sequence_induced_updates": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775"
+  },
+  "reconstruction_code_sha256": "4879c5d1fd8e109dc1c38e9cbb37f5425d2e5013b261785d0368750a230e926e",
+  "schema_version": "o1.axis_reconstruction_attestation.v2.0",
+  "scientific_scope": "real frozen pre-O1 source reconstruction; no O1 calibration or confirmatory outcomes",
+  "verifier_code_sha256": "ce6e79c6c39847144955b0ff4a725ddb4006d5ffb893644eb7b34861441107ac"
+}

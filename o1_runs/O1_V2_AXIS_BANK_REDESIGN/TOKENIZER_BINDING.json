@@ -1,0 +1,13 @@
+{
+  "checkpoint_path": "/home/moloch/ouro_project/models/ouro_rltt_local",
+  "files": {
+    "chat_template.jinja": "609d03c963c8d8d0519c9212df62280bc6dd561013259c3b6cd0ee43f7910f58",
+    "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+    "special_tokens_map.json": "aadabc9bd7e3f4738bc1160ef0aa932ba09401c1f11271bd269a21ba987b353b",
+    "tokenizer.json": "fcb808fe5e7642f5299be28aea07fc7f6d4f4364c3ac5e408e15a772cbc8fa8d",
+    "tokenizer_config.json": "7936619f224ec48539a38f8d7dbc64b3c1ba397f4c4b753397d52116cf71dcd8",
+    "vocab.json": "7b9de3f47796abf8d00ab96be299fea0dc9afdf1827f34e7e0b9fb44593efe5c"
+  },
+  "hash_rule": "SHA-256 of exact local tokenizer/config/template files; this JSON is the artifact bound by the calibration precommit",
+  "schema_version": "o1.tokenizer_binding.v2"
+}

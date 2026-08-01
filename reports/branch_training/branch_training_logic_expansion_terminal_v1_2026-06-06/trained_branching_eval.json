@@ -1,0 +1,79 @@
+{
+  "K": 3,
+  "TRAINED_BRANCHING_EVAL_VERDICT": "MODEL_INTERNAL_BRANCHING_PARTIAL",
+  "branch_diversity": {
+    "base": 2.17,
+    "sft": 2.62
+  },
+  "by_domain": {
+    "base": {
+      "coding": {
+        "branch_diversity": 2.17,
+        "greedy_acc": 0.333,
+        "groups": 12,
+        "parse_ok": 0.722,
+        "positive_oracle@K": 0.333
+      },
+      "logic": {
+        "branch_diversity": 2.42,
+        "greedy_acc": 0.667,
+        "groups": 12,
+        "parse_ok": 0.972,
+        "positive_oracle@K": 0.833
+      },
+      "math": {
+        "branch_diversity": 1.92,
+        "greedy_acc": 0.667,
+        "groups": 12,
+        "parse_ok": 1.0,
+        "positive_oracle@K": 0.75
+      },
+      "reasoning": {
+        "branch_diversity": 2.17,
+        "greedy_acc": 0.75,
+        "groups": 12,
+        "parse_ok": 1.0,
+        "positive_oracle@K": 0.917
+      }
+    },
+    "sft": {
+      "coding": {
+        "branch_diversity": 2.58,
+        "greedy_acc": 0.25,
+        "groups": 12,
+        "parse_ok": 0.944,
+        "positive_oracle@K": 0.417
+      },
+      "logic": {
+        "branch_diversity": 2.58,
+        "greedy_acc": 0.667,
+        "groups": 12,
+        "parse_ok": 0.972,
+        "positive_oracle@K": 0.75
+      },
+      "math": {
+        "branch_diversity": 2.67,
+        "greedy_acc": 0.667,
+        "groups": 12,
+        "parse_ok": 1.0,
+        "positive_oracle@K": 0.917
+      },
+      "reasoning": {
+        "branch_diversity": 2.67,
+        "greedy_acc": 0.417,
+        "groups": 12,
+        "parse_ok": 0.972,
+        "positive_oracle@K": 0.667
+      }
+    }
+  },
+  "diversity_lift": 0.45,
+  "elapsed_seconds": 11708.305,
+  "macro_positive_oracle": {
+    "base": 0.708,
+    "sft": 0.688
+  },
+  "note": "bounded proof-of-capability; 300-step SFT adapter vs Ouro-RLTT no-adapter; external labels only",
+  "oracle_lift_sft_minus_base": -0.02,
+  "per_dom_n": 12
+}

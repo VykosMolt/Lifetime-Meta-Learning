@@ -1,0 +1,11 @@
+{
+  "verdict": "BRANCH_BUDGET_READY",
+  "counts": {
+    "direct_answer_sft": 21501,
+    "one_branch_sft": 17878,
+    "multi_branch_sft": 17946,
+    "branch_budget_policy": 12065,
+    "overbranch_negative_pairs": 3585,
+    "underbranch_negative_pairs": 17932
+  }
+}

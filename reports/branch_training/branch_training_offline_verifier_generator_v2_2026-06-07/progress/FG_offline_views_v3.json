@@ -1,0 +1,21 @@
+{
+  "verdict": "WORKED_VIEWS_READY",
+  "direct_answer_sft": 11346,
+  "one_branch_sft": 13986,
+  "multi_branch_sft": 13895,
+  "branch_budget_policy": 11742,
+  "branch_set_rejection_sft": 13895,
+  "branch_set_dpo": 14979,
+  "generator_reward_groups": 18885,
+  "dpo_pair_types": {
+    "oracle": 14151,
+    "underbranch_defer": 945,
+    "overbranch": 45
+  },
+  "skipped": {
+    "no_worked_positive": 9055,
+    "empty_prompt": 8253
+  },
+  "one_branch_mean_chars": 391.2,
+  "elapsed_seconds": 3.5
+}

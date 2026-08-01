@@ -1,0 +1,156 @@
+{
+  "base_commit": "e4776dd41a85cad699ac36f309b5986ab48bd171",
+  "capture_or_reconstruction_defect_detected": false,
+  "checks": {
+    "adapter_and_hook_implementation_hashes": {
+      "causal_adapter_code_sha256": "1c232c81290fec647153c6e98a77ab20980672a55039513af8ec8e7797d872c0",
+      "passed": true,
+      "sequence_hook_code_sha256": "dfe73d69092cf02e2404358387239249a9e0bb0cce004cb1da8c9b80cbff4db1"
+    },
+    "adapter_application_and_scaling": {
+      "causal_effective_alpha_by_loop": [
+        0.0025,
+        0.005,
+        0.0075,
+        0.01
+      ],
+      "intervention_target": "physical layer 36 post-layer hook",
+      "mode": "multi_loop_decayed",
+      "passed": true,
+      "sequence_effective_alpha_by_loop": [
+        0.005,
+        0.01,
+        0.015,
+        0.02
+      ]
+    },
+    "capture_matrix_hashes": {
+      "causal_observed": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+      "passed": true,
+      "sequence_observed": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775"
+    },
+    "capture_report_sha256": {
+      "expected": "56e525c99f98fb1ab5f6aff0e99d99f50b8b49643d96c4ea9a134e2d0e80e2e3",
+      "observed": "56e525c99f98fb1ab5f6aff0e99d99f50b8b49643d96c4ea9a134e2d0e80e2e3",
+      "passed": true
+    },
+    "causal_checkpoint_sha256": {
+      "expected": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+      "observed": "f0831a9abf846cdf702d1211da346e2de3d32fe2ce11275247bad8400af215f4",
+      "passed": true
+    },
+    "checkpoint_tree_binding": {
+      "expected": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+      "note": "tree was hash-bound in O1_REAL_001; the 5 GB checkpoint is not copied",
+      "passed": true,
+      "recomputed_from_current_local_checkpoint": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802",
+      "recorded": "7dbbe4ef91de369bd712bad587c1af4f7c5dc42deff5377d4d70086c4c08a802"
+    },
+    "dtype_and_normalization": {
+      "component_normalization": "unit RMS",
+      "model_dtype": "torch.bfloat16",
+      "passed": true,
+      "pc_compute_dtype": "float64",
+      "stored_update_dtype": "float32",
+      "transformers_capture_version": "4.54.1",
+      "transformers_current_version": "4.54.1"
+    },
+    "final_nonpadding_prompt_position": {
+      "passed": true,
+      "positions": [
+        {
+          "capture_position": 89,
+          "prompt_tokens": 90,
+          "task_id": "ARC-Challenge/0"
+        },
+        {
+          "capture_position": 76,
+          "prompt_tokens": 77,
+          "task_id": "ARC-Challenge/1"
+        },
+        {
+          "capture_position": 109,
+          "prompt_tokens": 110,
+          "task_id": "ARC-Challenge/10"
+        },
+        {
+          "capture_position": 98,
+          "prompt_tokens": 99,
+          "task_id": "ARC-Challenge/11"
+        },
+        {
+          "capture_position": 86,
+          "prompt_tokens": 87,
+          "task_id": "mmlu/high_school_biology/0"
+        },
+        {
+          "capture_position": 90,
+          "prompt_tokens": 91,
+          "task_id": "mmlu/high_school_biology/1"
+        },
+        {
+          "capture_position": 81,
+          "prompt_tokens": 82,
+          "task_id": "mmlu/high_school_biology/10"
+        },
+        {
+          "capture_position": 163,
+          "prompt_tokens": 164,
+          "task_id": "mmlu/high_school_biology/11"
+        }
+      ]
+    },
+    "hook_and_zero_control": {
+      "passed": true,
+      "zero_alpha_max_abs": 0.0
+    },
+    "identical_reference_examples_and_order": {
+      "expected_reference_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+      "passed": true,
+      "reference_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+      "task_ids": [
+        "ARC-Challenge/0",
+        "ARC-Challenge/1",
+        "ARC-Challenge/10",
+        "ARC-Challenge/11",
+        "mmlu/high_school_biology/0",
+        "mmlu/high_school_biology/1",
+        "mmlu/high_school_biology/10",
+        "mmlu/high_school_biology/11"
+      ]
+    },
+    "paper_l3_loop_mapping": {
+      "expected": "zero-indexed loop 2 / paper L3 / physical layer 24",
+      "paper_loop_label": "L3",
+      "passed": true,
+      "physical_layer": 24,
+      "zero_indexed_loop": 2
+    },
+    "post_layer_residual_boundary": {
+      "observed": "post-block output of model.model.layers[23]",
+      "passed": true
+    },
+    "sequence_checkpoint_sha256": {
+      "expected": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+      "observed": "75140bf3af7dfba4ee6851a500693b019f884e25dad0a2112f493dc99630597c",
+      "passed": true
+    },
+    "sign_convention": {
+      "gate_uses_absolute_cosine": true,
+      "observed": "positive dot with that adapter's mean induced update",
+      "passed": true
+    },
+    "trajectory_phase": {
+      "generated_state_used": false,
+      "observed": "prompt_only",
+      "passed": true
+    }
+  },
+  "created_at": "2026-07-29T12:20:16.028791+02:00",
+  "failed_checks": [],
+  "overall": "PASS",
+  "schema_version": "o1.axis_diagnosis_v2.capture_parity.v1",
+  "scientific_scope": "reconstruction diagnostic; no O1 outcomes",
+  "source_root_read_only": "/home/moloch/ouro_project",
+  "worktree": "/tmp/o1_axis_diagnosis_v2"
+}

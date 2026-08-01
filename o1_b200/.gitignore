@@ -1,0 +1,4 @@
+# local test scratch and per-run outputs (regenerable; never part of the package)
+reports/local_runs/
+__pycache__/
+*.pyc

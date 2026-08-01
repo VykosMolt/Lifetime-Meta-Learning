@@ -1,0 +1,130 @@
+{
+  "actuator_mean_construction": {
+    "causal": {
+      "raw_mean_l2_norm": 0.04112786989365476,
+      "raw_mean_rms": 0.0009088061155487916,
+      "source_matrix_dtype": "float32",
+      "source_matrix_file_sha256": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92",
+      "source_matrix_shape": [
+        8,
+        2048
+      ],
+      "unit_rms_row_sha256": "284c4f43243295e4123e1e8885eda5ca9014e5cf374652b7032f1d2362d7fc74"
+    },
+    "centered": false,
+    "construction_method": "unit_rms(mean(float64(exact_float32_induced_update_matrix), axis=0))",
+    "mean_direction_cosine": 0.5720586047705144,
+    "pc_extraction": false,
+    "reference_conditioned": true,
+    "reference_task_count": 8,
+    "reference_task_ids_in_order": [
+      "ARC-Challenge/0",
+      "ARC-Challenge/1",
+      "ARC-Challenge/10",
+      "ARC-Challenge/11",
+      "mmlu/high_school_biology/0",
+      "mmlu/high_school_biology/1",
+      "mmlu/high_school_biology/10",
+      "mmlu/high_school_biology/11"
+    ],
+    "reference_tasks_file_sha256": "d145955fdd15a7c413fae26276d4a61a0d4eab05f5241b73365982e4ed49c75b",
+    "sequence": {
+      "raw_mean_l2_norm": 0.05264098849247025,
+      "raw_mean_rms": 0.0011632124978558978,
+      "source_matrix_dtype": "float32",
+      "source_matrix_file_sha256": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775",
+      "source_matrix_shape": [
+        8,
+        2048
+      ],
+      "unit_rms_row_sha256": "2926c83868d5827a7e19495401a7b7241d897044f7ee1fca94d787c02f6c1f9c"
+    }
+  },
+  "axes": [
+    {
+      "construction": "accepted real leakage-clean L3_24 process-quality tap covector, carried byte-for-byte; unit RMS",
+      "locus": "L3_24_raw_residual_2048",
+      "name": "A1_READABLE",
+      "provenance": {
+        "coefficient_mapping": "identity; AntisymLinearNoNorm raw 2048-d residual covector; no PCA or standardization inversion",
+        "source_layer": 24,
+        "source_loop": "paper L3",
+        "source_phase": "completed_candidate_state",
+        "source_pooling_rule": "attention-mask-valid mean; fp32 compute",
+        "source_token_position": "all attention-mask-valid tokens",
+        "target_injection_layer": 24,
+        "target_injection_loop": "paper L3 / zero-based loop 2",
+        "target_token_position": "final_nonpadding_prompt_position"
+      },
+      "sha256": "ce9b8feacd654df8d38c5fa72d48e0fe31714b680d5c4d135f061592cc9d7370",
+      "source_artifact_sha256": "2ef03d84304f838bcf749132007b4481010f40e7ba3db5dd59e586abb84f3584"
+    },
+    {
+      "construction": "accepted leading direction of centered exact-protocol S1/S3 L3_24 injection deltas; reconstructed because historical tensor was absent; unit RMS",
+      "locus": "L3_24_raw_residual_2048",
+      "name": "A2_WRITABLE",
+      "provenance": {
+        "coefficient_mapping": "leading right singular vector of centered exact L3_24 delta matrix; sign aligned to mean delta",
+        "source_layer": 24,
+        "source_loop": "paper L3",
+        "source_phase": "exact-protocol one-shot injection delta",
+        "source_pooling_rule": "none beyond one-token range mean",
+        "source_token_position": "fixed last-token suffix",
+        "target_injection_layer": 24,
+        "target_injection_loop": "paper L3 / zero-based loop 2",
+        "target_token_position": "final_nonpadding_prompt_position"
+      },
+      "sha256": "0845b0926abecd83acb8239e4d7d15941cfb139ce1b816894dd19956ff92260e",
+      "source_artifact_sha256": "900d56f02b2f0a82060aad8519950cd0b07f70f1320b714890ab7cee6c06211d"
+    },
+    {
+      "construction": "unit RMS raw uncentered mean of eight causal-adapter-induced L3_24 updates in frozen reference order; no PC",
+      "locus": "L3_24_raw_residual_2048",
+      "name": "A3_CAUSAL_MEAN",
+      "provenance": {
+        "coefficient_mapping": "float64 arithmetic mean of exact stored float32 rows, then unit RMS; no centering, PCA, SVD, or cross-adapter averaging",
+        "source_layer": 24,
+        "source_loop": "paper L3 / zero-based loop 2",
+        "source_phase": "prompt_only",
+        "source_pooling_rule": "none; one position per task then raw task mean",
+        "source_token_position": "final non-padding prompt position",
+        "target_injection_layer": 24,
+        "target_injection_loop": "paper L3 / zero-based loop 2",
+        "target_token_position": "final_nonpadding_prompt_position"
+      },
+      "sha256": "284c4f43243295e4123e1e8885eda5ca9014e5cf374652b7032f1d2362d7fc74",
+      "source_artifact_sha256": "6388d7fc1477311ab6f75c02736451e60be1a925f5f4a46c0edba2eb23adfc92"
+    },
+    {
+      "construction": "unit RMS raw uncentered mean of eight sequence-adapter-induced L3_24 updates in frozen reference order; no PC",
+      "locus": "L3_24_raw_residual_2048",
+      "name": "A4_SEQUENCE_MEAN",
+      "provenance": {
+        "coefficient_mapping": "float64 arithmetic mean of exact stored float32 rows, then unit RMS; no centering, PCA, SVD, or cross-adapter averaging",
+        "source_layer": 24,
+        "source_loop": "paper L3 / zero-based loop 2",
+        "source_phase": "prompt_only",
+        "source_pooling_rule": "none; one position per task then raw task mean",
+        "source_token_position": "final non-padding prompt position",
+        "target_injection_layer": 24,
+        "target_injection_loop": "paper L3 / zero-based loop 2",
+        "target_token_position": "final_nonpadding_prompt_position"
+      },
+      "sha256": "2926c83868d5827a7e19495401a7b7241d897044f7ee1fca94d787c02f6c1f9c",
+      "source_artifact_sha256": "484cfd9adf8b4c6bb11a80fa6aab149711c52af7ce9bc25a06a7fb0979c87775"
+    }
+  ],
+  "axis_order": [
+    "A1_READABLE",
+    "A2_WRITABLE",
+    "A3_CAUSAL_MEAN",
+    "A4_SEQUENCE_MEAN"
+  ],
+  "explicit_exclusions": [
+    "original inadequate d2 is not in the primary bank",
+    "causal and sequence centered PC1 vectors are not used",
+    "A3 and A4 are not averaged into a shared direction",
+    "no O1 calibration or confirmatory outcomes were used"
+  ],
+  "schema_version": "o1.axis_manifest.v2.0"
+}

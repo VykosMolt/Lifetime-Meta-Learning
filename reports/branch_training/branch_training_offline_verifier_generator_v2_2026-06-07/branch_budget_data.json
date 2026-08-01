@@ -1,0 +1,30 @@
+{
+  "BRANCH_BUDGET_DATA_VERDICT": "BRANCH_BUDGET_READY",
+  "budget_label_distribution_balanced": {
+    "DEFER_TO_EXTERNAL_SEARCH": 2077,
+    "DIRECT": 3500,
+    "EIGHT_BRANCH": 2305,
+    "FOUR_BRANCH": 3500,
+    "ONE_BRANCH": 14,
+    "TWO_BRANCH": 3500
+  },
+  "budget_label_distribution_raw": {
+    "DEFER_TO_EXTERNAL_SEARCH": 2077,
+    "DIRECT": 6427,
+    "EIGHT_BRANCH": 2305,
+    "FOUR_BRANCH": 28063,
+    "ONE_BRANCH": 14,
+    "TWO_BRANCH": 4114
+  },
+  "counts": {
+    "branch_budget_policy": 12065,
+    "direct_answer_sft": 21501,
+    "multi_branch_sft": 17946,
+    "one_branch_sft": 17878,
+    "overbranch_negative_pairs": 3585,
+    "underbranch_negative_pairs": 17932
+  },
+  "difficulty_proxy_caveat": "budget labels derived from constructed-pool pass-rate (weak proxy); authoritative difficulty = base-model success on canary/online, folded in at K/training time",
+  "direct_vs_branch_fraction": 0.687,
+  "elapsed_seconds": 2.4
+}

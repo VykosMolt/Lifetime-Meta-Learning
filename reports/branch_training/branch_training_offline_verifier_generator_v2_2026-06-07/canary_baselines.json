@@ -1,0 +1,205 @@
+{
+  "CANARY_BASELINE_VERDICT": "PREVIOUS_SFT_BEHAVIOR_CONFIRMED",
+  "base": {
+    "alignment": {
+      "ci": [
+        0.4435,
+        0.6268
+      ],
+      "n": 110,
+      "pref_acc": 0.5364
+    },
+    "coding": {
+      "all_wrong_rate": 0.49,
+      "branch_diversity": 2.36,
+      "dup_rate": 0.41,
+      "first_correct": 0.46,
+      "n": 100,
+      "oracle_ci": [
+        0.4135,
+        0.6058
+      ],
+      "parse_ok": 0.8525,
+      "positive_oracle@K": 0.51,
+      "small_n": false,
+      "verifier_positive_diversity": 0.88
+    },
+    "logic": {
+      "all_wrong_rate": 0.1833,
+      "branch_diversity": 4.0,
+      "dup_rate": 0.302,
+      "first_correct": 0.5889,
+      "n": 180,
+      "oracle_ci": [
+        0.7537,
+        0.8664
+      ],
+      "parse_ok": 0.9958,
+      "positive_oracle@K": 0.8167,
+      "small_n": false,
+      "verifier_positive_diversity": 1.711
+    },
+    "math": {
+      "all_wrong_rate": 0.0727,
+      "branch_diversity": 2.336,
+      "dup_rate": 0.501,
+      "first_correct": 0.8273,
+      "n": 110,
+      "oracle_ci": [
+        0.863,
+        0.9627
+      ],
+      "parse_ok": 0.9966,
+      "positive_oracle@K": 0.9273,
+      "small_n": false,
+      "verifier_positive_diversity": 1.727
+    },
+    "reasoning": {
+      "all_wrong_rate": 0.1182,
+      "branch_diversity": 2.364,
+      "dup_rate": 0.409,
+      "first_correct": 0.7818,
+      "n": 110,
+      "oracle_ci": [
+        0.8082,
+        0.9296
+      ],
+      "parse_ok": 1.0,
+      "positive_oracle@K": 0.8818,
+      "small_n": false,
+      "verifier_positive_diversity": 1.755
+    }
+  },
+  "external_stack_reference": {
+    "corecontent_v2_within_survivors": 0.658,
+    "dualanchor_forced_top1": 0.379,
+    "note": "base+DualAnchor+CoreContent_v2 terminal from v1 Experiment-1"
+  },
+  "prev_sft": {
+    "alignment": {
+      "ci": [
+        0.4346,
+        0.6181
+      ],
+      "n": 110,
+      "pref_acc": 0.5273
+    },
+    "coding": {
+      "all_wrong_rate": 0.47,
+      "branch_diversity": 3.48,
+      "dup_rate": 0.128,
+      "first_correct": 0.38,
+      "n": 100,
+      "oracle_ci": [
+        0.4329,
+        0.6249
+      ],
+      "parse_ok": 0.955,
+      "positive_oracle@K": 0.53,
+      "small_n": false,
+      "verifier_positive_diversity": 0.99
+    },
+    "logic": {
+      "all_wrong_rate": 0.1333,
+      "branch_diversity": 4.478,
+      "dup_rate": 0.186,
+      "first_correct": 0.5,
+      "n": 180,
+      "oracle_ci": [
+        0.8093,
+        0.9087
+      ],
+      "parse_ok": 0.9757,
+      "positive_oracle@K": 0.8667,
+      "small_n": false,
+      "verifier_positive_diversity": 1.961
+    },
+    "math": {
+      "all_wrong_rate": 0.1273,
+      "branch_diversity": 3.473,
+      "dup_rate": 0.282,
+      "first_correct": 0.5091,
+      "n": 110,
+      "oracle_ci": [
+        0.7976,
+        0.9227
+      ],
+      "parse_ok": 1.0,
+      "positive_oracle@K": 0.8727,
+      "small_n": false,
+      "verifier_positive_diversity": 1.527
+    },
+    "reasoning": {
+      "all_wrong_rate": 0.1273,
+      "branch_diversity": 3.164,
+      "dup_rate": 0.192,
+      "first_correct": 0.5909,
+      "n": 110,
+      "oracle_ci": [
+        0.7976,
+        0.9227
+      ],
+      "parse_ok": 0.9795,
+      "positive_oracle@K": 0.8727,
+      "small_n": false,
+      "verifier_positive_diversity": 1.836
+    }
+  },
+  "rows": [
+    {
+      "base": 0.51,
+      "base_div": 2.36,
+      "base_parse": 0.8525,
+      "delta": 0.020000000000000018,
+      "domain": "coding",
+      "flag": "FLAG_UP",
+      "n_base": 100,
+      "prev_sft": 0.53,
+      "small_n": false
+    },
+    {
+      "base": 0.8818,
+      "base_div": 2.364,
+      "base_parse": 1.0,
+      "delta": -0.009099999999999997,
+      "domain": "reasoning",
+      "flag": "FLAG_DOWN",
+      "n_base": 110,
+      "prev_sft": 0.8727,
+      "small_n": false
+    },
+    {
+      "base": 0.9273,
+      "base_div": 2.336,
+      "base_parse": 0.9966,
+      "delta": -0.05459999999999998,
+      "domain": "math",
+      "flag": "FLAG_DOWN",
+      "n_base": 110,
+      "prev_sft": 0.8727,
+      "small_n": false
+    },
+    {
+      "base": 0.8167,
+      "base_div": 4.0,
+      "base_parse": 0.9958,
+      "delta": 0.050000000000000044,
+      "domain": "logic",
+      "flag": "FLAG_UP",
+      "n_base": 180,
+      "prev_sft": 0.8667,
+      "small_n": false
+    },
+    {
+      "base": 0.5364,
+      "base_div": null,
+      "base_parse": null,
+      "delta": -0.009099999999999997,
+      "domain": "alignment",
+      "flag": "FLAG_DOWN",
+      "n_base": 110,
+      "prev_sft": 0.5273,
+      "small_n": null
+    }
+  ]
+}

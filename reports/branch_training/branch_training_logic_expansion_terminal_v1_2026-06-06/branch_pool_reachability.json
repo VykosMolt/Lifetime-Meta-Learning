@@ -1,0 +1,178 @@
+{
+  "BRANCH_POOL_REACHABILITY_VERDICT": "LOGIC_REACHABILITY_READY",
+  "cheap_overall": {
+    "all_correct_rate": 0.0,
+    "all_wrong_rate": 0.0,
+    "avg_branches": 3.44,
+    "groups": 33350,
+    "parse_ok_rate": 1.0,
+    "positive_oracle@1": 0.3162,
+    "positive_oracle@2": 0.6324,
+    "positive_oracle@4": 0.9629,
+    "reward_diverse_rate": 1.0,
+    "strategy_diversity": 1.0
+  },
+  "elapsed_seconds": 1.071,
+  "generated_by_domain": {
+    "coding": {
+      "all_correct_rate": 0.2,
+      "all_wrong_rate": 0.5667,
+      "avg_branches": 4.0,
+      "groups": 60,
+      "parse_ok_rate": 0.85,
+      "positive_oracle@1": 0.3208,
+      "positive_oracle@2": 0.3861,
+      "positive_oracle@4": 0.4333,
+      "reward_diverse_rate": 0.2333,
+      "strategy_diversity": 2.0
+    },
+    "logic": {
+      "all_correct_rate": 0.3,
+      "all_wrong_rate": 0.2667,
+      "avg_branches": 4.0,
+      "groups": 60,
+      "parse_ok_rate": 0.9917,
+      "positive_oracle@1": 0.5167,
+      "positive_oracle@2": 0.6417,
+      "positive_oracle@4": 0.7333,
+      "reward_diverse_rate": 0.4333,
+      "strategy_diversity": 2.0
+    },
+    "math": {
+      "all_correct_rate": 0.6,
+      "all_wrong_rate": 0.1667,
+      "avg_branches": 4.0,
+      "groups": 60,
+      "parse_ok_rate": 0.9917,
+      "positive_oracle@1": 0.7375,
+      "positive_oracle@2": 0.8,
+      "positive_oracle@4": 0.8333,
+      "reward_diverse_rate": 0.2333,
+      "strategy_diversity": 2.0
+    },
+    "reasoning": {
+      "all_correct_rate": 0.6333,
+      "all_wrong_rate": 0.05,
+      "avg_branches": 4.0,
+      "groups": 60,
+      "parse_ok_rate": 0.9875,
+      "positive_oracle@1": 0.8125,
+      "positive_oracle@2": 0.8972,
+      "positive_oracle@4": 0.95,
+      "reward_diverse_rate": 0.3167,
+      "strategy_diversity": 2.0
+    }
+  },
+  "generated_by_logic_family": {
+    "fol_entailment": {
+      "all_correct_rate": 0.4286,
+      "all_wrong_rate": 0.1429,
+      "avg_branches": 4.0,
+      "groups": 7,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.6786,
+      "positive_oracle@2": 0.7857,
+      "positive_oracle@4": 0.8571,
+      "reward_diverse_rate": 0.4286,
+      "strategy_diversity": 2.0
+    },
+    "logical_entailment": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.8571,
+      "avg_branches": 4.0,
+      "groups": 7,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.0357,
+      "positive_oracle@2": 0.0714,
+      "positive_oracle@4": 0.1429,
+      "reward_diverse_rate": 0.1429,
+      "strategy_diversity": 2.0
+    },
+    "mcq_logical_reading": {
+      "all_correct_rate": 0.1429,
+      "all_wrong_rate": 0.0,
+      "avg_branches": 4.0,
+      "groups": 7,
+      "parse_ok_rate": 0.9286,
+      "positive_oracle@1": 0.6071,
+      "positive_oracle@2": 0.8571,
+      "positive_oracle@4": 1.0,
+      "reward_diverse_rate": 0.8571,
+      "strategy_diversity": 2.0
+    },
+    "proofwriter_deduction": {
+      "all_correct_rate": 0.25,
+      "all_wrong_rate": 0.25,
+      "avg_branches": 4.0,
+      "groups": 8,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.4688,
+      "positive_oracle@2": 0.6042,
+      "positive_oracle@4": 0.75,
+      "reward_diverse_rate": 0.5,
+      "strategy_diversity": 2.0
+    },
+    "ruletaker_deduction": {
+      "all_correct_rate": 0.2857,
+      "all_wrong_rate": 0.5714,
+      "avg_branches": 4.0,
+      "groups": 7,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.3571,
+      "positive_oracle@2": 0.4048,
+      "positive_oracle@4": 0.4286,
+      "reward_diverse_rate": 0.1429,
+      "strategy_diversity": 2.0
+    },
+    "synthetic_constraint_game": {
+      "all_correct_rate": 0.0,
+      "all_wrong_rate": 0.375,
+      "avg_branches": 4.0,
+      "groups": 8,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.2812,
+      "positive_oracle@2": 0.4792,
+      "positive_oracle@4": 0.625,
+      "reward_diverse_rate": 0.625,
+      "strategy_diversity": 2.0
+    },
+    "synthetic_fol": {
+      "all_correct_rate": 0.75,
+      "all_wrong_rate": 0.0,
+      "avg_branches": 4.0,
+      "groups": 8,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.9062,
+      "positive_oracle@2": 0.9792,
+      "positive_oracle@4": 1.0,
+      "reward_diverse_rate": 0.25,
+      "strategy_diversity": 2.0
+    },
+    "synthetic_propositional": {
+      "all_correct_rate": 0.5,
+      "all_wrong_rate": 0.0,
+      "avg_branches": 4.0,
+      "groups": 8,
+      "parse_ok_rate": 1.0,
+      "positive_oracle@1": 0.75,
+      "positive_oracle@2": 0.8958,
+      "positive_oracle@4": 1.0,
+      "reward_diverse_rate": 0.5,
+      "strategy_diversity": 2.0
+    }
+  },
+  "generated_overall": {
+    "all_correct_rate": 0.4333,
+    "all_wrong_rate": 0.2625,
+    "avg_branches": 4.0,
+    "groups": 240,
+    "parse_ok_rate": 0.9552,
+    "positive_oracle@1": 0.5969,
+    "positive_oracle@2": 0.6813,
+    "positive_oracle@4": 0.7375,
+    "reward_diverse_rate": 0.3042,
+    "strategy_diversity": 2.0
+  },
+  "interpretation": "pools reach oracle often: selection/self-selection is the lever",
+  "n_generated_groups": 240
+}

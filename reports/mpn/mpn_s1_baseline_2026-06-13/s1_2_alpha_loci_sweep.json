@@ -1,0 +1,210 @@
+{
+  "verdict": "S1_2_FRONTIER_MAPPED",
+  "K": 4,
+  "n_tasks": 16,
+  "base_accuracy": 0.312,
+  "max_distinct": 5,
+  "grid": [
+    {
+      "alpha": 0.01,
+      "layer": 24,
+      "loop": 1,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.01,
+      "layer": 36,
+      "loop": 1,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.01,
+      "layer": 47,
+      "loop": 1,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.01,
+      "layer": 24,
+      "loop": 2,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.01,
+      "layer": 24,
+      "loop": 3,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.02,
+      "layer": 24,
+      "loop": 1,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.02,
+      "layer": 36,
+      "loop": 1,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.02,
+      "layer": 47,
+      "loop": 1,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.02,
+      "layer": 24,
+      "loop": 2,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.02,
+      "layer": 24,
+      "loop": 3,
+      "safe": true,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.05,
+      "layer": 24,
+      "loop": 1,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.05,
+      "layer": 36,
+      "loop": 1,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.05,
+      "layer": 47,
+      "loop": 1,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.05,
+      "layer": 24,
+      "loop": 2,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.05,
+      "layer": 24,
+      "loop": 3,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.1,
+      "layer": 24,
+      "loop": 1,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.1,
+      "layer": 36,
+      "loop": 1,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.1,
+      "layer": 47,
+      "loop": 1,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.1,
+      "layer": 24,
+      "loop": 2,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    },
+    {
+      "alpha": 0.1,
+      "layer": 24,
+      "loop": 3,
+      "safe": false,
+      "mean_distinct": 1.0,
+      "distinct_rate": 0.0,
+      "branch_flip_rate": 0.0,
+      "positive_oracle": 0.312
+    }
+  ],
+  "elapsed_seconds": 169.6
+}

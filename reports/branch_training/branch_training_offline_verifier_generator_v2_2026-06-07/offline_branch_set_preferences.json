@@ -1,0 +1,17 @@
+{
+  "OFFLINE_BRANCH_SET_PREFERENCE_VERDICT": "OFFLINE_PREFS_READY",
+  "branch_set_dpo": 66255,
+  "branch_set_rejection_sft": 37504,
+  "dpo_pair_types": {
+    "oracle": 39569,
+    "overbranch": 4405,
+    "overbranch_F": 3580,
+    "underbranch_F": 17932,
+    "underbranch_defer": 2379
+  },
+  "elapsed_seconds": 2.9,
+  "generator_reward_groups": 32496,
+  "reward_max": 6.088,
+  "reward_mean": 4.402,
+  "reward_min": -0.733
+}

@@ -1,0 +1,89 @@
+{
+  "verdict": "S1_4B_KMATCHED_SAMPLING",
+  "config": {
+    "N_PER": 1,
+    "N_SAMPLES": 12,
+    "mnt": 96,
+    "mnt_long": 160,
+    "temp": 0.7,
+    "top_p": 0.95,
+    "score_input_mode": "prompt_plus_answer"
+  },
+  "n_tasks": 4,
+  "aggregate": {
+    "base_acc_160": 0.25,
+    "base_acc_96": 0.0,
+    "sampling_oracle": 0.75,
+    "sampling_new_correct_vs_base160": 0.667,
+    "sampling_new_correct_vs_base96": 0.75,
+    "sampling_selected_acc": 0.0,
+    "mean_unique_finals": 11.25,
+    "parse_invalid_rate": 0.0
+  },
+  "decision": {
+    "screen_sample_cells": {
+      "sample_oracle_mean": 0.611,
+      "sample_new_correct_mean": 0.611,
+      "greedy_oracle_mean": 0.0,
+      "greedy_new_correct_mean": 0.0
+    },
+    "plain_sampling_oracle": 0.75,
+    "sample_fork_minus_plain_sampling_oracle": -0.139,
+    "greedy_fork_new_correct": 0.0,
+    "verdict": "FROZEN_FORK_CLOSED__SAMPLING_EXPLAINS_SCREEN__S3_IS_LEVER",
+    "note": "greedy/deterministic fork = 0 new-correct AND plain-sampling oracle (0.75) >= sample-fork oracle (0.611): fork does NOT exceed sampling -> fork adds nothing beyond stochastic decoding; the S1.4a win is sampling. Frozen FORK branching closed for local purposes; move to S3/backbone.",
+    "fork_adds_over_sampling": false,
+    "correction_note": "verdict recomputed: prior auto-string mis-fired on abs(diff)<=TOL; negative diff (sampling>=fork) is pro-CLOSED"
+  },
+  "rows": [
+    {
+      "task": "logic_00013d9d03",
+      "domain": "logic",
+      "base_correct_160": false,
+      "base_correct_96": false,
+      "n_samples": 12,
+      "oracle": true,
+      "n_correct": 2,
+      "selected_correct": false,
+      "unique_finals": 9,
+      "parse_invalid": 0
+    },
+    {
+      "task": "math_0313a1abc4",
+      "domain": "math",
+      "base_correct_160": true,
+      "base_correct_96": false,
+      "n_samples": 12,
+      "oracle": true,
+      "n_correct": 1,
+      "selected_correct": false,
+      "unique_finals": 12,
+      "parse_invalid": 0
+    },
+    {
+      "task": "reasoning_00bf397683",
+      "domain": "reasoning",
+      "base_correct_160": false,
+      "base_correct_96": false,
+      "n_samples": 12,
+      "oracle": true,
+      "n_correct": 5,
+      "selected_correct": false,
+      "unique_finals": 12,
+      "parse_invalid": 0
+    },
+    {
+      "task": "coding_00715d44da",
+      "domain": "coding",
+      "base_correct_160": false,
+      "base_correct_96": false,
+      "n_samples": 12,
+      "oracle": false,
+      "n_correct": 0,
+      "selected_correct": false,
+      "unique_finals": 12,
+      "parse_invalid": 0
+    }
+  ],
+  "elapsed_seconds": 273.9
+}

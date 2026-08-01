@@ -1,0 +1,60 @@
+{
+  "verdict": "PREVIOUS_SFT_BEHAVIOR_CONFIRMED",
+  "rows": [
+    {
+      "domain": "coding",
+      "n_base": 100,
+      "base": 0.51,
+      "prev_sft": 0.53,
+      "delta": 0.020000000000000018,
+      "flag": "FLAG_UP",
+      "base_parse": 0.8525,
+      "base_div": 2.36,
+      "small_n": false
+    },
+    {
+      "domain": "reasoning",
+      "n_base": 110,
+      "base": 0.8818,
+      "prev_sft": 0.8727,
+      "delta": -0.009099999999999997,
+      "flag": "FLAG_DOWN",
+      "base_parse": 1.0,
+      "base_div": 2.364,
+      "small_n": false
+    },
+    {
+      "domain": "math",
+      "n_base": 110,
+      "base": 0.9273,
+      "prev_sft": 0.8727,
+      "delta": -0.05459999999999998,
+      "flag": "FLAG_DOWN",
+      "base_parse": 0.9966,
+      "base_div": 2.336,
+      "small_n": false
+    },
+    {
+      "domain": "logic",
+      "n_base": 180,
+      "base": 0.8167,
+      "prev_sft": 0.8667,
+      "delta": 0.050000000000000044,
+      "flag": "FLAG_UP",
+      "base_parse": 0.9958,
+      "base_div": 4.0,
+      "small_n": false
+    },
+    {
+      "domain": "alignment",
+      "n_base": 110,
+      "base": 0.5364,
+      "prev_sft": 0.5273,
+      "delta": -0.009099999999999997,
+      "flag": "FLAG_DOWN",
+      "base_parse": null,
+      "base_div": null,
+      "small_n": null
+    }
+  ]
+}

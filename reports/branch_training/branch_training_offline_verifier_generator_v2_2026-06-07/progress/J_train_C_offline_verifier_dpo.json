@@ -1,0 +1,17 @@
+{
+  "verdict": "OFFLINE_TRAINING_COMPLETE",
+  "phases": {
+    "sft": {
+      "records": 29761,
+      "steps": 304,
+      "complete": true,
+      "loss": 0.0010313217185045544
+    },
+    "dpo": {
+      "records": 30000,
+      "steps": 202,
+      "complete": true,
+      "loss": 0.0005819588383235554
+    }
+  }
+}
