@@ -277,6 +277,20 @@ def run() -> Runner:
     r.check("budget arithmetic is decimal with boundary tests at/below/above "
             "USD 40 and USD 45", budget_boundaries)
 
+    def hf_result_uri_parsing():
+        from o1_b200.provider.runpod.adapter import (
+            RunpodAdapterError, parse_hf_uri)
+        assert parse_hf_uri("hf://ns/repo/a/b/c.tar.gz") == \
+            ("ns/repo", "a/b/c.tar.gz")
+        for bad in ("hf://x", "hf://x/y", "hf:///y/z", "hf://x//z"):
+            try:
+                parse_hf_uri(bad)
+            except RunpodAdapterError:
+                continue
+            raise AssertionError(f"malformed result source accepted: {bad}")
+    r.check("hf:// result-destination URIs parse strictly; malformed refused",
+            hf_result_uri_parsing)
+
     return r
 
 

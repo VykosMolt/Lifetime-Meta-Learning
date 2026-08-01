@@ -115,13 +115,73 @@ def verify(repo: str) -> int:
     return 0 if ok else 1
 
 
+RESULT_ROUNDTRIP_RECORD = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "RESULT_ROUNDTRIP_RECORD.json")
+
+
+def result_roundtrip(results_repo: str) -> int:
+    """RESULT DESTINATION ROUND-TRIP test.
+
+    Creates the PRIVATE results repo (kept SEPARATE from the artifact
+    staging repo so the pod's fine-grained WRITE token is scoped to results
+    only and can never touch the checkpoint), uploads a probe archive
+    through the pod's upload path, re-downloads it through the driver's
+    download path (hf:// scheme), and hash-compares.
+    """
+    import hashlib
+    import tarfile
+    from huggingface_hub import HfApi, hf_hub_download
+    api = HfApi()
+    api.create_repo(results_repo, private=True, repo_type="model",
+                    exist_ok=True)
+    if not api.repo_info(results_repo).private:
+        raise SystemExit(f"REFUSED: {results_repo} is not private")
+    with tempfile.TemporaryDirectory(prefix="o1_result_probe_") as tmp:
+        payload = os.path.join(tmp, "probe.txt")
+        with open(payload, "w") as fh:
+            fh.write("o1 b200 result-destination round-trip probe\n")
+        archive = os.path.join(tmp, "roundtrip_probe.tar.gz")
+        with tarfile.open(archive, "w:gz") as tar:
+            tar.add(payload, arcname="probe.txt")
+        want = sha256_file(archive)
+        api.upload_file(repo_id=results_repo, path_or_fileobj=archive,
+                        path_in_repo="probe/roundtrip_probe.tar.gz")
+        got_path = hf_hub_download(repo_id=results_repo,
+                                   filename="probe/roundtrip_probe.tar.gz",
+                                   local_dir=os.path.join(tmp, "down"))
+        got = sha256_file(got_path)
+    ok = got == want
+    record = {
+        "schema": "o1b200.result_roundtrip_record.v1",
+        "results_repo": results_repo,
+        "private": True,
+        "result_destination_round_trip": "PASS" if ok else "FAIL",
+        "probe_sha256_uploaded": want,
+        "probe_sha256_downloaded": got,
+        "separation_note": ("results repo is separate from the artifact "
+                            "staging repo; the pod's write token must be "
+                            "fine-grained to the results repo ONLY"),
+    }
+    with open(RESULT_ROUNDTRIP_RECORD, "w", encoding="utf-8") as fh:
+        json.dump(record, fh, indent=2, sort_keys=True)
+        fh.write("\n")
+    print(f"RESULT DESTINATION ROUND-TRIP: {'PASS' if ok else 'FAIL'} "
+          f"-> {RESULT_ROUNDTRIP_RECORD}")
+    return 0 if ok else 1
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--repo", required=True,
-                   help="private HF repo, e.g. VykosMolt/o1-b200-staging")
-    p.add_argument("action", choices=("upload", "verify"))
+                   help="private HF repo: staging repo for upload/verify, "
+                        "results repo for result-roundtrip")
+    p.add_argument("action", choices=("upload", "verify", "result-roundtrip"))
     a = p.parse_args()
-    return upload(a.repo) if a.action == "upload" else verify(a.repo)
+    if a.action == "upload":
+        return upload(a.repo)
+    if a.action == "verify":
+        return verify(a.repo)
+    return result_roundtrip(a.repo)
 
 
 if __name__ == "__main__":

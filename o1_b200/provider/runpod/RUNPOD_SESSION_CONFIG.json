@@ -1,16 +1,17 @@
 {
-  "_status": "PARTIALLY RESOLVED \u2014 image_digest_ref and result_source remain UNRESOLVED until the registry push and rental session; zero_touch refuses to run until they are filled.",
+  "_status": "PARTIALLY RESOLVED \u2014 image_digest_ref is the ONLY remaining UNRESOLVED field (filled from the registry push output); zero_touch refuses to run until it is resolved. result_source is validated by the result-roundtrip test.",
   "adapter_commit": "4df540bad858c76aca9999ff06cc2fb9a2d62589",
   "budget_policy_sha256": "8ae82de9ff432f4fb8ad467eec967a661c2a14edf2eae6b70d19f7e42781cda7",
   "identities": {
     "artifact_staging": "private HF repo VykosMolt/o1-b200-staging (see PRE_RENTAL_PREREQUISITES.md)",
     "base_scientific_package": "O1_oracle_reachability_v2.1.0 zip a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
     "budget_policy": "USD 45.00 / 40.00 / 5.00, no extension, no override, no auto-pay, confirmation false",
-    "package": "O1_B200_RUNNER_v0.2.0_RUNPOD_PRERENTAL"
+    "package": "O1_B200_RUNNER_v0.2.0_RUNPOD_PRERENTAL",
+    "result_destination": "private HF repo VykosMolt/o1-b200-results (SEPARATE from staging; pod write token fine-grained to results only)"
   },
   "image_digest_ref": "UNRESOLVED (ghcr.io/vykosmolt/o1-b200-runner@sha256:... from the registry push; local image id sha256:75582fe45ddaed41a6150adf01fb6fc62c1511828913e5e37e37e43b415e7f1b)",
   "package_zip_sha256": "db12d6698a45eb31e0863be56ea7ca3259ebf32db57c2ba83a477ae9fba2ec29",
   "project": "O1_B200_CALIBRATION",
-  "result_source": "UNRESOLVED (result archive location produced by the pod's output pipeline)",
+  "result_source": "hf://VykosMolt/o1-b200-results/O1_B200_CALIBRATION/results.tar.gz",
   "schema": "o1b200.runpod_session_config.v1"
 }

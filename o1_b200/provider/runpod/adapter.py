@@ -48,6 +48,17 @@ class RunpodAdapterError(RuntimeError):
         super().__init__(redact(msg))
 
 
+def parse_hf_uri(uri: str) -> tuple[str, str]:
+    """hf://<namespace>/<repo>/<path...> -> (namespace/repo, path)."""
+    body = uri[len("hf://"):]
+    parts = body.split("/", 2)
+    if len(parts) != 3 or not all(parts):
+        raise RunpodAdapterError(
+            f"malformed hf:// result source {uri!r}; expected "
+            f"hf://<namespace>/<repo>/<path>")
+    return f"{parts[0]}/{parts[1]}", parts[2]
+
+
 class RunpodV2Adapter:
     def __init__(self, *, base_url: str = "https://api.runpod.io",
                  authorization: LiveMutationAuthorization | None = None,
@@ -314,7 +325,15 @@ class RunpodV2Adapter:
 
     def download_results(self, source: str, dest_dir: str,
                          store=None) -> dict:
+        os.makedirs(dest_dir, exist_ok=True)
+        if source.startswith("hf://"):
+            repo, filename = parse_hf_uri(source)
+            from huggingface_hub import hf_hub_download
+            from .artifact_store import sha256_file as _sha
+            path = hf_hub_download(repo_id=repo, filename=filename,
+                                   local_dir=dest_dir)
+            return {"path": path, "sha256": _sha(path),
+                    "bytes": os.path.getsize(path)}
         from .artifact_store import LocalArtifactStore
         store = store or LocalArtifactStore()
-        os.makedirs(dest_dir, exist_ok=True)
         return store.fetch(source, dest_dir)

@@ -5,16 +5,19 @@ Software readiness is PASS (155/155 checks; see
 ALL of the following flip to done. None of them is runner development; each
 is credential-gated account/staging work.
 
-## Status
+## The gate (all must be green before credits/authorization)
 
 ```text
-RUNPOD SOFTWARE READINESS:      PASS
-LIVE READ-ONLY PREFLIGHT:       PENDING  (needs RUNPOD_API_KEY)
-REMOTE IMAGE PUBLICATION:       PENDING  (needs docker login; procedure below)
-PRIVATE LARGE-ARTIFACT STAGING: PENDING  (needs `hf auth login`; 5.0 GB checkpoint)
-ARTIFACT DOWNLOAD TEST:         PENDING  (runs after staging)
-B200 RENTAL AUTHORIZATION:      NOT YET APPROPRIATE
+RUNPOD READ-ONLY PREFLIGHT:      PASS
+REMOTE IMAGE DIGEST:             RESOLVED AND VERIFIED
+PRIVATE HF ARTIFACT STAGING:     PASS
+POD-SIDE DOWNLOAD HASH TEST:     PASS   (stage_artifacts_hf verify)
+RESULT DESTINATION ROUND-TRIP:   PASS   (stage_artifacts_hf result-roundtrip)
+RUNPOD_SESSION_CONFIG:           ZERO UNRESOLVED REQUIRED FIELDS
 ```
+
+Current: software readiness PASS; every line above PENDING (all are
+credential-gated operator actions).
 
 ## 1. Read-only preflight (GET-only; creates nothing)
 
@@ -32,11 +35,20 @@ single-B200 Secure offer exists at ≤ USD 5.89/h; no unexpected Pod runs.
 ## 2. Remote image publication
 
 Follow `REGISTRY_PUSH_PROCEDURE.md` (3 commands + one visibility click).
-The local image id is `sha256:75582fe4…`; the push prints the REMOTE digest
-(`ghcr.io/vykosmolt/o1-b200-runner@sha256:…`) — put that exact string into
-`RUNPOD_SESSION_CONFIG.json` (`image_digest_ref`). Mutable tags are refused
-by the adapter. Note: the credential-piping step (`gh auth token | docker
-login …`) is deliberately left to the operator.
+The local image id is `sha256:75582fe4…`; the push prints the REMOTE
+manifest digest — use the immutable reference
+`ghcr.io/vykosmolt/o1-b200-runner@sha256:<remote-manifest-digest>` in
+`RUNPOD_SESSION_CONFIG.json` (`image_digest_ref`). Do NOT rely on the
+`v0.2.0` tag after pushing; mutable tags are refused by the adapter.
+Cross-check that GHCR reports the same digest the push returned:
+
+```sh
+docker buildx imagetools inspect ghcr.io/vykosmolt/o1-b200-runner:v0.2.0 \
+  | grep Digest        # must equal the digest printed by docker push
+```
+
+Note: the credential-piping step (`gh auth token | docker login …`) is
+deliberately left to the operator.
 
 ## 3. Private large-artifact staging (before any billing clock)
 
@@ -56,6 +68,22 @@ private), then re-downloads everything through the pod's fetch path and
 verifies every SHA-256 against the transfer manifest. The pod later needs
 only a READ-scoped `HF_TOKEN` env value at launch (never baked into the
 image).
+
+## 4. Result-destination round-trip (separate repo, separate scope)
+
+```sh
+PYTHONPATH=. python -m o1_b200.provider.runpod.stage_artifacts_hf \
+    --repo VykosMolt/o1-b200-results result-roundtrip
+```
+
+Creates the PRIVATE results repo, uploads a probe archive through the pod's
+upload path, re-downloads it through the driver's `hf://` download path,
+and hash-compares (writes `RESULT_ROUNDTRIP_RECORD.json`). The results repo
+is deliberately separate from the staging repo: the pod's WRITE token is
+fine-grained to results only and can never touch the checkpoint.
+`RUNPOD_SESSION_CONFIG.json` `result_source` is already resolved to
+`hf://VykosMolt/o1-b200-results/O1_B200_CALIBRATION/results.tar.gz`; after
+this test, `image_digest_ref` is the only unresolved field left.
 
 ## Then, and only then
 
