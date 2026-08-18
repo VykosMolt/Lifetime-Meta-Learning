@@ -1,0 +1,39 @@
+{
+  "artifact_download_test": "PASS",
+  "pod_fetch_note": "the pod downloads via huggingface_hub with a READ-scoped token in RUNPOD_API-independent env var HF_TOKEN (never baked into the image), then deploy/verify_artifacts.py re-verifies before any model load",
+  "private": true,
+  "repo": "Vykos/o1-b200-staging",
+  "results": {
+    "axis_package": {
+      "downloaded": "8c3b34a3574fbca9e63de23a88831e076e317fec33236405fb3af72f0ff96fdd",
+      "expected": "8c3b34a3574fbca9e63de23a88831e076e317fec33236405fb3af72f0ff96fdd",
+      "match": true
+    },
+    "calibration_seed_matrix": {
+      "downloaded": "693b788e2098e6975e2364b23832f18b8686e60abe32af1a02f5acbddc5d5e49",
+      "expected": "693b788e2098e6975e2364b23832f18b8686e60abe32af1a02f5acbddc5d5e49",
+      "match": true
+    },
+    "calibration_task_manifest": {
+      "downloaded": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+      "expected": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+      "match": true
+    },
+    "o1_v210_package_zip": {
+      "downloaded": "a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+      "expected": "a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+      "match": true
+    },
+    "ouro_rltt_checkpoint": {
+      "downloaded": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+      "expected": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+      "match": true
+    },
+    "tokenizer_binding": {
+      "downloaded": "b1a1d6fd755ce2536bf073eedc4e5badd7ff1c00c0927f1329baa98d058f6f57",
+      "expected": "b1a1d6fd755ce2536bf073eedc4e5badd7ff1c00c0927f1329baa98d058f6f57",
+      "match": true
+    }
+  },
+  "schema": "o1b200.hf_staging_record.v1"
+}

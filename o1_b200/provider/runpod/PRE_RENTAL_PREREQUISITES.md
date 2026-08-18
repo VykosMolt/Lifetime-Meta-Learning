@@ -17,15 +17,42 @@ HF TOKEN SCOPE (READ + WRITE):   PASS   (runner.check_hf_scope)
 RUNPOD_SESSION_CONFIG:           ZERO UNRESOLVED REQUIRED FIELDS
 ```
 
-Current: software readiness PASS. `HF TOKEN SCOPE` is **PASS**, verified live
-2026-08-18 against the real API: the fine-grained token `lifetime-rltt-b300`
-(identity `Vykos`) carries `repo.content.read` + `repo.write` over the whole
-`Vykos` namespace, `auth_check` succeeded on `Vykos/o1-b200-staging`, and a
-write probe uploaded and deleted `.preflight/scope_<nonce>` in
-`Vykos/o1-b200-results` (repo verified clean afterwards). Both repos exist and
-are PRIVATE. Every other line above is still PENDING; in particular
-`Vykos/o1-b200-staging` is **empty** (only `.gitattributes`), so §3 has not
-run and the pod currently has nothing to fetch.
+Current state, 2026-08-18 — every line below verified live against the real
+APIs, not asserted:
+
+```text
+RUNPOD READ-ONLY PREFLIGHT:      PASS   (GET-only; 0 pods owned, $0 lifetime spend)
+REMOTE IMAGE DIGEST:             PENDING   <-- the only remaining blocker
+PRIVATE HF ARTIFACT STAGING:     PASS   (31 files, private, 5.0 GB)
+POD-SIDE DOWNLOAD HASH TEST:     PASS   (6/6 re-downloaded, hashes exact)
+RESULT DESTINATION ROUND-TRIP:   PASS   (probe up, down, hash-compared)
+HF TOKEN SCOPE (READ + WRITE):   PASS   (auth_check + real write probe)
+RUNPOD_SESSION_CONFIG:           2 UNRESOLVED (image_digest_ref, package_zip_sha256)
+```
+
+Both unresolved config fields fall out of the same GHCR push:
+`image_digest_ref` is the digest the push prints, and `package_zip_sha256` is
+read from the generated `.sha256` sidecar at launch (it cannot be baked in,
+because this file ships *inside* the archive it would hash).
+
+Token scope: the fine-grained token `lifetime-rltt-b300` (identity `Vykos`)
+carries `repo.content.read` + `repo.write` across the `Vykos` namespace;
+`auth_check` succeeded on the staging repo and a write probe uploaded and
+deleted `.preflight/scope_<nonce>` in the results repo, which was verified
+clean afterwards. Both repos exist and are PRIVATE.
+
+Staging: the checkpoint round-tripped **bit-exact** — tree hash
+`a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889`, the same
+value the sealed freeze manifest and the FL session config pin. Record in
+`HF_STAGING_RECORD.json`; round-trip record in `RESULT_ROUNDTRIP_RECORD.json`.
+
+Live capacity at this preflight (informational only — availability, spot price
+and profile selection are re-derived immediately before launch and before
+every reacquisition): **secure B300 availability NONE**, so the selector fell
+back to **B200** at $6.79/h secure spot in US-NE-1, stock LOW, reported as
+`profile_role: FALLBACK` with `fallback_reason: "B300: secure B300
+availability is NONE right now"` — an explicit refusal recorded in the
+evidence, never a silent substitution.
 
 ## 1. Read-only preflight (GET-only; creates nothing)
 

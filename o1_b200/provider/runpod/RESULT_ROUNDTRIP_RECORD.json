@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "probe_sha256_downloaded": "bd8e99eb117978c82b407191f566c43921c307d0520391cf7a02e4fa4c7af5a9",
+  "probe_sha256_uploaded": "bd8e99eb117978c82b407191f566c43921c307d0520391cf7a02e4fa4c7af5a9",
+  "result_destination_round_trip": "PASS",
+  "results_repo": "Vykos/o1-b200-results",
+  "schema": "o1b200.result_roundtrip_record.v1",
+  "separation_note": "results repo is separate from the artifact staging repo; the pod's write token must be fine-grained to the results repo ONLY"
+}

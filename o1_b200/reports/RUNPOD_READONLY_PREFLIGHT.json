@@ -24,12 +24,10 @@
         },
         "records": []
       },
-      "retrieved_utc": "2026-08-18T01:58:57Z"
+      "retrieved_utc": "2026-08-18T14:26:34Z"
     },
     "compatible_datacenters": {
       "datacenters": [
-        "US-CA-2",
-        "US-NC-2",
         "US-NE-1"
       ]
     },
@@ -71,8 +69,6 @@
     "profile_availability_and_spot_pricing": {
       "availability": "LOW",
       "datacenters": [
-        "US-CA-2",
-        "US-NC-2",
         "US-NE-1"
       ],
       "fallback_reason": "earlier-preference profile(s) refused: B300: secure B300 availability is NONE right now",
@@ -125,9 +121,9 @@
     "surfaces_ok": true
   },
   "qualifying_offer_now": true,
-  "report_sha256": "7b2e931b8cb13422a700026f380019fd7b809958f182df8566e4ea06b8d10534",
+  "report_sha256": "8878db214da174e9e3092e490de568d8938b649e7b672beb94f86317ab661625",
   "schema": "o1b200.runpod_readonly_preflight.v1",
   "selected_profile": "B200",
-  "utc": "2026-08-18T01:58:50Z",
+  "utc": "2026-08-18T14:26:26Z",
   "verdict": "PASS"
 }
