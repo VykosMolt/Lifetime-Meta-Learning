@@ -2,6 +2,105 @@
   "all_scientific_core_identical": true,
   "all_structural_pass": true,
   "comparisons": {
+    "B200_BATCHED:w1:b16:c0": {
+      "eligible_structurally": true,
+      "numerical": {
+        "max_rel_injected_rms_diff": 0.0,
+        "max_rel_transport_diff": 0.0,
+        "tolerance_injected_rms_rel": 1e-06,
+        "tolerance_transport_rel": 1e-06,
+        "within_tolerance": true
+      },
+      "scientific_core_identical": true,
+      "stochastic": {
+        "finish_reason_diff_count": 0,
+        "finish_reason_first_diffs": [],
+        "finish_reason_identical": true,
+        "fully_identical": true,
+        "generated_text_diff_count": 0,
+        "generated_text_first_diffs": [],
+        "generated_text_identical": true,
+        "generated_token_ids_diff_count": 0,
+        "generated_token_ids_first_diffs": [],
+        "generated_token_ids_identical": true
+      },
+      "structural": {
+        "canonical_order_equal": true,
+        "extra_rows": [],
+        "identity_mapping_exact": true,
+        "identity_mapping_failures": [],
+        "missing_rows": [],
+        "parser_verifier_failures": [],
+        "parser_verifier_recompute_exact": true,
+        "row_id_sets_equal": true
+      }
+    },
+    "B200_BATCHED:w1:b1:c0": {
+      "eligible_structurally": true,
+      "numerical": {
+        "max_rel_injected_rms_diff": 0.0,
+        "max_rel_transport_diff": 0.0,
+        "tolerance_injected_rms_rel": 1e-06,
+        "tolerance_transport_rel": 1e-06,
+        "within_tolerance": true
+      },
+      "scientific_core_identical": true,
+      "stochastic": {
+        "finish_reason_diff_count": 0,
+        "finish_reason_first_diffs": [],
+        "finish_reason_identical": true,
+        "fully_identical": true,
+        "generated_text_diff_count": 0,
+        "generated_text_first_diffs": [],
+        "generated_text_identical": true,
+        "generated_token_ids_diff_count": 0,
+        "generated_token_ids_first_diffs": [],
+        "generated_token_ids_identical": true
+      },
+      "structural": {
+        "canonical_order_equal": true,
+        "extra_rows": [],
+        "identity_mapping_exact": true,
+        "identity_mapping_failures": [],
+        "missing_rows": [],
+        "parser_verifier_failures": [],
+        "parser_verifier_recompute_exact": true,
+        "row_id_sets_equal": true
+      }
+    },
+    "B200_BATCHED:w1:b2:c0": {
+      "eligible_structurally": true,
+      "numerical": {
+        "max_rel_injected_rms_diff": 0.0,
+        "max_rel_transport_diff": 0.0,
+        "tolerance_injected_rms_rel": 1e-06,
+        "tolerance_transport_rel": 1e-06,
+        "within_tolerance": true
+      },
+      "scientific_core_identical": true,
+      "stochastic": {
+        "finish_reason_diff_count": 0,
+        "finish_reason_first_diffs": [],
+        "finish_reason_identical": true,
+        "fully_identical": true,
+        "generated_text_diff_count": 0,
+        "generated_text_first_diffs": [],
+        "generated_text_identical": true,
+        "generated_token_ids_diff_count": 0,
+        "generated_token_ids_first_diffs": [],
+        "generated_token_ids_identical": true
+      },
+      "structural": {
+        "canonical_order_equal": true,
+        "extra_rows": [],
+        "identity_mapping_exact": true,
+        "identity_mapping_failures": [],
+        "missing_rows": [],
+        "parser_verifier_failures": [],
+        "parser_verifier_recompute_exact": true,
+        "row_id_sets_equal": true
+      }
+    },
     "B200_BATCHED:w1:b32:c0": {
       "eligible_structurally": true,
       "numerical": {
@@ -167,7 +266,7 @@
         "row_id_sets_equal": true
       }
     },
-    "B200_REPLICA:w4:b1:c0": {
+    "B200_REPLICA:w3:b1:c0": {
       "eligible_structurally": true,
       "numerical": {
         "max_rel_injected_rms_diff": 0.0,
@@ -203,21 +302,9 @@
   },
   "corpus_dir": "o1_b200/corpus",
   "mode": "LOCAL_SYNTHETIC",
-  "n_rows": 352,
+  "n_rows": 384,
   "note": "LOCAL SYNTHETIC RESULT ONLY. Proves software equivalence of scheduling/batching/RNG/records. It does NOT claim B200 hardware equivalence, which remains NOT STARTED.",
   "reference": "REFERENCE_SERIAL:w1:b1:c0",
-  "report_sha256": "a94f79478fe2cda6d63a79eb1123e993a355c9efd35271e9eb8355f2e8ce31f9",
-  "task_subset": [
-    "b200val-000-commit_a",
-    "b200val-001-commit_a",
-    "b200val-002-commit_b_angle",
-    "b200val-003-commit_c_period",
-    "b200val-004-malformed_eos",
-    "b200val-005-prefix_attack",
-    "b200val-006-repeat_max",
-    "b200val-008-stoch_commit",
-    "b200val-009-stoch_commit",
-    "b200val-010-stoch_eos",
-    "b200val-011-stoch_eos"
-  ]
+  "report_sha256": "a50a9efa0784bc5421b635c490ccd993e5d2aa08f0913fc69dab34293f99acbf",
+  "task_subset": null
 }

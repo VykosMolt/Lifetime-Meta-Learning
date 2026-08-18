@@ -18,11 +18,20 @@ _PATTERNS = [
     re.compile(r"(?i)(authorization\s*[:=]\s*)((bearer|basic)\s+)?[A-Za-z0-9+/._~-]{8,}={0,2}"),
     re.compile(r"(?i)\bbearer\s+[A-Za-z0-9._~+/-]{8,}={0,2}"),
     re.compile(r"\brpa_[A-Za-z0-9]{8,}\b"),                      # RunPod API key shape
+    re.compile(r"\bhf_[A-Za-z0-9]{20,}\b"),                      # HF token shape
     re.compile(r"\bghp_[A-Za-z0-9]{20,}\b"),
     re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
     re.compile(r"\bAKIA[A-Z0-9]{16}\b"),
+    # {"key": "<...TOKEN...>", "value": "<secret>"} — the GraphQL
+    # EnvironmentVariableInput rendering splits name from value, so the
+    # generic name-then-separator pattern below cannot reach the value.
+    re.compile(r"(?i)(\\?\"key\\?\"\s*:\s*\\?\"[^\"\\]*"
+               r"(?:token|secret|key|password|passwd|credential)[^\"\\]*\\?\""
+               r"\s*,\s*\\?\"value\\?\"\s*:\s*\\?\")[^\"\\]{4,}"),
+    # name/separator/value, tolerating JSON-escaped quotes (\") so a secret
+    # nested inside a JSON-serialized string field is still removed
     re.compile(r"(?i)(api[_-]?key|apikey|secret|token|password|passwd|credentials?)"
-               r"(\"?\s*[:=]\s*\"?)[^\s\"',;&]{6,}"),
+               r"(\\?\"?\s*[:=]\s*\\?\"?)[^\s\"'\\,;&]{6,}"),
     re.compile(r"(?i)[?&](X-Amz-Signature|X-Amz-Credential|X-Amz-Security-Token|"
                r"sig|signature|sv|se|sp|sr|spr|st|sig\d*)=[^&\s\"']+"),
     re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----[\s\S]*?-----END [A-Z ]*PRIVATE KEY-----"),
@@ -41,6 +50,25 @@ def register_secret(value: str | None) -> None:
     """Register a literal secret so redact() removes it wherever it appears."""
     if value and len(value) >= 6:
         _EXPLICIT_SECRETS.add(value)
+
+
+#: Every environment variable whose VALUE is a credential.  Registered
+#: literally (not merely pattern-matched) wherever it is read or injected,
+#: so an unrecognized token shape cannot slip through.
+SECRET_ENV_NAMES = ("RUNPOD_API_KEY", "RUNPOD_MOCK_API_KEY", "HF_TOKEN",
+                    "HUGGING_FACE_HUB_TOKEN", "GITHUB_TOKEN")
+
+
+def register_env_secrets(environ=None) -> list[str]:
+    """Register every configured credential value for literal redaction."""
+    env = os.environ if environ is None else environ
+    registered = []
+    for name in SECRET_ENV_NAMES:
+        value = env.get(name)
+        if value:
+            register_secret(value)
+            registered.append(name)
+    return registered
 
 
 def clear_registered_secrets() -> None:

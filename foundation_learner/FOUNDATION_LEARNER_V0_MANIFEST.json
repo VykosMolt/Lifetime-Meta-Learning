@@ -1,0 +1,184 @@
+{
+  "arms": {
+    "core": [
+      "FL1_STATIC",
+      "FL2_HISTORY_IMITATION",
+      "FL3_ORDERED_FEEDBACK_META"
+    ],
+    "extensions": [
+      "FL4_VALUE_HEAD",
+      "FL5_FAST_STATE",
+      "FL6_VALUE_GATED",
+      "FL7_FAST_PARAMS",
+      "FL8_CONSOLIDATION"
+    ],
+    "fast_state_dim": 1024,
+    "fast_state_prefix_vectors": 8,
+    "fl3_loss_weights": {
+      "attempt0": 0.0,
+      "context": 0.0,
+      "query": 1.0,
+      "revision": 0.25,
+      "transfer": 1.0
+    },
+    "fl7_lora": {
+      "alpha": 16,
+      "frobenius_clip": 1.0,
+      "inner_lr": 0.001,
+      "inner_steps": 4,
+      "r": 8,
+      "targets": "attn q_proj,v_proj"
+    },
+    "fl8_consolidation_scale": 0.5,
+    "value_gate_threshold": 0.0
+  },
+  "b200_derived_unresolved": {
+    "available_foundation_learner_seconds": "UNRESOLVED_SESSION_TIME_AFTER_O1_CLOSE",
+    "container_registry_digest_ref": "UNRESOLVED_OPERATOR_BOUND_REGISTRY_PUSH",
+    "eval_batch_size_post_equivalence_gate": "UNRESOLVED_B200_GATE",
+    "measured_throughput_tokens_per_second": "UNRESOLVED_B200_BENCH",
+    "o1_entry_command": "UNRESOLVED_OPERATOR_BOUND",
+    "training_scope_selected": "UNRESOLVED_B200_AFFORDABILITY (PEFT_MODE|FULL_MODEL_MODE)",
+    "updates_per_core_arm_U": "UNRESOLVED_B200_AFFORDABILITY"
+  },
+  "backbone": {
+    "architecture": "OuroForCausalLM",
+    "checkpoint_local_path": "/home/moloch/ouro_project/models/ouro_rltt_local",
+    "checkpoint_pod_path": "/artifacts/ouro_rltt_local",
+    "checkpoint_tree_sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+    "config_json_sha256": "7d6764dbc8210d023c8d83da4620910808ac5a450532b15550e57d1ef0e4f741",
+    "dtype": "bfloat16",
+    "modeling_ouro_py_sha256": "bcd27ff6a18578feaec168695d70dc76509c57e4d4c377347c9d05d6266d9e82",
+    "num_hidden_layers": 48,
+    "tokenizer_json_sha256": "fcb808fe5e7642f5299be28aea07fc7f6d4f4364c3ac5e408e15a772cbc8fa8d",
+    "torch_version_b200_image": "2.12.0.dev20260408+cu128",
+    "torch_version_local": "2.12.0.dev20260407+cu128",
+    "total_ut_steps": 4,
+    "transformers_version_exact": "4.54.1"
+  },
+  "campaign": "FOUNDATION_LEARNER_V0",
+  "ecology": {
+    "dev_families": [
+      "sequence_transform",
+      "graph_edge_semantics",
+      "boolean_rule"
+    ],
+    "family_count": 12,
+    "generator_source_hashes": {
+      "boolean_rule": "f54b9a347204b1cd3efe530d4089130d444555abfe0cff8ea84b3afec089dc03",
+      "constraint_rules": "e9f22f846b82bad835b584a14e6fd817c410f4c40a2ebf8456af65990665d7d9",
+      "dsl_execution": "b588a787b4e47ebf623d4dc97c1e14bebde79abf6ee1a40e3dba9912883fa187",
+      "finite_state_transducer": "609c6cd65bbd97167a4e48176a37a4a818b155fa2866bb63ae23a8b4c1c6833a",
+      "grammar_classification": "fb6f3ddfdeeb235ff55a97a4557f215ac314575c62a01eef193470ada7ef86d3",
+      "graph_edge_semantics": "8371fab910c79c409bd26fcb52da8cddb1a8fc9515468559d7f62568f20ea685",
+      "modular_arithmetic": "fa66f4841c0552f0e503d30453d08a7e70d6700c8e291e0b7e3c588318194aeb",
+      "permutation_composition": "b1d8fd41e52264c434bfe862baacefb5805323f6b768fd325022dd816e56d635",
+      "propositional_transform": "ca8f0038ef0779faa967a6bc837cb8f6e410d8ca84c924410d34dcf0346681a2",
+      "sequence_transform": "4d0b73bdf7925a031301a1f8237a73ab6630cb938d114713021b37a10663a352",
+      "set_operations": "7675b8c0e99b079665256e85673129a6c59016916c24ea16ec8af1111f3884c2",
+      "string_rewrite": "e0d5922d24cc02c81f76b06c83fbc9c5e4f870e4d7194b0efc394a99c8e4784f"
+    },
+    "pool_sizes": {
+      "dev_per_family": 300,
+      "sealed_per_family": 300,
+      "train_per_family": 2000
+    },
+    "pregen_files": 60,
+    "pregen_manifest_sha256": "eb4d4a76bbd438b296d9602e550a281996c26a01423623022bdefd4acd254aa7",
+    "pregen_root_basename": "pregen",
+    "pregen_root_seed": 20260809,
+    "sealed_test_families": [
+      "constraint_rules",
+      "permutation_composition",
+      "propositional_transform"
+    ],
+    "shard_sums_sha256": "5ec3b4244967cbee6c8b65658c65e5b8bdd7aa77c98c4b7aaed8bde2b1677d05",
+    "split_manifest_sha256": "6cf330b47af9406edf8022564ea330f3f164fbaef22618710a11fa3b2f40d9b5",
+    "split_rule_domain": "FOUNDATION_LEARNER_V0_FAMILY_SPLIT",
+    "train_families": [
+      "grammar_classification",
+      "set_operations",
+      "dsl_execution",
+      "string_rewrite",
+      "finite_state_transducer",
+      "modular_arithmetic"
+    ]
+  },
+  "episode_structure": {
+    "K": 6,
+    "attempt_policy_error_rates": [
+      0.7,
+      0.25,
+      0.3
+    ],
+    "max_seq_len_tokens": 2048,
+    "name": "EPISODE_STRUCTURE_V0",
+    "root_seed": 20260809,
+    "second_predeclared_seed": 20260810
+  },
+  "frozen_utc": "2026-08-09",
+  "isolation": {
+    "o1_forbidden_roots": [
+      "/outputs",
+      "/opt/o1_b200",
+      "/artifacts/AXIS_PACKAGE_V2",
+      "/artifacts/COHORTS",
+      "/artifacts/calibration_seed_matrix.json",
+      "/artifacts/policies",
+      "/workspace/o1_calibration"
+    ],
+    "o1_scientific_data_used": "NO",
+    "shared_readonly_inputs": [
+      "/artifacts/ouro_rltt_local",
+      "/artifacts/TOKENIZER_BINDING.json"
+    ]
+  },
+  "package": {
+    "branch": "foundation-learner-b200-v0",
+    "source_commit": "a775fd2d95f81cd1fa290b8dee40b8ecf0026eac",
+    "zip_name": "FOUNDATION_LEARNER_B200_V0.1.0.zip",
+    "zip_sha256": "UNRESOLVED_FILLED_BY_PACKAGING"
+  },
+  "package_version": "0.1.0",
+  "provenance": {
+    "filled_by": "foundation_learner/scripts/make_manifest.py",
+    "note": "B200-derived fields stay UNRESOLVED by design: they are measured or decided mechanically on the accelerator",
+    "shard_sums_path": "artifacts_fl/pregen/MANIFESTS/SHARD_SUMS.json",
+    "split_manifest_path": "artifacts_fl/pregen/MANIFESTS/family_split_manifest.json"
+  },
+  "scheduler": {
+    "budget_total_usd_session": 45.0,
+    "checkpoint_cadence": "600s or 200 steps",
+    "final_transfer_reserve_seconds": 1200,
+    "o1_priority": "ABSOLUTE_FIRST",
+    "rental_confirmation": "NOT_AUTHORIZED",
+    "safety_factor": 1.25
+  },
+  "schema": "flb200.campaign_manifest.v1",
+  "training": {
+    "compute_matching": "option B: equal updates U + equal per-update token budget (FLOP-matched); loss tokens reported",
+    "grad_clip": 1.0,
+    "grid_lrs_full": [
+      1e-05,
+      3e-05
+    ],
+    "grid_lrs_peft": [
+      0.0001,
+      0.0003
+    ],
+    "optimizer": "AdamW(b1=0.9,b2=0.95,eps=1e-8,wd=0.01)",
+    "peft_mode": {
+      "alpha": 32,
+      "r": 16,
+      "targets": "attn q_proj,v_proj + mlp down_proj"
+    },
+    "scheduler": "cosine, warmup 0.03",
+    "selection_rule": "max DEV macro-AULC on FL3 25%-step grid runs; tie -> lower LR",
+    "updates_ladder": [
+      600,
+      1200,
+      2400,
+      4800
+    ]
+  }
+}

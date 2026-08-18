@@ -9,7 +9,7 @@
       "ok": true
     },
     "b200_runner_and_adapter_suites": {
-      "detail": "ALL O1 B200 RUNNER TESTS PASSED  (155 checks, 782.9s)",
+      "detail": "235 checks, 0 failed (reused 2026-08-18T01:50:06Z)",
       "ok": true
     },
     "base_package_suite": {
@@ -17,15 +17,19 @@
       "ok": true
     },
     "container_image_built_and_asserted": {
-      "detail": "torch=2.12.0.dev20260408+cu128 sm_100=True",
+      "detail": "torch=2.12.1+cu130 arch=['sm_75', 'sm_80', 'sm_86', 'sm_90', 'sm_100', 'sm_120'] no_ptx=True",
       "ok": true
     },
-    "dry_run_pod_request_render": {
-      "detail": "1eca848cb9229802",
+    "dry_run_deployment_render": {
+      "detail": "profiles=['B300', 'B200'] 03512fbf7ec7f051",
       "ok": true
     },
     "openapi_schema_pin": {
-      "detail": "0bbdd828569233765e310e773e34586b33a6e38f55afde989ebd670152ed5c13",
+      "detail": "2cea69a0cf260dea9af9031c0b33bc90541abaa46bd4f256efb6243311dcff97",
+      "ok": true
+    },
+    "readonly_live_preflight": {
+      "detail": "READONLY_LIVE_PREFLIGHT: PASS",
       "ok": true
     },
     "secret_scan_clean": {
@@ -33,7 +37,7 @@
       "ok": true
     }
   },
-  "readonly_live_check": "SKIPPED_NO_CREDENTIAL",
+  "readonly_live_check": "PASS",
   "schema": "o1b200.runpod_pre_rental_readiness.v1",
-  "verdict": "PASS_PENDING_READONLY_CREDENTIAL_CHECK"
+  "verdict": "PASS"
 }

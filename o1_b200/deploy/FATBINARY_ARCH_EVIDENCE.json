@@ -1,0 +1,25 @@
+{
+  "schema": "o1b300.fatbinary_arch_evidence.v1",
+  "purpose": "Primary evidence for the hardware gate's native-execution claim: which SASS architectures the shipped torch wheel actually contains, and that it contains NO PTX. Recorded because torch.cuda.get_arch_list() reports the BUILD CONFIGURATION string, not the fatbinary contents.",
+  "wheel": "torch-2.12.1+cu130-cp314-cp314-manylinux_2_28_x86_64.whl",
+  "wheel_sha256": "c84c5988b3e416669ed3790d772479af5934d1788119288d8bddd9c4cb207285",
+  "inspected_object": "torch/lib/libtorch_cuda.so",
+  "tool": "cuobjdump (CUDA 13.3.1) --list-elf / --list-ptx",
+  "collected_utc": "2026-08-18",
+  "elf_sass_architectures": {
+    "sm_75": 448, "sm_80": 448, "sm_86": 448, "sm_89": 1,
+    "sm_90": 448, "sm_90a": 4,
+    "sm_100": 448, "sm_100a": 59,
+    "sm_103a": 59,
+    "sm_120": 448, "sm_120a": 1, "sm_121a": 1
+  },
+  "ptx_entries": 0,
+  "interpretation": {
+    "B200_sm_100_CC_10_0": "NATIVE AND DIRECT: 448 plain sm_100 cubins plus 59 sm_100a arch-specific kernels are compiled for exactly this architecture. No compatibility rule is relied upon.",
+    "B300_sm_103_CC_10_3": "NATIVE: the 448 plain sm_100 cubins execute on sm_103 under NVIDIA's same-major/higher-minor cubin compatibility rule (a cubin for X.y runs on X.z, z >= y), and the wheel additionally carries 59 sm_103a arch-tuned kernels matching the sm_100a count, i.e. PyTorch ships the arch-specific variants for both datacenter Blackwell targets.",
+    "no_ptx": "Zero PTX entries means JIT/PTX fallback is STRUCTURALLY IMPOSSIBLE: a kernel either loads as native SASS or fails loudly. This is what makes the hardware gate's failure mode loud rather than silently-slow-or-wrong, and it is asserted at runtime by deploy/hardware_gate.py (any compute_* entry in the arch list refuses the machine).",
+    "sm_100a_on_sm_103": "The 'a' suffix means arch-specific and NOT forward compatible, so sm_100a kernels do not run on sm_103 — which is precisely why the equal count of sm_103a kernels matters, and why the gate additionally exercises real workload paths (BF16 GEMM, Ouro-RLTT forward/generation, backward+optimizer, intervention hook, checkpoint round-trip) before any scientific execution."
+  },
+  "reproduce": "cuobjdump --list-elf <venv>/lib/python3.14/site-packages/torch/lib/libtorch_cuda.so | grep -oE 'sm_[0-9]+[af]?' | sort | uniq -c; cuobjdump --list-ptx <same> | grep -c compute_",
+  "hardware_validation_status": "NOT STARTED — this is static wheel evidence only; neither B300 nor B200 hardware has executed anything from this stack."
+}

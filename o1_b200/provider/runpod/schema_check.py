@@ -36,7 +36,10 @@ REQUIRED_ENUMS = {
 }
 REQUIRED_GPU_TYPE_FIELDS = ["id", "name", "memory", "secure", "community",
                             "price", "maxCount"]
-REQUIRED_CREATE_POD_REQUIRED = ["name", "image"]
+# Live v2 (2026-08-17) requires only `name`; `image` is required unless
+# templateId is set (handler-enforced).  Our own request model still pins
+# an immutable image digest regardless.
+REQUIRED_CREATE_POD_REQUIRED = ["name"]
 
 
 class SchemaPinError(RuntimeError):

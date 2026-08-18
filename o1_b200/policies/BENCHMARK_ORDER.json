@@ -1,7 +1,11 @@
 {
-  "policy": "o1b200.benchmark_order.v1",
+  "policy": "o1b300.benchmark_order.v2",
   "frozen_before_hardware_access": true,
   "benchmark_input": "non-O1 validation corpus ONLY (o1_b200/corpus)",
+  "profiles": {
+    "B300": "288 GB HBM3e — conditional deep-batch stages 8-10 exist for this capacity and remain subject to the extension rule",
+    "B200": "180 GB HBM3e — the original stage list; conditional stages may still run if the extension rule holds"
+  },
   "staged_candidates": [
     {"stage": 1, "config_id": "REFERENCE_SERIAL_w1_b1", "backend": "REFERENCE_SERIAL", "workers": 1, "batch": 1},
     {"stage": 2, "config_id": "B200_REPLICA_w2_b1", "backend": "B200_REPLICA", "workers": 2, "batch": 1},
@@ -9,14 +13,26 @@
     {"stage": 4, "config_id": "B200_REPLICA_w8_b1", "backend": "B200_REPLICA", "workers": 8, "batch": 1},
     {"stage": 5, "config_id": "B200_BATCHED_w1_b4", "backend": "B200_BATCHED", "workers": 1, "batch": 4},
     {"stage": 6, "config_id": "B200_BATCHED_w1_b8", "backend": "B200_BATCHED", "workers": 1, "batch": 8},
-    {"stage": 7, "config_id": "B200_BATCHED_w1_b16", "backend": "B200_BATCHED", "workers": 1, "batch": 16}
+    {"stage": 7, "config_id": "B200_BATCHED_w1_b16", "backend": "B200_BATCHED", "workers": 1, "batch": 16},
+    {"stage": 8, "config_id": "B200_BATCHED_w1_b24", "backend": "B200_BATCHED", "workers": 1, "batch": 24, "conditional": true},
+    {"stage": 9, "config_id": "B200_BATCHED_w1_b32", "backend": "B200_BATCHED", "workers": 1, "batch": 32, "conditional": true},
+    {"stage": 10, "config_id": "B200_BATCHED_w1_b48", "backend": "B200_BATCHED", "workers": 1, "batch": 48, "conditional": true}
   ],
-  "extension_rule": "Additional worker counts (12, 16) or batch sizes (32, 64) may be tested ONLY if every prior stage completed without OOM or integrity failure AND the predeclared cost rule holds: projected additional benchmark time <= 25% of remaining authorized runtime after reserving the affordability-gate calibration budget. No open-ended search.",
+  "measurements_per_stage": [
+    "forward/decode throughput (rows/s, tokens/s)",
+    "examples per second (validation rows)",
+    "peak and reserved HBM; steady-state free-HBM fraction",
+    "throughput stability (per-quartile spread)",
+    "startup, model load, finalize, resume overhead",
+    "OOM count, integrity failures"
+  ],
+  "extension_rule": "Conditional stages (8+) and any additional worker counts (12, 16) or batch sizes (64) may be tested ONLY if every prior stage completed without OOM or integrity failure AND the predeclared cost rule holds: projected additional benchmark time <= 25% of remaining authorized runtime after reserving the affordability-gate calibration budget. No open-ended search.",
   "stop_rules": [
     "stop immediately on any OOM (larger configurations are not attempted)",
     "stop immediately on any integrity failure",
     "stop launching new stages at 95% budget consumption (watchdog)",
     "each stage runs the full validation corpus exactly once; no cherry-picking"
   ],
-  "note": "This order was frozen during local software construction, before any provider or instance was chosen. It must not be reordered on the B200."
+  "selection": "policies/B200_BACKEND_SELECTION_POLICY.json — highest verified rows/hour among gate-eligible candidates; extra B300 capacity is exploited ONLY through these mechanically measured stages, never through scientific redesign",
+  "note": "v2 of the order frozen during the B300 migration, before any provider instance was rented. Stages 1-7 are byte-identical to the v1 order validated for the B200; stages 8-10 are the capacity-conditional deep-batch extension for the 288 GB part. It must not be reordered on the accelerator."
 }

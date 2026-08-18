@@ -1,0 +1,49 @@
+{
+    "schema": "flb200.session_config.v1",
+    "_note": "TEMPLATE for the COMBINED O1 + Foundation Learner session. Every value beginning with UNRESOLVED must be bound by the operator before a real run; campaign/session_supervisor.py and deploy/fl_b200_entry.sh both REFUSE a non-rehearsal session that still carries one. See deploy/INTEGRATION.md section 4.",
+    "session_id": "UNRESOLVED_OPERATOR_BOUND (a unique id for this session)",
+    "label": "FL_B200_SESSION",
+    "rehearsal": false,
+    "o1_entry_command": "/opt/o1_b200/o1_b200/deploy/start_b300.sh",
+    "o1_timeout_seconds": null,
+    "o1_completion_markers": [
+        "/outputs/FINAL_STATUS.json"
+    ],
+    "o1_hash_manifests": [
+        "UNRESOLVED_OPERATOR_BOUND (O1's own manifests, e.g. /outputs/records.jsonl.sha256 or a TRANSFER_MANIFEST.json)"
+    ],
+    "o1_transfer_command": "UNRESOLVED_OPERATOR_BOUND (the O1 result upload; FL only runs it and checks the return code)",
+    "o1_transfer_timeout_seconds": null,
+    "o1_close_command": null,
+    "o1_workdir": null,
+    "o1_roots": [
+        "/outputs",
+        "/opt/o1_b200",
+        "/artifacts/AXIS_PACKAGE_V2",
+        "/artifacts/COHORTS",
+        "/artifacts/calibration_seed_matrix.json",
+        "/artifacts/policies",
+        "/workspace/o1_calibration"
+    ],
+    "o1_forbidden_roots_extra": [],
+    "checkpoint_dir": "/artifacts/ouro_rltt_local",
+    "checkpoint_tree_sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+    "pregen_root": "/workspace/foundation_learner/artifacts_fl/pregen",
+    "fl_pregen_source": "UNRESOLVED_OPERATOR_BOUND (hf://<ns>/<repo>[/<prefix>] holding artifacts_fl/pregen; the ~480 MB episode corpus is neither in Git nor in the container image, so deploy/fl_b200_entry.sh materialises it with campaign/fetch_pregen.py and re-hashes every shard against MANIFESTS/SHARD_SUMS.json before the ladder starts. Leave unset only when pregen_root is already mounted.)",
+    "fl_out_dir": "/workspace/foundation_learner/session",
+    "session_authorized_seconds": "UNRESOLVED_SESSION_TIME (authorized runtime for the WHOLE session; FL receives what remains after O1 closes)",
+    "fl_transfer_command": "UNRESOLVED_OPERATOR_BOUND (upload FL_ARTIFACTS.zip to the FL results repository — SEPARATE from the O1 results repository)",
+    "terminate_command": "UNRESOLVED_OPERATOR_BOUND (terminate — never merely stop — the accelerator)",
+    "_fl_entry_note": "The fields below are consumed by campaign/entry.py, which builds the real StageContext (contract 13/22, Amendment 12). They are OPTIONAL and have campaign defaults; fl_tiny_model, fl_eval_episode_cap and fl_train_example_cap are REFUSED unless rehearsal=true, because they substitute the nonscientific model or shorten the frozen per-stage evaluation maxima.",
+    "fl_device": "cuda",
+    "fl_scope": "PEFT_MODE",
+    "fl_root_seed": 20260809,
+    "fl_max_tokens_per_batch": 2048,
+    "fl_tiny_model": false,
+    "fl_eval_episode_cap": null,
+    "fl_train_example_cap": null,
+    "fl_extra": {},
+    "_o1_entry_note": "RESOLVED during the B300 migration: the O1 pod-side entry is the real production zero-touch entry (start_b300.sh -> o1_b200.runner.production_entry); the historical refusing-stub gap is closed. The operator may still override the command in the session config.",
+    "fl_durable_destination": "UNRESOLVED_OPERATOR_BOUND (durable mirror root for the FL journal + training checkpoints under INTERRUPTIBLE capacity, e.g. hf://<ns>/<repo>/fl or a mounted path; restore-on-start + continuous push; see campaign/durability.py)",
+    "_preemption_note": "INTERRUPTIBLE capacity: on eviction the provider layer terminates the remnant and reacquires a qualifying accelerator (B300 primary, B200 explicit fallback); the supervisor journal and every atomic training checkpoint mirror continuously to fl_durable_destination, and a fresh pod resumes from the last valid atomic checkpoint with identical hyperparameters (arm_config_hash-bound). Work after the last durable checkpoint reruns."
+}

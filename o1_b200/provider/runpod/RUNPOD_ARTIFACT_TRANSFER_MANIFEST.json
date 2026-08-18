@@ -67,13 +67,13 @@
       "transfer_order": 5
     },
     "environment_lock": {
-      "byte_size": 579,
+      "byte_size": 1792,
       "confidentiality": "public",
-      "destination_path": "/artifacts/requirements.b200.lock",
+      "destination_path": "/artifacts/requirements.b300.lock",
       "hash_kind": "file",
-      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/deploy/requirements.b200.lock",
+      "local_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/deploy/requirements.b300.lock",
       "post_transfer_verification": "PYTHONPATH=/opt/o1_b200 python -m o1_b200.deploy.verify_artifacts --manifest /artifacts/RUNPOD_ARTIFACT_TRANSFER_MANIFEST.json --root /artifacts",
-      "sha256": "266e566c8be49cb2fbc5fa0285877912976108add1fdf281036e026fdc1e480b",
+      "sha256": "53c15b49312dbe6b1ca1e399ae9cf6045c1bdbc53ab1f825a5d3cfbf0870335b",
       "transfer_mechanism": "baked into image",
       "transfer_order": 8
     },

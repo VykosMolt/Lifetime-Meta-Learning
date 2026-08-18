@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "declared_role": "fineGrained",
+      "identity": "Vykos",
+      "mode": "read",
+      "read": true,
+      "repo": "Vykos/o1-b200-staging",
+      "write": false
+    },
+    {
+      "declared_role": "fineGrained",
+      "identity": "Vykos",
+      "mode": "write",
+      "probe_path": ".preflight/scope_bd9cb6705f6041f7980daf88b152f9e3",
+      "read": true,
+      "repo": "Vykos/o1-b200-results",
+      "write": true
+    }
+  ],
+  "schema": "o1b300.hf_scope_report.v1"
+}

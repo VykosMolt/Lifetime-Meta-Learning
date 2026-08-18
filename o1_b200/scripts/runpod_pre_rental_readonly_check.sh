@@ -11,9 +11,12 @@ mkdir -p "$OUT_DIR"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$ROOT"
 
-echo "[readonly-check] local pinned-schema + adapter unit tests"
-"$PY" "$ROOT/o1_b200/tests/test_runpod_adapter.py"
-"$PY" "$ROOT/o1_b200/tests/test_runpod_interlock.py"
+echo "[readonly-check] local pinned-schema + adapter unit tests (hermetic:"
+echo "[readonly-check]  operator credentials stripped from the test processes)"
+env -u RUNPOD_API_KEY -u RUNPOD_API_KEY_FILE \
+  "$PY" "$ROOT/o1_b200/tests/test_runpod_adapter.py"
+env -u RUNPOD_API_KEY -u RUNPOD_API_KEY_FILE \
+  "$PY" "$ROOT/o1_b200/tests/test_runpod_interlock.py"
 
 echo "[readonly-check] live read-only preflight (GET-only)"
 "$PY" -m o1_b200.provider.runpod.preflight \

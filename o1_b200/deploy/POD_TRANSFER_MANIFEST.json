@@ -1,0 +1,91 @@
+{
+  "artifacts": {
+    "axis_package": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2",
+      "kind": "tree",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2",
+      "sha256": "8c3b34a3574fbca9e63de23a88831e076e317fec33236405fb3af72f0ff96fdd",
+      "transfer_out_of_band": false
+    },
+    "calibration_precommit": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/CALIBRATION_PRECOMMIT.json",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/CALIBRATION_PRECOMMIT.json",
+      "sha256": "e819aeebc642fefde769f398b385f23f98dc3980412eeb67274d0f5891c5457d",
+      "transfer_out_of_band": false
+    },
+    "calibration_seed_matrix": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/calibration_seed_matrix.json",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/calibration_seed_matrix.json",
+      "sha256": "693b788e2098e6975e2364b23832f18b8686e60abe32af1a02f5acbddc5d5e49",
+      "transfer_out_of_band": false
+    },
+    "calibration_task_manifest": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/calibration_tasks.jsonl",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/calibration_tasks.jsonl",
+      "sha256": "fb45e6b931edfaeabeea3723e0fe0ac040a22e2966564cff7ad7485f1e5fed0c",
+      "transfer_out_of_band": false
+    },
+    "confirmatory_candidate_pool": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/confirmatory_candidate_pool.jsonl",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS/confirmatory_candidate_pool.jsonl",
+      "sha256": "35687e26ced13bdd60afa9a501b3e37a5a668e65956517c32ce7a03b98f700aa",
+      "transfer_out_of_band": false
+    },
+    "freeze_manifest": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/FREEZE_MANIFEST.precalibration.json",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/FREEZE_MANIFEST.precalibration.json",
+      "sha256": "6e65bc707defa865a32429538001eb7e5e0a22f5ab7ccd5fe0f756c59b525817",
+      "transfer_out_of_band": false
+    },
+    "o1_package_source": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_packages/O1_oracle_reachability_v2.1.0_source",
+      "kind": "tree",
+      "path": "/opt/o1_b200/o1_packages/O1_oracle_reachability_v2.1.0_source",
+      "sha256": "dd1d6a873374bff87a8f37074f2b87d50c5bd7d0810e3ee4ef7d51daa5ef5a46",
+      "transfer_out_of_band": false
+    },
+    "o1_package_zip": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_packages/O1_oracle_reachability_v2.1.0_verified.zip",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_packages/O1_oracle_reachability_v2.1.0_verified.zip",
+      "sha256": "a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+      "transfer_out_of_band": false
+    },
+    "ouro_rltt_checkpoint": {
+      "host_path": "/home/moloch/ouro_project/models/ouro_rltt_local",
+      "kind": "reference",
+      "path": "/artifacts/ouro_rltt_local",
+      "sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889",
+      "transfer_out_of_band": true
+    },
+    "policies": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/policies",
+      "kind": "tree",
+      "path": "/opt/o1_b200/o1_b200/policies",
+      "sha256": "c8abf985959400a0ebaff6eacb376f5509e142c3e9e7f67de0f951401bc01e3b",
+      "transfer_out_of_band": false
+    },
+    "tokenizer_binding": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_runs/O1_V2_AXIS_BANK_REDESIGN/TOKENIZER_BINDING.json",
+      "kind": "file",
+      "path": "/opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/TOKENIZER_BINDING.json",
+      "sha256": "b1a1d6fd755ce2536bf073eedc4e5badd7ff1c00c0927f1329baa98d058f6f57",
+      "transfer_out_of_band": false
+    },
+    "validation_corpus": {
+      "host_path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/corpus",
+      "kind": "tree",
+      "path": "/opt/o1_b200/o1_b200/corpus",
+      "sha256": "1214a29e8b50a2b4c875c755ac65d71e9faabdd78b90d47576dfd50de93450a8",
+      "transfer_out_of_band": false
+    }
+  },
+  "generated_from": "deploy/TRANSFER_MANIFEST.json",
+  "path_domain": "CONTAINER paths. Baked trees live under /opt/o1_b200; the checkpoint is fetched to /artifacts by runner/fetch_artifacts.py before this manifest is verified.",
+  "schema": "o1b200.transfer_manifest.v1"
+}

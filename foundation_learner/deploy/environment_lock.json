@@ -1,0 +1,77 @@
+{
+  "assert_at_runtime": {
+    "rule": "training/model_loading.assert_transformers_version() hard-fails on any other transformers version; torch is RECORDED, not asserted (see torch_pin_drift)",
+    "transformers": "4.54.1"
+  },
+  "checkpoint": {
+    "baked_into_image": false,
+    "local_canonical": "/home/moloch/ouro_project/models/ouro_rltt_local",
+    "pod_mount": "/artifacts/ouro_rltt_local",
+    "shared_with_o1": "READ-ONLY; byte-identical base shared with the O1 programme",
+    "tree_sha256": "a701f7a75300ddf57098572fef3894bef59d5179580ec7eae7cd561a36056889"
+  },
+  "container": {
+    "base_image": "python:3.14-slim-bookworm",
+    "base_image_digest": "python@sha256:23c59390fc717bf09f9336908199a0ae75d9c4264bf296123f94ad772fea3b52",
+    "fl_changes_to_the_image": "SOURCE ONLY \u2014 v0.3.1 bakes the FL package at /opt/foundation_learner/foundation_learner (Dockerfile.b300 COPY, staged by scripts/build_b300_image.sh; recorded as foundation_learner_source_sha256 in CONTAINER_IMAGE_RECORD.json). No package installation, no dependency change, no venv change: the FL package still RUNS IN the existing O1 container venv /opt/venv. Before v0.3.1 the image carried no FL package at all and a combined session refused at the handover (exit 78).",
+    "foundation_learner_source_sha256": "3332abfade44644c550c50276fba09ad0a1abbfa0a4941d1140e430edb9a19f7",
+    "image_id_local": "sha256:37b76595845ea5f08dce9208b2cdbb3fd011cb4078c98a6eddd54e3da0e4638b",
+    "image_name": "o1-b300-runner:v0.3.1",
+    "pregen_corpus_baked": "NO \u2014 the ~480 MB artifacts_fl/pregen corpus is fetched on the pod by campaign/fetch_pregen.py and every shard is re-hashed against MANIFESTS/SHARD_SUMS.json before the ladder starts",
+    "reference": "o1_b200/deploy/Dockerfile.b300 and o1_b200/provider/runpod/CONTAINER_IMAGE_RECORD.json (READ-ONLY reference; never modified by this campaign)",
+    "registry_digest_ref": "UNRESOLVED_UNTIL_O1_REGISTRY_PUSH",
+    "venv": "/opt/venv"
+  },
+  "container_environment": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "container_disk_gb": 60,
+    "open_ports": "none"
+  },
+  "cuda": {
+    "gpu": "B300 SXM6 AC (sm_103, CC 10.3, 288 GB HBM3e) primary; B200 (sm_100, CC 10.0, 180 GB) explicit fallback; host driver r580+ (CUDA 13.0) supplied by the provider host",
+    "local_gpu_for_smoke_test": "RTX 5070 Ti 12 GB, sm_120 (local, nonscientific smoke test only; same cu130 wheel)",
+    "sm103_native_basis": "the wheel's sm_100 cubins run natively on sm_103 (NVIDIA same-major/higher-minor SASS rule) plus 59 sm_103a arch-tuned kernels; NO PTX embedded, so JIT fallback is impossible",
+    "source": "pinned nvidia-*/cuda-toolkit cu13 wheels required by torch 2.12.1+cu130 (CUDA 13.0 runtime, cuDNN 9.20.0.48, NCCL 2.29.7)",
+    "toolkit": "13.0"
+  },
+  "frozen_utc": "2026-08-09",
+  "image_digest": "UNRESOLVED_UNTIL_PUSH (B300 image; see o1_b200/provider/runpod/CONTAINER_IMAGE_RECORD.json)",
+  "image_name": "o1-b300-runner:v0.3.1",
+  "no_peft_on_b200": {
+    "amendment": "CONTRACT_AMENDMENTS.md Amendment 3",
+    "consequence": "all low-rank adapter functionality (PEFT_MODE core arms, FL7 fast adapter, FL8 slow bank) is implemented in foundation_learner/training/lora.py (custom, tested)",
+    "fact": "peft is NOT in o1_b200/deploy/requirements.b300.lock (nor the historical requirements.b200.lock) and is therefore absent from the accelerator container",
+    "peft_local_role": "numerical oracle in a local unit test only; lazily imported and skipped when absent"
+  },
+  "notes": [
+    "This lock records facts; it installs nothing and changes nothing.",
+    "No new third-party dependency is introduced by the FL package: stdlib + numpy + torch + transformers + safetensors only at runtime.",
+    "Cloud spend for the task that produced this package: USD 0.00."
+  ],
+  "package": "FOUNDATION_LEARNER_B200_V0",
+  "package_version": "0.2.0",
+  "packages": {
+    "accelerate": "1.13.0",
+    "numpy": "2.4.4",
+    "peft": "0.19.1 LOCAL ONLY",
+    "safetensors": "0.7.0 (B300 lock)",
+    "tokenizers": "0.21.4 (B300 lock)",
+    "triton": "3.7.1 (B300 image, pinned wheel; unused in eager scientific execution)"
+  },
+  "python": {
+    "b200_container": "3.14 (base image python:3.14-slim-bookworm, pinned by digest)",
+    "local_venv": "3.14.6"
+  },
+  "schema": "flb200.environment_lock.v1",
+  "torch_pin_drift": {
+    "b300_image": "2.12.1+cu130",
+    "b300_role": "the accelerator image build (stable official cu130 wheel; frozen wheel set WHEELS_B300.sha256)",
+    "local_role": "LOCAL wheel-check venv + nonscientific real-checkpoint smoke on the sm_120 GPU (same wheel as the accelerator image)",
+    "local_venv": "2.12.1+cu130",
+    "sealed_reference": "2.12.0.dev20260407+cu128 \u2014 the sealed freeze manifest still pins it; the sealed orchestrator fails closed on the new image until the session builds the replacement manifest carrying the deployed torch value (documented infrastructure migration, no scientific change)",
+    "status": "NO DRIFT between local verification and the accelerator image (identical stable wheel)"
+  }
+}

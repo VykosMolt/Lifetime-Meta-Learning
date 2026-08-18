@@ -5,11 +5,12 @@
   "allow_create_pod": "UNRESOLVED (must be literally true)",
   "allow_real_calibration": "UNRESOLVED (must be literally true)",
   "budget_policy_sha256": "UNRESOLVED (sha256 of the frozen USD 45/40/5 budget policy file)",
-  "deployment_spec_sha256": "UNRESOLVED (request_sha256 of the freshly rendered canonical Pod request)",
+  "deployment_spec_sha256": "UNRESOLVED (request_sha256 of the freshly rendered canonical ALL-PROFILE deployment spec: B300 primary + B200 fallback)",
   "expires_utc": "UNRESOLVED (short UTC expiry, e.g. now + 2h, format %Y-%m-%dT%H:%M:%SZ)",
-  "launch_nonce": "UNRESOLVED (unique >=16 chars; consumed on first create; replay refused)",
+  "launch_nonce": "UNRESOLVED (unique >=16 chars; each pod creation consumes one slot; replay refused)",
+  "max_pod_creations": "UNRESOLVED (small positive integer <= 8; bounds initial acquisition + eviction reacquisitions of INTERRUPTIBLE capacity)",
   "package_zip_sha256": "UNRESOLVED (sha256 of the deployed O1_B200_RUNNER package zip)",
-  "project": "UNRESOLVED (must be 'O1_B200_CALIBRATION')",
+  "project": "UNRESOLVED (must be 'O1_B300_CALIBRATION')",
   "provider": "UNRESOLVED (must be 'runpod')",
-  "schema": "o1b200.rental_authorization.v1"
+  "schema": "o1b300.rental_authorization.v2"
 }

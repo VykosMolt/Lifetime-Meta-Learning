@@ -6,9 +6,9 @@ import json
 import os
 import time
 
-from _h import Runner, fresh_dir
+from _h import Runner, fresh_dir, hermetic_mock_credentials
 
-os.environ.setdefault("RUNPOD_API_KEY", "rpa_MOCKKEY_1234567890abcdef")
+MOCK_KEY = hermetic_mock_credentials()
 
 from o1_b200.provider.runpod.adapter import RunpodAdapterError, RunpodV2Adapter
 from o1_b200.provider.runpod.artifact_store import (
@@ -20,8 +20,9 @@ from o1_b200.provider.runpod.authorization import (
 from o1_b200.provider.runpod.lifecycle import LifecycleError, PodLifecycleController
 from o1_b200.provider.runpod.mock_server import MockRunpodServer, Scenario
 from o1_b200.provider.runpod.pod_request import (
-    build_pod_request, render_canonical_pod_request,
+    build_pod_request, render_canonical_deployment,
 )
+from o1_b200.provider.runpod.policy import PROFILE_B200, PROFILE_B300
 from o1_b200.provider.runpod.transport import ApiHttpError
 
 NOSLEEP = lambda s: None  # noqa: E731
@@ -43,10 +44,11 @@ def _fake_spawn(**_kw):
     return FakeWatchdog()
 
 
-def _authorized_adapter(srv, d, *, clock=None):
-    req = build_pod_request(image_digest_ref=GOOD_IMAGE,
-                            datacenter_id="US-KS-2")
-    rendered = render_canonical_pod_request(req, {"package": "test"})
+def _authorized_adapter(srv, d, *, clock=None, max_pod_creations=4):
+    reqs = {p.key: build_pod_request(profile=p, image_digest_ref=GOOD_IMAGE,
+                                     datacenter_id="US-KS-2")
+            for p in (PROFILE_B300, PROFILE_B200)}
+    rendered = render_canonical_deployment(reqs, {"package": "test"})
     doc = {
         "schema": AUTH_SCHEMA, "project": "O1_B200",
         "package_zip_sha256": "p" * 64, "provider": "runpod",
@@ -56,7 +58,7 @@ def _authorized_adapter(srv, d, *, clock=None):
         "launch_nonce": f"nonce-{time.time_ns()}",
         "deployment_spec_sha256": rendered["request_sha256"],
         "allow_create_pod": True, "allow_real_calibration": True,
-        "allow_confirmation": False,
+        "allow_confirmation": False, "max_pod_creations": max_pod_creations,
     }
     path = os.path.join(d, "auth.json")
     with open(path, "w") as fh:
@@ -70,9 +72,9 @@ def _authorized_adapter(srv, d, *, clock=None):
         cli_args=[CLI_FLAG], nonce_ledger=os.path.join(d, "nonces.txt"))
     kw = {"clock": clock} if clock else {}
     ad = RunpodV2Adapter(base_url=srv.base_url, authorization=auth,
-                         sleep=NOSLEEP, **kw)
+                         sleep=NOSLEEP, api_key=MOCK_KEY, **kw)
     ad.quote_instance(adapter_commit="test")
-    return ad, req, rendered
+    return ad, reqs["B300"], rendered
 
 
 def run() -> Runner:
@@ -116,16 +118,16 @@ def run() -> Runner:
     def create_timeout_reconciles():
         d = fresh_dir("lc_lost")
         sc = Scenario()
-        sc.drop_create_response = True
+        sc.drop_rent_response = True
         with MockRunpodServer(sc) as srv:
             ad, req, rendered = _authorized_adapter(srv, d)
             pod = ad.create_instance(req, rendered)   # response lost; reconcile
             assert pod.id in sc.pods, "did not attach to the real remote pod"
             assert len(sc.pods) == 1, "a second create was submitted"
-            posts = [p for m, p in sc.requests if m == "POST"]
-            assert len(posts) == 1, f"blind create retry: {posts}"
-    r.check("12. create response lost -> reconcile by nonce+name attaches to "
-            "the unique remote pod; NO second create request",
+            assert len(sc.rent_calls) == 1, \
+                f"blind spot-create retry: {len(sc.rent_calls)}"
+    r.check("12. spot-create response lost -> reconcile by nonce+name "
+            "attaches to the unique remote pod; NO second create request",
             create_timeout_reconciles)
 
     def ambiguous_reconciliation_halts():
@@ -134,7 +136,7 @@ def run() -> Runner:
         with MockRunpodServer(sc) as srv:
             for i in range(2):
                 sc.pods[f"pre{i}"] = {
-                    "id": f"pre{i}", "name": "o1-b200-calibration",
+                    "id": f"pre{i}", "name": "o1-b300-calibration",
                     "image": GOOD_IMAGE, "env": {}, "cloud": "SECURE",
                     "gpu": {"id": "NVIDIA B200", "count": 1},
                     "status": "RUNNING", "poll_count": 0,
@@ -244,7 +246,8 @@ def run() -> Runner:
         sc = Scenario()
         sc.api_key = "rpa_DIFFERENT_KEY_9999999999"
         with MockRunpodServer(sc) as srv:
-            ad2 = RunpodV2Adapter(base_url=srv.base_url, sleep=NOSLEEP)
+            ad2 = RunpodV2Adapter(base_url=srv.base_url, sleep=NOSLEEP,
+                                  api_key=MOCK_KEY)
             try:
                 ad2.get_instance("any")
             except ApiHttpError as exc:

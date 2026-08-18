@@ -36,10 +36,20 @@ key return 403, which the preflight reports as-is.
 
 The rental key additionally needs:
 
-- `POST /v2/pods` (create — exactly one pod, interlocked),
-- `POST /v2/pods/{id}/action` (`stop`/`terminate`),
-- `DELETE /v2/pods/{id}` (permanent termination),
-- `GET /v2/pods/{id}/logs`.
+- GraphQL `podRentInterruptable` (spot acquisition — the REST v2 API has no
+  interruptible surface, so spot pods are created only through the pinned
+  GraphQL surface `provider/runpod/graphql_spot.py`, contract pinned in
+  `provider/runpod/openapi/GRAPHQL_SPOT_CONTRACT.json`),
+- `GET /v2/pods/{id}` (status), `GET /v2/pods/{id}/logs`, billing endpoints
+  (all other lifecycle operations stay on the pinned REST v2 contract),
+- `POST /v2/pods/{id}/action` (`stop`),
+- `DELETE /v2/pods/{id}` (permanent termination).
+
+Same API key covers both the REST v2 surface and the GraphQL surface — no
+separate credential or extra scope is needed for GraphQL, including its
+read-only queries (catalog/quote lookups). Introspection is disabled on the
+live GraphQL endpoint; the schema is exercised only through the pinned,
+version-controlled contract, never discovered at runtime.
 
 Nothing else: no network-volume, template, registry-delegation, or
 serverless permission. If scoping per-operation is not offered, use a

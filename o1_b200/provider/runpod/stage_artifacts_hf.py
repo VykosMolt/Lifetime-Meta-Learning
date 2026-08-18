@@ -8,9 +8,9 @@ Usage (after `hf auth login` with a WRITE-capable token; never paste tokens
 into chat):
 
     python -m o1_b200.provider.runpod.stage_artifacts_hf \
-        --repo VykosMolt/o1-b200-staging upload
+        --repo Vykos/o1-b200-staging upload
     python -m o1_b200.provider.runpod.stage_artifacts_hf \
-        --repo VykosMolt/o1-b200-staging verify
+        --repo Vykos/o1-b200-staging verify
 
 `upload` creates the private repo if needed and uploads: the Ouro-RLTT
 checkpoint tree (5.0 GB), tokenizer binding, axis package, verified O1

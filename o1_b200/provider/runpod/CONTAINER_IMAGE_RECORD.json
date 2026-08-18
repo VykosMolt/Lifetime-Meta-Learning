@@ -1,8 +1,8 @@
 {
-  "base_image_digest": "python@sha256:86f975aca15cf04a40b399eebede9aea7c82eae084d1f1a0a6ef6bcaae871a30",
-  "build_timestamp_utc": "2026-08-01T12:06:01Z",
-  "dependency_lock_sha256": "266e566c8be49cb2fbc5fa0285877912976108add1fdf281036e026fdc1e480b",
-  "dockerfile_sha256": "9babe2d838e06aaf607cc6b43ae96357bf0c4f67bf7305fa3eca20d8533b94ed",
+  "base_image_digest": "python@sha256:23c59390fc717bf09f9336908199a0ae75d9c4264bf296123f94ad772fea3b52",
+  "build_timestamp_utc": "2026-08-18T11:36:58Z",
+  "dependency_lock_sha256": "53c15b49312dbe6b1ca1e399ae9cf6045c1bdbc53ab1f825a5d3cfbf0870335b",
+  "dockerfile_sha256": "3f000a4f2a96f64afd247eeb96d6505f7b0192ee18f9695e3fabcacc1cac73d6",
   "environment": {
     "arch_list": [
       "sm_75",
@@ -12,23 +12,31 @@
       "sm_100",
       "sm_120"
     ],
-    "arch_list_source": "host wheel verification (build has no GPU); re-verified on the B200 by validate_environment.py",
+    "arch_list_source": "host wheel verification (build has no GPU); re-verified on the acquired GPU by deploy/hardware_gate.py",
     "cudnn": 92000,
     "glibc": "2.36",
     "numpy": "2.4.4",
-    "python": "3.14.6",
-    "torch": "2.12.0.dev20260408+cu128",
-    "torch_cuda_runtime": "12.8",
+    "python": "3.14.7",
+    "sm103_native_basis": "sm_100 cubins run natively on sm_103 (NVIDIA same-major/higher-minor SASS rule); wheel additionally carries sm_103a arch-tuned kernels; NO PTX embedded so JIT fallback is impossible",
+    "torch": "2.12.1+cu130",
+    "torch_cuda_runtime": "13.0",
     "transformers": "4.54.1"
   },
-  "image_id_local": "sha256:75582fe45ddaed41a6150adf01fb6fc62c1511828913e5e37e37e43b415e7f1b",
-  "image_name": "o1-b200-runner:v0.2.0",
+  "foundation_learner_layout": "/opt/foundation_learner/foundation_learner (import root /opt/foundation_learner); pregen episode corpus NOT baked \u2014 campaign/fetch_pregen.py materialises and hash-verifies it on the pod",
+  "foundation_learner_source_sha256": "3332abfade44644c550c50276fba09ad0a1abbfa0a4941d1140e430edb9a19f7",
+  "image_id_local": "sha256:37b76595845ea5f08dce9208b2cdbb3fd011cb4078c98a6eddd54e3da0e4638b",
+  "image_name": "o1-b300-runner:v0.3.1",
   "notes": "no FP8/FP4/quantization/speculative/vLLM/TensorRT-LLM/SGLang; no startup installation/compilation/clone/resolution; checkpoint never baked; no credentials",
   "platform": "linux/amd64",
   "registry_digest_ref": "UNRESOLVED_UNTIL_PUSH (docker push prints repo@sha256:...)",
-  "schema": "o1b200.container_image_record.v1",
-  "supported_driver_range": ">= R570 (NVIDIA Blackwell Compatibility Guide; CUDA 12.8 line)",
+  "schema": "o1b300.container_image_record.v2",
+  "supported_driver_range": ">= r580 (CUDA 13.0 requirement; RunPod B300/B200 hosts report CUDA 13.0/13.2)",
   "system_packages": "base python:3.14-slim-bookworm only; no extra apt packages installed",
-  "torch_wheel_sha256": "57238d34e7789f55a2e9be50b2a4a20db423bc34bb80238318d7d1dd7ded4d27",
-  "triton_wheel_sha256": "2aa1b62cb3dec8582a0c8cd821a93b758ca5587bfa8ef07de7de5e05913e7a06"
+  "target_profiles": {
+    "B200": "sm_100 / CC 10.0 / 180 GB (explicit fallback)",
+    "B300": "sm_103 / CC 10.3 / 288 GB (primary)"
+  },
+  "torch_wheel_sha256": "c84c5988b3e416669ed3790d772479af5934d1788119288d8bddd9c4cb207285",
+  "triton_wheel_sha256": "c56cb810349d3699020b5b7695429b9b997574dab1b9f46b2b63fa23d7954894",
+  "wheelset_manifest_sha256": "a2577028a5a82fc301e38bef6a33bc40940aa12f9bff11683176ad66290910d9"
 }

@@ -5,9 +5,9 @@ import json
 import os
 import time
 
-from _h import Runner, fresh_dir
+from _h import Runner, fresh_dir, hermetic_mock_credentials
 
-os.environ.setdefault("RUNPOD_API_KEY", "rpa_MOCKKEY_1234567890abcdef")
+MOCK_KEY = hermetic_mock_credentials()
 
 from o1_b200.provider.runpod.adapter import RunpodV2Adapter
 from o1_b200.provider.runpod.authorization import (
@@ -16,12 +16,19 @@ from o1_b200.provider.runpod.authorization import (
 )
 from o1_b200.provider.runpod.mock_server import MockRunpodServer, Scenario
 from o1_b200.provider.runpod.pod_request import (
-    PodRequestError, build_pod_request, render_canonical_pod_request,
+    PodRequestError, build_pod_request, render_canonical_deployment,
 )
+from o1_b200.provider.runpod.policy import PROFILE_B200, PROFILE_B300
 from o1_b200.provider.runpod.transport import ReadOnlyTransport, ReadOnlyViolation
 
 NOSLEEP = lambda s: None  # noqa: E731
 GOOD_IMAGE = "ghcr.io/x/o1@sha256:" + "a" * 64
+
+
+def _requests(image=GOOD_IMAGE, dc="US-KS-2"):
+    return {p.key: build_pod_request(profile=p, image_digest_ref=image,
+                                     datacenter_id=dc)
+            for p in (PROFILE_B300, PROFILE_B200)}
 
 
 def _identity(rendered):
@@ -40,7 +47,7 @@ def _authdoc(rendered, **over):
         "launch_nonce": f"nonce-{time.time_ns()}",
         "deployment_spec_sha256": rendered["request_sha256"],
         "allow_create_pod": True, "allow_real_calibration": True,
-        "allow_confirmation": False,
+        "allow_confirmation": False, "max_pod_creations": 4,
     }
     doc.update(over)
     return doc
@@ -63,9 +70,9 @@ def _verify(path, rendered, d, cli=None, environ=None):
 
 def run() -> Runner:
     r = Runner("runpod_interlock")
-    req = build_pod_request(image_digest_ref=GOOD_IMAGE,
-                            datacenter_id="US-KS-2")
-    rendered = render_canonical_pod_request(req, {"package": "test"})
+    reqs = _requests()
+    req = reqs["B300"]
+    rendered = render_canonical_deployment(reqs, {"package": "test"})
 
     def readonly_rejects_before_network():
         t = ReadOnlyTransport(base_url="http://127.0.0.1:1",  # unroutable
@@ -84,7 +91,8 @@ def run() -> Runner:
 
     def unauthorized_adapter_cannot_mutate():
         with MockRunpodServer() as srv:
-            ad = RunpodV2Adapter(base_url=srv.base_url, sleep=NOSLEEP)
+            ad = RunpodV2Adapter(base_url=srv.base_url, sleep=NOSLEEP,
+                                 api_key=MOCK_KEY)
             for fn in (lambda: ad.create_instance(req, rendered),
                        lambda: ad.stop_instance("x"),
                        lambda: ad.terminate_instance("x")):
@@ -122,6 +130,15 @@ def run() -> Runner:
             rendered, allow_real_calibration=False), [CLI_FLAG], env_ok))
         cases.append(("32. allow_confirmation true refused", _authdoc(
             rendered, allow_confirmation=True), [CLI_FLAG], env_ok))
+        cases.append(("max_pod_creations missing", {
+            k: v for k, v in _authdoc(rendered).items()
+            if k != "max_pod_creations"}, [CLI_FLAG], env_ok))
+        cases.append(("max_pod_creations zero", _authdoc(
+            rendered, max_pod_creations=0), [CLI_FLAG], env_ok))
+        cases.append(("max_pod_creations above ceiling", _authdoc(
+            rendered, max_pod_creations=999), [CLI_FLAG], env_ok))
+        cases.append(("max_pod_creations non-integer", _authdoc(
+            rendered, max_pod_creations="4"), [CLI_FLAG], env_ok))
         for label, doc, cli, environ in cases:
             path = _write(d, doc) if doc is not None else \
                 os.path.join(d, "missing.json")
@@ -141,7 +158,7 @@ def run() -> Runner:
         d = fresh_dir("interlock_template")
         template_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)), "..", "provider",
-            "runpod", "B200_RENTAL_AUTHORIZATION.template.json")
+            "runpod", "B300_RENTAL_AUTHORIZATION.template.json")
         try:
             _verify(os.path.abspath(template_path), rendered, d,
                     environ={ENV_FLAG: ENV_FLAG_VALUE})
@@ -154,7 +171,8 @@ def run() -> Runner:
 
     def nonce_replay_refused():
         d = fresh_dir("interlock_nonce")
-        doc = _authdoc(rendered, launch_nonce="replayable-nonce-123456")
+        doc = _authdoc(rendered, launch_nonce="replayable-nonce-123456",
+                       max_pod_creations=1)
         path = _write(d, doc)
         env_ok = {ENV_FLAG: ENV_FLAG_VALUE}
         auth = _verify(path, rendered, d, environ=env_ok)
@@ -167,9 +185,53 @@ def run() -> Runner:
         raise AssertionError("nonce replay accepted")
     r.check("36. authorization nonce replay refused", nonce_replay_refused)
 
+    def creation_budget_bounded():
+        d = fresh_dir("interlock_slots")
+        doc = _authdoc(rendered, launch_nonce="bounded-nonce-abcdef",
+                       max_pod_creations=3)
+        path = _write(d, doc)
+        env_ok = {ENV_FLAG: ENV_FLAG_VALUE}
+        auth = _verify(path, rendered, d, environ=env_ok)
+        assert auth.creations_remaining() == 3
+        for _ in range(3):
+            auth.consume_nonce()      # initial + 2 eviction reacquisitions
+        assert auth.creations_remaining() == 0
+        try:
+            auth.consume_nonce()
+        except AuthorizationError as exc:
+            assert "exhausted" in str(exc)
+        else:
+            raise AssertionError("4th creation on a 3-slot authorization")
+        try:
+            _verify(path, rendered, d, environ=env_ok)
+        except AuthorizationError as exc:
+            assert "replay" in str(exc) or "exhausted" in str(exc)
+            return
+        raise AssertionError("exhausted authorization re-verified")
+    r.check("eviction reacquisition is bounded: max_pod_creations slots, "
+            "then LIVE_MUTATION_NOT_AUTHORIZED", creation_budget_bounded)
+
+    def v1_ledger_counts():
+        # a v1-format ledger line (bare nonce) counts as one consumed slot
+        d = fresh_dir("interlock_v1ledger")
+        nonce = "legacy-v1-nonce-xyz123"
+        with open(os.path.join(d, "nonces.txt"), "w") as fh:
+            fh.write(nonce + "\n")
+        doc = _authdoc(rendered, launch_nonce=nonce, max_pod_creations=1)
+        path = _write(d, doc)
+        try:
+            _verify(path, rendered, d, environ={ENV_FLAG: ENV_FLAG_VALUE})
+        except AuthorizationError as exc:
+            assert "replay" in str(exc) or "exhausted" in str(exc)
+            return
+        raise AssertionError("v1 ledger entry ignored")
+    r.check("legacy v1 nonce-ledger entries still refuse replay",
+            v1_ledger_counts)
+
     def mutable_tag_refused():
         try:
-            build_pod_request(image_digest_ref="ghcr.io/x/o1:latest",
+            build_pod_request(profile=PROFILE_B300,
+                              image_digest_ref="ghcr.io/x/o1:latest",
                               datacenter_id="US-KS-2")
         except (PodRequestError, ValueError) as exc:
             assert "digest" in str(exc)
@@ -183,7 +245,7 @@ def run() -> Runner:
             os.path.dirname(os.path.abspath(__file__)), "..", ".."))
         proc = subprocess.run(
             ["bash", os.path.join(root, "o1_b200",
-                                  "o1_runpod_b200_zero_touch.sh")],
+                                  "o1_runpod_b300_zero_touch.sh")],
             capture_output=True, text=True, timeout=60)
         assert proc.returncode == 78, proc.returncode
         assert "LIVE_MUTATION_NOT_AUTHORIZED" in proc.stderr

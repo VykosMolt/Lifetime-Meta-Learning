@@ -1,0 +1,22 @@
+# Local scratch and per-run outputs (regenerable; never part of the package).
+reports/local_runs/
+__pycache__/
+*.pyc
+*.pyo
+*.tmp
+
+# The release zip and its sidecar are BUILD OUTPUTS of
+# scripts/package_release.py; the tracked artefact is SHA256SUMS (and the
+# manifest that records the zip digest), not the zip itself.
+FOUNDATION_LEARNER_B200_V0*.zip
+FOUNDATION_LEARNER_B200_V0*.zip.sha256
+
+# NOTE on the pre-generated data (artifacts_fl/pregen*/):
+# that tree lives OUTSIDE this package directory, so it cannot be ignored from
+# here — the rule lives in the repository-root .gitignore, which ignores the
+# raw shard directories but re-includes artifacts_fl/pregen*/MANIFESTS/.
+# scripts/package_release.py mirrors PREGEN_MANIFEST.json, SHARD_SUMS.json and
+# family_split_manifest.json into that MANIFESTS/ directory (hash-verified on
+# every run), so the manifests stay findable for packaging and review while the
+# shards themselves stay out of Git. The shards are bitwise reproducible from
+# scripts/pregenerate_all.py.

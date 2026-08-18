@@ -1,0 +1,71 @@
+{
+  "create_pod_bodies": {
+    "B200": {
+      "args": "/opt/o1_b200/o1_b200/deploy/start_b300.sh",
+      "bidPerGpu": "UNRESOLVED (live secure spot rate at launch)",
+      "cloud": "SECURE",
+      "dataCenterIds": [
+        "UNRESOLVED (from the fresh pre-launch quote)"
+      ],
+      "disk": 60,
+      "env": {
+        "HF_TOKEN": "",
+        "O1_ACQUIRED_PROFILE": "",
+        "O1_B200_ARTIFACT_SOURCE": "",
+        "O1_B200_OUT": "",
+        "O1_B200_RESULT_DESTINATION": "",
+        "O1_HOURLY_RATE_USD": "",
+        "O1_IMAGE_DIGEST": "",
+        "O1_SESSION_AUTHORIZED_SECONDS": "",
+        "RUNPOD_ALLOW_BILLABLE_MUTATIONS": ""
+      },
+      "gpu": {
+        "count": 1,
+        "id": "NVIDIA B200"
+      },
+      "image": "UNRESOLVED@sha256:0000000000000000000000000000000000000000000000000000000000000000  (replace with the built image digest; mutable tags refused)",
+      "name": "o1-b300-calibration",
+      "ports": [],
+      "purchaseMode": "INTERRUPTIBLE"
+    },
+    "B300": {
+      "args": "/opt/o1_b200/o1_b200/deploy/start_b300.sh",
+      "bidPerGpu": "UNRESOLVED (live secure spot rate at launch)",
+      "cloud": "SECURE",
+      "dataCenterIds": [
+        "UNRESOLVED (from the fresh pre-launch quote)"
+      ],
+      "disk": 60,
+      "env": {
+        "HF_TOKEN": "",
+        "O1_ACQUIRED_PROFILE": "",
+        "O1_B200_ARTIFACT_SOURCE": "",
+        "O1_B200_OUT": "",
+        "O1_B200_RESULT_DESTINATION": "",
+        "O1_HOURLY_RATE_USD": "",
+        "O1_IMAGE_DIGEST": "",
+        "O1_SESSION_AUTHORIZED_SECONDS": "",
+        "RUNPOD_ALLOW_BILLABLE_MUTATIONS": ""
+      },
+      "gpu": {
+        "count": 1,
+        "id": "NVIDIA B300 SXM6 AC"
+      },
+      "image": "UNRESOLVED@sha256:0000000000000000000000000000000000000000000000000000000000000000  (replace with the built image digest; mutable tags refused)",
+      "name": "o1-b300-calibration",
+      "ports": [],
+      "purchaseMode": "INTERRUPTIBLE"
+    }
+  },
+  "identities": {
+    "base_scientific_package": "O1_oracle_reachability_v2.1.0 zip a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
+    "budget_policy": "USD 45.00 / 40.00 / 5.00, no extension, no override, no auto-pay, confirmation false",
+    "package": "O1_B300_RUNNER_v0.3.1"
+  },
+  "profile_preference": [
+    "B300",
+    "B200"
+  ],
+  "schema": "o1b300.runpod_pod_request.template.v2",
+  "status": "TEMPLATE \u2014 the authorized session re-renders this with the live datacenter, live spot bid and the immutable image digest, then binds the all-profile deployment hash into B300_RENTAL_AUTHORIZATION.json"
+}

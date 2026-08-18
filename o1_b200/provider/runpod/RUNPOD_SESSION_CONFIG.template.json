@@ -1,15 +1,21 @@
 {
-  "schema": "o1b200.runpod_session_config.v1",
-  "_status": "TEMPLATE — copy to RUNPOD_SESSION_CONFIG.json and resolve every UNRESOLVED field during the separately authorized rental session. zero_touch refuses to run from the template.",
-  "project": "O1_B200_CALIBRATION",
-  "package_zip_sha256": "UNRESOLVED (sha256 of the deployed O1_B200_RUNNER package zip)",
-  "budget_policy_sha256": "UNRESOLVED (sha256 of policies/B200_BUDGET_POLICY.template.json as deployed)",
-  "image_digest_ref": "UNRESOLVED (registry/image@sha256:… from CONTAINER_IMAGE_RECORD.json after push)",
+  "_profile_preference_note": "Order in which the FROZEN accelerator profiles are tried. Both are covered by the rental authorization, so reordering adds no capability \u2014 it only expresses which part the operator wants FIRST. Set [\"B200\",\"B300\"] to prefer the B200 (e.g. when B300 demand makes it unobtainable); the session still falls back to the other profile and records the reason. Unknown profile names are refused.",
+  "_status": "TEMPLATE \u2014 copy to RUNPOD_SESSION_CONFIG.json and resolve every UNRESOLVED field during the separately authorized rental session. zero_touch refuses to run from the template.",
   "adapter_commit": "UNRESOLVED (git commit of the adapter at launch)",
-  "result_source": "UNRESOLVED (result archive location produced by the pod's output pipeline)",
+  "budget_policy_sha256": "UNRESOLVED (sha256 of policies/B200_BUDGET_POLICY.template.json as deployed)",
   "identities": {
-    "package": "UNRESOLVED",
     "base_scientific_package": "O1_oracle_reachability_v2.1.0 zip a8b0571cc67584b862db3e42fb015f47ae7d2887d7ce59605e3c273591fe7892",
-    "budget_policy": "USD 45.00 / 40.00 / 5.00, no extension, no override, no auto-pay, confirmation false"
-  }
+    "budget_policy": "USD 45.00 / 40.00 / 5.00, no extension, no override, no auto-pay, confirmation false",
+    "package": "UNRESOLVED"
+  },
+  "image_digest_ref": "UNRESOLVED (registry/image@sha256:\u2026 from CONTAINER_IMAGE_RECORD.json after push)",
+  "package_zip_sha256": "UNRESOLVED (sha256 of the deployed O1_B300_RUNNER package zip)",
+  "profile_preference": [
+    "B300",
+    "B200"
+  ],
+  "project": "O1_B300_CALIBRATION",
+  "result_destination": "UNRESOLVED (durable store root, e.g. hf://<ns>/<repo>/<session>; continuous row/checkpoint sync + results)",
+  "result_source": "UNRESOLVED (result archive location produced by the pod's output pipeline)",
+  "schema": "o1b300.runpod_session_config.v2"
 }

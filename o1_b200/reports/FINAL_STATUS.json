@@ -1,0 +1,26 @@
+{
+  "human_interaction_required": false,
+  "machine_readable": true,
+  "outcome": "COMPLETE",
+  "states_run": [
+    "PRECHECK",
+    "ARTIFACT_VERIFY",
+    "ENVIRONMENT_VERIFY",
+    "NON_O1_EQUIVALENCE",
+    "NON_O1_BENCHMARK",
+    "BACKEND_SELECT",
+    "PRECOMMIT_BUILD",
+    "EXTERNAL_COMMIT_VERIFY",
+    "CALIBRATION_AFFORDABILITY_CHECK",
+    "CALIBRATION",
+    "RECORD_VERIFY",
+    "RESULT_TRANSFER",
+    "TERMINATE",
+    "COMPLETE"
+  ],
+  "status_sha256": "992d32b8a82f99d254c1fc2e40b9b574587f7de8ff7a15aeef8296989c0f8755",
+  "termination": {
+    "termination_confirmed": true,
+    "termination_requested": true
+  }
+}

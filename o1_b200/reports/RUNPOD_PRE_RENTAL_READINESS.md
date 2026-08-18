@@ -1,7 +1,7 @@
 # RunPod Pre-Rental Readiness
 
-**Verdict: PASS_PENDING_READONLY_CREDENTIAL_CHECK**
-Read-only live check: SKIPPED_NO_CREDENTIAL
+**Verdict: PASS**
+Read-only live check: PASS
 
 | check | ok |
 |---|---|
@@ -10,6 +10,7 @@ Read-only live check: SKIPPED_NO_CREDENTIAL
 | b200_runner_and_adapter_suites | PASS |
 | base_package_suite | PASS |
 | container_image_built_and_asserted | PASS |
-| dry_run_pod_request_render | PASS |
+| dry_run_deployment_render | PASS |
 | openapi_schema_pin | PASS |
+| readonly_live_preflight | PASS |
 | secret_scan_clean | PASS |

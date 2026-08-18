@@ -14,18 +14,17 @@ import json
 import os
 import time
 
-from _h import Runner, fresh_dir
+from _h import Runner, fresh_dir, hermetic_mock_credentials
 
-os.environ.setdefault("RUNPOD_API_KEY", "rpa_MOCKKEY_1234567890abcdef")
+MOCK_KEY = hermetic_mock_credentials()
 
 from o1_b200.provider.runpod.authorization import (
     AUTH_SCHEMA, CLI_FLAG, ENV_FLAG, ENV_FLAG_VALUE,
 )
-from o1_b200.provider.runpod.mock_server import MockRunpodServer, Scenario, _b200
-from o1_b200.provider.runpod.pod_request import (
-    build_pod_request, render_canonical_pod_request,
+from o1_b200.provider.runpod.mock_server import (
+    MockRunpodServer, Scenario, _b200, _b300,
 )
-from o1_b200.provider.runpod.zero_touch import run_session
+from o1_b200.provider.runpod.zero_touch import _render_all_profiles, run_session
 
 NOSLEEP = lambda s: None  # noqa: E731
 GOOD_IMAGE = "ghcr.io/x/o1@sha256:" + "a" * 64
@@ -46,22 +45,24 @@ def _fake_spawn(**_kw):
     return FakeWatchdog()
 
 
-def _session_setup(d, srv):
+def _session_setup(d, srv, result_source=None):
+    # NOTE: result_source/result_destination are DEPLOYMENT IDENTITY (they
+    # decide where the pod publishes), so a test that wants a different one
+    # must pass it here — mutating config after the authorization is bound
+    # is exactly what the identity check refuses.
     config = {
         "project": "O1_B200", "package_zip_sha256": "p" * 64,
         "budget_policy_sha256": "b" * 64,
         "image_digest_ref": GOOD_IMAGE,
         "identities": {"package": "test"},
         "adapter_commit": "test",
-        "result_source": os.path.join(d, "fake_results.tar.gz"),
+        "result_source": result_source or os.path.join(
+            d, "fake_results.tar.gz"),
     }
-    with open(config["result_source"], "wb") as fh:
-        fh.write(b"results")
-    # the canonical request the driver will render (US-KS-2 sorts first among
-    # non-NONE datacenters in the default scenario? EU-RO-1 sorts first)
-    req = build_pod_request(image_digest_ref=GOOD_IMAGE,
-                            datacenter_id=sorted(["US-KS-2", "EU-RO-1"])[0])
-    rendered = render_canonical_pod_request(req, config["identities"])
+    if result_source is None:
+        with open(config["result_source"], "wb") as fh:
+            fh.write(b"results")
+    rendered = _render_all_profiles(config)
     doc = {
         "schema": AUTH_SCHEMA, "project": "O1_B200",
         "package_zip_sha256": "p" * 64, "provider": "runpod",
@@ -71,7 +72,7 @@ def _session_setup(d, srv):
         "launch_nonce": f"nonce-{time.time_ns()}",
         "deployment_spec_sha256": rendered["request_sha256"],
         "allow_create_pod": True, "allow_real_calibration": True,
-        "allow_confirmation": False,
+        "allow_confirmation": False, "max_pod_creations": 4,
     }
     auth_path = os.path.join(d, "auth.json")
     with open(auth_path, "w") as fh:
@@ -92,14 +93,21 @@ def run() -> Runner:
             status = run_session(
                 authorization_path=auth_path, out_dir=d,
                 cli_args=[CLI_FLAG], base_url=srv.base_url,
+                api_key=MOCK_KEY,
                 sleep=NOSLEEP, config=config,
                 spawn_watchdog_fn=_fake_spawn)
             assert status["outcome"] == "LIVE_MUTATION_NOT_AUTHORIZED"
             assert not sc.pods, "a pod was created without authorization!"
-            posts = [p for m, p in sc.requests if m != "GET"]
-            assert not posts, f"mutating requests sent: {posts}"
+            assert not sc.rent_calls, "a spot rent mutation was sent!"
+            other = [p for m, p in sc.requests
+                     if m != "GET" and p != "/graphql"]
+            assert not other, f"mutating REST requests sent: {other}"
+            # /graphql POSTs are read-only query operations by local
+            # transport enforcement (adapter test 18); mutations require the
+            # verified authorization and are counted via rent_calls above
     r.check("session without the env flag refuses BEFORE any mutating "
-            "request (no pod, zero non-GET traffic)", refusal_without_interlock)
+            "request (no pod, no rent mutation, no mutating REST)",
+            refusal_without_interlock)
 
     def full_rehearsal_complete():
         d = fresh_dir("zt_ok")
@@ -112,6 +120,7 @@ def run() -> Runner:
                 status = run_session(
                     authorization_path=auth_path, out_dir=d,
                     cli_args=[CLI_FLAG], base_url=srv.base_url,
+                api_key=MOCK_KEY,
                     sleep=NOSLEEP, config=config,
                     spawn_watchdog_fn=_fake_spawn)
             finally:
@@ -131,7 +140,9 @@ def run() -> Runner:
     def preflight_refusal_no_pod():
         d = fresh_dir("zt_nopre")
         sc = Scenario()
-        sc.gpus = [_b200(availability="NONE",
+        sc.gpus = [_b300(availability="NONE",
+                         dcs=[{"id": "EU-NL-1", "availability": "NONE"}]),
+                   _b200(availability="NONE",
                          dcs=[{"id": "US-KS-2", "availability": "NONE"}])]
         with MockRunpodServer(sc) as srv:
             config, auth_path = _session_setup(d, srv)
@@ -140,11 +151,12 @@ def run() -> Runner:
                 status = run_session(
                     authorization_path=auth_path, out_dir=d,
                     cli_args=[CLI_FLAG], base_url=srv.base_url,
+                api_key=MOCK_KEY,
                     sleep=NOSLEEP, config=config,
                     spawn_watchdog_fn=_fake_spawn)
             finally:
                 os.environ.pop(ENV_FLAG, None)
-            assert status["outcome"] == "REFUSED_PREFLIGHT"
+            assert status["outcome"] in ("REFUSED_PREFLIGHT", "REFUSED_NO_CAPACITY")
             assert not sc.pods
     r.check("failed preflight (B200 unavailable) refuses before create",
             preflight_refusal_no_pod)
@@ -163,6 +175,7 @@ def run() -> Runner:
                 status = run_session(
                     authorization_path=auth_path, out_dir=d,
                     cli_args=[CLI_FLAG], base_url=srv.base_url,
+                api_key=MOCK_KEY,
                     sleep=NOSLEEP, config=config,
                     spawn_watchdog_fn=_fake_spawn)
             finally:
@@ -181,13 +194,14 @@ def run() -> Runner:
         sc = Scenario()
         sc.log_text = "ZERO_TOUCH_COMPLETE\n"
         with MockRunpodServer(sc) as srv:
-            config, auth_path = _session_setup(d, srv)
-            config["result_source"] = os.path.join(d, "missing.tar.gz")
+            config, auth_path = _session_setup(
+                d, srv, result_source=os.path.join(d, "missing.tar.gz"))
             os.environ[ENV_FLAG] = ENV_FLAG_VALUE
             try:
                 status = run_session(
                     authorization_path=auth_path, out_dir=d,
                     cli_args=[CLI_FLAG], base_url=srv.base_url,
+                api_key=MOCK_KEY,
                     sleep=NOSLEEP, config=config,
                     spawn_watchdog_fn=_fake_spawn)
             finally:

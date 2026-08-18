@@ -2,3 +2,9 @@
 reports/local_runs/
 __pycache__/
 *.pyc
+# dress-rehearsal / equivalence working directories: regenerable per-run
+# scratch, not evidence. The evidence is the top-level *_REPORT.json files.
+reports/eq_*/
+reports/rehearsal_calibration/
+reports/downloaded/
+reports/*.tmp

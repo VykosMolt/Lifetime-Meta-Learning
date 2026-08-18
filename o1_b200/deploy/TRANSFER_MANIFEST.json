@@ -39,7 +39,7 @@
     "deploy_scripts": {
       "kind": "tree",
       "path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/deploy",
-      "sha256": "ec26408ddb270579aa4c4d2763f5219f35a68a0a327678a0f750720457a4dfc2",
+      "sha256": "7157895a13cca8111e72a51fca957c71decef193a75df48dbd9ea82dc8295cac",
       "transfer_out_of_band": false
     },
     "freeze_manifest": {
@@ -69,13 +69,13 @@
     "policies": {
       "kind": "tree",
       "path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/policies",
-      "sha256": "9322d1f610ea6d7ade55fae0530fe0bf46a54948e6ad69d7657b1346990b1705",
+      "sha256": "c8abf985959400a0ebaff6eacb376f5509e142c3e9e7f67de0f951401bc01e3b",
       "transfer_out_of_band": false
     },
     "runner_source": {
       "kind": "tree",
       "path": "/home/moloch/ouro_worktrees/o1-v2-b200-runner/o1_b200/runner",
-      "sha256": "90e4261ed0d6c9273e7e7a9befe5f5887c7c1abab90ac1234bcb1a1b8a897c78",
+      "sha256": "0911d4d7319ffb121a8cc3f13d631a94dfa7904895c964adb941ff91af858fcc",
       "transfer_out_of_band": false
     },
     "tokenizer_binding": {
@@ -96,5 +96,6 @@
     "packaging": "deploy/package_outputs.sh -> single checksummed archive",
     "return_path": "hash-verified download, then local analysis"
   },
+  "path_domain": "HOST paths on the build machine \u2014 build-time provenance only. The POD verifies POD_TRANSFER_MANIFEST.json, whose paths are the container's.",
   "schema": "o1b200.transfer_manifest.v1"
 }

@@ -1,0 +1,39 @@
+{
+  "automatic_extension_allowed": false,
+  "bench_declared_budget_seconds": 900,
+  "checkpoint_cadence_seconds": 600,
+  "checkpoint_cadence_steps": 200,
+  "confirmation_authorized": false,
+  "core_arms": 3,
+  "final_transfer_reserve_seconds": 1200,
+  "frozen_utc": "2026-08-09",
+  "full_model_minimum_updates_per_arm": 600,
+  "grid_configurations": 2,
+  "grid_update_fraction": 0.25,
+  "notes": [
+    "Contract 11 freezes SAFETY_FACTOR = 1.25 and FINAL_TRANSFER_RESERVE = 1200 s. This file is the single authoritative home of those constants; campaign/affordability.py refuses to load a policy in which they were altered.",
+    "Admission rule: projected_stage_seconds * safety_factor + remaining_reserve <= remaining_authorized.",
+    "BENCH is the ONE stage whose projection cannot be measured (it is the measurement). It is admitted against the DECLARED bounded budget bench_declared_budget_seconds and is itself bounded by that budget; every later stage is projected from BENCH's measured numbers.",
+    "FULL_MODEL_MODE eligibility: projected_core_comparison_seconds(FULL, U=600 updates/arm, grid + 3 arms + evals) * safety_factor + final transfer reserve <= available_foundation_learner_seconds; otherwise PEFT_MODE for all core arms. U is then the largest ladder value satisfying the same inequality for the selected scope.",
+    "This policy is SEPARATE from the O1 runner/budget.py policy, which hard-asserts the O1 45/40/5 split and cannot be reused. The USD 45.00 total session budget remains authoritative at SESSION level and is recorded here for that reason only; nothing in the FL package spends money or contacts a provider.",
+    "Rental confirmation remains NOT AUTHORIZED. The transfer/termination reserve is never consumed by a stage.",
+    "O1 has absolute priority: FL time only begins after the O1 records are verified, transferred, and the O1 process closed (contract 13).",
+    "Stage watchdog (Amendment 12): a running stage is ABORTED when its elapsed time exceeds max(projected_stage_seconds * safety_factor, stage_watchdog_minimum_seconds), or as soon as the remaining authorized time would fall to the final transfer reserve. The minimum floor exists because a projection derived from a short BENCH probe cannot bound a stage below its own measurement noise; the reserve condition is the hard money guarantee and has no floor."
+  ],
+  "o1_priority": "ABSOLUTE_FIRST",
+  "operator_override_allowed": false,
+  "policy_id": "FOUNDATION_LEARNER_V0_BUDGET_POLICY",
+  "rental_confirmation": "NOT_AUTHORIZED",
+  "reserve_consumable_by_stages": false,
+  "safety_factor": 1.25,
+  "schema": "flb200.budget_policy.v1",
+  "session_budget_authority": "SESSION_LEVEL_O1_AND_FL_COMBINED",
+  "session_total_authorized_usd": 45.0,
+  "stage_watchdog_minimum_seconds": 900,
+  "update_ladder": [
+    600,
+    1200,
+    2400,
+    4800
+  ]
+}

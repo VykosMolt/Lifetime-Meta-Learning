@@ -174,7 +174,14 @@ class PodModel:
 
 @dataclasses.dataclass(frozen=True)
 class CreatePodRequestModel:
-    """Typed createPod body per the pinned CreatePodRequest schema."""
+    """Typed pod-creation body.
+
+    ``to_json`` renders the pinned REST CreatePodRequest shape (used for
+    canonical rendering/hashing and for the mock contract).
+    ``to_rent_input`` renders the pinned GraphQL PodRentInterruptableInput
+    shape actually submitted for INTERRUPTIBLE acquisition — the REST v2
+    contract cannot express interruptible capacity.
+    """
     name: str
     image: str
     cloud: str
@@ -182,6 +189,7 @@ class CreatePodRequestModel:
     gpu_count: int
     container_disk_gb: int
     env: dict
+    purchase_mode: str = "INTERRUPTIBLE"
     ports: tuple = ()
     args: str | None = None
     datacenter_ids: tuple = ()
@@ -194,6 +202,7 @@ class CreatePodRequestModel:
             "gpu": {"id": self.gpu_type_id, "count": int(self.gpu_count)},
             "disk": int(self.container_disk_gb),
             "env": dict(self.env),
+            "purchaseMode": self.purchase_mode,
         }
         if self.ports:
             body["ports"] = list(self.ports)
@@ -203,11 +212,51 @@ class CreatePodRequestModel:
             body["dataCenterIds"] = list(self.datacenter_ids)
         return body
 
+    def to_rent_input(self, bid_per_gpu, *, min_cuda_version: str | None = None,
+                      terminate_after_utc: str | None = None) -> dict:
+        """PodRentInterruptableInput for the pinned GraphQL surface.
+
+        ``terminate_after_utc`` arms RunPod's provider-side auto-terminate —
+        an additional redundant termination layer beyond the local watchdog.
+        """
+        self.validate()
+        bid = float(Decimal(str(bid_per_gpu)))
+        if not bid > 0:
+            raise ValueError("bidPerGpu must be positive")
+        rent = {
+            "name": self.name,
+            "bidPerGpu": bid,
+            "gpuTypeId": self.gpu_type_id,
+            "cloudType": self.cloud,
+            "gpuCount": int(self.gpu_count),
+            "containerDiskInGb": int(self.container_disk_gb),
+            "imageName": self.image,
+            "env": [{"key": k, "value": v} for k, v in sorted(self.env.items())],
+            "ports": ",".join(self.ports),
+            "startSsh": False,
+            "startJupyter": False,
+        }
+        if self.args is not None:
+            rent["dockerArgs"] = self.args
+        if self.datacenter_ids:
+            if len(self.datacenter_ids) != 1:
+                raise ValueError("rent input accepts exactly one dataCenterId")
+            rent["dataCenterId"] = self.datacenter_ids[0]
+        if min_cuda_version is not None:
+            rent["minCudaVersion"] = min_cuda_version
+        if terminate_after_utc is not None:
+            rent["terminateAfter"] = terminate_after_utc
+        return rent
+
     def validate(self) -> None:
         if self.cloud != "SECURE":
             raise SchemaIncompatibility("pod request must pin cloud=SECURE")
         if self.gpu_count != 1:
             raise SchemaIncompatibility("pod request must pin exactly 1 GPU")
+        if self.purchase_mode != "INTERRUPTIBLE":
+            raise SchemaIncompatibility(
+                "pod request must pin purchase_mode=INTERRUPTIBLE; the "
+                "frozen policy requires interruptible capacity")
         if "@sha256:" not in self.image:
             raise ValueError(
                 "image must be pinned by immutable digest (…@sha256:…), "

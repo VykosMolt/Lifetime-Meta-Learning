@@ -1,12 +1,16 @@
-"""Local HTTP mock of the pinned RunPod v2 contract.
+"""Local HTTP mock of the pinned RunPod v2 contract + GraphQL spot surface.
 
 Drives the REAL production adapter over real HTTP (http.server) — not a
-simplified client.  Scriptable scenario knobs cover: catalog variants (B200
-present/absent, Secure/Community, price changes, multi-datacenter,
-alternate-GPU-only, 2-GPU minimum), pod creation and asynchronous lifecycle
+simplified client.  Scriptable scenario knobs cover: catalog variants
+(B300/B200 present/absent, Secure/Community, price changes,
+multi-datacenter, alternate-GPU-only, 2-GPU minimum), spot pricing
+(changing rates, vanished/returned interruptible stock), interruptible pod
+creation via /graphql podRentInterruptable, EVICTION of running spot pods
+(stop-with-EXITED, matching RunPod's spot semantics), pod lifecycle
 transitions, logs, billing, stop/terminate, 429 with Retry-After, 5xx,
 malformed JSON, response loss after successful creation, delayed
-termination, unknown lifecycle states, and schema drift on /v2/openapi.json.
+termination, unknown lifecycle states, and schema drift on
+/v2/openapi.json.
 """
 from __future__ import annotations
 
@@ -17,10 +21,15 @@ import time
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+# The one synthetic credential local mock tests use.  The mock server
+# validates it strictly; it is never a real RunPod key, and real operator
+# credentials must never replace it (transport.CredentialIsolationError
+# enforces that at the transport layer).
+MOCK_API_KEY = "rpa_MOCKKEY_1234567890abcdef"
 
-def _b200(price_secure=5.49, availability="HIGH", secure=True,
-          community=True, max_secure=8, gpu_id="NVIDIA B200",
-          name="B200", memory=180, dcs=None):
+
+def _gpu(gpu_id, name, memory, price_secure, availability="HIGH",
+         secure=True, community=True, max_secure=8, dcs=None):
     return {
         "id": gpu_id, "name": name, "manufacturer": "NVIDIA",
         "memory": memory, "secure": secure, "community": community,
@@ -36,13 +45,24 @@ def _b200(price_secure=5.49, availability="HIGH", secure=True,
     }
 
 
+def _b300(price_secure=7.89, availability="HIGH", **kw):
+    return _gpu("NVIDIA B300 SXM6 AC", "B300", kw.pop("memory", 288),
+                price_secure, availability=availability, **kw)
+
+
+def _b200(price_secure=6.79, availability="HIGH", gpu_id="NVIDIA B200",
+          name="B200", memory=180, **kw):
+    return _gpu(gpu_id, name, memory, price_secure,
+                availability=availability, **kw)
+
+
 class Scenario:
     """Mutable scenario state shared with the handler."""
 
     def __init__(self):
-        self.gpus = [_b200()]
+        self.gpus = [_b300(), _b200()]
         self.auth_required = True
-        self.api_key = "rpa_MOCKKEY_1234567890abcdef"
+        self.api_key = MOCK_API_KEY
         self.pods: dict[str, dict] = {}
         self.lifecycle_plan = ["PROVISIONING", "STARTING", "RUNNING"]
         self.lifecycle_step_per_poll = True
@@ -57,6 +77,36 @@ class Scenario:
         self.billing = {"pods": [{"podId": "none", "amountUsd": 0.0}]}
         self.log_text = "mock container log line\n"
         self.requests: list[tuple[str, str]] = []
+        # ---- GraphQL spot surface ----
+        # per-gpu spot overrides: {gpu_id: {"secureSpotPrice": .., "stockStatus": ..}}
+        self.spot: dict[str, dict] = {}
+        self.spot_stock_default = "High"
+        self.graphql_fail_next = 0          # 5xx the next N graphql calls
+        self.drop_rent_response = False     # rent succeeds, response lost
+        self.rent_calls: list[dict] = []    # every rent input received
+        self.graphql_documents: list[str] = []  # every document received
+        self.pod_json_omit_env = False      # live REST may omit pod env
+        self.evict_after_polls: int | None = None   # auto-evict running pods
+
+    def spot_for(self, gpu_id: str) -> dict:
+        entry = next((g for g in self.gpus if g["id"] == gpu_id), None)
+        base = {
+            "secureSpotPrice": (entry or {}).get("price", {}).get("secure"),
+            "communitySpotPrice": (entry or {}).get("price", {}).get("community"),
+            "minimumBidPrice": None,
+            "stockStatus": self.spot_stock_default,
+        }
+        base.update(self.spot.get(gpu_id, {}))
+        return base
+
+    def evict(self, pod_id: str) -> None:
+        """Spot eviction: SIGTERM/SIGKILL -> pod STOPPED (EXITED), never
+        TERMINATED; container-disk state is considered lost."""
+        pod = self.pods[pod_id]
+        pod["plan"] = ["EXITED"]
+        pod["poll_count"] = 0
+        pod["desiredStatus"] = "EXITED"
+        pod["evicted"] = True
 
     def next_pod_status(self, pod):
         plan = pod["plan"]
@@ -68,7 +118,13 @@ class Scenario:
         if self.unknown_status:
             return self.unknown_status
         idx = min(pod["poll_count"], len(plan) - 1)
-        return plan[idx]
+        status = plan[idx]
+        if (self.evict_after_polls is not None and status == "RUNNING"
+                and not pod.get("evicted")
+                and pod["poll_count"] >= self.evict_after_polls):
+            self.evict(pod["id"])
+            return "EXITED"
+        return status
 
 
 class _Handler(BaseHTTPRequestHandler):
@@ -175,6 +231,9 @@ class _Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         s = self.scenario
+        if self.path == "/graphql":
+            self._graphql()
+            return
         if not self._common("POST"):
             return
         length = int(self.headers.get("Content-Length", 0))
@@ -237,15 +296,116 @@ class _Handler(BaseHTTPRequestHandler):
 
     do_PATCH = do_POST  # any PATCH hits _common auth and 404s
 
+    # ---------------- GraphQL spot surface ----------------
+
+    def _graphql(self):
+        s = self.scenario
+        s.requests.append(("POST", "/graphql"))
+        if s.auth_required:
+            auth = self.headers.get("Authorization", "")
+            if auth != f"Bearer {s.api_key}":
+                self._reply(200, {"errors": [{"message": "Unauthorized",
+                                              "extensions":
+                                              {"code": "UNAUTHENTICATED"}}]})
+                return
+        if s.graphql_fail_next > 0:
+            s.graphql_fail_next -= 1
+            self._err(503, "Injected", "graphql injected failure")
+            return
+        length = int(self.headers.get("Content-Length", 0))
+        body = json.loads(self.rfile.read(length) or b"{}")
+        doc = body.get("query", "")
+        s.graphql_documents.append(doc)
+        variables = body.get("variables") or {}
+        if "podRentInterruptable" in doc:
+            self._graphql_rent(variables.get("input") or {})
+            return
+        if "gpuTypes" in doc:
+            out = []
+            for g in s.gpus:
+                spot = s.spot_for(g["id"])
+                out.append({
+                    "id": g["id"], "memoryInGb": g["memory"],
+                    "secureCloud": g["secure"],
+                    "securePrice": g["price"]["secure"],
+                    "communityPrice": g["price"]["community"],
+                    "secureSpotPrice": spot["secureSpotPrice"],
+                    "communitySpotPrice": spot["communitySpotPrice"],
+                    "lowestPrice": {
+                        "minimumBidPrice": spot["minimumBidPrice"],
+                        "uninterruptablePrice": g["price"]["secure"],
+                        "stockStatus": spot["stockStatus"]},
+                })
+            self._reply(200, {"data": {"gpuTypes": out}})
+            return
+        if "myself" in doc:
+            pods = [{"id": p["id"], "name": p["name"],
+                     "desiredStatus": ("TERMINATED" if p["terminated"]
+                                       else p.get("desiredStatus",
+                                                  p["status"])),
+                     "podType": p.get("podType", "INTERRUPTABLE"),
+                     "costPerHr": p.get("bidPerGpu", 0.0)}
+                    for p in s.pods.values()]
+            self._reply(200, {"data": {"myself": {"pods": pods}}})
+            return
+        self._reply(200, {"errors": [{"message": f"unsupported operation"}]})
+
+    def _graphql_rent(self, rent: dict):
+        s = self.scenario
+        s.rent_calls.append(dict(rent))
+        gpu_id = rent.get("gpuTypeId")
+        entry = next((g for g in s.gpus if g["id"] == gpu_id), None)
+        if entry is None:
+            self._reply(200, {"errors": [{"message":
+                                          f"unknown gpuTypeId {gpu_id}"}]})
+            return
+        spot = s.spot_for(gpu_id)
+        if spot["secureSpotPrice"] is None or spot["stockStatus"] is None:
+            self._reply(200, {"errors": [{"message":
+                                          "no interruptible capacity"}]})
+            return
+        bid = rent.get("bidPerGpu") or 0.0
+        if bid < (spot["minimumBidPrice"] or spot["secureSpotPrice"] or 0.0):
+            self._reply(200, {"errors": [{"message": "bid below market"}]})
+            return
+        env = {e["key"]: e["value"] for e in rent.get("env") or []}
+        pod_id = f"mockspot-{uuid.uuid4().hex[:12]}"
+        pod = {
+            "id": pod_id, "name": rent.get("name", ""),
+            "image": rent.get("imageName"), "env": env,
+            "gpu": {"id": gpu_id, "count": rent.get("gpuCount", 1)},
+            "cloud": rent.get("cloudType", "SECURE"),
+            "status": "PROVISIONING", "poll_count": 0,
+            "plan": list(s.lifecycle_plan), "terminated": False,
+            "terminate_polls_left": 0, "podType": "INTERRUPTABLE",
+            "desiredStatus": "RUNNING", "bidPerGpu": bid,
+            "terminateAfter": rent.get("terminateAfter"),
+            "createdAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        }
+        s.pods[pod_id] = pod
+        if s.drop_rent_response:
+            s.drop_rent_response = False
+            self.connection.close()
+            return
+        self._reply(200, {"data": {"podRentInterruptable": {
+            "id": pod_id, "name": pod["name"],
+            "desiredStatus": "RUNNING", "costPerHr": bid}}})
+
     # ---------------- helpers ----------------
 
     def _pod_json(self, pod):
-        return {"id": pod["id"], "name": pod["name"], "status": pod["status"],
-                "cloud": pod["cloud"], "gpu": pod["gpu"],
-                "image": pod["image"], "cost": 5.49,
-                "createdAt": pod["createdAt"],
-                "startedAt": None, "dataCenterId": "US-KS-2",
-                "env": pod["env"]}
+        out = {"id": pod["id"], "name": pod["name"], "status": pod["status"],
+               "cloud": pod["cloud"], "gpu": pod["gpu"],
+               "image": pod["image"], "cost": 5.49,
+               "createdAt": pod["createdAt"],
+               "startedAt": None, "dataCenterId": "US-KS-2",
+               "env": pod["env"]}
+        if self.scenario.pod_json_omit_env:
+            # the pinned REST contract does not REQUIRE env on a Pod; a live
+            # surface that omits it must not silently degrade nonce-based
+            # ownership reconciliation into name-only matching
+            out.pop("env")
+        return out
 
     def _openapi(self):
         # minimal but surface-complete document mirroring the pinned contract

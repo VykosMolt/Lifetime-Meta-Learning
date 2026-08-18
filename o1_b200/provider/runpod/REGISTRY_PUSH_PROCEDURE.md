@@ -1,12 +1,13 @@
 # Registry Push — the one remaining non-GPU staging action
 
-The production image is built and identity-recorded
-(`CONTAINER_IMAGE_RECORD.json`, local image id
-`sha256:75582fe45ddaed41a6150adf01fb6fc62c1511828913e5e37e37e43b415e7f1b`,
-~14 GB virtual / ~5.4 GB layer content). It was **not** pushed in the
+The B300 production image is built locally as `o1-b300-runner:v0.3.1`
+(identity-recorded in `CONTAINER_IMAGE_RECORD.json`, local image id
+`sha256:37f749847fed72456c95a397ccfb9fc60c92223dfe1cee1c59f911481953dd9b`,
+built by `scripts/build_b300_image.sh` from `Dockerfile.b300`). The registry
+digest is UNRESOLVED until the operator pushes; it was **not** pushed in the
 pre-rental task because:
 
-- a fresh GHCR container package defaults to **private**; a ~5 GB private
+- a fresh GHCR container package defaults to **private**; a multi-GB private
   package exceeds the 500 MB private free tier, creating a blocked-or-billable
   storage state (forbidden: no billable resource in this task);
 - GHCR package visibility cannot be reliably switched to public via the API
@@ -16,14 +17,14 @@ pre-rental task because:
 
 1. In the GitHub UI, pre-create the package as **public** by pushing a tiny
    placeholder OR simply push and immediately set
-   `https://github.com/users/VykosMolt/packages/container/o1-b200-runner/settings`
+   `https://github.com/users/VykosMolt/packages/container/o1-b300-runner/settings`
    → *Change visibility* → **Public** (public GHCR storage is free).
 2. Push:
 
 ```sh
 gh auth token | docker login ghcr.io -u VykosMolt --password-stdin
-docker tag o1-b200-runner:v0.2.0 ghcr.io/vykosmolt/o1-b200-runner:v0.2.0
-docker push ghcr.io/vykosmolt/o1-b200-runner:v0.2.0
+docker tag o1-b300-runner:v0.3.1 ghcr.io/vykosmolt/o1-b300-runner:v0.3.1
+docker push ghcr.io/vykosmolt/o1-b300-runner:v0.3.1
 ```
 
 3. Record the **registry digest** printed by the push (`…@sha256:…`) into

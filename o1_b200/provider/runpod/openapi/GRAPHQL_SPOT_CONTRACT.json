@@ -1,0 +1,51 @@
+{
+  "schema": "o1b300.graphql_spot_contract.v1",
+  "purpose": "Pinned record of the minimal RunPod GraphQL surface used for INTERRUPTIBLE (spot) acquisition. The REST v2 contract (runpod_v2_openapi.json) has no interruptible surface; podRentInterruptable is the only supported programmatic path to spot pods.",
+  "provenance": {
+    "published_spec": "https://graphql-spec.runpod.io/",
+    "docs": "https://docs.runpod.io/sdks/graphql/manage-pods",
+    "retrieved_utc": "2026-08-17",
+    "live_introspection": "DISABLED on https://api.runpod.io/graphql (Apollo INTROSPECTION_DISABLED, verified 2026-08-17); the mutation input contract therefore cannot be verified by a read-only call"
+  },
+  "enforcement": {
+    "query_surface": "live-verified by executing the pinned queries during preflight; Apollo validates every document against the schema before execution, so an unknown field errors instead of returning data",
+    "mutation_surface": "pinned-only; a drifted PodRentInterruptableInput fails the authorized launch closed with a pre-execution validation error — no pod is created, nothing is billed"
+  },
+  "mutation": {
+    "name": "podRentInterruptable",
+    "input_type": "PodRentInterruptableInput",
+    "input_fields_full_published_spec": [
+      "bidPerGpu:Float", "cloudType:CloudTypeEnum", "containerDiskInGb:Int",
+      "containerRegistryAuthId:String", "countryCode:String",
+      "dockerArgs:String", "env:[EnvironmentVariableInput]", "gpuCount:Int",
+      "gpuTypeId:String", "imageName:String", "minDisk:Int",
+      "minDownload:Int", "minMemoryInGb:Int", "minUpload:Int",
+      "minVcpuCount:Int", "name:String", "networkVolumeId:String",
+      "port:Port", "ports:String", "startJupyter:Boolean",
+      "startSsh:Boolean", "stopAfter:String", "supportPublicIp:Boolean",
+      "templateId:String", "terminateAfter:String", "volumeInGb:Int",
+      "volumeKey:String", "volumeMountPath:String", "dataCenterId:String",
+      "cudaVersion:String", "allowedCudaVersions:String",
+      "minCudaVersion:String"
+    ],
+    "fields_used_by_this_session": [
+      "name", "bidPerGpu", "gpuTypeId", "cloudType", "gpuCount",
+      "containerDiskInGb", "imageName", "env", "ports", "dockerArgs",
+      "dataCenterId", "minCudaVersion", "terminateAfter", "startSsh",
+      "startJupyter"
+    ],
+    "returns_used": ["id", "name", "desiredStatus", "costPerHr"]
+  },
+  "queries": {
+    "gpuTypes": ["id", "memoryInGb", "secureCloud", "securePrice",
+                 "communityPrice", "secureSpotPrice", "communitySpotPrice",
+                 "lowestPrice(input:{gpuCount:1}){minimumBidPrice,uninterruptablePrice,stockStatus}"],
+    "myself.pods": ["id", "name", "desiredStatus", "podType", "costPerHr"]
+  },
+  "interruptible_semantics": {
+    "purchase": "podRentInterruptable bids bidPerGpu USD/h; the pod runs while the bid holds capacity",
+    "eviction": "spot pods receive SIGTERM ~5s before SIGKILL; the pod is STOPPED (REST status EXITED), not terminated, and may later be resumed by re-bidding (lowestBidPriceToResume)",
+    "session_policy": "this session never resumes an evicted pod in place: container disk state is treated as lost, the remnant is terminated, and a fresh qualifying pod is acquired (bounded by budget and max_pod_creations); durable state lives off-pod via continuous artifact sync",
+    "rest_visibility_assumption": "a spot pod appears as a normal pod on REST v2 (GET /v2/pods, logs, DELETE); exercised against the mock, LIVE-HARDWARE-UNVALIDATED until the first real spot pod — the GraphQL myself.pods query is reconciled as a redundant second surface"
+  }
+}

@@ -143,31 +143,76 @@ def benchmark_config(entry: dict, corpus_dir: str, out_dir: str,
 
 def run_benchmarks(corpus_dir: str, out_dir: str, *, mode: str,
                    task_subset=None, device: str = "cpu",
-                   max_stages: int | None = None) -> dict:
+                   max_stages: int | None = None,
+                   artifact: dict | None = None,
+                   remaining_authorized_seconds: float | None = None) -> dict:
+    """mode: "local-synthetic" (harness validation, CPU, fake model) or
+    "real-hardware" (the accelerator session: real Ouro-RLTT on CUDA,
+    frozen stage order, stop rules enforced, conditional deep-batch stages
+    only under the frozen extension rule)."""
     order = load_benchmark_order()
-    if mode != "local-synthetic":
-        raise BenchmarkError(
-            "Only local-synthetic mode may run in this task. The b200 mode "
-            "requires hardware access, the frozen selection policy, and the "
-            "budget watchdog; it is refused here by design.")
     os.makedirs(out_dir, exist_ok=True)
-    artifact = {"kind": "synthetic", "device": device, "seed_tag": 0}
+    if mode == "local-synthetic":
+        artifact = {"kind": "synthetic", "device": device, "seed_tag": 0}
+        label = "LOCAL_SYNTHETIC_DRESS_REHEARSAL"
+    elif mode == "real-hardware":
+        import torch
+        if not torch.cuda.is_available():
+            raise BenchmarkError(
+                "real-hardware benchmark requires CUDA; refused")
+        if not artifact or artifact.get("kind") != "ouro_rltt":
+            raise BenchmarkError(
+                "real-hardware benchmark requires the real ouro_rltt "
+                "artifact; synthetic stand-ins are refused")
+        device = "cuda"
+        label = "REAL_HARDWARE"
+    else:
+        raise BenchmarkError(f"unknown benchmark mode {mode!r}")
     stages = order["staged_candidates"]
     if max_stages is not None:
         stages = stages[:max_stages]
     results = []
+    clean_so_far = True
+    t_bench0 = time.monotonic()
     for entry in stages:
-        results.append(benchmark_config(entry, corpus_dir, out_dir, artifact,
-                                        task_subset=task_subset, device=device))
+        if entry.get("conditional"):
+            # frozen extension rule: prior stages clean AND the cost rule
+            if not clean_so_far:
+                results.append({"config_id": entry["config_id"],
+                                "skipped": "prior stage not clean"})
+                continue
+            if remaining_authorized_seconds is not None:
+                spent = time.monotonic() - t_bench0
+                per_stage = spent / max(1, len(
+                    [r for r in results if not r.get("skipped")]))
+                if per_stage > 0.25 * remaining_authorized_seconds:
+                    results.append({"config_id": entry["config_id"],
+                                    "skipped": "extension cost rule"})
+                    continue
+        try:
+            res = benchmark_config(entry, corpus_dir, out_dir, artifact,
+                                   task_subset=task_subset, device=device)
+        except MemoryError:
+            clean_so_far = False
+            results.append({"config_id": entry["config_id"], "oom": True})
+            continue   # stop rule: larger configs are conditional-skipped
+        except Exception as exc:  # noqa: BLE001 - integrity failure = stop
+            clean_so_far = False
+            results.append({"config_id": entry["config_id"],
+                            "integrity_failure": repr(exc)[:300]})
+            continue
+        if res.get("oom_count") or res.get("integrity_failures"):
+            clean_so_far = False
+        results.append(res)
     report = {
-        "mode": "LOCAL_SYNTHETIC_DRESS_REHEARSAL",
+        "mode": label,
         "benchmark_order_sha256": domain_sha256(
             "o1b200.benchmark_order.v1", order),
         "corpus_dir": corpus_dir,
         "results": results,
-        "note": ("LOCAL SYNTHETIC NUMBERS ONLY — harness validation. "
-                 "No B200 benchmark has been run; B200 throughput remains "
-                 "NOT STARTED."),
+        "note": ("LOCAL SYNTHETIC NUMBERS ONLY — harness validation; no "
+                 "accelerator claim." if label != "REAL_HARDWARE" else
+                 "real-hardware measurements on the acquired profile"),
     }
     path = os.path.join(out_dir, "BENCHMARK_REPORT.json")
     with open(path, "w", encoding="utf-8") as fh:
@@ -189,8 +234,13 @@ def main() -> int:
     report = run_benchmarks(a.corpus, a.out, mode=a.mode, task_subset=a.tasks,
                             device=a.device, max_stages=a.max_stages)
     for r in report["results"]:
-        print(f"{r['config_id']}: {r['completed_rows_per_second']:.2f} rows/s "
-              f"stability_spread={r['throughput_stability_spread']}")
+        if "completed_rows_per_second" in r:
+            print(f"{r['config_id']}: {r['completed_rows_per_second']:.2f} "
+                  f"rows/s stability_spread={r['throughput_stability_spread']}")
+        else:
+            reason = (r.get("skipped") or r.get("integrity_failure")
+                      or ("OOM" if r.get("oom") else "not measured"))
+            print(f"{r['config_id']}: NOT MEASURED ({reason})")
     return 0
 
 

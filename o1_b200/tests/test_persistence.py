@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 
 from _h import CORPUS_DIR, Runner, fresh_dir
 
@@ -51,12 +52,38 @@ def run() -> Runner:
         tmp = os.path.join(rows_dir, "deadbeef.json.tmp")
         with open(tmp, "w") as fh:
             fh.write('{"row_id": "dead')
+        # STALE tmp (dead run's partial write): quarantined on resume
+        old = time.time() - 3600
+        os.utime(tmp, (old, old))
         done = reopen().load_completed()
         assert not os.path.exists(tmp)
         assert any(n.startswith("deadbeef") for n in os.listdir(q_dir))
         assert len(done) == len(bundle.specs)
-    r.check("a partially written row can never appear valid (quarantined)",
-            partial_write_quarantined)
+    r.check("a STALE partially written row can never appear valid "
+            "(quarantined on resume)", partial_write_quarantined)
+
+    def live_tmp_left_alone():
+        # FRESH tmp = a LIVE concurrent worker's in-flight atomic commit
+        # (replica backend: every worker scans the shared run dir); it must
+        # be neither counted nor stolen — quarantining it would break the
+        # writer's os.replace and lose a committed row
+        tmp = os.path.join(rows_dir, "livebeef.json.tmp")
+        with open(tmp, "w") as fh:
+            fh.write('{"row_id": "live')
+        done = reopen().load_completed()
+        assert os.path.exists(tmp), "a live worker's tmp was stolen"
+        assert not any(n.startswith("livebeef") for n in os.listdir(q_dir))
+        assert len(done) == len(bundle.specs)
+        os.remove(tmp)
+    r.check("a FRESH tmp (live concurrent worker) is left alone on resume "
+            "scan", live_tmp_left_alone)
+
+    def quarantine_race_tolerated():
+        store = reopen()
+        missing = os.path.join(rows_dir, "vanished.json.tmp")
+        store.quarantine_file(missing, "test race")   # must not raise
+    r.check("quarantining a file another worker just completed is a no-op, "
+            "never a crash", quarantine_race_tolerated)
 
     def corrupt_json_quarantined():
         path = os.path.join(rows_dir, a_row)

@@ -1,0 +1,102 @@
+# O1 B300 production container — linux/amd64, everything baked at build.
+# No package installation, no source compilation, no git clone, and no
+# dependency resolution at Pod startup. Scientific execution is BF16
+# PyTorch/Transformers eager; FP8/FP4/quantization/speculative/vLLM/
+# TensorRT-LLM/SGLang are absent by construction.
+#
+# Base: official python:3.14 slim (Debian bookworm) pinned BY DIGEST at build
+# time (scripts/build_b300_image.sh resolves and records it). CUDA 13.0
+# arrives via the pinned nvidia-*/cuda-toolkit cu13 wheels required by
+# torch 2.12.1+cu130. Hardware targets: B300 (sm_103, compute capability
+# 10.3, Blackwell Ultra — runs the wheel's sm_100 cubins natively under the
+# NVIDIA same-major/higher-minor SASS rule plus its sm_103a arch-tuned
+# kernels) and the explicit B200 fallback (sm_100, CC 10.0). Host driver
+# r580+ per the CUDA 13.0 requirement; the driver is provided by the RunPod
+# host, everything else ships in this image.
+#
+# torch pin resolution (documented, not silent): the sealed reference build
+# 2.12.0.dev20260407+cu128 cannot execute on current RunPod hosts (both
+# B300 and B200 hosts now report CUDA 13.0/13.2 only; 12.8 is gone) and
+# carries no sm_103 support. The container ships the stable
+# torch==2.12.1+cu130 (same 2.12 line). The sealed freeze manifest pins the
+# 0407 build, so the sealed orchestrator FAILS CLOSED against the old
+# manifest on this image — by design: the session builds a replacement
+# manifest/precommit carrying the deployed torch value (an infrastructure
+# migration; every scientific binding copied verbatim) before calibration
+# can run. Local verification: the full real-checkpoint smoke on this exact
+# stack reproduces the sealed serial reference (engine_b1_matches_sealed_*
+# true; see reports/LOCAL_NONSCIENTIFIC_SMOKE_TEST.json).
+ARG BASE_IMAGE=python:3.14-slim-bookworm
+FROM ${BASE_IMAGE} AS base
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    TRANSFORMERS_OFFLINE=1 \
+    HF_HUB_OFFLINE=1 \
+    CUBLAS_WORKSPACE_CONFIG=":4096:8"
+
+# every wheel is provided locally (frozen; hashes in WHEELS_B300.sha256)
+COPY build_ctx/wheels /wheels
+COPY o1_b200/deploy/requirements.b300.lock /opt/o1_b200/deploy/requirements.b300.lock
+
+RUN python -m venv /opt/venv \
+    && /opt/venv/bin/pip install --no-cache-dir --no-index \
+         --find-links /wheels \
+         -r /opt/o1_b200/deploy/requirements.b300.lock
+
+# Build asserts (single-line python -c: the legacy builder silently skips
+# heredoc RUN bodies, so heredocs are banned in this Dockerfile).
+# Native-arch presence cannot be read here (no GPU at build time): the
+# exact shipped wheel is verified on a CUDA host by
+# scripts/build_b300_image.sh (arch list must carry sm_100+sm_120 and NO
+# compute_/PTX entries) and re-verified ON THE ACQUIRED GPU by
+# deploy/hardware_gate.py before anything scientific runs.
+RUN /opt/venv/bin/python -c "import torch, transformers, numpy; \
+assert transformers.__version__ == '4.54.1', transformers.__version__; \
+assert numpy.__version__ == '2.4.4', numpy.__version__; \
+assert torch.__version__ == '2.12.1+cu130', torch.__version__; \
+assert torch.version.cuda == '13.0', torch.version.cuda; \
+print('BUILD ASSERTS OK', torch.__version__)"
+RUN /opt/venv/bin/python -c "import importlib.util as u; \
+banned = ['vllm', 'tensorrt_llm', 'sglang', 'auto_gptq', 'awq', 'bitsandbytes']; \
+found = [m for m in banned if u.find_spec(m) is not None]; \
+assert not found, found; print('FORBIDDEN RUNTIMES ABSENT OK')"
+RUN rm -rf /wheels
+
+# runner + sealed package + policies + corpus + manifests (hash-verified at
+# runtime by sealed_import.py and deploy/verify_artifacts.py)
+WORKDIR /opt/o1_b200
+COPY o1_b200 /opt/o1_b200/o1_b200
+COPY o1_packages/O1_oracle_reachability_v2.1.0_source \
+     /opt/o1_b200/o1_packages/O1_oracle_reachability_v2.1.0_source
+COPY o1_packages/O1_oracle_reachability_v2.1.0_verified.zip \
+     o1_packages/O1_oracle_reachability_v2.1.0_verified.zip.sha256 \
+     /opt/o1_b200/o1_packages/
+COPY o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2 \
+     /opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/AXIS_PACKAGE_V2
+COPY o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS \
+     /opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/COHORTS
+COPY o1_runs/O1_V2_AXIS_BANK_REDESIGN/calibration_seed_matrix.json \
+     o1_runs/O1_V2_AXIS_BANK_REDESIGN/TOKENIZER_BINDING.json \
+     o1_runs/O1_V2_AXIS_BANK_REDESIGN/CALIBRATION_PRECOMMIT.json \
+     o1_runs/O1_V2_AXIS_BANK_REDESIGN/FREEZE_MANIFEST.precalibration.json \
+     /opt/o1_b200/o1_runs/O1_V2_AXIS_BANK_REDESIGN/
+
+# Foundation Learner source, staged into build_ctx by scripts/build_b300_image.sh
+# (it lives in a separate worktree, outside this build context).  Without it a
+# combined O1 -> FL rental acquires an accelerator and then refuses at the FL
+# handover.  Only the source is baked: the ~480 MB pregen episode corpus is
+# fetched and hash-verified on the pod by campaign/fetch_pregen.py, exactly as
+# the checkpoint is.  Layout puts the package under /opt/foundation_learner so
+# that root is the import root and deploy/fl_b200_entry.sh resolves it as its
+# own ROOT.
+COPY build_ctx/foundation_learner /opt/foundation_learner/foundation_learner
+
+ENV PYTHONPATH=/opt/o1_b200:/opt/foundation_learner \
+    PATH=/opt/venv/bin:$PATH
+
+# The checkpoint mounts at /artifacts/ouro_rltt_local and is tree-hash
+# verified before any model load. No ports are exposed. The entrypoint is
+# the sealed zero-touch start script; it validates, then refuses anything
+# unauthorized.
+ENTRYPOINT ["/opt/o1_b200/o1_b200/deploy/start_b300.sh"]

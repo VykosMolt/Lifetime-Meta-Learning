@@ -25,7 +25,12 @@ from __future__ import annotations
 import json
 import os
 import shutil
+import time
 from typing import Callable, Iterable
+
+# A .tmp older than this on resume scan is a dead run's partial write; a
+# younger one may be a LIVE concurrent worker's in-flight atomic commit.
+STALE_TMP_SECONDS = 60.0
 
 from .identity import canonical_json, sha256_file
 from .records import RecordError, record_hash
@@ -98,6 +103,9 @@ class RowStore:
             atomic_write_text(self._identity_path,
                               canonical_json(self.identity) + "\n")
         self._log_path = os.path.join(run_dir, "attempt_log.jsonl")
+        # optional continuous off-pod mirroring (durability.RowDurability);
+        # attach_durability restores mirrored rows BEFORE resume reads them
+        self.durability = None
 
     # ---------------- attempt log ----------------
 
@@ -135,6 +143,14 @@ class RowStore:
                 f"duplicate row {rid[:16]} with DIFFERENT content refused; "
                 f"conflicting copy quarantined")
         atomic_write_text(path, payload)
+        if self.durability is not None:
+            self.durability.notify_commit()
+
+    def attach_durability(self, durability) -> None:
+        """Attach off-pod mirroring: restore mirrored rows first (existing
+        local commits always win), then mirror every future commit."""
+        durability.restore()
+        self.durability = durability
 
     def _quarantine_bytes(self, name: str, text: str) -> None:
         atomic_write_text(os.path.join(self.quarantine_dir, name), text)
@@ -146,7 +162,13 @@ class RowStore:
         while os.path.exists(dest):
             n += 1
             dest = os.path.join(self.quarantine_dir, f"{base}.{n}")
-        shutil.move(path, dest)
+        try:
+            shutil.move(path, dest)
+        except FileNotFoundError:
+            # a concurrent worker completed (or already quarantined) it
+            # between our scan and this move; nothing left to quarantine
+            self.log("ROW_QUARANTINE_RACED", file=base, reason=reason)
+            return
         self.log("ROW_QUARANTINED", file=base, reason=reason)
 
     # ---------------- resume scan ----------------
@@ -162,7 +184,19 @@ class RowStore:
         for name in sorted(os.listdir(self.rows_dir)):
             path = os.path.join(self.rows_dir, name)
             if name.endswith(".tmp"):
-                self.quarantine_file(path, "partial write (tmp) found on resume")
+                # a STALE tmp is a partial write from a dead run and is
+                # quarantined; a FRESH tmp may belong to a LIVE concurrent
+                # worker mid-atomic-commit (replica backend: every worker
+                # scans the shared run dir at startup) and must be left
+                # alone — stealing it would break the writer's os.replace
+                # and lose a committed row
+                try:
+                    age = time.time() - os.path.getmtime(path)
+                except OSError:
+                    continue        # already renamed/cleaned by its writer
+                if age >= STALE_TMP_SECONDS:
+                    self.quarantine_file(
+                        path, "stale partial write (tmp) found on resume")
                 continue
             if not name.endswith(".json"):
                 self.quarantine_file(path, "unexpected file in rows dir")

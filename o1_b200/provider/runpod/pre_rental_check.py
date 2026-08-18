@@ -18,11 +18,18 @@ _ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."
 PY = sys.executable
 
 
-def _run(cmd, cwd=None, timeout=3600):
+def _run(cmd, cwd=None, timeout=3600, live_credentials=False):
+    env = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1", "PYTHONPATH": _ROOT}
+    if not live_credentials:
+        # local phases are hermetic: neither the operator credential nor the
+        # live-mutation authorization flag enters a local/mock test process
+        # (the independent watchdog gates only on that flag)
+        env.pop("RUNPOD_API_KEY", None)
+        env.pop("RUNPOD_API_KEY_FILE", None)
+        env.pop("RUNPOD_ALLOW_BILLABLE_MUTATIONS", None)
+        env.pop("HF_TOKEN", None)
     proc = subprocess.run(cmd, cwd=cwd or _ROOT, capture_output=True,
-                          text=True, timeout=timeout,
-                          env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1",
-                               "PYTHONPATH": _ROOT})
+                          text=True, timeout=timeout, env=env)
     return proc.returncode, (proc.stdout + proc.stderr)[-4000:]
 
 
@@ -71,32 +78,40 @@ def main() -> int:
     except Exception as exc:  # noqa: BLE001
         record("openapi_schema_pin", False, exc)
 
-    # 4. dry-run Pod-request rendering
+    # 4. dry-run all-profile deployment rendering (B300 primary + B200
+    #    explicit fallback under one authorization hash)
     try:
         from o1_b200.provider.runpod.pod_request import (
-            build_pod_request, render_canonical_pod_request)
-        req = build_pod_request(
-            image_digest_ref="local/o1-b200-runner@sha256:" + "0" * 64,
-            datacenter_id="DRYRUN-DC")
-        rendered = render_canonical_pod_request(req, {"dry_run": True})
-        record("dry_run_pod_request_render", True,
-               rendered["request_sha256"][:16])
+            build_pod_request, render_canonical_deployment)
+        from o1_b200.provider.runpod.policy import PROFILE_PREFERENCE
+        reqs = {p.key: build_pod_request(
+            profile=p,
+            image_digest_ref="local/o1-b300-runner@sha256:" + "0" * 64,
+            datacenter_id="DRYRUN-DC") for p in PROFILE_PREFERENCE}
+        rendered = render_canonical_deployment(reqs, {"dry_run": True})
+        record("dry_run_deployment_render", True,
+               f"profiles={rendered['profile_preference']} "
+               f"{rendered['request_sha256'][:16]}")
     except Exception as exc:  # noqa: BLE001
-        record("dry_run_pod_request_render", False, exc)
+        record("dry_run_deployment_render", False, exc)
 
-    # 5. container image record
+    # 5. container image record (B300/cu130 stack)
     img_record_path = os.path.join(_ROOT, "o1_b200", "provider", "runpod",
                                    "CONTAINER_IMAGE_RECORD.json")
     try:
         with open(img_record_path, encoding="utf-8") as fh:
             img = json.load(fh)
         env = img["environment"]
+        no_ptx = not any(a.startswith("compute_") for a in env["arch_list"])
         ok = (env["transformers"] == "4.54.1"
-              and env["torch"].startswith("2.12.0.dev20260408+cu128")
+              and env["torch"] == "2.12.1+cu130"
+              and env["torch_cuda_runtime"] == "13.0"
               and "sm_100" in env["arch_list"]
-              and img["platform"] == "linux/amd64")
+              and no_ptx
+              and img["platform"] == "linux/amd64"
+              and img["schema"] == "o1b300.container_image_record.v2")
         record("container_image_built_and_asserted", ok,
-               f"torch={env['torch']} sm_100={'sm_100' in env['arch_list']}")
+               f"torch={env['torch']} arch={env['arch_list']} no_ptx={no_ptx}")
     except Exception as exc:  # noqa: BLE001
         record("container_image_built_and_asserted", False, exc)
 
@@ -126,7 +141,7 @@ def main() -> int:
         try:
             LiveMutationAuthorization.verify(
                 path=os.path.join(_ROOT, "o1_b200", "provider", "runpod",
-                                  "B200_RENTAL_AUTHORIZATION.template.json"),
+                                  "B300_RENTAL_AUTHORIZATION.template.json"),
                 expected_identity={k: "x" for k in
                                    ("project", "package_zip_sha256",
                                     "provider", "budget_policy_sha256",
@@ -147,7 +162,8 @@ def main() -> int:
     if load_api_key():
         rc, out = _run([PY, "-m", "o1_b200.provider.runpod.preflight",
                         "--out", os.path.join(a.out_dir,
-                                              "RUNPOD_READONLY_PREFLIGHT.json")])
+                                              "RUNPOD_READONLY_PREFLIGHT.json")],
+                       live_credentials=True)
         live_verdict = "PASS" if rc == 0 else "FAIL"
         record("readonly_live_preflight", rc == 0, out.strip()[-200:])
     else:

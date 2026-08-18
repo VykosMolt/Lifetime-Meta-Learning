@@ -3,8 +3,8 @@
   "api_version": "2.0.0",
   "beta_notice": "RunPod API v2 is beta; schema drift is treated as a first-class failure mode. The adapter refuses to operate when the live schema identity diverges from this pinned snapshot on safety-relevant surfaces (see schema_check.py).",
   "documentation_url": "https://docs.runpod.io/api-reference-v2/overview",
-  "n_paths": 29,
-  "notes": "No 'interruptible'/spot field exists anywhere in the v2 schema: v2 Pods are on-demand; the adapter additionally asserts the absence of any such field so future drift that introduces one fails closed rather than silently accepting interruptible capacity.",
+  "n_paths": 34,
+  "notes": "No interruptible/spot field exists anywhere in the v2 schema: v2 Pods are on-demand-only. INTERRUPTIBLE acquisition therefore uses the separately pinned GraphQL surface (GRAPHQL_SPOT_CONTRACT.json + graphql_spot.py); the adapter still asserts the absence of an interruptible field in the REST schema so drift that introduces one fails closed pending a semantics re-audit.",
   "openapi_version": "3.1.0",
   "pinned_surfaces": [
     "GET /v2/catalog/gpus (+include=AVAILABILITY, product, count, cloud, minCudaVersion)",
@@ -19,10 +19,11 @@
     "bearerAuth: Authorization: Bearer <RUNPOD_API_KEY>",
     "ErrorResponse {title*, status*, detail*}"
   ],
-  "retrieval_method": "unauthenticated HTTPS GET (read-only; no mutating request)",
-  "retrieved_utc": "2026-08-01T11:03:06Z",
-  "schema": "o1b200.runpod_schema_provenance.v1",
+  "repin_note": "Re-pinned 2026-08-17 for the B300 migration: live v2 added cluster/ssh-key/template surfaces and renamed /v2/billing/networkvolumes to /v2/billing/network-volumes; every safety-relevant pinned surface is unchanged (no enum drift).",
+  "retrieval_method": "authenticated read-only HTTPS GET (no mutating request)",
+  "retrieved_utc": "2026-08-17T00:00:00Z",
+  "schema": "o1b300.runpod_schema_provenance.v2",
   "server": "https://api.runpod.io",
-  "sha256": "0bbdd828569233765e310e773e34586b33a6e38f55afde989ebd670152ed5c13",
+  "sha256": "2cea69a0cf260dea9af9031c0b33bc90541abaa46bd4f256efb6243311dcff97",
   "source_url": "https://api.runpod.io/v2/openapi.json"
 }

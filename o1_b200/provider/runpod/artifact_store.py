@@ -130,8 +130,10 @@ class MockArtifactStore(ArtifactStore):
             self.fail_reads -= 1
             raise OSError("injected transient read failure")
         data = self.files[source]
-        if self.corrupt:
-            data = b"X" + data[1:]
+        if self.corrupt and data:
+            # XOR guarantees the byte changes; a fixed literal silently
+            # no-ops when the payload already starts with it
+            data = bytes([data[0] ^ 0xFF]) + data[1:]
         if self.truncate_at is not None and self.truncate_at > offset:
             data = data[: self.truncate_at]
         return io.BytesIO(data[offset:])

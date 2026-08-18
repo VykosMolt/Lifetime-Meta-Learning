@@ -2,7 +2,7 @@
 # Zero-touch RunPod B200 launcher — FOR THE LATER, SEPARATELY AUTHORIZED
 # SESSION ONLY. Refuses before any mutating network call unless the complete
 # live-mutation interlock is satisfied:
-#   * --authorization <B200_RENTAL_AUTHORIZATION.json> (a REAL file, not the
+#   * --authorization <B300_RENTAL_AUTHORIZATION.json> (a REAL file, not the
 #     template — templates fail validation by construction)
 #   * RUNPOD_ALLOW_BILLABLE_MUTATIONS=YES_I_AUTHORIZE_THIS_RUN
 #   * --execute-authorized-rental
@@ -34,7 +34,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ -z "$AUTH" ]; then
-  echo "REFUSED: --authorization <B200_RENTAL_AUTHORIZATION.json> is required." >&2
+  echo "REFUSED: --authorization <B300_RENTAL_AUTHORIZATION.json> is required." >&2
   echo "LIVE_MUTATION_NOT_AUTHORIZED" >&2
   exit 78
 fi

@@ -53,6 +53,30 @@ class ApiHttpError(TransportError):
         self.status = status
 
 
+class CredentialIsolationError(TransportError):
+    """Ambient operator credentials were about to reach a non-production host."""
+
+
+def resolve_credential(base_url: str, api_key: str | None, *,
+                       production_url: str = DEFAULT_BASE_URL) -> str | None:
+    """The ONE place the ambient-credential decision is made.
+
+    Callers that need the credential value before constructing a transport
+    (preflight, session drivers) must route through here rather than
+    calling load_api_key() themselves: resolving the operator credential
+    upstream and then passing it in explicitly would satisfy the
+    constructor's guard while defeating its purpose.
+    """
+    if api_key is not None:
+        return api_key
+    if base_url.rstrip("/") != production_url:
+        raise CredentialIsolationError(
+            f"refusing to resolve the ambient operator credential for the "
+            f"non-production base_url {base_url!r}; pass an explicit "
+            f"synthetic api_key for mock/test hosts")
+    return load_api_key()
+
+
 class AmbiguousMutation(TransportError):
     """A mutating request's outcome is unknown; reconcile before retrying."""
 
@@ -67,7 +91,11 @@ class _BaseTransport:
                  sleep=time.sleep, rng=random.random,
                  opener=None):
         self.base_url = base_url.rstrip("/")
-        self._api_key = api_key if api_key is not None else load_api_key()
+        # Hermetic-isolation invariant: the ambient operator credential
+        # (RUNPOD_API_KEY / RUNPOD_API_KEY_FILE) may only ever be attached to
+        # the production API host.  Any other base_url (mock servers, local
+        # test fixtures) must receive an explicit synthetic key.
+        self._api_key = resolve_credential(self.base_url, api_key)
         self._sleep = sleep
         self._rng = rng
         self._opener = opener or urllib.request.urlopen
@@ -185,17 +213,26 @@ class MutatingTransport(_BaseTransport):
         super().__init__(**kw)
         self._authorization = authorization
 
-    def mutate(self, method: str, path: str, body: dict | None = None):
-        self._authorization.recheck()   # raises LIVE_MUTATION_NOT_AUTHORIZED
+    def mutate(self, method: str, path: str, body: dict | None = None,
+               *, releasing: bool = False):
+        # releasing=True: a stop/terminate/delete, which an expired
+        # authorization must still permit (see LiveMutationAuthorization
+        # .recheck).  Creation remains strictly gated.
+        self._authorization.recheck(releasing=releasing)
         method = method.upper()
         if method == "GET":
             return self.get(path)
         if method not in ("POST", "PATCH", "DELETE", "PUT"):
             raise TransportError(f"unsupported method {method}")
+        # A lost response is ambiguous: the request may have been applied
+        # remotely.  An HTTP *status* is NOT converted here — terminate
+        # relies on seeing ApiHttpError(404/409) to drive its redundant
+        # DELETE path.  Callers whose mutation CREATES a billable resource
+        # must treat an ApiHttpError as ambiguous too and reconcile; see
+        # adapter.create_instance.
         try:
             status, raw, _ = self._send_once(method, path, body)
         except TransportError as exc:
-            # outcome unknown: the request may have been applied remotely
             raise AmbiguousMutation(
                 f"{method} {path}: response lost ({exc}); reconcile owned "
                 f"resources before any retry") from None

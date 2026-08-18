@@ -4,8 +4,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 case "${1:-verify}" in
   write)
+    # Excludes regenerable per-run scratch (the same set the release
+    # packager omits), so the manifest describes exactly the shipped tree.
     ( cd "$ROOT" && find . -type f \
         ! -name SHA256SUMS ! -path "./reports/local_runs/*" \
+        ! -path "./reports/rehearsal_calibration/*" \
+        ! -path "./reports/downloaded/*" ! -path "./reports/eq_*/*" \
         ! -name "*.pyc" ! -path "*/__pycache__/*" \
         | sed 's|^\./||' | sort \
         | while read -r f; do sha256sum "$f"; done ) > "$ROOT/SHA256SUMS"

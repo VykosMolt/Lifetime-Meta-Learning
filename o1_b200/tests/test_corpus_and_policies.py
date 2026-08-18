@@ -83,23 +83,44 @@ def run() -> Runner:
     def benchmark_order_frozen_and_deterministic():
         order = load_benchmark_order()
         ids = [e["config_id"] for e in order["staged_candidates"]]
+        # v2: stages 1-7 byte-identical to the validated v1 order; 8-10 are
+        # the capacity-conditional deep-batch extension for the 288 GB B300
         assert ids == ["REFERENCE_SERIAL_w1_b1", "B200_REPLICA_w2_b1",
                        "B200_REPLICA_w4_b1", "B200_REPLICA_w8_b1",
                        "B200_BATCHED_w1_b4", "B200_BATCHED_w1_b8",
-                       "B200_BATCHED_w1_b16"]
+                       "B200_BATCHED_w1_b16", "B200_BATCHED_w1_b24",
+                       "B200_BATCHED_w1_b32", "B200_BATCHED_w1_b48"]
         assert [e["stage"] for e in order["staged_candidates"]] == \
-            list(range(1, 8))
-    r.check("benchmark policy: staged order is frozen and deterministic",
+            list(range(1, 11))
+        assert all(e.get("conditional") is True
+                   for e in order["staged_candidates"] if e["stage"] >= 8), \
+            "deep-batch stages must stay behind the frozen extension rule"
+        assert not any(e.get("conditional")
+                       for e in order["staged_candidates"] if e["stage"] < 8)
+    r.check("benchmark policy: staged order is frozen and deterministic "
+            "(v2: conditional deep-batch extension)",
             benchmark_order_frozen_and_deterministic)
 
-    def benchmark_refuses_non_local_mode():
+    def benchmark_refuses_unknown_and_unqualified_modes():
         try:
             run_benchmarks(CORPUS_DIR, fresh_dir("bench_refuse"), mode="b200")
         except BenchmarkError:
+            pass
+        else:
+            raise AssertionError("unknown benchmark mode accepted")
+        # real-hardware mode requires CUDA and the REAL artifact: with a
+        # synthetic stand-in (or no CUDA) it must refuse
+        try:
+            run_benchmarks(CORPUS_DIR, fresh_dir("bench_refuse2"),
+                           mode="real-hardware",
+                           artifact={"kind": "synthetic", "device": "cpu",
+                                     "seed_tag": 0})
+        except BenchmarkError:
             return
-        raise AssertionError("non-local benchmark mode accepted")
-    r.check("benchmark harness refuses any mode but local-synthetic",
-            benchmark_refuses_non_local_mode)
+        raise AssertionError("real-hardware mode ran without the real "
+                             "artifact/CUDA qualification")
+    r.check("benchmark harness refuses unknown modes and unqualified "
+            "real-hardware runs", benchmark_refuses_unknown_and_unqualified_modes)
 
     def selection_deterministic_and_gated():
         cands = [

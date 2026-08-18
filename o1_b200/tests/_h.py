@@ -13,12 +13,41 @@ _ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
+# The B200_REPLICA backend spawns worker_count processes and each one imports
+# torch fresh, which by default claims every core.  Several workers plus the
+# parent oversubscribe the machine by an order of magnitude and the wall clock
+# collapses (test_backends measured 84s alone versus 2515s under that
+# contention).  The env vars are what the spawned children read; the runtime
+# call fixes this process, whose torch may already be imported.  Safe for the
+# recorded values: the synthetic runtime is deliberately all-elementwise, so
+# no reduction ordering — and therefore no bit — depends on thread count.
+_THREADS = os.environ.setdefault("O1_B200_TEST_THREADS", "2")
+os.environ.setdefault("OMP_NUM_THREADS", _THREADS)
+os.environ.setdefault("MKL_NUM_THREADS", _THREADS)
+if "torch" in sys.modules:
+    sys.modules["torch"].set_num_threads(int(_THREADS))
+
 SCRATCH = os.environ.get(
     "O1_B200_TEST_SCRATCH",
     os.path.join(_ROOT, "o1_b200", "reports", "local_runs", "test_scratch"))
 os.makedirs(SCRATCH, exist_ok=True)
 
 CORPUS_DIR = os.path.join(_ROOT, "o1_b200", "corpus")
+
+
+def hermetic_mock_credentials() -> str:
+    """Force synthetic provider credentials for local mock tests.
+
+    Hard-sets RUNPOD_API_KEY to the mock server's synthetic key (never
+    setdefault: an exported real operator key must not survive into a mock
+    test process) and removes RUNPOD_API_KEY_FILE so no code path can read
+    a real key from disk.  Returns the synthetic key so tests can pass it
+    explicitly to adapters/transports.
+    """
+    from o1_b200.provider.runpod.mock_server import MOCK_API_KEY
+    os.environ["RUNPOD_API_KEY"] = MOCK_API_KEY
+    os.environ.pop("RUNPOD_API_KEY_FILE", None)
+    return MOCK_API_KEY
 
 FAST_SUBSET = [
     "b200val-000-commit_a", "b200val-004-malformed_eos",

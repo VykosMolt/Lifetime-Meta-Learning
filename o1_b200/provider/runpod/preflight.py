@@ -15,13 +15,13 @@ import os
 
 from .adapter import RunpodV2Adapter
 from .identityutil import canonical_sha256, utcnow_iso
-from .redaction import load_api_key, redact
+from .redaction import redact
 from .schema_check import verify_pinned_schema
-from .transport import ApiHttpError, TransportError
+from .transport import ApiHttpError, TransportError, resolve_credential
 
 
 def run_preflight(*, base_url: str = "https://api.runpod.io",
-                  opener=None) -> dict:
+                  api_key: str | None = None, opener=None) -> dict:
     report = {
         "schema": "o1b200.runpod_readonly_preflight.v1",
         "utc": utcnow_iso(),
@@ -29,7 +29,9 @@ def run_preflight(*, base_url: str = "https://api.runpod.io",
         "mutations_possible": False,
         "checks": {},
     }
-    key = load_api_key()
+    # resolve_credential (not load_api_key) so a non-production base_url can
+    # never receive the ambient operator credential
+    key = resolve_credential(base_url, api_key)
     if not key:
         report["verdict"] = "SKIPPED_NO_CREDENTIAL"
         report["note"] = ("READONLY_LIVE_PREFLIGHT: SKIPPED_NO_CREDENTIAL — "
@@ -39,7 +41,7 @@ def run_preflight(*, base_url: str = "https://api.runpod.io",
         report["report_sha256"] = canonical_sha256(
             "o1b200.runpod_preflight.v1", report)
         return report
-    adapter = RunpodV2Adapter(base_url=base_url, opener=opener)
+    adapter = RunpodV2Adapter(base_url=base_url, api_key=key, opener=opener)
     checks = report["checks"]
     failures = []
 
@@ -52,7 +54,21 @@ def run_preflight(*, base_url: str = "https://api.runpod.io",
 
     step("authentication", adapter.authenticate_readonly)
     step("schema_identity", adapter.get_api_schema_identity)
-    step("b200_availability_and_pricing", adapter.get_b200_availability)
+    step("graphql_spot_contract", adapter.graphql.verify_contract)
+    step("profile_availability_and_spot_pricing", adapter.get_availability)
+
+    def all_profile_spot():
+        # informational: BOTH profiles' live spot state, so the report shows
+        # the fallback landscape even when the primary qualifies
+        from .policy import PROFILE_PREFERENCE
+        out = {}
+        for p in PROFILE_PREFERENCE:
+            try:
+                out[p.key] = adapter.graphql.spot_pricing(p.gpu_type_id)
+            except Exception as exc:  # noqa: BLE001
+                out[p.key] = {"error": redact(str(exc))}
+        return out
+    step("spot_pricing_all_profiles", all_profile_spot)
     step("compatible_datacenters",
          lambda: {"datacenters": adapter.list_compatible_datacenters()})
 
@@ -68,15 +84,24 @@ def run_preflight(*, base_url: str = "https://api.runpod.io",
     step("owned_pods", owned)
     step("billing", lambda: adapter.get_billing_usage())
 
-    qualifying = (
-        "b200_availability_and_pricing" not in failures
-        and not checks.get("owned_pods", {}).get(
-            "unexpected_active_billable_pod", True))
-    report["qualifying_single_b200_secure_offer_now"] = (
-        "b200_availability_and_pricing" not in failures)
+    report["qualifying_offer_now"] = (
+        "profile_availability_and_spot_pricing" not in failures)
+    report["selected_profile"] = checks.get(
+        "profile_availability_and_spot_pricing", {}).get("profile")
+    report["fallback_reason"] = checks.get(
+        "profile_availability_and_spot_pricing", {}).get("fallback_reason")
     report["availability_note"] = (
-        "informational only; availability and price MUST be re-checked "
-        "immediately before the later authorized launch")
+        "informational only; availability, spot price and profile selection "
+        "MUST be re-derived immediately before the later authorized launch "
+        "and before every reacquisition")
+    # live availability being NONE right now is a market state, not a
+    # software failure: it must not block the software-readiness verdict
+    if "profile_availability_and_spot_pricing" in failures:
+        detail = str(checks["profile_availability_and_spot_pricing"])
+        if "qualifies right now" in detail or "NONE" in detail:
+            failures = [f for f in failures
+                        if f != "profile_availability_and_spot_pricing"]
+            report["capacity_unavailable_now"] = True
     report["verdict"] = "PASS" if not failures else "FAIL"
     report["failed_checks"] = failures
     report["report_sha256"] = canonical_sha256(

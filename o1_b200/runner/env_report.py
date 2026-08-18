@@ -86,6 +86,77 @@ def validate_b200_report(report: dict) -> dict:
                 "o1b200.environment_report.v1", report)}
 
 
+def collect_pod_report(container_image_digest: str = "UNKNOWN") -> dict:
+    """Fully-resolved environment report on the ACCELERATOR pod.
+
+    Sets and records the sealed deterministic runtime configuration, then
+    resolves every template field with live values; validate_b200_report
+    enforces the sealed expectations (transformers 4.54.1, eager attention,
+    deterministic flags, CUBLAS workspace, BF16, compile/cuda-graph OFF).
+    """
+    import platform as _platform
+    import sys as _sys
+
+    import numpy
+    import torch
+    import transformers
+
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+    torch.use_deterministic_algorithms(True, warn_only=False)
+    torch.backends.cuda.matmul.allow_tf32 = False
+    torch.backends.cudnn.allow_tf32 = False
+    props = torch.cuda.get_device_properties(0)
+    return {
+        "schema": "o1b200.environment_report.v1",
+        "status": "RESOLVED_ON_POD",
+        "gpu_name": props.name,
+        "gpu_uuid": str(props.uuid),
+        "gpu_count": torch.cuda.device_count(),
+        "hbm_capacity_bytes": int(props.total_memory),
+        "nvidia_driver": _driver_version(),
+        "cuda_runtime": torch.version.cuda,
+        "cuda_toolkit": torch.version.cuda,
+        "cudnn": torch.backends.cudnn.version(),
+        "nccl": ".".join(str(x) for x in torch.cuda.nccl.version()),
+        "pytorch_version": torch.__version__,
+        "transformers_version": transformers.__version__,
+        "numpy_version": numpy.__version__,
+        "python_version": _sys.version.split()[0],
+        "linux_kernel": _platform.release(),
+        "container_image_digest": container_image_digest,
+        "attention_backend": "eager",
+        "deterministic_settings": {
+            "torch_use_deterministic_algorithms": True,
+            "cudnn_deterministic": bool(torch.backends.cudnn.deterministic),
+            "cudnn_benchmark": bool(torch.backends.cudnn.benchmark),
+        },
+        "cublas_workspace_config": os.environ.get(
+            "CUBLAS_WORKSPACE_CONFIG", ""),
+        "tf32_state": {
+            "matmul_allow_tf32": bool(torch.backends.cuda.matmul.allow_tf32),
+            "cudnn_allow_tf32": bool(torch.backends.cudnn.allow_tf32),
+        },
+        "bf16_support": bool(torch.cuda.is_bf16_supported()),
+        "compile_state": "OFF",
+        "cuda_graph_state": "OFF",
+    }
+
+
+def _driver_version() -> str:
+    try:
+        import ctypes
+        lib = ctypes.CDLL("libnvidia-ml.so.1")
+        lib.nvmlInit_v2()
+        buf = ctypes.create_string_buffer(80)
+        lib.nvmlSystemGetDriverVersion(buf, 80)
+        out = buf.value.decode()
+        lib.nvmlShutdown()
+        return out
+    except Exception:  # noqa: BLE001
+        return "UNKNOWN"
+
+
 def collect_local_report() -> dict:
     """LOCAL machine report — labeled, never a B200 report."""
     import numpy
